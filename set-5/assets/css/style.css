@@ -2202,3 +2202,17 @@ html{overflow-anchor:none;scroll-behavior:auto}
 [data-theme="dark"] .svc-panel{background:radial-gradient(60% 140% at 0% 0%,rgba(255,138,31,.12) 0%,transparent 60%),#121318;border-color:rgba(255,255,255,.07)}
 [data-theme="dark"] .svc-img{background:#1C1D24;box-shadow:none}
 [data-theme="dark"] .svc-img em:not(.hot){background:#1C1D24;border-color:rgba(255,138,31,.35);color:#FFA24D}
+
+/* ---- Mobile / tablet spacing polish: breathing room between sections that sat flush ---- */
+@media (max-width:1024px){
+  /* phones / tablets: laptop animation first, then the services panel, then the headline */
+  .hero-stage{order:-1;margin:0 auto}
+  .stats{padding-bottom:0}
+  .stats + .section{padding-top:56px}
+  .rent3{padding-top:36px}
+  #in-action{padding-bottom:40px}
+}
+@media (max-width:640px){
+  .stats + .section{padding-top:48px}
+  .rent3{padding-top:28px}
+}
