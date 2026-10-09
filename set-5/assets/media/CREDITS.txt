@@ -1,0 +1,30 @@
+All media here was colour-graded for FixPapa (navy shadows / orange highlights).
+
+Videos (Mixkit Stock Video Free License — free for commercial use):
+  repair.mp4      https://mixkit.co/free-stock-video/hands-working-on-a-motherboard-101085/
+  datacenter.mp4  https://mixkit.co/free-stock-video/bluish-data-center-hallway-23282/
+  laptop.mp4      https://mixkit.co/free-stock-video/typing-on-a-laptop-close-up-1781/
+  circuit.mp4     https://mixkit.co/free-stock-video/high-tech-circuit-board-with-processor-47051/
+
+Photos (Unsplash License — free for commercial use); sources listed in
+set-3/assets/img/CREDITS.txt (same originals, re-graded here).
+
+FixPapa ad video (fixpapa-story.mp4) — edited from Mixkit clips (Mixkit Stock Video Free License, free for commercial use),
+colour-graded, delivery shirt shifted to FixPapa orange, FixPapa overlays added:
+  https://mixkit.co/free-stock-video/stressed-man-working-on-laptop-tries-to-solve-problem-9055/
+  https://mixkit.co/free-stock-video/hands-of-a-person-typing-on-a-cell-phone-4915/
+  https://mixkit.co/free-stock-video/delivery-man-looking-for-an-address-on-the-street-31136/
+  https://mixkit.co/free-stock-video/woman-at-the-door-of-her-house-receives-a-parcel-31297/
+  https://mixkit.co/free-stock-video/engineer-repairing-a-circuit-board-in-his-workshop-29994/
+  https://mixkit.co/free-stock-video/delivering-a-package-to-a-woman-at-home-42130/
+  https://mixkit.co/free-stock-video/datacenter-engineer-with-a-tablet-23109/
+  + repair.mp4 (above)
+assets/img/photo-pickup.jpg is a still from clip 31136.
+
+AMC background (amc-reel.mp4): clips 23109, 31136, 29994, 31297 (above) + amc-office.mp4.
+Rental background (rental-reel.mp4), Mixkit Stock Video Free License:
+  https://mixkit.co/free-stock-video/coworkers-working-on-their-computers-at-the-office-36903/
+  https://mixkit.co/free-stock-video/presentation-during-a-work-team-meeting-42666/
+  https://mixkit.co/free-stock-video/young-work-team-out-idea-on-laptop-in-modern-office-9180/
+  https://mixkit.co/free-stock-video/people-working-on-laptops-42620/
+  + clip 31136 (above)

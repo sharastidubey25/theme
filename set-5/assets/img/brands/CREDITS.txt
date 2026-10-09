@@ -1,0 +1,7 @@
+Brand logos are trademarks of their respective owners, shown only to identify brands FixPapa services.
+hp.svg, dell.svg, tp-link.svg, hcl.svg: Simple Icons (CC0) https://simpleicons.org, recoloured.
+brother.svg: brother.in header logo (recoloured to brand blue).
+cp-plus.png: cpplusworld.com. microtek.svg: microtek.in. geonix.png: geonix.in.
+zebronics.png: zebronics.com. luminous.png: luminousindia.com site icon.
+Otek: no official logo found; text wordmark fallback.
+apple, sony, samsung, huawei, lenovo, asus, acer, epson, msi, microsoft .svg: Simple Icons (CC0), recoloured with brand colours.

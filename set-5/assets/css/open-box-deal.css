@@ -1,0 +1,20 @@
+/* FixPapa · Set 5 · Open Box Deal page (open-box-deal.html). Builds on style.css + inner.css. */
+.ob-timer{display:inline-flex;align-items:center;gap:12px;margin:0 0 26px;padding:10px 18px 10px 12px;border-radius:999px;background:rgba(255,138,31,.16);border:1px solid rgba(255,162,77,.45);font:600 14px var(--font-body);color:#FFEDD5}
+.ob-timer svg{color:#FFA24D}
+.ob-timer b{font:700 18px var(--font-mono);color:#fff;letter-spacing:.04em}
+.ob-bar{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.ob-bar .h-lg{margin-top:12px}
+.ob-grades{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ob-grade{position:relative;padding:30px 28px;border-radius:24px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden}
+.ob-grade .g{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font:800 26px var(--font-head);color:#fff;background:var(--grad-primary);margin-bottom:18px}
+.ob-grade:nth-child(2) .g{background:linear-gradient(135deg,#2563EB,#60A5FA)}
+.ob-grade:nth-child(3) .g{background:linear-gradient(135deg,#16A34A,#4ADE80)}
+.ob-grade h3{font:800 21px var(--font-head);color:var(--ink);margin:0 0 6px}
+.ob-grade .save{display:inline-block;margin-bottom:12px;font:700 12px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--primary)}
+.ob-grade p{margin:0;color:var(--ink-3);line-height:1.6}
+.ob-grade ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.ob-grade li{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;color:var(--ink-2)}
+.ob-grade li svg{flex:none;margin-top:3px;color:var(--green)}
+@media (max-width:900px){.ob-grades{grid-template-columns:1fr}}
+@media (max-width:640px){.ob-timer{font-size:13px}.ob-timer b{font-size:16px}}
+[data-theme="dark"] .ob-grade{background:#15161B}

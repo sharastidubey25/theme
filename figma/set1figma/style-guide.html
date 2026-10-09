@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixPapa · Set 1 · Design System (Figma)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   SET 1 — "Warm Orange / Light" design tokens
+   (copied from set-1/assets/css/style.css)
+   ========================================================= */
+:root{
+  --primary:#EA580C; --primary-2:#F97316; --primary-3:#FDBA74;
+  --accent:#F97316;  --accent-2:#FB923C;  --primary-deep:#C2410C;
+  --navy:#0B1220; --navy-2:#111A2E; --navy-3:#1A2540;
+  --white:#FFFFFF; --gray:#FFFAF5; --gray-2:#F6EEE6; --cream:#FFF7ED; --peach:#FFEDD5;
+  --ink:#0B1220; --ink-2:#334155; --ink-3:#64748B;
+  --border:rgba(234,88,12,.12); --border-strong:rgba(234,88,12,.22);
+  --green:#16A34A; --live:#22C55E; --amber:#F59E0B; --red:#EF4444;
+
+  --grad-primary:linear-gradient(135deg,#EA580C 0%,#F97316 60%,#FB923C 100%);
+  --grad-accent:linear-gradient(135deg,#F97316 0%,#FDBA74 100%);
+  --grad-dark:linear-gradient(160deg,#0B1220 0%,#111A2E 60%,#16254A 100%);
+  --grad-band:linear-gradient(135deg,#FFF7ED 0%,#FFEDD5 50%,#FFF7ED 100%);
+  --grad-veil:linear-gradient(110deg,rgba(234,88,12,.95) 0%,rgba(249,115,22,.82) 50%,rgba(154,52,18,.55) 100%);
+
+  --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+  --shadow-sm:0 1px 2px rgba(11,18,32,.04),0 2px 8px rgba(11,18,32,.04);
+  --shadow:0 10px 30px -12px rgba(11,18,32,.14),0 4px 12px -4px rgba(11,18,32,.06);
+  --shadow-lg:0 30px 60px -20px rgba(234,88,12,.28),0 12px 24px -12px rgba(11,18,32,.12);
+  --glow:0 0 0 1px rgba(251,146,60,.35),0 10px 40px -8px rgba(249,115,22,.5);
+  --glow-accent:0 10px 36px -8px rgba(249,115,22,.55);
+
+  --font-head:'Manrope',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --font-serif:'Instrument Serif',Georgia,serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+
+  /* figma canvas */
+  --canvas:#EDE7E1; --frame-label:#8A7F76;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(11,18,32,.09) 1px,transparent 1px);background-size:22px 22px}
+h1,h2,h3,h4{font-family:var(--font-head);margin:0;letter-spacing:-.025em;line-height:1.08}
+p{margin:0}
+
+/* ---------- Figma-like shell ---------- */
+.fg-bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:14px;height:48px;padding:0 18px;background:#2C2C2C;color:#fff;font-size:12.5px}
+.fg-bar .dot{width:22px;height:22px;border-radius:6px;background:var(--grad-primary)}
+.fg-bar b{font-weight:600}
+.fg-bar span{opacity:.55}
+.fg-bar .pages{margin-left:auto;display:flex;gap:6px}
+.fg-bar .pages a{color:#fff;text-decoration:none;padding:4px 10px;border-radius:6px;opacity:.6}
+.fg-bar .pages a.on{background:#444;opacity:1}
+.canvas{max-width:1320px;margin:0 auto;padding:48px 24px 120px;display:grid;gap:56px}
+.frame-label{font-size:12px;color:var(--frame-label);margin-bottom:8px;display:flex;align-items:center;gap:6px;font-family:var(--font-body)}
+.frame-label::before{content:"#";font-weight:700;opacity:.7}
+.frame{background:var(--white);border-radius:4px;padding:48px;box-shadow:0 1px 3px rgba(0,0,0,.08),0 8px 30px -12px rgba(0,0,0,.12)}
+.frame.dark{background:var(--grad-dark);color:#E2E8F0}
+.frame.cream{background:var(--gray)}
+.f-title{font-size:28px;font-weight:800;margin-bottom:6px}
+.f-sub{color:var(--ink-3);font-size:14px;margin-bottom:32px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary-deep);font-weight:500}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--grad-primary)}
+.frame.dark .eyebrow{color:var(--primary-3)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g6{grid-template-columns:repeat(6,1fr)}
+.group-h{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 14px}
+.group-h:first-of-type{margin-top:0}
+
+/* ---------- Colour swatches ---------- */
+.sw{border-radius:var(--r);overflow:hidden;border:1px solid rgba(11,18,32,.07);background:#fff;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.sw:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.sw i{display:block;height:96px}
+.sw div{padding:12px 14px}
+.sw b{display:block;font-size:13.5px;font-weight:600}
+.sw code{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3)}
+.grad{height:130px;border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:16px;color:#fff;font-family:var(--font-mono);font-size:12px}
+.grad.light{color:var(--ink)}
+
+/* ---------- Typography ---------- */
+.type-row{display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:22px 0;border-top:1px solid var(--border)}
+.type-row:first-of-type{border-top:0}
+.type-row small{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.5}
+.t-xl{font-family:var(--font-head);font-size:clamp(40px,6vw,76px);font-weight:800;letter-spacing:-.045em;line-height:1.02}
+.t-lg{font-family:var(--font-head);font-size:clamp(32px,4.2vw,56px);font-weight:800}
+.t-md{font-family:var(--font-head);font-size:28px;font-weight:700}
+.t-sm{font-family:var(--font-head);font-size:20px;font-weight:700}
+.lead{font-size:clamp(16px,1.3vw,19px);color:var(--ink-3);line-height:1.65}
+.serif{font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:44px;letter-spacing:-.01em}
+.hl{color:var(--primary)}
+.hl-grad{background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fonts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+.font-card{border:1px solid var(--border);border-radius:var(--r);padding:20px;background:var(--gray)}
+.font-card .Aa{font-size:54px;line-height:1;margin-bottom:10px}
+.font-card b{display:block;font-size:14px}
+.font-card small{font-family:var(--font-mono);font-size:11px;color:var(--ink-3)}
+
+/* ---------- Buttons & chips ---------- */
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.btn{--bg:var(--grad-accent);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-family:var(--font-head);font-weight:700;font-size:15px;letter-spacing:.01em;color:#fff;background:var(--bg);border:0;cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease);white-space:nowrap}
+.btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:var(--glow-accent)}
+.btn:active{transform:scale(.98)}
+.btn--primary{--bg:var(--grad-primary)}
+.btn--primary:hover{box-shadow:var(--glow)}
+.btn--ghost{background:rgba(255,255,255,.7);color:var(--ink);border:1px solid var(--border-strong);backdrop-filter:blur(10px)}
+.btn--ghost:hover{box-shadow:0 10px 30px -10px rgba(234,88,12,.35);border-color:var(--primary)}
+.btn--dark{background:var(--navy);color:#fff}
+.btn--dark-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16)}
+.btn--sm{height:42px;padding:0 18px;font-size:13.5px}
+.btn .arrow{transition:transform .35s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+.btn:hover::after{transform:translateX(120%)}
+.status-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border-radius:999px;background:#fff;border:1px solid var(--border);font-size:13px;font-weight:500;color:var(--ink-2);box-shadow:var(--shadow-sm)}
+.status-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--live);animation:live 1.8s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.tag{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(234,88,12,.08);color:var(--primary-deep)}
+.tag.green{background:rgba(22,163,74,.1);color:var(--green)}
+.tag.navy{background:var(--navy);color:#fff}
+.input{height:46px;min-width:280px;border-radius:999px;background:#F6F1EB;border:1px solid transparent;padding:0 18px;font:inherit;font-size:14px;color:var(--ink);outline:0;transition:all .3s var(--ease)}
+.input:focus{background:#fff;border-color:var(--primary);box-shadow:0 0 0 4px rgba(249,115,22,.12)}
+
+/* ---------- Cards ---------- */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spinBorder{to{--ang:360deg}}
+.card{position:relative;border-radius:var(--r-lg);background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:var(--shadow-sm);padding:28px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s;isolation:isolate}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;z-index:-1;opacity:0;transition:opacity .5s;background:conic-gradient(from var(--ang,0deg),transparent 0 60%,#FDBA74 75%,#F97316 85%,transparent 95%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinBorder 4s linear infinite}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
+.card:hover::before{opacity:1}
+.card .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--grad-primary);color:#fff;margin-bottom:18px;box-shadow:0 10px 24px -10px rgba(234,88,12,.6)}
+.card h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--ink-3)}
+.card .price{margin-top:18px;display:flex;align-items:baseline;gap:8px;font-family:var(--font-head);font-weight:800;font-size:24px}
+.card .price s{font-size:14px;color:var(--ink-3);font-weight:500}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.stat{background:#fff;padding:30px 28px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--grad-accent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.stat:hover::before{transform:scaleX(1)}
+.stat .num{font-family:var(--font-head);font-weight:800;font-size:clamp(30px,3.2vw,44px);letter-spacing:-.04em;line-height:1}
+.stat .num small{font-size:.5em;color:var(--accent);margin-left:2px}
+.stat .lbl{margin-top:10px;font-size:14px;color:var(--ink-3)}
+.stat .ico{position:absolute;right:22px;top:24px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(234,88,12,.07);color:var(--primary)}
+
+/* ---------- Radius / shadow / spacing ---------- */
+.token-box{height:110px;background:#fff;border:1px solid var(--border);display:grid;place-items:center;font-family:var(--font-mono);font-size:12px;color:var(--ink-2);text-align:center;line-height:1.4}
+.token-box.fill{background:var(--gray)}
+.space{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.space div{text-align:center;font-family:var(--font-mono);font-size:11px;color:var(--ink-3)}
+.space i{display:block;background:var(--grad-accent);border-radius:4px;margin:0 auto 8px}
+
+/* ---------- Pattern / motion ---------- */
+.pat{height:180px;border-radius:var(--r-lg);position:relative;overflow:hidden;border:1px solid var(--border)}
+.pat-grid{background-color:var(--gray);background-image:linear-gradient(rgba(234,88,12,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(234,88,12,.08) 1px,transparent 1px);background-size:36px 36px}
+.pat-dots{background-color:#fff;background-image:radial-gradient(rgba(234,88,12,.22) 1.2px,transparent 1.2px);background-size:18px 18px}
+.pat-orb{background:var(--gray)}
+.pat-orb::before,.pat-orb::after{content:"";position:absolute;border-radius:50%;filter:blur(40px);animation:float 8s ease-in-out infinite}
+.pat-orb::before{width:180px;height:180px;left:-30px;top:-40px;background:rgba(249,115,22,.45)}
+.pat-orb::after{width:150px;height:150px;right:-20px;bottom:-50px;background:rgba(253,186,116,.7);animation-delay:-4s}
+@keyframes float{50%{transform:translate(30px,20px) scale(1.1)}}
+.pat-band{background:var(--grad-band)}
+.pat-veil{background:var(--grad-veil),var(--grad-dark)}
+.pat-circuit{background:var(--grad-dark)}
+.pat-circuit svg{position:absolute;inset:0;width:100%;height:100%}
+.pat-circuit path{fill:none;stroke:rgba(251,146,60,.35);stroke-width:1.4}
+.pat-circuit .run{stroke:#FB923C;stroke-width:2;stroke-dasharray:40 400;animation:run 3s linear infinite}
+@keyframes run{to{stroke-dashoffset:-440}}
+.pat span{position:absolute;left:14px;bottom:12px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);background:rgba(255,255,255,.8);padding:3px 8px;border-radius:6px}
+.motion{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.m-box{height:120px;border-radius:var(--r);background:var(--gray);border:1px solid var(--border);display:grid;place-items:center;position:relative;overflow:hidden}
+.m-box small{position:absolute;left:12px;bottom:8px;font-family:var(--font-mono);font-size:11px;color:var(--ink-3)}
+.m-box i{width:38px;height:38px;border-radius:12px;background:var(--grad-primary)}
+.m-rise i{animation:rise 2.4s var(--ease) infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(24px)}40%,100%{opacity:1;transform:none}}
+.m-pulse i{border-radius:50%;width:14px;height:14px;background:var(--live);animation:live 1.8s infinite}
+.m-caret i{width:3px;height:36px;border-radius:0;background:var(--accent);animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.m-spin i{background:none;border:2px dashed var(--primary-3);border-top-color:var(--primary);border-radius:50%;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Sample hero screen ---------- */
+.hero{position:relative;background:var(--gray);border-radius:var(--r-xl);overflow:hidden;padding:64px 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;border:1px solid var(--border)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(234,88,12,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(234,88,12,.06) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 30% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 40%,#000 20%,transparent 75%)}
+.hero>*{position:relative}
+.hero h1{font-size:clamp(34px,4.3vw,60px);font-weight:800;letter-spacing:-.045em;line-height:1.02;margin:20px 0}
+.hero h1 .typed{color:var(--accent)}
+.hero h1 .caret{display:inline-block;width:3px;height:.85em;margin-left:6px;vertical-align:-.06em;background:var(--accent);animation:caret 1s steps(1) infinite}
+.hero .lead{max-width:520px;font-size:17px}
+.hero .row{margin-top:30px}
+.hero-art{aspect-ratio:1;border-radius:var(--r-xl);background:var(--grad-dark);position:relative;overflow:hidden;display:grid;place-items:center;box-shadow:var(--shadow-lg)}
+.hero-art .ring{position:absolute;border-radius:50%;border:1px solid rgba(251,146,60,.35);animation:spin 30s linear infinite}
+.hero-art .ring:nth-child(1){inset:10%;border-style:dashed}
+.hero-art .ring:nth-child(2){inset:24%;border-top-color:#FB923C;animation-duration:12s}
+.hero-art .core{width:32%;aspect-ratio:1;border-radius:28px;background:var(--grad-primary);box-shadow:var(--glow);display:grid;place-items:center;color:#fff;font-family:var(--font-head);font-weight:800;font-size:22px}
+.tag-float{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);font-size:13px;font-weight:600;color:#E2E8F0;animation:float 6s ease-in-out infinite}
+.tag-float .i{width:28px;height:28px;border-radius:9px;background:var(--grad-accent)}
+.tf1{left:8%;top:12%}.tf2{right:6%;bottom:14%;animation-delay:-3s}
+
+@media (max-width:900px){
+  .g4,.g6,.fonts,.motion,.stats-grid{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;padding:40px 24px}
+  .frame{padding:28px 20px}
+  .type-row{grid-template-columns:1fr;gap:6px}
+  .fg-bar .pages{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="fg-bar">
+  <i class="dot"></i><b>FixPapa — Set 1</b><span>/ Design System · Warm Orange Light</span>
+  <nav class="pages"><a class="on" href="#colors">Colors</a><a href="#type">Type</a><a href="#components">Components</a><a href="#effects">Effects</a><a href="#screen">Screen</a></nav>
+</header>
+
+<main class="canvas">
+
+  <!-- ================= COLORS ================= -->
+  <section id="colors">
+    <div class="frame-label">01 · Color Palette</div>
+    <div class="frame">
+      <span class="eyebrow">Set 1 · Colour theme</span>
+      <h2 class="f-title" style="margin-top:12px">Warm <span class="hl-grad">Orange</span> on Cream</h2>
+      <p class="f-sub">Orange gradient brand colour, navy ink for text & dark sections, cream/peach backgrounds.</p>
+
+      <div class="group-h">Brand · Orange</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#EA580C"></i><div><b>Primary</b><code>#EA580C</code></div></div>
+        <div class="sw"><i style="background:#F97316"></i><div><b>Primary 2 / Accent</b><code>#F97316</code></div></div>
+        <div class="sw"><i style="background:#FB923C"></i><div><b>Accent 2</b><code>#FB923C</code></div></div>
+        <div class="sw"><i style="background:#FDBA74"></i><div><b>Primary 3</b><code>#FDBA74</code></div></div>
+        <div class="sw"><i style="background:#C2410C"></i><div><b>Deep (eyebrow)</b><code>#C2410C</code></div></div>
+        <div class="sw"><i style="background:#9A3412"></i><div><b>Burnt (veil)</b><code>#9A3412</code></div></div>
+      </div>
+
+      <div class="group-h">Navy · Ink</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#0B1220"></i><div><b>Navy / Ink</b><code>#0B1220</code></div></div>
+        <div class="sw"><i style="background:#111A2E"></i><div><b>Navy 2</b><code>#111A2E</code></div></div>
+        <div class="sw"><i style="background:#1A2540"></i><div><b>Navy 3</b><code>#1A2540</code></div></div>
+        <div class="sw"><i style="background:#334155"></i><div><b>Ink 2 (body)</b><code>#334155</code></div></div>
+        <div class="sw"><i style="background:#64748B"></i><div><b>Ink 3 (muted)</b><code>#64748B</code></div></div>
+        <div class="sw"><i style="background:#E2E8F0"></i><div><b>Text on dark</b><code>#E2E8F0</code></div></div>
+      </div>
+
+      <div class="group-h">Surfaces</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#FFFFFF;border-bottom:1px solid #eee"></i><div><b>White</b><code>#FFFFFF</code></div></div>
+        <div class="sw"><i style="background:#FFFAF5"></i><div><b>Gray (cream)</b><code>#FFFAF5</code></div></div>
+        <div class="sw"><i style="background:#F6EEE6"></i><div><b>Gray 2</b><code>#F6EEE6</code></div></div>
+        <div class="sw"><i style="background:#FFF7ED"></i><div><b>Cream band</b><code>#FFF7ED</code></div></div>
+        <div class="sw"><i style="background:#FFEDD5"></i><div><b>Peach</b><code>#FFEDD5</code></div></div>
+        <div class="sw"><i style="background:#F6F1EB"></i><div><b>Search field</b><code>#F6F1EB</code></div></div>
+      </div>
+
+      <div class="group-h">Status</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#16A34A"></i><div><b>Green</b><code>#16A34A</code></div></div>
+        <div class="sw"><i style="background:#22C55E"></i><div><b>Live / Healthy</b><code>#22C55E</code></div></div>
+        <div class="sw"><i style="background:#F59E0B"></i><div><b>Attention</b><code>#F59E0B</code></div></div>
+        <div class="sw"><i style="background:#EF4444"></i><div><b>Critical</b><code>#EF4444</code></div></div>
+        <div class="sw"><i style="background:rgba(234,88,12,.12)"></i><div><b>Border</b><code>rgba(234,88,12,.12)</code></div></div>
+        <div class="sw"><i style="background:rgba(234,88,12,.22)"></i><div><b>Border strong</b><code>rgba(234,88,12,.22)</code></div></div>
+      </div>
+
+      <div class="group-h">Gradients</div>
+      <div class="grid g3">
+        <div class="grad" style="background:var(--grad-primary)">grad-primary · 135° #EA580C → #F97316 → #FB923C</div>
+        <div class="grad" style="background:var(--grad-accent)">grad-accent · 135° #F97316 → #FDBA74</div>
+        <div class="grad" style="background:var(--grad-dark)">grad-dark · 160° #0B1220 → #111A2E → #16254A</div>
+        <div class="grad light" style="background:var(--grad-band);border:1px solid var(--border)">grad-band · #FFF7ED → #FFEDD5 → #FFF7ED</div>
+        <div class="grad" style="background:var(--grad-veil),var(--grad-dark)">orange veil · over photos / video</div>
+        <div class="grad" style="background:linear-gradient(100deg,rgba(11,18,32,.94),rgba(11,18,32,.35)),linear-gradient(135deg,#F97316,#FDBA74)">navy veil · over hero video</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <section id="type">
+    <div class="frame-label">02 · Typography</div>
+    <div class="frame">
+      <span class="eyebrow">Type scale</span>
+      <h2 class="f-title" style="margin-top:12px">Manrope + Inter + JetBrains Mono</h2>
+      <p class="f-sub">Headings are Manrope ExtraBold with tight tracking (-0.025em to -0.045em). Body text is Inter; small labels are Mono uppercase.</p>
+
+      <div class="type-row"><small>Display / H1<br>Manrope 800 · 76px<br>ls -0.045em · lh 1.02</small><div class="t-xl">Repair at your <span class="hl">doorstep</span></div></div>
+      <div class="type-row"><small>H2 / Section<br>Manrope 800 · 56px</small><div class="t-lg">Trusted <span class="hl-grad">gadget care</span></div></div>
+      <div class="type-row"><small>H3<br>Manrope 700 · 28px</small><div class="t-md">Laptop & Desktop Repair</div></div>
+      <div class="type-row"><small>H4 / Card title<br>Manrope 700 · 20px</small><div class="t-sm">Annual Maintenance Contract</div></div>
+      <div class="type-row"><small>Lead<br>Inter 400 · 19px · #64748B</small><p class="lead">Certified technicians, genuine parts and 90-day warranty on every repair — booked in 60 seconds.</p></div>
+      <div class="type-row"><small>Body<br>Inter 400 · 16px · lh 1.6</small><p style="color:var(--ink-2)">We pick up, diagnose and return your device the same day in most cases. Transparent pricing, no hidden fees.</p></div>
+      <div class="type-row"><small>Eyebrow<br>JetBrains Mono 500 · 12px<br>ls .14em · uppercase</small><div><span class="eyebrow">Our services</span></div></div>
+      <div class="type-row"><small>Accent serif<br>Instrument Serif italic</small><div class="serif">made <span class="hl">simple</span>.</div></div>
+
+      <div class="fonts">
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-head);font-weight:800">Aa</div><b>Manrope</b><small>500 · 600 · 700 · 800 — headings</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-body);font-weight:500">Aa</div><b>Inter</b><small>400 · 500 · 600 · 700 — body</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-mono)">Aa</div><b>JetBrains Mono</b><small>400 · 500 — labels</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-serif);font-style:italic">Aa</div><b>Instrument Serif</b><small>italic — accents</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPONENTS ================= -->
+  <section id="components">
+    <div class="frame-label">03 · Components</div>
+    <div class="frame cream">
+      <span class="eyebrow">Buttons · Chips · Inputs</span>
+      <h2 class="f-title" style="margin-top:12px">Pill buttons with glow</h2>
+      <p class="f-sub">Height 52 (sm 42) · radius 999 · Manrope 700. Hover: lift -2px, scale 1.02, orange glow, light sweep.</p>
+
+      <div class="row">
+        <button class="btn btn--primary">Book a Repair <span class="arrow">→</span></button>
+        <button class="btn">Get Quote <span class="arrow">→</span></button>
+        <button class="btn btn--ghost">View Services</button>
+        <button class="btn btn--dark">Call Now</button>
+        <button class="btn btn--primary btn--sm">Small</button>
+      </div>
+      <div class="row" style="margin-top:22px">
+        <span class="status-chip"><i class="dot"></i>Technicians online · 42</span>
+        <span class="tag">90-day warranty</span>
+        <span class="tag green">✓ Verified</span>
+        <span class="tag navy">New</span>
+        <input class="input" placeholder="Search laptop, printer, CCTV…">
+      </div>
+
+      <div class="group-h" style="margin-top:44px">Cards (hover: lift + animated conic border)</div>
+      <div class="grid g3">
+        <div class="card"><div class="ic">⚙</div><h3>Laptop Repair</h3><p>Screen, battery, keyboard, motherboard — fixed at your doorstep.</p><div class="price">₹499 <s>₹899</s></div></div>
+        <div class="card"><div class="ic">▣</div><h3>Desktop & AMC</h3><p>Annual maintenance for offices with priority support.</p><div class="price">₹2,999<small style="font-size:13px;color:var(--ink-3);font-weight:500">/yr</small></div></div>
+        <div class="card"><div class="ic">◉</div><h3>CCTV Install</h3><p>Site survey, installation and remote viewing setup.</p><div class="price">₹1,499</div></div>
+      </div>
+
+      <div class="group-h" style="margin-top:44px">Stats strip</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="ico">★</div><div class="num">50K<small>+</small></div><div class="lbl">Devices repaired</div></div>
+        <div class="stat"><div class="ico">♥</div><div class="num">4.8<small>/5</small></div><div class="lbl">Customer rating</div></div>
+        <div class="stat"><div class="ico">⚡</div><div class="num">60<small>min</small></div><div class="lbl">Avg. response</div></div>
+        <div class="stat"><div class="ico">✓</div><div class="num">90<small>days</small></div><div class="lbl">Warranty</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EFFECTS ================= -->
+  <section id="effects">
+    <div class="frame-label">04 · Radius · Shadow · Spacing · Pattern · Motion</div>
+    <div class="frame">
+      <div class="group-h">Radius</div>
+      <div class="grid g4">
+        <div class="token-box fill" style="border-radius:10px">r-sm<br>10px</div>
+        <div class="token-box fill" style="border-radius:16px">r<br>16px</div>
+        <div class="token-box fill" style="border-radius:24px">r-lg<br>24px</div>
+        <div class="token-box fill" style="border-radius:32px">r-xl<br>32px</div>
+      </div>
+      <div class="group-h">Shadows & glow</div>
+      <div class="grid g4">
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--shadow-sm)">shadow-sm</div>
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--shadow)">shadow</div>
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--shadow-lg)">shadow-lg<br>(orange tint)</div>
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--glow)">glow</div>
+      </div>
+      <div class="group-h">Spacing (section 120px · container 1240px · gutter 24px)</div>
+      <div class="space">
+        <div><i style="width:4px;height:4px"></i>4</div><div><i style="width:8px;height:8px"></i>8</div><div><i style="width:12px;height:12px"></i>12</div>
+        <div><i style="width:16px;height:16px"></i>16</div><div><i style="width:24px;height:24px"></i>24</div><div><i style="width:32px;height:32px"></i>32</div>
+        <div><i style="width:48px;height:48px"></i>48</div><div><i style="width:64px;height:64px"></i>64</div><div><i style="width:96px;height:96px"></i>96</div><div><i style="width:120px;height:120px"></i>120</div>
+      </div>
+      <div class="group-h">Background patterns</div>
+      <div class="grid g3">
+        <div class="pat pat-grid"><span>bg-grid · 36px orange lines</span></div>
+        <div class="pat pat-dots"><span>bg-dots · 18px</span></div>
+        <div class="pat pat-orb"><span>bg-orb · blurred glow</span></div>
+        <div class="pat pat-band"><span>cat-band · cream gradient</span></div>
+        <div class="pat pat-veil"><span>orange video veil</span></div>
+        <div class="pat pat-circuit"><svg viewBox="0 0 400 180" preserveAspectRatio="none"><path d="M0 60H120L150 90H260L290 40H400"/><path d="M0 130H80L110 100H220L250 140H400"/><path class="run" d="M0 60H120L150 90H260L290 40H400"/></svg><span>circuit-bg · dark</span></div>
+      </div>
+      <div class="group-h">Motion · ease cubic-bezier(.2,.8,.2,1)</div>
+      <div class="motion">
+        <div class="m-box m-rise"><i></i><small>reveal · rise 24px</small></div>
+        <div class="m-box m-pulse"><i></i><small>live dot · 1.8s</small></div>
+        <div class="m-box m-caret"><i></i><small>typing caret · 1s</small></div>
+        <div class="m-box m-spin"><i></i><small>ring spin</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAMPLE SCREEN ================= -->
+  <section id="screen">
+    <div class="frame-label">05 · Sample Screen — Hero (Desktop 1440)</div>
+    <div class="frame" style="padding:24px">
+      <div class="hero">
+        <div>
+          <span class="status-chip"><i class="dot"></i>Doorstep service in 60 min</span>
+          <h1>Trusted <span class="typed">Laptop</span><span class="caret"></span><br>Repair at Your Doorstep</h1>
+          <p class="lead">Electronics & gadget repair, AMC, rentals and e-waste pickup — one call, certified technicians.</p>
+          <div class="row"><button class="btn btn--primary">Book a Repair <span class="arrow">→</span></button><button class="btn btn--ghost">Talk to Expert</button></div>
+        </div>
+        <div class="hero-art">
+          <i class="ring"></i><i class="ring"></i>
+          <div class="core">FixPapa</div>
+          <div class="tag-float tf1"><i class="i"></i>Repair booked</div>
+          <div class="tag-float tf2"><i class="i"></i>90-day warranty</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

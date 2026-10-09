@@ -1,0 +1,30 @@
+/* FixPapa · Set 5 · Brands page (brands.html). Builds on style.css + inner.css. */
+.br-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.br-search{display:flex;align-items:center;gap:10px;height:48px;padding:0 18px;min-width:280px;border-radius:999px;border:1px solid var(--border-strong);background:var(--white);color:var(--ink-3)}
+.br-search:focus-within{border-color:var(--primary);box-shadow:0 0 0 4px rgba(249,115,22,.12)}
+.br-search input{flex:1;border:0;outline:0;background:none;font:500 15px var(--font-body);color:var(--ink)}
+.br-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.br-card{display:flex;flex-direction:column;padding:22px;border-radius:24px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s}
+.br-card[hidden]{display:none}
+.br-card:hover{transform:translateY(-6px);border-color:var(--border-strong);box-shadow:0 22px 40px -22px rgba(154,52,18,.45)}
+.br-logo{height:92px;display:grid;place-items:center;border-radius:16px;background:#fff;border:1px solid var(--border);padding:18px}
+.br-logo img{width:auto;max-width:100%;max-height:40px;object-fit:contain}
+.br-logo img[src*="sony"],.br-logo img[src*="samsung"],.br-logo img[src*="asus"]{max-height:22px}
+.br-card h3{font:800 19px var(--font-head);color:var(--ink);margin:18px 0 4px}
+.br-card p{margin:0 0 18px;color:var(--ink-3);font-size:14px}
+.br-acts{display:flex;gap:8px;margin-top:auto}
+.br-acts a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border-radius:12px;font:700 13px var(--font-head);transition:background .3s,color .3s}
+.br-acts a:first-child{background:rgba(234,88,12,.08);color:var(--primary)}
+.br-acts a:first-child:hover{background:var(--primary);color:#fff}
+.br-acts a:last-child{border:1px solid var(--border-strong);color:var(--ink-2)}
+.br-acts a:last-child:hover{border-color:var(--primary);color:var(--primary)}
+.br-more{margin-top:28px;text-align:center;color:var(--ink-3);font-weight:600}
+.br-more a{color:var(--primary)}
+@media (max-width:640px){
+  .br-search{min-width:0;width:100%}
+  .br-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .br-card{padding:14px;border-radius:18px}.br-logo{height:70px;padding:12px}
+  .br-acts{flex-direction:column}
+}
+[data-theme="dark"] .br-card{background:#15161B}
+[data-theme="dark"] .br-search{background:#15161B}

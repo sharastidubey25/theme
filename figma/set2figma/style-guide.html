@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixPapa · Set 2 · Design System (Figma)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   SET 2 — "Electric Blue / Dark World" design tokens
+   (copied from set-2/assets/css/style.css)
+   ========================================================= */
+:root{
+  --bg:#050816; --bg-glow:#0B1530; --surface:#0B1220; --card:#111827;
+  --primary:#2563EB; --primary-deep:#1D4ED8; --primary-2:#3B82F6; --primary-3:#60A5FA; --primary-4:#93C5FD;
+  --accent:#F97316; --accent-2:#FB923C;
+  --navy:#0B1220; --navy-2:#111A2E; --navy-3:#1A2540;
+  --ink:#F8FAFC; --ink-2:#CBD5E1; --ink-3:#94A3B8;
+  --border:rgba(96,165,250,.14); --border-strong:rgba(96,165,250,.26);
+  --glass:rgba(17,24,39,.55);
+  --green:#16A34A; --live:#22C55E;
+
+  --grad-primary:linear-gradient(135deg,#1D4ED8 0%,#2563EB 60%,#60A5FA 100%);
+  --grad-accent:linear-gradient(135deg,#F97316 0%,#FB923C 100%);
+  --grad-dark:linear-gradient(160deg,#0B1220 0%,#111A2E 60%,#16254A 100%);
+  --grad-text:linear-gradient(135deg,#60A5FA,#93C5FD);
+  --grad-world:radial-gradient(120% 80% at 50% 0%,#0B1530 0%,#050816 60%);
+
+  --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+  --shadow:0 20px 50px -20px rgba(0,0,0,.7);
+  --shadow-lg:0 30px 70px -24px rgba(37,99,235,.45),0 0 0 1px rgba(96,165,250,.18);
+  --glow:0 0 0 1px rgba(96,165,250,.35),0 10px 40px -8px rgba(37,99,235,.45);
+  --glow-accent:0 10px 36px -8px rgba(249,115,22,.55);
+  --glow-dual:0 0 0 1px rgba(147,197,253,.3),-10px 12px 34px -10px rgba(37,99,235,.8),10px 12px 34px -10px rgba(249,115,22,.5);
+
+  --font-head:'Manrope',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+
+  --canvas:#1E1E1E;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--ink-2);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+h1,h2,h3,h4{font-family:var(--font-head);margin:0;letter-spacing:-.025em;line-height:1.08;color:#fff}
+p{margin:0}
+
+/* ---------- Figma-like shell ---------- */
+.fg-bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:14px;height:48px;padding:0 18px;background:#2C2C2C;color:#fff;font-size:12.5px;border-bottom:1px solid #111}
+.fg-bar .dot{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#2563EB 0 60%,#F97316 60%)}
+.fg-bar b{font-weight:600}
+.fg-bar span{opacity:.55}
+.fg-bar .pages{margin-left:auto;display:flex;gap:6px}
+.fg-bar .pages a{color:#fff;text-decoration:none;padding:4px 10px;border-radius:6px;opacity:.6}
+.fg-bar .pages a.on{background:#444;opacity:1}
+.canvas{max-width:1320px;margin:0 auto;padding:48px 24px 120px;display:grid;gap:56px}
+.frame-label{font-size:12px;color:#9A9A9A;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.frame-label::before{content:"#";font-weight:700;opacity:.7}
+.frame{position:relative;background:var(--grad-world);border-radius:4px;padding:48px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 20px 50px -20px rgba(0,0,0,.8);isolation:isolate}
+/* ambient "world" glows behind every frame */
+.frame::before,.frame::after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(90px);pointer-events:none}
+.frame::before{width:520px;height:520px;left:-200px;top:-160px;background:radial-gradient(circle,rgba(37,99,235,.38),transparent 65%)}
+.frame::after{width:420px;height:420px;right:-160px;bottom:-160px;background:radial-gradient(circle,rgba(249,115,22,.2),transparent 65%)}
+.f-title{font-size:28px;font-weight:800;margin-bottom:6px}
+.f-sub{color:var(--ink-3);font-size:14px;margin-bottom:32px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary-3);font-weight:500}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary-3);box-shadow:0 0 10px var(--primary-3)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g6{grid-template-columns:repeat(6,1fr)}
+.group-h{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 14px}
+.group-h:first-of-type{margin-top:0}
+
+/* ---------- Swatches ---------- */
+.sw{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);background:var(--glass);backdrop-filter:blur(12px);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.sw:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.sw i{display:block;height:96px}
+.sw div{padding:12px 14px}
+.sw b{display:block;font-size:13.5px;font-weight:600;color:#fff}
+.sw code{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3)}
+.grad{height:130px;border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:16px;color:#fff;font-family:var(--font-mono);font-size:12px;border:1px solid var(--border)}
+
+/* ---------- Typography ---------- */
+.type-row{display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:22px 0;border-top:1px solid var(--border)}
+.type-row:first-of-type{border-top:0}
+.type-row small{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.5}
+.t-xl{font-family:var(--font-head);font-size:clamp(40px,6vw,76px);font-weight:800;letter-spacing:-.045em;line-height:1.02;color:#fff}
+.t-lg{font-family:var(--font-head);font-size:clamp(32px,4.2vw,56px);font-weight:800;color:#fff}
+.t-md{font-family:var(--font-head);font-size:28px;font-weight:700;color:#fff}
+.t-sm{font-family:var(--font-head);font-size:20px;font-weight:700;color:#fff}
+.lead{font-size:clamp(16px,1.3vw,19px);color:var(--ink-3);line-height:1.65}
+.hl{color:var(--accent)}
+.hl-blue{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fonts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.font-card{border:1px solid var(--border);border-radius:var(--r);padding:20px;background:var(--glass)}
+.font-card .Aa{font-size:54px;line-height:1;margin-bottom:10px;color:#fff}
+.font-card b{display:block;font-size:14px;color:#fff}
+.font-card small{font-family:var(--font-mono);font-size:11px;color:var(--ink-3)}
+
+/* ---------- Buttons ---------- */
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.btn{--bg:var(--grad-accent);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-family:var(--font-head);font-weight:700;font-size:15px;letter-spacing:.01em;color:#fff;background:var(--bg);border:0;cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease);white-space:nowrap}
+.btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:var(--glow-accent)}
+.btn:active{transform:scale(.98)}
+.btn--primary{--bg:var(--grad-primary)}
+.btn--primary:hover{box-shadow:var(--glow-dual)}
+.btn--ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px)}
+.btn--ghost:hover{background:rgba(255,255,255,.1);box-shadow:0 0 0 1px rgba(96,165,250,.4)}
+.btn--outline{background:transparent;color:var(--primary-3);border:1px solid var(--border-strong)}
+.btn--sm{height:42px;padding:0 18px;font-size:13.5px}
+.btn .arrow{transition:transform .35s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+.btn:hover::after{transform:translateX(120%)}
+.status-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border-radius:999px;background:var(--glass);border:1px solid var(--border);font-size:13px;font-weight:500;color:var(--ink-2);backdrop-filter:blur(10px)}
+.status-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--live);animation:live 1.8s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.tag{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(37,99,235,.18);color:var(--primary-4);border:1px solid var(--border)}
+.tag.o{background:rgba(249,115,22,.15);color:var(--accent-2);border-color:rgba(249,115,22,.25)}
+.tag.g{background:rgba(34,197,94,.14);color:#4ADE80;border-color:rgba(34,197,94,.25)}
+.input{height:46px;min-width:280px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--border);padding:0 18px;font:inherit;font-size:14px;color:#fff;outline:0;transition:all .3s var(--ease)}
+.input::placeholder{color:var(--ink-3)}
+.input:focus{border-color:var(--primary-3);box-shadow:0 0 0 4px rgba(37,99,235,.2)}
+
+/* ---------- Glass cards ---------- */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spinBorder{to{--ang:360deg}}
+.card{position:relative;border-radius:var(--r-lg);background:var(--glass);backdrop-filter:blur(16px) saturate(140%);border:1px solid var(--border);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);padding:28px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s;isolation:isolate}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;z-index:-1;opacity:0;transition:opacity .5s;background:conic-gradient(from var(--ang,0deg),transparent 0 60%,#60A5FA 75%,#F97316 85%,transparent 95%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinBorder 4s linear infinite}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
+.card:hover::before{opacity:1}
+.card .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--grad-primary);color:#fff;margin-bottom:18px;box-shadow:0 10px 24px -10px rgba(37,99,235,.8)}
+.card .ic.o{background:var(--grad-accent);box-shadow:0 10px 24px -10px rgba(249,115,22,.7)}
+.card h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--ink-3)}
+.card .price{margin-top:18px;font-family:var(--font-head);font-weight:800;font-size:24px;color:#fff}
+.card .price s{font-size:14px;color:var(--ink-3);font-weight:500;margin-left:6px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.stat{background:rgba(11,18,32,.82);backdrop-filter:blur(14px);padding:30px 28px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,#2563EB,#60A5FA,#F97316);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.stat:hover::before{transform:scaleX(1)}
+.stat .num{font-family:var(--font-head);font-weight:800;font-size:clamp(30px,3.2vw,44px);letter-spacing:-.04em;line-height:1;color:#fff}
+.stat .num small{font-size:.5em;color:var(--accent);margin-left:2px}
+.stat .lbl{margin-top:10px;font-size:14px;color:var(--ink-3)}
+.stat .ico{position:absolute;right:22px;top:24px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(37,99,235,.16);color:var(--primary-3)}
+
+/* ---------- Tokens ---------- */
+.token-box{height:110px;background:var(--glass);border:1px solid var(--border);display:grid;place-items:center;font-family:var(--font-mono);font-size:12px;color:var(--ink-2);text-align:center;line-height:1.4}
+.space{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.space div{text-align:center;font-family:var(--font-mono);font-size:11px;color:var(--ink-3)}
+.space i{display:block;background:var(--grad-primary);border-radius:4px;margin:0 auto 8px}
+
+/* ---------- Patterns ---------- */
+.pat{height:190px;border-radius:var(--r-lg);position:relative;overflow:hidden;border:1px solid var(--border);background:var(--bg)}
+.pat span{position:absolute;left:14px;bottom:12px;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);background:rgba(5,8,22,.75);padding:3px 8px;border-radius:6px;z-index:2}
+.pat-glow::before,.pat-glow::after{content:"";position:absolute;border-radius:50%;filter:blur(50px);animation:drift 9s ease-in-out infinite}
+.pat-glow::before{width:220px;height:220px;left:-40px;top:-60px;background:rgba(37,99,235,.55)}
+.pat-glow::after{width:180px;height:180px;right:-30px;bottom:-60px;background:rgba(249,115,22,.35);animation-delay:-4.5s}
+@keyframes drift{50%{transform:translate(40px,24px) scale(1.12)}}
+.pat-board{background-color:var(--bg);background-image:linear-gradient(rgba(96,165,250,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(96,165,250,.08) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse,#000 30%,transparent 85%);mask-image:radial-gradient(ellipse,#000 30%,transparent 85%)}
+.pat-spine svg{position:absolute;inset:0;width:100%;height:100%}
+.pat-spine .trace{fill:none;stroke:rgba(96,165,250,.2);stroke-width:1.4}
+.pat-spine .pulse{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:50 500;animation:spine 3.2s linear infinite}
+.pat-spine .pulse.b{stroke:#60A5FA;filter:drop-shadow(0 0 6px #60A5FA)}
+.pat-spine .pulse.o{stroke:#F97316;filter:drop-shadow(0 0 6px #F97316);animation-delay:-1.6s}
+.pat-spine .node{fill:#60A5FA;filter:drop-shadow(0 0 6px #60A5FA);animation:nodePulse 3s ease-in-out infinite}
+@keyframes spine{to{stroke-dashoffset:-550}}
+@keyframes nodePulse{50%{opacity:.25}}
+.pat-ring{display:grid;place-items:center}
+.rings{position:relative;width:170px;aspect-ratio:1}
+.rings i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(96,165,250,.2);animation:spin 40s linear infinite}
+.rings i:nth-child(2){inset:12%;border-style:dashed;border-color:rgba(249,115,22,.35);animation-duration:22s;animation-direction:reverse}
+.rings i:nth-child(3){inset:26%;border-color:rgba(96,165,250,.2);border-top-color:rgba(96,165,250,.8);animation-duration:6s}
+.rings i:nth-child(3)::after{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:#60A5FA;box-shadow:0 0 14px #60A5FA}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pat-vignette{background:radial-gradient(ellipse at 50% 50%,#0B1530 20%,rgba(5,8,22,1) 100%)}
+.pat-scan::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(96,165,250,.05) 0 1px,transparent 1px 4px)}
+.pat-scan::after{content:"";position:absolute;left:0;right:0;height:60px;background:linear-gradient(180deg,transparent,rgba(96,165,250,.25),transparent);animation:scan 3s linear infinite}
+@keyframes scan{from{top:-60px}to{top:100%}}
+.pat-mix{background:linear-gradient(120deg,rgba(37,99,235,.35),transparent 50%,rgba(249,115,22,.3)),var(--bg)}
+
+.motion{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.m-box{height:120px;border-radius:var(--r);background:var(--glass);border:1px solid var(--border);display:grid;place-items:center;position:relative;overflow:hidden}
+.m-box small{position:absolute;left:12px;bottom:8px;font-family:var(--font-mono);font-size:11px;color:var(--ink-3)}
+.m-box i{width:38px;height:38px;border-radius:12px;background:var(--grad-primary)}
+.m-float i{animation:floatY 3s ease-in-out infinite;box-shadow:var(--glow)}
+@keyframes floatY{50%{transform:translateY(-14px) rotate(6deg)}}
+.m-node i{width:12px;height:12px;border-radius:50%;background:#60A5FA;box-shadow:0 0 14px #60A5FA;animation:nodePulse 1.6s ease-in-out infinite}
+.m-tilt i{width:60px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1A2540,#111827);border:1px solid var(--border-strong);animation:tilt 4s ease-in-out infinite}
+@keyframes tilt{0%,100%{transform:perspective(300px) rotateY(-25deg) rotateX(10deg)}50%{transform:perspective(300px) rotateY(25deg) rotateX(-10deg)}}
+.m-spin i{background:none;border:2px solid rgba(96,165,250,.2);border-top-color:#60A5FA;border-right-color:#F97316;border-radius:50%;animation:spin 1.2s linear infinite}
+
+/* ---------- Sample screen ---------- */
+.hero{position:relative;border-radius:var(--r-xl);overflow:hidden;padding:64px 56px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;border:1px solid var(--border);background:radial-gradient(90% 70% at 70% 45%,rgba(16,27,52,.9) 0%,var(--bg) 70%)}
+.hero h1{font-size:clamp(34px,4.3vw,60px);font-weight:800;letter-spacing:-.045em;line-height:1.02;margin:20px 0}
+.hero .row{margin-top:30px}
+.device{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.device .rings{position:absolute;inset:0;width:auto}
+.laptop{position:relative;width:64%;transform:perspective(900px) rotateY(-16deg) rotateX(8deg);animation:tilt2 6s ease-in-out infinite}
+@keyframes tilt2{50%{transform:perspective(900px) rotateY(-6deg) rotateX(4deg) translateY(-8px)}}
+.laptop .scr{aspect-ratio:16/10;border-radius:12px 12px 4px 4px;background:linear-gradient(160deg,#0B1220,#16254A);border:6px solid #1A2540;box-shadow:var(--shadow-lg);overflow:hidden;position:relative}
+.laptop .scr::before{content:"";position:absolute;inset:14%;border-radius:8px;background:linear-gradient(90deg,rgba(96,165,250,.4) 0 40%,transparent 40%) top/100% 8px no-repeat,linear-gradient(90deg,rgba(249,115,22,.7) 0 26%,transparent 26%) 0 20px/100% 8px no-repeat,linear-gradient(0deg,rgba(37,99,235,.35),transparent) bottom/100% 50% no-repeat}
+.laptop .base{height:12px;margin:0 -8%;border-radius:0 0 14px 14px;background:linear-gradient(180deg,#334155,#1A2540)}
+.float-card{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(12px);font-size:13px;font-weight:600;color:#E2E8F0;animation:floatY 5s ease-in-out infinite}
+.float-card i{width:28px;height:28px;border-radius:9px;background:var(--grad-primary)}
+.float-card.o i{background:var(--grad-accent)}
+.fc1{left:0;top:14%}.fc2{right:0;bottom:16%;animation-delay:-2.5s}
+
+@media (max-width:900px){
+  .g4,.g6,.motion,.stats-grid{grid-template-columns:repeat(2,1fr)}
+  .g3,.fonts{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr;padding:40px 24px}
+  .frame{padding:28px 20px}
+  .type-row{grid-template-columns:1fr;gap:6px}
+  .fg-bar .pages{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="fg-bar">
+  <i class="dot"></i><b>FixPapa — Set 2</b><span>/ Design System · Electric Blue Dark World</span>
+  <nav class="pages"><a class="on" href="#colors">Colors</a><a href="#type">Type</a><a href="#components">Components</a><a href="#effects">Effects</a><a href="#screen">Screen</a></nav>
+</header>
+
+<main class="canvas">
+
+  <!-- ================= COLORS ================= -->
+  <section id="colors">
+    <div class="frame-label">01 · Color Palette</div>
+    <div class="frame">
+      <span class="eyebrow">Set 2 · Colour theme</span>
+      <h2 class="f-title" style="margin-top:12px">Electric <span class="hl-blue">Blue</span> × <span class="hl">Orange</span> in a dark world</h2>
+      <p class="f-sub">Deep space background, glassmorphism surfaces, blue as primary, orange as the energetic accent.</p>
+
+      <div class="group-h">Primary · Blue</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#1D4ED8"></i><div><b>Primary deep</b><code>#1D4ED8</code></div></div>
+        <div class="sw"><i style="background:#2563EB"></i><div><b>Primary</b><code>#2563EB</code></div></div>
+        <div class="sw"><i style="background:#3B82F6"></i><div><b>Primary 2</b><code>#3B82F6</code></div></div>
+        <div class="sw"><i style="background:#60A5FA"></i><div><b>Primary 3</b><code>#60A5FA</code></div></div>
+        <div class="sw"><i style="background:#93C5FD"></i><div><b>Primary 4</b><code>#93C5FD</code></div></div>
+        <div class="sw"><i style="background:rgba(96,165,250,.26)"></i><div><b>Border strong</b><code>rgba(96,165,250,.26)</code></div></div>
+      </div>
+
+      <div class="group-h">Accent · Orange</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#F97316"></i><div><b>Accent</b><code>#F97316</code></div></div>
+        <div class="sw"><i style="background:#FB923C"></i><div><b>Accent 2</b><code>#FB923C</code></div></div>
+        <div class="sw"><i style="background:#22C55E"></i><div><b>Live</b><code>#22C55E</code></div></div>
+        <div class="sw"><i style="background:#16A34A"></i><div><b>Green</b><code>#16A34A</code></div></div>
+        <div class="sw"><i style="background:rgba(249,115,22,.2)"></i><div><b>Orange glow</b><code>rgba(249,115,22,.2)</code></div></div>
+        <div class="sw"><i style="background:rgba(37,99,235,.38)"></i><div><b>Blue glow</b><code>rgba(37,99,235,.38)</code></div></div>
+      </div>
+
+      <div class="group-h">Backgrounds · Surfaces</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#050816"></i><div><b>BG (space)</b><code>#050816</code></div></div>
+        <div class="sw"><i style="background:#0B1530"></i><div><b>BG glow</b><code>#0B1530</code></div></div>
+        <div class="sw"><i style="background:#0B1220"></i><div><b>Surface</b><code>#0B1220</code></div></div>
+        <div class="sw"><i style="background:#111827"></i><div><b>Card</b><code>#111827</code></div></div>
+        <div class="sw"><i style="background:#1A2540"></i><div><b>Navy 3</b><code>#1A2540</code></div></div>
+        <div class="sw"><i style="background:rgba(17,24,39,.55)"></i><div><b>Glass</b><code>rgba(17,24,39,.55)</code></div></div>
+      </div>
+
+      <div class="group-h">Text</div>
+      <div class="grid g6">
+        <div class="sw"><i style="background:#FFFFFF"></i><div><b>Heading</b><code>#FFFFFF</code></div></div>
+        <div class="sw"><i style="background:#F8FAFC"></i><div><b>Ink</b><code>#F8FAFC</code></div></div>
+        <div class="sw"><i style="background:#CBD5E1"></i><div><b>Ink 2 (body)</b><code>#CBD5E1</code></div></div>
+        <div class="sw"><i style="background:#94A3B8"></i><div><b>Ink 3 (muted)</b><code>#94A3B8</code></div></div>
+        <div class="sw"><i style="background:#E2E8F0"></i><div><b>Chip text</b><code>#E2E8F0</code></div></div>
+        <div class="sw"><i style="background:rgba(96,165,250,.14)"></i><div><b>Border</b><code>rgba(96,165,250,.14)</code></div></div>
+      </div>
+
+      <div class="group-h">Gradients</div>
+      <div class="grid g3">
+        <div class="grad" style="background:var(--grad-primary)">grad-primary · #1D4ED8 → #2563EB → #60A5FA</div>
+        <div class="grad" style="background:var(--grad-accent)">grad-accent · #F97316 → #FB923C</div>
+        <div class="grad" style="background:var(--grad-world)">world · radial #0B1530 → #050816</div>
+        <div class="grad" style="background:var(--grad-dark)">grad-dark · #0B1220 → #16254A</div>
+        <div class="grad" style="background:linear-gradient(120deg,#1D4ED8,#2563EB 45%,#F97316)">blue → orange (dual glow)</div>
+        <div class="grad" style="background:#050816"><span class="hl-blue" style="font-family:var(--font-head);font-size:34px;font-weight:800;letter-spacing:-.03em">text gradient</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <section id="type">
+    <div class="frame-label">02 · Typography</div>
+    <div class="frame">
+      <span class="eyebrow">Type scale</span>
+      <h2 class="f-title" style="margin-top:12px">Manrope + Inter + JetBrains Mono</h2>
+      <p class="f-sub">White headings, slate body text, blue mono eyebrows with a glowing dot. Key words get a blue text-gradient or orange.</p>
+      <div class="type-row"><small>Display / H1<br>Manrope 800 · 76px<br>#FFFFFF</small><div class="t-xl">Repair, <span class="hl-blue">reimagined</span></div></div>
+      <div class="type-row"><small>H2 / Section<br>Manrope 800 · 56px</small><div class="t-lg">Built for <span class="hl">speed</span></div></div>
+      <div class="type-row"><small>H3<br>Manrope 700 · 28px</small><div class="t-md">Smart Diagnostics</div></div>
+      <div class="type-row"><small>H4 / Card title<br>Manrope 700 · 20px</small><div class="t-sm">Laptop on Rent</div></div>
+      <div class="type-row"><small>Lead<br>Inter 400 · 19px · #94A3B8</small><p class="lead">Live tracking, certified engineers and genuine parts — the whole repair journey on one screen.</p></div>
+      <div class="type-row"><small>Body<br>Inter 400 · 16px · #CBD5E1</small><p>Book a slot, watch the technician on the map, pay only after the fix. Simple.</p></div>
+      <div class="type-row"><small>Eyebrow<br>JetBrains Mono 500 · 12px<br>ls .14em · #60A5FA</small><div><span class="eyebrow">Troubleshoot</span></div></div>
+      <div class="fonts">
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-head);font-weight:800">Aa</div><b>Manrope</b><small>500 · 600 · 700 · 800 — headings</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-body);font-weight:500">Aa</div><b>Inter</b><small>400 · 500 · 600 · 700 — body</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--font-mono)">Aa</div><b>JetBrains Mono</b><small>400 · 500 — labels / data</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPONENTS ================= -->
+  <section id="components">
+    <div class="frame-label">03 · Components</div>
+    <div class="frame">
+      <span class="eyebrow">Buttons · Chips · Inputs</span>
+      <h2 class="f-title" style="margin-top:12px">Glowing pills on glass</h2>
+      <p class="f-sub">Primary hover = dual glow (blue left, orange right). Ghost buttons are translucent glass with a 1px white/16% border.</p>
+      <div class="row">
+        <button class="btn btn--primary">Book a Repair <span class="arrow">→</span></button>
+        <button class="btn">Get Quote <span class="arrow">→</span></button>
+        <button class="btn btn--ghost">Explore Services</button>
+        <button class="btn btn--outline">Track Order</button>
+        <button class="btn btn--primary btn--sm">Small</button>
+      </div>
+      <div class="row" style="margin-top:22px">
+        <span class="status-chip"><i class="dot"></i>12 engineers near you</span>
+        <span class="tag">Diagnostics</span>
+        <span class="tag o">Hot deal</span>
+        <span class="tag g">✓ Genuine parts</span>
+        <input class="input" placeholder="Describe the problem…">
+      </div>
+
+      <div class="group-h" style="margin-top:44px">Glass cards (hover: lift + blue→orange conic border)</div>
+      <div class="grid g3">
+        <div class="card"><div class="ic">⚙</div><h3>Laptop Repair</h3><p>Chip-level repair with live status updates.</p><div class="price">₹499<s>₹899</s></div></div>
+        <div class="card"><div class="ic o">⚡</div><h3>Express Service</h3><p>Technician at your door in 60 minutes.</p><div class="price">₹199</div></div>
+        <div class="card"><div class="ic">◎</div><h3>AMC for Offices</h3><p>Preventive care for every device, all year.</p><div class="price">₹2,999<s>/yr</s></div></div>
+      </div>
+
+      <div class="group-h" style="margin-top:44px">Stats strip</div>
+      <div class="stats-grid">
+        <div class="stat"><div class="ico">★</div><div class="num">50K<small>+</small></div><div class="lbl">Devices repaired</div></div>
+        <div class="stat"><div class="ico">♥</div><div class="num">4.8<small>/5</small></div><div class="lbl">Customer rating</div></div>
+        <div class="stat"><div class="ico">⚡</div><div class="num">60<small>min</small></div><div class="lbl">Avg. response</div></div>
+        <div class="stat"><div class="ico">✓</div><div class="num">120<small>+</small></div><div class="lbl">Cities</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EFFECTS ================= -->
+  <section id="effects">
+    <div class="frame-label">04 · Radius · Shadow · Spacing · Pattern · Motion</div>
+    <div class="frame">
+      <div class="group-h">Radius</div>
+      <div class="grid g4">
+        <div class="token-box" style="border-radius:10px">r-sm<br>10px</div>
+        <div class="token-box" style="border-radius:16px">r<br>16px</div>
+        <div class="token-box" style="border-radius:24px">r-lg<br>24px</div>
+        <div class="token-box" style="border-radius:32px">r-xl<br>32px</div>
+      </div>
+      <div class="group-h">Shadows & glow</div>
+      <div class="grid g4">
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--shadow)">shadow</div>
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--shadow-lg)">shadow-lg<br>(blue)</div>
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--glow)">glow (blue)</div>
+        <div class="token-box" style="border-radius:16px;box-shadow:var(--glow-dual)">glow dual<br>blue × orange</div>
+      </div>
+      <div class="group-h">Spacing (section 120px · container 1240px · gutter 24px)</div>
+      <div class="space">
+        <div><i style="width:4px;height:4px"></i>4</div><div><i style="width:8px;height:8px"></i>8</div><div><i style="width:12px;height:12px"></i>12</div>
+        <div><i style="width:16px;height:16px"></i>16</div><div><i style="width:24px;height:24px"></i>24</div><div><i style="width:32px;height:32px"></i>32</div>
+        <div><i style="width:48px;height:48px"></i>48</div><div><i style="width:64px;height:64px"></i>64</div><div><i style="width:96px;height:96px"></i>96</div><div><i style="width:120px;height:120px"></i>120</div>
+      </div>
+      <div class="group-h">Background patterns ("world" layer)</div>
+      <div class="grid g3">
+        <div class="pat pat-glow"><span>world-glow · blue + orange blur</span></div>
+        <div class="pat pat-board"><span>world-board · circuit grid</span></div>
+        <div class="pat pat-spine"><svg viewBox="0 0 400 190" preserveAspectRatio="none"><path class="trace" d="M0 50H110L140 80H250L280 40H400"/><path class="trace" d="M0 140H90L120 110H230L260 150H400"/><path class="pulse b" d="M0 50H110L140 80H250L280 40H400"/><path class="pulse o" d="M0 140H90L120 110H230L260 150H400"/><circle class="node" cx="140" cy="80" r="3.5"/><circle class="node" cx="260" cy="150" r="3.5"/><circle class="node" cx="280" cy="40" r="3.5"/></svg><span>world-spine · data pulses</span></div>
+        <div class="pat pat-ring"><div class="rings"><i></i><i></i><i></i></div><span>world-ring · orbit</span></div>
+        <div class="pat pat-scan"><span>scanline</span></div>
+        <div class="pat pat-mix"><span>blue ↔ orange wash</span></div>
+      </div>
+      <div class="group-h">Motion · ease cubic-bezier(.2,.8,.2,1)</div>
+      <div class="motion">
+        <div class="m-box m-float"><i></i><small>float · 3s</small></div>
+        <div class="m-box m-node"><i></i><small>node pulse</small></div>
+        <div class="m-box m-tilt"><i></i><small>3D tilt (hero)</small></div>
+        <div class="m-box m-spin"><i></i><small>loader</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAMPLE SCREEN ================= -->
+  <section id="screen">
+    <div class="frame-label">05 · Sample Screen — Hero (Desktop 1440)</div>
+    <div class="frame" style="padding:24px">
+      <div class="hero">
+        <div>
+          <span class="status-chip"><i class="dot"></i>Live · 12 engineers online</span>
+          <h1>Trusted Electronics &amp; <span class="hl-blue">Gadget Repair</span> at Your <span class="hl">Doorstep</span></h1>
+          <p class="lead">Laptops, desktops, printers, CCTV — diagnosed, repaired and tracked in real time.</p>
+          <div class="row"><button class="btn btn--primary">Book a Repair <span class="arrow">→</span></button><button class="btn btn--ghost">How it works</button></div>
+        </div>
+        <div class="device">
+          <div class="rings"><i></i><i></i><i></i></div>
+          <div class="laptop"><div class="scr"></div><div class="base"></div></div>
+          <div class="float-card fc1"><i></i>Diagnosis ready</div>
+          <div class="float-card o fc2"><i></i>Technician en route</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

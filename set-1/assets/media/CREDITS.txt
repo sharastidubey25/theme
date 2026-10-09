@@ -1,0 +1,10 @@
+All media here was colour-graded for FixPapa (navy shadows / orange highlights).
+
+Videos (Mixkit Stock Video Free License — free for commercial use):
+  repair.mp4      https://mixkit.co/free-stock-video/hands-working-on-a-motherboard-101085/
+  datacenter.mp4  https://mixkit.co/free-stock-video/bluish-data-center-hallway-23282/
+  laptop.mp4      https://mixkit.co/free-stock-video/typing-on-a-laptop-close-up-1781/
+  circuit.mp4     https://mixkit.co/free-stock-video/high-tech-circuit-board-with-processor-47051/
+
+Photos (Unsplash License — free for commercial use); sources listed in
+set-3/assets/img/CREDITS.txt (same originals, re-graded here).

@@ -1,0 +1,89 @@
+/* FixPapa · Set 5 · shared inner-page pieces (Brands, Open Box Deal, Rental, Refurbished, Device Health).
+   Builds on style.css tokens; each page adds its own <page>.css on top. */
+.ip main{padding-top:var(--hdr-h,150px)}
+.ip-hero-wrap{padding:8px 0 24px}
+.ip-crumb{display:flex;align-items:center;gap:8px;margin:0 0 16px;font:600 13px var(--font-body);color:var(--ink-3)}
+.ip-crumb a:hover{color:var(--primary)}
+.ip-crumb span{color:var(--ink)}
+
+/* hero banner (photo or video behind a dark veil) */
+.ip-hero{position:relative;isolation:isolate;overflow:hidden;border-radius:32px;min-height:460px;display:flex;align-items:center;padding:64px;background:#0B1220;color:#fff;box-shadow:0 30px 60px -30px rgba(154,52,18,.45)}
+.ip-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.ip-hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(95deg,rgba(11,18,32,.94) 0%,rgba(11,18,32,.74) 45%,rgba(11,18,32,.18) 78%,transparent 100%)}
+.ip-hero-copy{max-width:620px}
+.ip-tag{display:inline-block;font:700 12px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;background:var(--primary);padding:8px 16px;border-radius:999px}
+.ip-hero h1{font-size:clamp(40px,5.6vw,78px);font-weight:800;letter-spacing:-.045em;line-height:1;margin:22px 0 18px;color:#fff}
+.ip-hero h1 span{color:#FFA24D}
+.ip-hero p{font-size:clamp(16px,1.3vw,18px);line-height:1.65;color:#CBD5E1;margin:0 0 30px}
+.ip-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.ip-glass{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font:700 15px var(--font-head);backdrop-filter:blur(8px);transition:background .3s}
+.ip-glass:hover{background:rgba(255,255,255,.22)}
+.ip-trust{list-style:none;padding:0;margin:34px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.ip-trust li{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(11,18,32,.5);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);font:600 13.5px var(--font-body);color:#E2E8F0}
+.ip-trust svg{color:#FFA24D}
+
+/* sections */
+.ip-sec{position:relative;padding:96px 0}
+.ip-sec--soft{background:var(--gray)}
+.ip-head{max-width:720px;margin:0 auto 48px;text-align:center}
+.ip-head .h-lg{margin:12px 0 14px}
+.ip-head p{color:var(--ink-3);font-size:17px;line-height:1.65;margin:0}
+.ip-head--left{margin-left:0;text-align:left}
+
+/* filter chips */
+.ip-chips{display:flex;flex-wrap:wrap;gap:10px}
+.ip-chips button{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--border-strong);background:var(--white);color:var(--ink-2);font:700 14px var(--font-head);transition:background .3s,color .3s,border-color .3s,box-shadow .3s}
+.ip-chips button:hover{border-color:var(--primary);color:var(--primary)}
+.ip-chips button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:var(--glow-accent)}
+
+/* product grid (uses .card.product from style.css) */
+.ip-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.ip-products .card[hidden]{display:none}
+.ip-products .media .cond{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:8px;background:#0B1220;color:#fff;font:700 11px var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.ip-empty{grid-column:1/-1;text-align:center;padding:48px 0;color:var(--ink-3);font-weight:600}
+
+/* steps */
+.ip-steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:20px;counter-reset:s}
+.ip-steps li{position:relative;padding:30px 26px 28px;border-radius:24px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);counter-increment:s}
+.ip-steps li::before{content:"0" counter(s);display:block;font:800 15px var(--font-mono);color:var(--primary);margin-bottom:18px}
+.ip-steps .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(255,138,31,.1);color:var(--primary);margin-bottom:18px}
+.ip-steps b{display:block;font:800 19px/1.25 var(--font-head);color:var(--ink);margin-bottom:8px}
+.ip-steps p{margin:0;color:var(--ink-3);font-size:15px;line-height:1.6}
+
+/* FAQ */
+.ip-faq{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.ip-faq details{border-radius:20px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:border-color .3s}
+.ip-faq details[open]{border-color:var(--border-strong)}
+.ip-faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;font:700 17px var(--font-head);color:var(--ink);cursor:pointer}
+.ip-faq summary::-webkit-details-marker{display:none}
+.ip-faq summary::after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:rgba(255,138,31,.1);color:var(--primary);font-size:20px;transition:transform .3s var(--ease)}
+.ip-faq details[open] summary::after{transform:rotate(45deg)}
+.ip-faq details p{margin:0;padding:0 24px 22px;color:var(--ink-2);line-height:1.7}
+
+/* closing call-to-action band */
+.ip-cta{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:48px 56px;border-radius:32px;background:var(--grad-primary);color:#fff;box-shadow:var(--shadow-lg)}
+.ip-cta h2{font-size:clamp(26px,3vw,40px);font-weight:800;color:#fff}
+.ip-cta p{margin:8px 0 0;color:#FFEDD5}
+.ip-cta .btn{--bg:#0B1220}
+
+@media (max-width:1024px){
+  .ip-products{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ip-hero{padding:48px 40px}
+  .ip-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){.ip-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media (max-width:640px){
+  .ip-hero{min-height:0;padding:36px 22px;border-radius:24px}
+  .ip-hero-veil{background:linear-gradient(180deg,rgba(11,18,32,.72),rgba(11,18,32,.9))}
+  .ip-trust li{font-size:12.5px;padding:7px 12px}
+  .ip-sec{padding:64px 0}
+  .ip-steps{grid-template-columns:1fr}
+  .ip-cta{padding:32px 24px;border-radius:24px}
+  .ip-faq summary{font-size:15.5px;padding:18px}
+  .ip-faq details p{padding:0 18px 18px}
+}
+
+[data-theme="dark"] .ip-hero{box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+[data-theme="dark"] .ip-steps li,[data-theme="dark"] .ip-faq details{background:#15161B}
+[data-theme="dark"] .ip-chips button:not([aria-pressed="true"]){background:#15161B}
+[data-theme="dark"] .ip-sec--soft{background:#101114}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixPapa · Set 3 · Design System (Figma)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Manrope:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   SET 3 — "Editorial Black / Olive / Paper" design tokens
+   (copied from set-3/assets/css/style.css)
+   ========================================================= */
+:root{
+  --bg:#0B0B0C; --bg-2:#141416; --tile:#1C1C1E; --olive:#262819; --olive-2:#31331F; --olive-ink:#14150C;
+  --text:#F2F1EC; --muted:#9A9A95; --line:rgba(255,255,255,.12);
+  --ink:#0E0F13; --paper:#F6F5F1; --product:#EDEBE4; --ui-muted:#6B6B66;
+  --orange:#FF5A1F; --mint:#19C39C; --violet:#4B4DED; --butter:#FFEDB0;
+  --r-sm:6px; --r:10px; --r-ui:16px; --r-xl:40px;
+  --f-head:'Manrope',system-ui,sans-serif; --f-body:'Inter',system-ui,sans-serif;
+  --f-disp:'Inter Tight','Inter',system-ui,sans-serif; --f-serif:'Instrument Serif',Georgia,serif;
+  --ease:cubic-bezier(.2,.8,.2,1); --spring:cubic-bezier(.34,1.56,.64,1); --expo:cubic-bezier(.16,1,.3,1);
+  --sh-2:0 24px 50px -24px rgba(0,0,0,.6); --sh-3:0 40px 80px -30px rgba(0,0,0,.7);
+  --sh-ui:0 24px 50px -20px rgba(0,0,0,.55);
+
+  --canvas:#2A2A2A;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+h1,h2,h3{margin:0;font-family:var(--f-disp);font-weight:400;letter-spacing:-.03em;line-height:1.05}
+p{margin:0}
+em{font-family:var(--f-serif);font-style:italic;font-weight:400}
+::selection{background:var(--orange);color:#fff}
+
+/* ---------- Figma-like shell ---------- */
+.fg-bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:14px;height:48px;padding:0 18px;background:#1E1E1E;color:#fff;font-size:12.5px;border-bottom:1px solid #111}
+.fg-bar .dot{width:22px;height:22px;border-radius:6px;background:var(--orange)}
+.fg-bar b{font-weight:600}
+.fg-bar span{opacity:.55}
+.fg-bar .pages{margin-left:auto;display:flex;gap:6px}
+.fg-bar .pages a{color:#fff;text-decoration:none;padding:4px 10px;border-radius:6px;opacity:.6}
+.fg-bar .pages a.on{background:#3A3A3A;opacity:1}
+.canvas{max-width:1320px;margin:0 auto;padding:48px 24px 120px;display:grid;gap:56px}
+.frame-label{font-size:12px;color:#A0A0A0;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.frame-label::before{content:"#";font-weight:700;opacity:.7}
+.frame{background:var(--bg);border-radius:4px;padding:56px;box-shadow:0 0 0 1px rgba(255,255,255,.05),var(--sh-3)}
+.frame.olive{background:var(--olive)}
+.frame.paper{background:var(--paper);color:var(--ink)}
+.f-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.frame.paper .f-head{border-color:rgba(0,0,0,.1)}
+.f-title{font-size:clamp(34px,4vw,56px)}
+.f-sub{color:var(--muted);font-size:15px;max-width:380px}
+.frame.paper .f-sub{color:var(--ui-muted)}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g6{grid-template-columns:repeat(6,1fr)}
+.group-h{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:36px 0 14px;display:flex;align-items:center;gap:12px}
+.group-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.group-h:first-of-type{margin-top:0}
+.frame.paper .group-h::after{background:rgba(0,0,0,.1)}
+
+/* ---------- Swatches (big editorial tiles) ---------- */
+.sw{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1.1;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;transition:transform .6s var(--expo)}
+.sw:hover{transform:scale(1.03)}
+.sw b{font-family:var(--f-disp);font-weight:400;font-size:22px;letter-spacing:-.03em;line-height:1.1}
+.sw code{font-family:var(--f-body);font-size:12px;opacity:.7;margin-top:4px}
+.sw.dk{color:#fff}.sw.lt{color:#111}
+.sw.bd{box-shadow:inset 0 0 0 1px var(--line)}
+
+/* ---------- Typography ---------- */
+.type-row{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid var(--line)}
+.type-row:first-of-type{border-top:0;padding-top:0}
+.type-row small{font-size:12px;color:var(--muted);line-height:1.5}
+.t-hero{font-family:var(--f-disp);font-size:clamp(40px,5.4vw,84px);font-weight:400;letter-spacing:-.045em;line-height:1.02}
+.t-h2{font-family:var(--f-disp);font-size:clamp(34px,4vw,56px)}
+.t-list{font-family:var(--f-disp);font-size:clamp(34px,4vw,58px);letter-spacing:-.04em;line-height:1.14}
+.t-list span{color:rgba(255,255,255,.22)}
+.t-num{font-family:var(--f-disp);font-weight:400;font-size:clamp(40px,4.6vw,68px);letter-spacing:-.05em;line-height:1}
+.t-cap{font-family:var(--f-disp);font-size:24px;letter-spacing:-.03em}
+.t-body{font-size:15px;color:var(--muted);max-width:520px}
+.t-label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.o{color:var(--orange)}
+.fonts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.font-card{border-radius:var(--r);padding:22px;background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line)}
+.font-card .Aa{font-size:60px;line-height:1;margin-bottom:14px}
+.font-card b{display:block;font-size:14px;font-weight:600}
+.font-card small{font-size:12px;color:var(--muted)}
+
+/* ---------- Buttons ---------- */
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.pill-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 22px;border-radius:999px;background:#fff;color:#0B0B0C;font-weight:600;font-size:14px;letter-spacing:.01em;white-space:nowrap;border:0;cursor:pointer;font-family:var(--f-body);transition:transform .4s var(--expo),background .3s,color .3s}
+.pill-btn:hover{transform:scale(1.04)}
+.pill-btn.lg{height:52px;padding:0 30px;font-size:15px}
+.pill-btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.pill-btn.ghost:hover{background:#fff;color:#0B0B0C}
+.pill-btn.dark{background:#111;color:#fff}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 10px 0 22px;border-radius:999px;font-family:var(--f-head);font-weight:700;font-size:15px;white-space:nowrap;border:0;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,color .3s}
+.btn-ar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;transition:transform .45s var(--spring)}
+.btn:hover .btn-ar{transform:rotate(-45deg) scale(1.08)}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange .btn-ar{background:#fff;color:var(--orange)}
+.btn-orange:hover{box-shadow:0 16px 34px -12px rgba(255,90,31,.6)}
+.btn-line-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:0 22px}
+.btn-line-light:hover{background:#fff;color:var(--ink)}
+.txt-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none}
+.txt-link svg{transition:transform .35s var(--expo)}
+.txt-link:hover svg{transform:translateX(5px)}
+.round{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;background:none;border:0;cursor:pointer;transition:background .3s,color .3s}
+.round:hover{background:#fff;color:#111}
+.badge{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:11.5px;font-weight:600}
+.b-dark{background:#111;color:#fff}.b-orange{background:var(--orange);color:#fff}.b-mint{background:var(--mint);color:#fff}.b-violet{background:var(--violet);color:#fff}.b-butter{background:var(--butter);color:#111}
+.search-box{display:flex;align-items:center;gap:14px;height:60px;padding:0 8px 0 24px;border-radius:999px;background:#fff;color:#111;max-width:520px;flex:1}
+.search-box input{flex:1;border:0;outline:0;font:inherit;font-size:17px;background:transparent;color:#111}
+
+/* ---------- Floating UI cards ---------- */
+.ui{display:inline-flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r-ui);background:rgba(255,255,255,.96);color:#111;box-shadow:var(--sh-ui);font-size:13px;line-height:1.35}
+.ui b{display:block;font-weight:600;font-size:14px}
+.ui small{display:block;color:var(--ui-muted);font-size:12px}
+.ui-dot{width:10px;height:10px;border-radius:50%;flex:0 0 10px;animation:live 1.8s infinite}
+.ui-dot.g{background:var(--mint);--c:rgba(25,195,156,.6)}
+.ui-dot.o{background:var(--orange);--c:rgba(255,90,31,.6)}
+@keyframes live{0%{box-shadow:0 0 0 0 var(--c)}70%{box-shadow:0 0 0 9px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
+.ui-ok{width:30px;height:30px;border-radius:9px;background:#111;color:#fff;display:grid;place-items:center;flex:0 0 30px}
+.ui-dash{flex-direction:column;align-items:flex-start;gap:2px;min-width:200px}
+.ui-dash b{font-family:var(--f-disp);font-weight:400;font-size:28px;letter-spacing:-.03em}
+.ui-bars{display:flex;gap:5px;align-items:flex-end;height:40px;margin-top:6px;width:100%}
+.ui-bars i{flex:1;height:calc(var(--h)*100%);border-radius:4px;background:#111;transform-origin:bottom;animation:bar 2.4s var(--expo) infinite alternate}
+.ui-bars i:nth-child(4){background:var(--orange)}
+@keyframes bar{from{transform:scaleY(.4)}to{transform:scaleY(1)}}
+
+/* ---------- Cards ---------- */
+.ph{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.3;background:var(--tile)}
+.ph .img{position:absolute;inset:0;transition:transform 1.2s var(--expo)}
+.ph:hover .img{transform:scale(1.06)}
+.ph::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent)}
+.ph span{position:absolute;z-index:1;left:20px;bottom:18px;font-size:14px;font-weight:500;color:#fff}
+.ph i{position:absolute;z-index:1;right:16px;bottom:14px;width:34px;height:34px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-style:normal;transition:transform .5s var(--spring)}
+.ph:hover i{transform:rotate(90deg)}
+.img-1{background:linear-gradient(160deg,#3a3f47,#15171b)}
+.img-2{background:linear-gradient(160deg,#5b4a3a,#1f1812)}
+.img-3{background:linear-gradient(160deg,#31331F,#14150C)}
+.pr{display:flex;flex-direction:column;gap:14px;color:var(--ink)}
+.pr-media{position:relative;aspect-ratio:1/1.05;border-radius:8px;background:var(--product);display:grid;place-items:center;overflow:hidden}
+.pr-media .dev{width:52%;aspect-ratio:16/11;border-radius:8px;background:linear-gradient(160deg,#2b2b2e,#0e0f13);box-shadow:0 20px 16px -8px rgba(0,0,0,.25);transition:transform 1s var(--expo)}
+.pr:hover .pr-media .dev{transform:scale(1.08) translateY(-6px)}
+.pr-off{position:absolute;left:12px;top:12px}
+.pr-add{position:absolute;right:12px;bottom:12px;height:36px;padding:0 14px;border-radius:999px;background:#111;color:#fff;font-size:12.5px;font-weight:600;border:0;opacity:0;transform:translateY(8px);transition:all .45s var(--expo)}
+.pr:hover .pr-add{opacity:1;transform:none}
+.pr h3{font-family:var(--f-body);font-size:14px;font-weight:500;letter-spacing:0;line-height:1.45}
+.pr-row{display:flex;align-items:baseline;gap:10px;font-size:14px}
+.pr-row b{font-weight:600}.pr-row s{color:var(--ui-muted)}
+.nums-in{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.nums-in>div{padding:28px 20px 0 0}
+.nums-in>div+div{padding-left:24px;border-left:1px solid var(--line)}
+.nums-in span{display:block;margin-top:10px;font-size:13.5px;color:var(--muted)}
+.three-in{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;border-top:1px solid var(--line);padding-top:26px}
+.three-in h3{font-size:15px;font-family:var(--f-body);font-weight:600;letter-spacing:0;margin-bottom:10px}
+.three-in p{font-size:14.5px;color:var(--muted)}
+
+/* ---------- Tokens ---------- */
+.token-box{height:110px;background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line);display:grid;place-items:center;font-size:12px;color:var(--muted);text-align:center;line-height:1.4}
+.ease-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ease{height:120px;border-radius:var(--r);background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line);position:relative;overflow:hidden;padding:14px}
+.ease small{font-size:12px;color:var(--muted);display:block;line-height:1.4}
+.ease i{position:absolute;left:14px;bottom:18px;width:26px;height:26px;border-radius:50%;background:var(--orange);animation:move 2.4s infinite alternate}
+.ease.e1 i{animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+.ease.e2 i{animation-timing-function:cubic-bezier(.34,1.56,.64,1);background:var(--mint)}
+.ease.e3 i{animation-timing-function:cubic-bezier(.16,1,.3,1);background:var(--violet)}
+@keyframes move{to{left:calc(100% - 40px)}}
+.motion{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.m-box{height:150px;border-radius:var(--r);background:var(--bg-2);box-shadow:inset 0 0 0 1px var(--line);position:relative;overflow:hidden;display:grid;place-items:center}
+.m-box small{position:absolute;left:12px;bottom:8px;font-size:11.5px;color:var(--muted)}
+.m-clip .fig{width:70%;height:70%;border-radius:8px;background:linear-gradient(160deg,var(--orange),#8a2a07);animation:clip 3s var(--expo) infinite}
+@keyframes clip{0%{clip-path:inset(100% 0 0 0)}45%,100%{clip-path:inset(0 0 0 0)}}
+.m-zoom .fig{width:70%;height:70%;border-radius:8px;background:linear-gradient(160deg,#3a3f47,#15171b);animation:zoom 3s var(--expo) infinite alternate}
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.m-logo{font-family:var(--f-head);font-weight:800;font-size:28px;letter-spacing:-.045em}
+.m-logo b{display:inline-block;color:var(--orange);animation:rot 2s var(--spring) infinite alternate}
+@keyframes rot{to{transform:rotate(90deg)}}
+.m-ring svg{width:80px}
+.m-ring .ring{fill:none;stroke:var(--orange);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:pinring 2.6s ease-out infinite}
+@keyframes pinring{from{transform:scale(.4);opacity:1}to{transform:scale(3);opacity:0}}
+
+/* ---------- Sample screen: hero mosaic ---------- */
+.mo{position:relative;border-radius:var(--r);overflow:hidden;background:var(--bg);aspect-ratio:16/9;display:grid;gap:10px;padding:10px;grid-template-columns:1fr 2fr 1fr;grid-template-rows:1fr 3fr 1fr;grid-template-areas:"a b c" "d e f" "g h i"}
+.t{border-radius:6px;background:var(--tile);animation:tileIn 1.2s var(--expo) both}
+.t:nth-child(1){grid-area:a;background:linear-gradient(160deg,#3a3f47,#15171b)}
+.t:nth-child(2){grid-area:b;background:linear-gradient(160deg,#5b4a3a,#1f1812);animation-delay:.05s}
+.t:nth-child(3){grid-area:c;background:linear-gradient(160deg,#31331F,#14150C);animation-delay:.1s}
+.t:nth-child(4){grid-area:d;background:linear-gradient(160deg,#2a2c35,#101116);animation-delay:.15s}
+.t:nth-child(6){grid-area:f;background:linear-gradient(160deg,#4a3b30,#16110d);animation-delay:.2s}
+.t:nth-child(7){grid-area:g;background:linear-gradient(160deg,#31331F,#14150C);animation-delay:.25s}
+.t:nth-child(8){grid-area:h;background:linear-gradient(160deg,#3a3f47,#15171b);animation-delay:.3s}
+.t:nth-child(9){grid-area:i;background:linear-gradient(160deg,#5b4a3a,#1f1812);animation-delay:.35s}
+@keyframes tileIn{from{opacity:0;transform:scale(.9)}}
+.t-c{grid-area:e;position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(160deg,#4b4d55,#131418);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.t-c::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.35) 50%,rgba(0,0,0,.6))}
+.t-c>*{position:relative;z-index:1}
+.t-c h1{font-size:clamp(26px,3.6vw,54px);letter-spacing:-.045em;line-height:1.02;color:#fff;max-width:680px}
+.t-c .pill-btn{margin-top:26px}
+.t-c p{margin-top:14px;font-size:12px;color:rgba(255,255,255,.75)}
+.hd{display:flex;align-items:center;gap:28px;height:64px;padding:0 24px;border-radius:var(--r) var(--r) 0 0;background:rgba(11,11,12,.78);box-shadow:0 1px 0 var(--line)}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-head);font-weight:800;font-size:22px;letter-spacing:-.045em;color:#fff}
+.logo b{color:var(--orange);display:inline-block;transition:transform .6s var(--spring)}
+.logo:hover b{transform:rotate(90deg)}
+.logo-mark{width:32px;height:32px;border-radius:10px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:15px}
+.hd nav{display:flex;gap:24px}
+.hd nav a{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.78);text-decoration:none}
+.hd nav a:hover{color:#fff}
+.hd .pill-btn{margin-left:auto}
+
+@media (max-width:900px){
+  .g4,.g6,.fonts,.motion,.nums-in{grid-template-columns:repeat(2,1fr)}
+  .g3,.three-in,.ease-row{grid-template-columns:1fr}
+  .nums-in>div+div{padding-left:0;border-left:0}
+  .frame{padding:28px 20px}
+  .type-row{grid-template-columns:1fr;gap:6px}
+  .fg-bar .pages,.hd nav{display:none}
+  .mo{aspect-ratio:3/4;grid-template-columns:1fr 1fr;grid-template-rows:1fr 3fr 1fr;grid-template-areas:"a c" "e e" "g i"}
+  .t:nth-child(2),.t:nth-child(4),.t:nth-child(6),.t:nth-child(8){display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="fg-bar">
+  <i class="dot"></i><b>FixPapa — Set 3</b><span>/ Design System · Editorial Black · Olive · Paper</span>
+  <nav class="pages"><a class="on" href="#colors">Colors</a><a href="#type">Type</a><a href="#components">Components</a><a href="#effects">Effects</a><a href="#screen">Screen</a></nav>
+</header>
+
+<main class="canvas">
+
+  <!-- ================= COLORS ================= -->
+  <section id="colors">
+    <div class="frame-label">01 · Color Palette</div>
+    <div class="frame">
+      <div class="f-head">
+        <div><span class="kicker">Set 3 · Colour theme</span><h2 class="f-title">Quiet black, <em>one loud</em> <span class="o">orange</span>.</h2></div>
+        <p class="f-sub">Near-black editorial canvas, olive &amp; paper sections, a single orange accent with mint, violet and butter used sparingly for status.</p>
+      </div>
+
+      <div class="group-h">Base</div>
+      <div class="grid g6">
+        <div class="sw dk bd" style="background:#0B0B0C"><b>Background</b><code>#0B0B0C</code></div>
+        <div class="sw dk bd" style="background:#141416"><b>Background 2</b><code>#141416</code></div>
+        <div class="sw dk bd" style="background:#1C1C1E"><b>Tile</b><code>#1C1C1E</code></div>
+        <div class="sw lt" style="background:#F2F1EC"><b>Text</b><code>#F2F1EC</code></div>
+        <div class="sw dk" style="background:#9A9A95"><b>Muted</b><code>#9A9A95</code></div>
+        <div class="sw dk bd" style="background:rgba(255,255,255,.12)"><b>Line</b><code>rgba(255,255,255,.12)</code></div>
+      </div>
+
+      <div class="group-h">Olive · Paper</div>
+      <div class="grid g6">
+        <div class="sw dk" style="background:#262819"><b>Olive</b><code>#262819</code></div>
+        <div class="sw dk" style="background:#31331F"><b>Olive 2</b><code>#31331F</code></div>
+        <div class="sw dk" style="background:#14150C"><b>Olive ink</b><code>#14150C</code></div>
+        <div class="sw lt" style="background:#F6F5F1"><b>Paper</b><code>#F6F5F1</code></div>
+        <div class="sw lt" style="background:#EDEBE4"><b>Product bg</b><code>#EDEBE4</code></div>
+        <div class="sw dk" style="background:#0E0F13;box-shadow:inset 0 0 0 1px var(--line)"><b>Ink</b><code>#0E0F13</code></div>
+      </div>
+
+      <div class="group-h">Accents</div>
+      <div class="grid g4">
+        <div class="sw dk" style="background:#FF5A1F;aspect-ratio:1/.8"><b>Orange — primary</b><code>#FF5A1F</code></div>
+        <div class="sw dk" style="background:#19C39C;aspect-ratio:1/.8"><b>Mint — success</b><code>#19C39C</code></div>
+        <div class="sw dk" style="background:#4B4DED;aspect-ratio:1/.8"><b>Violet — info</b><code>#4B4DED</code></div>
+        <div class="sw lt" style="background:#FFEDB0;aspect-ratio:1/.8"><b>Butter — highlight</b><code>#FFEDB0</code></div>
+      </div>
+
+      <div class="group-h">Overlays</div>
+      <div class="grid g3">
+        <div class="sw dk" style="aspect-ratio:16/8;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.35) 50%,rgba(0,0,0,.6)),linear-gradient(160deg,#5b4a3a,#1f1812)"><b>Hero veil</b><code>black 45% → 35% → 60%</code></div>
+        <div class="sw dk" style="aspect-ratio:16/8;background:linear-gradient(0deg,rgba(20,21,12,.85),transparent 60%),linear-gradient(160deg,#31331F,#262819)"><b>Olive card fade</b><code>rgba(20,21,12,.85) → transparent</code></div>
+        <div class="sw dk" style="aspect-ratio:16/8;background:rgba(11,11,12,.78);box-shadow:inset 0 0 0 1px var(--line)"><b>Header (solid)</b><code>rgba(11,11,12,.78) + blur 16</code></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <section id="type">
+    <div class="frame-label">02 · Typography</div>
+    <div class="frame">
+      <div class="f-head">
+        <div><span class="kicker">Type scale</span><h2 class="f-title">Light, tight &amp; <em>editorial</em></h2></div>
+        <p class="f-sub">Inter Tight at regular (400) weight for big display text, Instrument Serif italic for emphasis, Inter for UI, Manrope 800 for the logo &amp; buttons.</p>
+      </div>
+      <div class="type-row"><small>Hero H1<br>Inter Tight 400 · 84px<br>ls -0.045em · lh 1.02</small><div class="t-hero">Repair that feels <em>effortless</em>.</div></div>
+      <div class="type-row"><small>H2 / Section<br>Inter Tight 400 · 56px</small><div class="t-h2">Rent a laptop, <em>not a headache</em></div></div>
+      <div class="type-row"><small>Sticky list<br>Inter Tight 400 · 58px<br>inactive rgba(255,255,255,.22)</small><div class="t-list">Laptop repair<br><span>Desktop &amp; AMC</span><br><span>CCTV install</span></div></div>
+      <div class="type-row"><small>Numbers<br>Inter Tight 400 · 68px<br>ls -0.05em</small><div class="t-num">50,000+</div></div>
+      <div class="type-row"><small>Card caption<br>Inter Tight 400 · 24px</small><div class="t-cap">Brands we fix</div></div>
+      <div class="type-row"><small>Body<br>Inter 400 · 15px · #9A9A95</small><p class="t-body">Certified technicians, genuine parts and a 90-day warranty. Book in under a minute and track everything live.</p></div>
+      <div class="type-row"><small>Label / link<br>Inter 600 · 13px<br>ls .08em uppercase</small><div class="t-label">Explore services →</div></div>
+      <div class="fonts">
+        <div class="font-card"><div class="Aa" style="font-family:var(--f-disp);font-weight:400;letter-spacing:-.04em">Aa</div><b>Inter Tight</b><small>300 · 400 · 500 · 600 — display</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--f-serif);font-style:italic">Aa</div><b>Instrument Serif</b><small>italic — &lt;em&gt; emphasis</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--f-body);font-weight:500">Aa</div><b>Inter</b><small>400 · 500 · 600 — UI &amp; body</small></div>
+        <div class="font-card"><div class="Aa" style="font-family:var(--f-head);font-weight:800;letter-spacing:-.045em">Aa</div><b>Manrope</b><small>700 · 800 — logo &amp; CTA</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPONENTS ================= -->
+  <section id="components">
+    <div class="frame-label">03 · Components — on Black</div>
+    <div class="frame">
+      <div class="f-head">
+        <div><span class="kicker">Buttons · Badges · Inputs</span><h2 class="f-title">Minimal pills</h2></div>
+        <p class="f-sub">White pill is primary on dark. Hover scales 1.04 with an expo ease. The orange CTA's arrow rotates -45° on a spring.</p>
+      </div>
+      <div class="row">
+        <button class="pill-btn lg">Book a repair</button>
+        <button class="pill-btn">Get started</button>
+        <button class="pill-btn ghost">Learn more</button>
+        <button class="btn btn-orange">Book now <span class="btn-ar">→</span></button>
+        <button class="btn btn-line-light">Call us</button>
+        <button class="round">←</button><button class="round">→</button>
+        <a class="txt-link" href="#components">View all <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="row" style="margin-top:22px">
+        <span class="badge b-dark">-30%</span><span class="badge b-orange">Hot</span><span class="badge b-mint">Added ✓</span><span class="badge b-violet">New</span><span class="badge b-butter">Best seller</span>
+        <label class="search-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="Search repairs, rentals, products…"></label>
+      </div>
+
+      <div class="group-h">Floating UI cards (over photos)</div>
+      <div class="row" style="align-items:flex-start">
+        <div class="ui"><i class="ui-dot g"></i><div><b>Technician on the way</b><small>Arriving in 18 min</small></div></div>
+        <div class="ui"><i class="ui-dot o"></i><div><b>Repair in progress</b><small>Screen replacement</small></div></div>
+        <div class="ui"><span class="ui-ok">✓</span><div><b>Warranty active</b><small>90 days</small></div></div>
+        <div class="ui ui-dash"><small>Tickets this week</small><b>1,284</b><div class="ui-bars"><i style="--h:.4"></i><i style="--h:.6"></i><i style="--h:.5"></i><i style="--h:1"></i><i style="--h:.7"></i><i style="--h:.55"></i></div></div>
+      </div>
+
+      <div class="group-h">Photo cards (rental carousel)</div>
+      <div class="grid g3">
+        <div class="ph"><div class="img img-1"></div><span>Laptop on rent</span><i>+</i></div>
+        <div class="ph"><div class="img img-2"></div><span>Projector on rent</span><i>+</i></div>
+        <div class="ph"><div class="img img-3"></div><span>Desktop on rent</span><i>+</i></div>
+      </div>
+
+      <div class="group-h">Numbers</div>
+      <div class="nums-in">
+        <div><b class="t-num">50K+</b><span>Devices repaired</span></div>
+        <div><b class="t-num">4.8</b><span>Average rating</span></div>
+        <div><b class="t-num">60m</b><span>Avg. response</span></div>
+        <div><b class="t-num">120</b><span>Cities covered</span></div>
+      </div>
+
+      <div class="group-h">Three-up feature row</div>
+      <div class="three-in">
+        <div><h3>Doorstep service</h3><p>A certified technician comes to you — home or office.</p></div>
+        <div><h3>Genuine parts</h3><p>OEM-grade components with a written warranty.</p></div>
+        <div><h3>Live tracking</h3><p>Know exactly where your device and technician are.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="frame-label">03b · Components — on Olive &amp; Paper</div>
+    <div class="grid g2" style="gap:24px">
+      <div class="frame olive">
+        <span class="kicker" style="color:rgba(255,255,255,.6)">Olive section</span>
+        <h2 class="f-title" style="margin-bottom:26px">Brands <em>we fix</em></h2>
+        <div class="ph" style="aspect-ratio:1/1;background:var(--olive-2)"><div class="img img-3"></div><span style="font-family:var(--f-disp);font-size:22px;letter-spacing:-.03em">HP · Dell · Lenovo · Apple</span><i>+</i></div>
+      </div>
+      <div class="frame paper">
+        <span class="kicker" style="color:var(--ui-muted)">Paper section · Shop</span>
+        <h2 class="f-title" style="margin-bottom:26px">Refurbished <em>deals</em></h2>
+        <div class="grid g2">
+          <div class="pr"><div class="pr-media"><span class="badge b-dark pr-off">-30%</span><div class="dev"></div><button class="pr-add">Add to cart</button></div><h3>Refurbished ThinkPad T480 · i5 · 16GB</h3><div class="pr-row"><b>₹18,999</b><s>₹26,999</s></div></div>
+          <div class="pr"><div class="pr-media"><span class="badge b-orange pr-off">Hot</span><div class="dev" style="aspect-ratio:1;width:40%;border-radius:50%"></div><button class="pr-add">Add to cart</button></div><h3>CCTV Dome Camera 2MP · Night vision</h3><div class="pr-row"><b>₹1,499</b><s>₹2,199</s></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EFFECTS ================= -->
+  <section id="effects">
+    <div class="frame-label">04 · Radius · Shadow · Easing · Motion</div>
+    <div class="frame">
+      <div class="group-h">Radius</div>
+      <div class="grid g6">
+        <div class="token-box" style="border-radius:6px">tile<br>6px</div>
+        <div class="token-box" style="border-radius:8px">card<br>8px</div>
+        <div class="token-box" style="border-radius:10px">section card<br>10px</div>
+        <div class="token-box" style="border-radius:16px">UI card<br>16px</div>
+        <div class="token-box" style="border-radius:40px">r-xl<br>40px</div>
+        <div class="token-box" style="border-radius:999px">pill<br>999px</div>
+      </div>
+      <div class="group-h">Shadows</div>
+      <div class="grid g3">
+        <div class="token-box" style="border-radius:10px;box-shadow:var(--sh-2),inset 0 0 0 1px var(--line)">sh-2</div>
+        <div class="token-box" style="border-radius:10px;box-shadow:var(--sh-3),inset 0 0 0 1px var(--line)">sh-3</div>
+        <div class="token-box" style="border-radius:10px;box-shadow:0 16px 34px -12px rgba(255,90,31,.6);background:var(--orange);color:#fff">orange CTA glow</div>
+      </div>
+      <div class="group-h">Easing curves</div>
+      <div class="ease-row">
+        <div class="ease e1"><small>--ease<br>cubic-bezier(.2,.8,.2,1)</small><i></i></div>
+        <div class="ease e2"><small>--spring<br>cubic-bezier(.34,1.56,.64,1)</small><i></i></div>
+        <div class="ease e3"><small>--expo<br>cubic-bezier(.16,1,.3,1)</small><i></i></div>
+      </div>
+      <div class="group-h">Motion patterns</div>
+      <div class="motion">
+        <div class="m-box m-clip"><div class="fig"></div><small>clip-path reveal (services)</small></div>
+        <div class="m-box m-zoom"><div class="fig"></div><small>image settle 1.12 → 1</small></div>
+        <div class="m-box"><span class="m-logo">Fix<b>+</b>Papa</span><small>logo spring rotate</small></div>
+        <div class="m-box m-ring"><svg viewBox="0 0 40 40"><circle class="ring" cx="20" cy="20" r="6"/><circle cx="20" cy="20" r="4" fill="#FF5A1F"/></svg><small>map pin ring</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAMPLE SCREEN ================= -->
+  <section id="screen">
+    <div class="frame-label">05 · Sample Screen — Header + Hero Mosaic (Desktop 1440)</div>
+    <div class="frame" style="padding:24px">
+      <div class="hd">
+        <a class="logo" href="#screen"><span class="logo-mark">F</span>Fix<b>+</b>Papa</a>
+        <nav><a href="#screen">Repair</a><a href="#screen">Rental</a><a href="#screen">AMC</a><a href="#screen">Shop</a><a href="#screen">E-waste</a></nav>
+        <button class="pill-btn">Book now</button>
+      </div>
+      <div class="mo">
+        <div class="t"></div><div class="t"></div><div class="t"></div><div class="t"></div>
+        <div class="t-c">
+          <h1>Trusted Electronics &amp; Gadget Repair <em>at Your Doorstep</em></h1>
+          <button class="pill-btn lg">Book a repair</button>
+          <p>Laptops · Desktops · Printers · CCTV · Projectors</p>
+        </div>
+        <div class="t"></div><div class="t"></div><div class="t"></div><div class="t"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

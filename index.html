@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FixPapa Homepage Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F6F7FB;--card:#fff;--ink:#12162B;--ink-2:#5A607D;--line:#E3E6F0;--navy:#2B358C}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+  .wrap{width:min(1180px,100% - 32px);margin:0 auto;padding:56px 0 72px}
+  header img{height:30px}
+  h1{font-size:clamp(28px,4vw,44px);letter-spacing:-.02em;line-height:1.1;margin:24px 0 10px}
+  .sub{color:var(--ink-2);max-width:640px;margin:0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:40px}
+  .c{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s}
+  .c:hover{transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(18,22,43,.35)}
+  .sw{display:flex;height:120px}
+  .sw i{flex:1}
+  .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .n{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+  h2{font-size:21px;margin:4px 0 8px;letter-spacing:-.01em}
+  p{margin:0 0 14px;font-size:14.5px;color:var(--ink-2)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+  .tags span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--ink-2)}
+  .open{margin-top:16px;font-weight:600;color:var(--navy)}
+  .new{background:#FFEDE2!important;color:#C2410C!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img src="set-1/assets/img/logo.png" alt="FixPapa"></header>
+  <h1>Homepage design concepts</h1>
+  <p class="sub">Five colour and layout directions for fixpapa.com. Same content in each — open a concept to see it full-page on desktop and mobile.</p>
+
+  <div class="grid">
+    <a class="c" href="set-1/index.html">
+      <div class="sw"><i style="background:#FFF7ED"></i><i style="background:#F97316"></i><i style="background:#EA580C"></i><i style="background:#0B1220"></i></div>
+      <div class="body"><span class="n">Concept 1</span><h2>Warm Orange · Interactive</h2>
+        <p>Bright and energetic. Scroll-driven laptop assembly hero, animated footer mascot.</p>
+        <div class="tags"><span>Light</span><span>Orange-led</span><span>High motion</span></div><span class="open">Open concept →</span></div>
+    </a>
+    <a class="c" href="set-2/index.html">
+      <div class="sw"><i style="background:#EFF4FF"></i><i style="background:#2563EB"></i><i style="background:#1D4ED8"></i><i style="background:#F97316"></i></div>
+      <div class="body"><span class="n">Concept 2</span><h2>Tech Blue · 3D</h2>
+        <p>Product-tech feel with a cinematic 3D laptop teardown in the hero.</p>
+        <div class="tags"><span>Light</span><span>Blue-led</span><span>3D</span></div><span class="open">Open concept →</span></div>
+    </a>
+    <a class="c" href="set-3/index.html">
+      <div class="sw"><i style="background:#0B0B0C"></i><i style="background:#262819"></i><i style="background:#FF5A1F"></i><i style="background:#F6F5F1"></i></div>
+      <div class="body"><span class="n">Concept 3</span><h2>Dark Editorial</h2>
+        <p>Premium, magazine-style layout with bold type and photography.</p>
+        <div class="tags"><span>Dark</span><span>Editorial</span><span>Photo-led</span></div><span class="open">Open concept →</span></div>
+    </a>
+    <a class="c" href="set-4/index.html">
+      <div class="sw"><i style="background:#E9EDFF"></i><i style="background:#2B358C"></i><i style="background:#E3F6EE"></i><i style="background:#F26B1D"></i></div>
+      <div class="body"><span class="n">Concept 4</span><h2>Calm Navy · Bento</h2>
+        <p>Brand-navy, soft pastel cards and a booking form right in the hero. Fast and calm.</p>
+        <div class="tags"><span class="new">New</span><span>Light</span><span>Brand navy</span><span>Low motion</span></div><span class="open">Open concept →</span></div>
+    </a>
+    <a class="c" href="set-5/index.html">
+      <div class="sw"><i style="background:#FFF7ED"></i><i style="background:#F97316"></i><i style="background:#2563EB"></i><i style="background:#0B0B0C"></i></div>
+      <div class="body"><span class="n">Concept 5</span><h2>Mix &amp; Match</h2>
+        <p>Best parts of Concepts 1, 2 and 3 combined into one page.</p>
+        <div class="tags"><span class="new">New</span><span>Set 1</span><span>Set 2</span><span>Set 3</span></div><span class="open">Open concept →</span></div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
