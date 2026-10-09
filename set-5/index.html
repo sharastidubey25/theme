@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=8.5">
+<link rel="stylesheet" href="assets/css/style.css?v=9.2">
 <link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.0">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -169,17 +169,18 @@
     <div class="container hero-inner">
       <div class="hero-copy">
         <!-- All services at once — hovering a tile plays its scene on the laptop -->
-        <nav class="hsv" id="heroSlides" aria-label="FixPapa services">
+        <nav class="hsv svc-panel" id="heroSlides" aria-label="FixPapa services">
           <div class="hsv-head"><b>What do you need help with?</b></div>
           <div class="hsv-grid">
-            <a class="hsv-tile on" href="repair.html" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-wrench"/></svg></span><span class="hsv-txt"><b>Book a Repair</b><em>6-mo warranty</em></span></a>
-            <a class="hsv-tile" href="#support" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-headset"/></svg></span><span class="hsv-txt"><b>Technical Support</b><em>₹5/min</em></span></a>
-            <a class="hsv-tile" href="#amc" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-server"/></svg></span><span class="hsv-txt"><b>AMC &amp; Inventory</b><em>Discounts</em></span></a>
-            <a class="hsv-tile" href="https://pulse.fixpapa.com" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-cpu"/></svg></span><span class="hsv-txt"><b>FixPapa Pulse</b><em>Win · Mac</em></span></a>
-            <a class="hsv-tile" href="rental.html"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-projector"/></svg></span><span class="hsv-txt"><b>Rental</b><em>Free delivery</em></span></a>
-            <a class="hsv-tile" href="refurbished.html"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-laptop"/></svg></span><span class="hsv-txt"><b>Refurbished</b><em class="hot">Up to 86% off</em></span></a>
-            <a class="hsv-tile" href="open-box-deal.html"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-box"/></svg></span><span class="hsv-txt"><b>Open Box Deals</b><em class="hot">Up to 82% off</em></span></a>
-            <a class="hsv-tile eco" href="#ewaste" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-recycle"/></svg></span><span class="hsv-txt"><b>E-Waste</b><em>Recycle &amp; earn</em></span></a>
+            <a class="hsv-tile on" href="repair.html" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt=""></span><em>6-month warranty</em></span><b>Book a Repair</b></a>
+            <a class="hsv-tile" href="#support" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.jpg" alt=""></span><em>₹5/min</em></span><b>Technical Support</b></a>
+            <a class="hsv-tile" href="#amc" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt=""></span><em>Special discounts</em></span><b>AMC &amp; Inventory</b></a>
+            <a class="hsv-tile" href="device-health.html" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt=""></span><em>Warranty check</em></span><b>Device Health</b></a>
+            <a class="hsv-tile" href="rental.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt=""></span><em>Free delivery</em></span><b>Rental</b></a>
+            <a class="hsv-tile" href="refurbished.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-desktop.jpg" alt=""></span><em class="hot">Up to 86% off</em></span><b>Refurbished</b></a>
+            <a class="hsv-tile" href="open-box-deal.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-laptops.jpg" alt=""></span><em class="hot">Up to 82% off</em></span><b>Open Box Deals</b></a>
+            <a class="hsv-tile eco" href="#ewaste" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt=""></span><em>Recycle &amp; earn</em></span><b>E-Waste Recycling</b></a>
+            <a class="hsv-tile" href="brands.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-printer.jpg" alt=""></span><em>100+ brands</em></span><b>All Brands</b></a>
           </div>
         </nav>
       </div>
@@ -679,25 +680,31 @@
   </div>
 </section>
 
-<!-- ============ OUR SERVICES · compact photo tiles: offer pill + name ============ -->
-<section class="section svc" id="services">
-  <div class="container">
-   <div class="svc-panel" data-reveal>
-    <div class="section-head">
-      <div><span class="eyebrow">What we do</span><h2 class="h-lg">Our <span class="hl">Services</span></h2></div>
+<!-- ============ PRODUCTS ============ -->
+<section class="section" id="products">
+  <div class="bg-orb bg-orb--blue" style="width:500px;height:500px;left:-200px;top:10%;opacity:.25"></div>
+  <div class="container" style="position:relative">
+    <div class="section-head" data-reveal>
+      <div>
+        <span class="eyebrow">Certified pre-owned</span><h2 class="h-lg">Refurbished, <span class="hl">up to 86% off</span></h2>
+        <p class="rfh-sub">Business-grade tech, tested and restored by FixPapa technicians — like new, at a fraction of the price.</p>
+        <ul class="rfh-trust"><li><svg width="15" height="15"><use href="#i-check"/></svg>40-point quality check</li><li><svg width="15" height="15"><use href="#i-shield"/></svg>6-month warranty</li><li><svg width="15" height="15"><use href="#i-truck"/></svg>Doorstep delivery</li></ul>
+      </div>
+      <a href="refurbished.html" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="svc-grid">
-      <a class="svc-tile" href="repair.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt="" loading="lazy"></span><em>6-month warranty</em></span><b>Book a Repair</b></a>
-      <a class="svc-tile" href="#support"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.jpg" alt="" loading="lazy"></span><em>₹5/min</em></span><b>Technical Support</b></a>
-      <a class="svc-tile" href="#amc"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt="" loading="lazy"></span><em>Special discounts</em></span><b>AMC &amp; Inventory</b></a>
-      <a class="svc-tile" href="device-health.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt="" loading="lazy"></span><em>Warranty check</em></span><b>Device Health</b></a>
-      <a class="svc-tile" href="rental.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt="" loading="lazy"></span><em>Free delivery</em></span><b>Rental</b></a>
-      <a class="svc-tile" href="refurbished.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-desktop.jpg" alt="" loading="lazy"></span><em class="hot">Up to 86% off</em></span><b>Refurbished</b></a>
-      <a class="svc-tile" href="open-box-deal.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-laptops.jpg" alt="" loading="lazy"></span><em class="hot">Up to 82% off</em></span><b>Open Box Deals</b></a>
-      <a class="svc-tile" href="#ewaste"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt="" loading="lazy"></span><em>Recycle &amp; earn</em></span><b>E-Waste Recycling</b></a>
-      <a class="svc-tile" href="brands.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-printer.jpg" alt="" loading="lazy"></span><em>100+ brands</em></span><b>All Brands</b></a>
+    <nav class="rfh-cats" id="rfCats" aria-label="Refurbished categories" data-reveal></nav>
+
+    <div class="rfh-deals-head" data-reveal>
+      <h3><svg width="22" height="22"><use href="#i-tag"/></svg>Top refurbished deals</h3>
+      <p>Biggest discounts across every category</p>
     </div>
-   </div>
+    <div class="prod-grid prod-loop" id="refurbGrid" data-reveal></div>
+
+    <div class="section-head" data-reveal style="margin-top:48px">
+      <div><span class="eyebrow">Fresh arrivals</span><h2 class="h-lg">New Products</h2></div>
+      <a href="#" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="prod-grid prod-loop" id="newGrid" data-reveal></div>
   </div>
 </section>
 
@@ -812,34 +819,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ PRODUCTS ============ -->
-<section class="section" id="products">
-  <div class="bg-orb bg-orb--blue" style="width:500px;height:500px;left:-200px;top:10%;opacity:.25"></div>
-  <div class="container" style="position:relative">
-    <div class="section-head" data-reveal>
-      <div>
-        <span class="eyebrow">Certified pre-owned</span><h2 class="h-lg">Refurbished, <span class="hl">up to 86% off</span></h2>
-        <p class="rfh-sub">Business-grade tech, tested and restored by FixPapa technicians — like new, at a fraction of the price.</p>
-        <ul class="rfh-trust"><li><svg width="15" height="15"><use href="#i-check"/></svg>40-point quality check</li><li><svg width="15" height="15"><use href="#i-shield"/></svg>6-month warranty</li><li><svg width="15" height="15"><use href="#i-truck"/></svg>Doorstep delivery</li></ul>
-      </div>
-      <a href="refurbished.html" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-    </div>
-    <nav class="rfh-cats" id="rfCats" aria-label="Refurbished categories" data-reveal></nav>
-
-    <div class="rfh-deals-head" data-reveal>
-      <h3><svg width="22" height="22"><use href="#i-tag"/></svg>Top refurbished deals</h3>
-      <p>Biggest discounts across every category</p>
-    </div>
-    <div class="prod-grid prod-loop" id="refurbGrid" data-reveal></div>
-
-    <div class="section-head" data-reveal style="margin-top:48px">
-      <div><span class="eyebrow">Fresh arrivals</span><h2 class="h-lg">New Products</h2></div>
-      <a href="#" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="prod-grid prod-loop" id="newGrid" data-reveal></div>
   </div>
 </section>
 
