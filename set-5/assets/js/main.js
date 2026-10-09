@@ -189,15 +189,8 @@
   if (!hasGsap) { $$('[data-reveal]').forEach(el => el.style.opacity = 1); return; }
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
-  // safety net: whenever the page comes back to the very top, make sure the hero is fully shown
-  let topFix;
-  addEventListener('scroll', () => {
-    clearTimeout(topFix);
-    topFix = setTimeout(() => { if (scrollY < 4) { ScrollTrigger.update(); $('#hero').classList.remove('is-dark'); gsap.set('#heroVeil', { opacity: 0 }); } }, 120);
-  }, { passive: true });
 
-  // Native scrolling only (a smooth-scroll library fought with the pinned hero in Firefox
-  // and could leave a blank screen when scrolling back up).
+  // Native scrolling only (no smooth-scroll library).
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const h = a.getAttribute('href'); if (h.length < 2) { e.preventDefault(); scrollTo({ top: 0, behavior: 'smooth' }); } }));
   toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
@@ -208,6 +201,8 @@
   const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
   intro.from('[data-hero-in]', { yPercent: 40, y: 20, opacity: 0, duration: 1, stagger: .09 })
        .to($$('span', typed), { opacity: 1, duration: .01, stagger: .055 }, .5)
+       .from('.hsv', { y: 30, opacity: 0, duration: 1, clearProps: 'transform,opacity' }, .5)
+       .from('.hsv-tile', { y: 18, opacity: 0, duration: .7, stagger: .05, clearProps: 'transform,opacity' }, .6)
        .from('#heroStage', { opacity: 0, scale: .92, duration: 1.4 }, .2)
        .from('.holo', { opacity: 0, y: 30, stagger: .2, duration: .9 }, .9)
        .add(tick, 1.2);
@@ -241,24 +236,20 @@
 
   const mm = gsap.matchMedia();
   mm.add('(min-width: 1025px)', () => {
+    // No pin: the page scrolls normally and the laptop assembles over the first third of a screen of scroll,
+    // so one wheel turn visibly moves the page, collapses the navbar and builds the laptop together.
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '#heroPin', start: 'top top', end: '+=120%', scrub: .6, pin: true, pinSpacing: true,
+        trigger: '#hero', start: 'top top', end: '+=35%', scrub: .6,
         onUpdate: (st) => {
           const lock = st.progress > .02;
           if (lock !== !!window.__heroLock) { window.__heroLock = lock; window.__heroRestart && window.__heroRestart(); }
           if (lock && window.__heroSlide && window.__heroGo) window.__heroGo(0);
-          $('#hero').classList.toggle('is-dark', st.progress > .66);
-          if (!window.__heroSlide) healthTxt.textContent = st.progress > .52 ? 'All systems OK' : 'Scanning…';
+          if (!window.__heroSlide) healthTxt.textContent = st.progress > .75 ? 'All systems OK' : 'Scanning…';
         }
       }
     });
-    tl.add(buildAssemble(), 0)
-      .to('#heroVeil', { opacity: 1, duration: 1.2, ease: 'none' }, 3.1)
-      .to('#floorShadow', { opacity: .5, duration: 1 }, 3.1)
-      .to('.holo', { opacity: 0, y: -24, duration: .5, stagger: .1 }, 3.1)
-      .to({}, { duration: .8 });
-    return () => { $('#hero').classList.remove('is-dark'); };
+    tl.add(buildAssemble(), 0);
   });
   mm.add('(max-width: 1024px)', () => {
     const assemble = buildAssemble().pause();
@@ -300,7 +291,9 @@
     const end = +el.dataset.count, o = { v: 0 };
     gsap.to(o, { v: end, duration: end > 50 ? 2 : 1.4, ease: 'power2.out', onUpdate: () => el.textContent = Math.round(o.v).toLocaleString('en-IN') });
   };
-  $$('.stats [data-count]').forEach(el => ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => countUp(el) }));
+  // stats strip is part of the first screen: count up once on page load, not on scroll
+  gsap.fromTo('.stats-grid > .stat', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .8, ease: 'power3.out', stagger: .08, delay: .5, clearProps: 'transform,opacity' });
+  $$('.stats [data-count]').forEach(el => gsap.delayedCall(.8, () => countUp(el)));
 
   /* ---------- Process timeline ---------- */
   const steps = $$('.step');
@@ -571,22 +564,23 @@
   tl.to(screw, { x: 4, y: BASE, scale: 0, opacity: 0, duration: .35, ease: 'power2.in' });
 })();
 
-/* ---------- Hero content slider (loops) + matching laptop-screen scene ---------- */
+/* ---------- Hero services panel: every service shown at once; the laptop stage cycles through
+   the services that have their own scene, highlighting that tile. Hover / focus a tile to play its scene. ---------- */
 (() => {
   const wrap = document.getElementById('heroSlides'); if (!wrap) return;
-  const slides = [...wrap.querySelectorAll('.hs-slide')], dots = [...document.querySelectorAll('.hs-nav button')];
+  const tiles = [...wrap.querySelectorAll('.hsv-tile[data-scene]')];
   const scenes = [...document.querySelectorAll('#screenUI .scr')];
   const hk = document.getElementById('holoK'), hv = document.getElementById('holoV'), ht = document.getElementById('healthTxt');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const G = window.gsap, DUR = 6500;
-  let cur = 0, timer, paused = false;
-  /* Set 5: every tab has its own stage scene (laptop / pulse / AMC / support / e-waste) */
+  const G = window.gsap, DUR = 5000;
+  let cur = 0, timer, paused = false, offscreen = false;
+  /* Set 5: every service has its own stage scene (laptop / pulse / AMC / support / e-waste) */
   const stageScenes = [...document.querySelectorAll('#heroSvg .scene')];
   function swapScene(n) {
     const next = stageScenes.find(s => +s.dataset.scene === n); if (!next) return;
     document.getElementById('heroStage').classList.toggle('scene-alt', n !== 0);
     if (!G || reduce) { stageScenes.forEach(s => s.classList.toggle('on', s === next)); return; }
-    // stop every running scene tween first, so quick tab clicks / scrolling can never leave 2+ scenes on screen
+    // stop every running scene tween first, so quick hovers / scrolling can never leave 2+ scenes on screen
     stageScenes.forEach(s => { G.killTweensOf(s); const p = s.querySelectorAll('[data-pop]'); G.killTweensOf(p); if (s !== next) G.set(p, { opacity: 1, scale: 1 }); });
     stageScenes.forEach(s => {
       if (s === next) return;
@@ -600,33 +594,30 @@
   }
   window.__heroGo = (n) => go(n);
   window.__heroRestart = () => restart();
-  const setDotTimer = () => dots.forEach((d, i) => { d.classList.toggle('on', i === cur); d.style.setProperty('--d', DUR + 'ms'); d.setAttribute('aria-selected', i === cur); });
+  wrap.style.setProperty('--d', DUR + 'ms');
   function go(n) {
     if (n === cur) return;
-    const out = slides[cur], inn = slides[n];
-    out.classList.remove('on'); out.setAttribute('aria-hidden', 'true');
-    inn.classList.add('on'); inn.removeAttribute('aria-hidden');
-    if (G && !reduce) {
-      G.fromTo(out.children, { y: 0, opacity: 1 }, { y: -24, opacity: 0, duration: .45, stagger: .04, ease: 'power2.in' });
-      G.fromTo(inn.children, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: .8, stagger: .08, ease: 'power3.out', delay: .35, clearProps: 'transform' });
-    }
-    const sIdx = +inn.dataset.screen;
+    tiles[cur].classList.remove('on', 'run'); tiles[n].classList.add('on');
+    const sIdx = +tiles[n].dataset.scene;
     scenes.forEach(sc => sc.classList.toggle('on', +sc.dataset.s === sIdx));
     swapScene(sIdx);
-    const [k, v, t] = inn.dataset.holo.split('|');
+    const [k, v, t] = tiles[n].dataset.holo.split('|');
     if (hk) { hk.textContent = k; hv.textContent = v; ht.textContent = t; }
     window.__heroSlide = n;
-    cur = n; setDotTimer(); restart();
+    cur = n; restart();
   }
-  function restart() { clearTimeout(timer); dots.forEach(d => { d.classList.remove('run'); void d.offsetWidth; }); if (paused || reduce || window.__heroLock) return; dots[cur].classList.add('run'); timer = setTimeout(() => go((cur + 1) % slides.length), DUR); }
-  dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
-  const copy = wrap.closest('.hero-copy');
-  copy.addEventListener('mouseenter', () => { paused = true; restart(); });
-  copy.addEventListener('mouseleave', () => { paused = false; restart(); });
-  new IntersectionObserver(([e]) => { paused = !e.isIntersecting; restart(); }).observe(document.getElementById('hero'));
-  setDotTimer(); setTimeout(restart, 2200);
+  function restart() {
+    clearTimeout(timer); tiles.forEach(t => { t.classList.remove('run'); void t.offsetWidth; });
+    if (paused || offscreen || reduce || window.__heroLock) return;
+    tiles[cur].classList.add('run'); timer = setTimeout(() => go((cur + 1) % tiles.length), DUR);
+  }
+  tiles.forEach((t, i) => { t.addEventListener('mouseenter', () => go(i)); t.addEventListener('focus', () => go(i)); });
+  wrap.addEventListener('mouseenter', () => { paused = true; restart(); });
+  wrap.addEventListener('mouseleave', () => { paused = false; restart(); });
+  new IntersectionObserver(([e]) => { offscreen = !e.isIntersecting; restart(); }).observe(document.getElementById('hero'));
+  setTimeout(restart, 2200);
   const qTab = +new URLSearchParams(location.search).get('tab'); // e.g. ?tab=2 opens AMC
-  if (qTab > 0 && qTab < slides.length) setTimeout(() => go(qTab), 1200);
+  if (qTab > 0 && qTab < tiles.length) setTimeout(() => go(tiles.findIndex(t => +t.dataset.scene === qTab)), 1200);
 })();
 
 /* ---------- Set 5: light / dark theme switch (choice remembered on this device) ---------- */

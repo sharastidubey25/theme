@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=7.4">
+<link rel="stylesheet" href="assets/css/style.css?v=8.5">
 <link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.0">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -162,76 +162,30 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
   <div class="hero-pin" id="heroPin">
-    <div class="bg-grid"></div>
     <div class="hero-dark-veil" id="heroVeil"></div>
     <div class="bg-orb bg-orb--blue" style="width:620px;height:620px;right:-140px;top:-120px"></div>
     <div class="bg-orb bg-orb--orange" style="width:420px;height:420px;left:-160px;bottom:-160px;opacity:.35"></div>
 
     <div class="container hero-inner">
       <div class="hero-copy">
-        <div class="hs" id="heroSlides" aria-roledescription="carousel" aria-label="FixPapa services">
-          <!-- 1 · Repair (page H1) -->
-          <div class="hs-slide on" data-screen="0" data-holo="Diagnostics|Device Health|Scanning…" aria-roledescription="slide">
-            <div class="hero-kicker" data-hero-in><span class="status-chip"><span class="dot"></span>Doorstep service · Book online</span></div>
-            <h1 id="heroTitle">
-              <span class="line"><span data-hero-in>Trusted Electronics</span></span>
-              <span class="line"><span data-hero-in>&amp; Gadget Repair</span></span>
-              <span class="line"><span class="typed" id="typed">at Your Doorstep</span><span class="caret"></span></span>
-            </h1>
-            <p class="lead" data-hero-in>FixPapa offers reliable, on-demand electronics and gadget repair with certified technicians, genuine spare parts, transparent pricing, and a 6-month service warranty. Book online for doorstep service.</p>
-            <div class="hero-ctas" data-hero-in>
-              <a href="repair.html" class="btn" data-ripple>Book A Repair <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-              <a href="#amc" class="btn btn--ghost" data-ripple>AMC &amp; Inventory Management</a>
-            </div>
+        <!-- All services at once — hovering a tile plays its scene on the laptop -->
+        <nav class="hsv" id="heroSlides" aria-label="FixPapa services">
+          <div class="hsv-head"><b>What do you need help with?</b></div>
+          <div class="hsv-grid">
+            <a class="hsv-tile on" href="repair.html" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-wrench"/></svg></span><span class="hsv-txt"><b>Book a Repair</b><em>6-mo warranty</em></span></a>
+            <a class="hsv-tile" href="#support" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-headset"/></svg></span><span class="hsv-txt"><b>Technical Support</b><em>₹5/min</em></span></a>
+            <a class="hsv-tile" href="#amc" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-server"/></svg></span><span class="hsv-txt"><b>AMC &amp; Inventory</b><em>Discounts</em></span></a>
+            <a class="hsv-tile" href="https://pulse.fixpapa.com" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-cpu"/></svg></span><span class="hsv-txt"><b>FixPapa Pulse</b><em>Win · Mac</em></span></a>
+            <a class="hsv-tile" href="rental.html"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-projector"/></svg></span><span class="hsv-txt"><b>Rental</b><em>Free delivery</em></span></a>
+            <a class="hsv-tile" href="refurbished.html"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-laptop"/></svg></span><span class="hsv-txt"><b>Refurbished</b><em class="hot">Up to 86% off</em></span></a>
+            <a class="hsv-tile" href="open-box-deal.html"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-box"/></svg></span><span class="hsv-txt"><b>Open Box Deals</b><em class="hot">Up to 82% off</em></span></a>
+            <a class="hsv-tile eco" href="#ewaste" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="hsv-ic"><svg width="22" height="22"><use href="#i-recycle"/></svg></span><span class="hsv-txt"><b>E-Waste</b><em>Recycle &amp; earn</em></span></a>
           </div>
-          <!-- 2 · FixPapa Pulse -->
-          <div class="hs-slide" data-screen="1" data-holo="FixPapa Pulse|Device Health|85% Healthy" aria-roledescription="slide" aria-hidden="true">
-            <div class="hero-kicker"><span class="status-chip pulse-chip"><span class="beat"></span>FixPapa Pulse · Device Health Lifecycle Monitoring</span></div>
-            <div class="hs-title">Healthy Devices.<br><span class="typed-alt">Happier Business.</span></div>
-            <p class="hs-mpp">Monitor <i></i> Predict <i></i> Prevent</p>
-            <div class="hs-chips"><span class="hs-chip"><svg width="16" height="16"><use href="#i-search"/></svg>Real-time Device Health</span><span class="hs-chip"><svg width="16" height="16"><use href="#i-cpu"/></svg>Predict Potential Issues</span><span class="hs-chip"><svg width="16" height="16"><use href="#i-shield"/></svg>Reduce Downtime</span><span class="hs-chip"><svg width="16" height="16"><use href="#i-tag"/></svg>Optimize IT Costs</span></div>
-            <div class="hero-ctas">
-              <a href="https://pulse.fixpapa.com" class="btn" data-ripple>Download Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-              <span class="hs-avail">Available on <b>Windows</b> · <b>macOS</b></span>
-            </div>
-          </div>
-          <!-- 3 · AMC -->
-          <div class="hs-slide" data-screen="2" data-holo="AMC · Live|Inventory|342 in stock" aria-roledescription="slide" aria-hidden="true">
-            <div class="hero-kicker"><span class="status-chip"><span class="dot"></span>Annual maintenance plan</span></div>
-            <div class="hs-title">AMC &amp; Inventory<br><span class="typed-alt">Management</span></div>
-            <p class="lead">Real-time tracking and organized tools for maintenance and stock. Get Exclusive Discounts on AMC Service Packages - Non Comprehensive IT Support.</p>
-            <div class="hero-ctas"><a href="#amc" class="btn" data-ripple>Know More <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
-          </div>
-          <!-- 4 · Technical support -->
-          <div class="hs-slide" data-screen="3" data-holo="Remote help|Live session|Connected" aria-roledescription="slide" aria-hidden="true">
-            <div class="hero-kicker"><span class="status-chip"><span class="dot"></span>Remote help · 24/7</span></div>
-            <div class="hs-title">Technical Support<br><span class="typed-alt">Starting at ₹5/min</span></div>
-            <p class="lead">Our skilled technicians are ready to assist you in installing and configuring a range of devices and systems</p>
-            <div class="hero-ctas"><a href="#support" class="btn" data-ripple>Know More <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
-          </div>
-          <!-- 5 · E-waste -->
-          <div class="hs-slide" data-screen="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit" aria-roledescription="slide" aria-hidden="true">
-            <div class="hero-kicker"><span class="status-chip eco"><span class="dot"></span>Sustainability</span></div>
-            <div class="hs-title">Unlock Value from<br><span class="typed-alt eco">Your E-Waste</span></div>
-            <p class="lead">Fixpapa believe in responsible electronic waste management, and we've made it easier than ever for you to contribute to a sustainable future.</p>
-            <div class="hero-ctas"><a href="#ewaste" class="btn eco-btn" data-ripple>A Click Towards Our Mother Earth <svg width="18" height="18"><use href="#i-recycle"/></svg></a></div>
-          </div>
-        </div>
-        <div class="hs-nav" data-hero-in role="tablist" aria-label="Choose slide">
-          <button class="on" aria-label="Repair"><i></i><span>Repair</span></button>
-          <button aria-label="FixPapa Pulse"><i></i><span>Pulse</span></button>
-          <button aria-label="AMC"><i></i><span>AMC</span></button>
-          <button aria-label="Technical Support"><i></i><span>Support</span></button>
-          <button aria-label="E-Waste"><i></i><span>E-Waste</span></button>
-        </div>
+        </nav>
       </div>
 
       <!-- Animated computer stage -->
       <div class="hero-stage" id="heroStage" aria-hidden="true">
-        <div class="rings" data-depth="0.4">
-          <div class="ring ring--1"></div><div class="ring ring--2"></div><div class="ring ring--3"></div>
-        </div>
-        <div class="particles" id="particles"></div>
 
         <svg class="hero-svg" viewBox="0 0 600 600" id="heroSvg">
           <defs>
@@ -244,19 +198,6 @@
             <radialGradient id="gGlowB"><stop offset="0" stop-color="#FDBA74" stop-opacity=".8"/><stop offset="1" stop-color="#FDBA74" stop-opacity="0"/></radialGradient>
             <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#0B1220" flood-opacity=".22"/></filter>
           </defs>
-
-          <!-- background circuit traces -->
-          <g data-depth="0.25" opacity=".9">
-            <path class="trace" d="M20 120h120l30 30h80"/>
-            <path class="trace" d="M580 90H470l-26 26h-70"/>
-            <path class="trace" d="M10 470h90l40-40h60"/>
-            <path class="trace" d="M590 520H480l-30-30h-60"/>
-            <path class="trace-pulse" d="M20 120h120l30 30h80"/>
-            <path class="trace-pulse b" d="M580 90H470l-26 26h-70"/>
-            <path class="trace-pulse b" d="M10 470h90l40-40h60"/>
-            <path class="trace-pulse" d="M590 520H480l-30-30h-60"/>
-            <g fill="#FDBA74"><circle cx="250" cy="150" r="3"/><circle cx="374" cy="116" r="3"/><circle cx="200" cy="430" r="3"/><circle cx="390" cy="490" r="3"/></g>
-          </g>
 
           <!-- ===== SCENE 0 · REPAIR (exploded laptop) ===== -->
           <g class="scene on" id="scRepair" data-scene="0">
@@ -417,7 +358,6 @@
           </g>
           <!-- ===== SCENE 1 · PULSE (device health monitoring) ===== -->
           <g class="scene" id="scPulse" data-scene="1">
-            <ellipse cx="300" cy="440" rx="240" ry="84" fill="none" stroke="#FDBA74" stroke-dasharray="3 9"/>
             <ellipse cx="300" cy="440" rx="170" ry="60" fill="#FFEDD5" opacity=".6"/>
             <g transform="translate(300 440) scale(1 .35)">
               <path d="M0 0 L240 0 A240 240 0 0 0 170 -170 Z" fill="#FF8A1F" opacity=".16">
@@ -662,9 +602,6 @@
           <!-- ===== SCENE 4 · E-WASTE (recycle & earn) ===== -->
           <g class="scene" id="scEwaste" data-scene="4">
             <defs><clipPath id="cpBin"><rect x="0" y="0" width="600" height="336"/></clipPath></defs>
-            <circle cx="300" cy="330" r="190" fill="none" stroke="#86EFAC" stroke-width="2" stroke-dasharray="10 12" opacity=".8">
-              <animateTransform attributeName="transform" type="rotate" from="0 300 330" to="360 300 330" dur="24s" repeatCount="indefinite"/>
-            </circle>
             <ellipse cx="300" cy="470" rx="210" ry="60" fill="#DCFCE7"/>
             <ellipse cx="300" cy="470" rx="140" ry="38" fill="#BBF7D0"/>
             <!-- old devices falling into the bin -->
@@ -717,6 +654,9 @@
         </div>
 
       </div>
+
+      <!-- one-line headline under both columns -->
+      <h1 id="heroTitle" class="hero-title"><span class="line"><span data-hero-in>Trusted Electronics &amp; Gadget Repair</span> <span class="typed" id="typed">at Your Doorstep</span><span class="caret"></span></span></h1>
     </div>
 
     <div class="container hero-caption">
@@ -730,7 +670,7 @@
 <!-- ============ STATS ============ -->
 <section class="stats" aria-label="FixPapa at a glance">
   <div class="container">
-    <div class="stats-grid" data-reveal="stagger">
+    <div class="stats-grid">
       <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-badge"/></svg></div><div class="num"><span data-count="100">0</span><small>+</small></div><div class="lbl">Brands covered by our service network</div></div>
       <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-headset"/></svg></div><div class="num"><span data-count="24">0</span>/7</div><div class="lbl">Support</div></div>
       <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-shield"/></svg></div><div class="num"><span data-count="6">0</span><small>months</small></div><div class="lbl">Service warranty</div></div>
@@ -1480,6 +1420,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/fixpapa-story.js?v=6.1"></script>
 <script src="assets/js/refurb-data.js?v=1.0"></script>
-<script src="assets/js/main.js?v=7.0"></script>
+<script src="assets/js/main.js?v=7.4"></script>
 </body>
 </html>
