@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=9.5">
+<link rel="stylesheet" href="assets/css/style.css?v=10.1">
 <link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.0">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -172,14 +172,14 @@
         <nav class="hsv svc-panel" id="heroSlides" aria-label="FixPapa services">
           <div class="hsv-head"><b>What do you need help with?</b></div>
           <div class="hsv-grid">
-            <a class="hsv-tile on" href="repair.html" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt=""></span><em>6-month warranty</em></span><b>Book a Repair</b></a>
-            <a class="hsv-tile" href="#support" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.jpg" alt=""></span><em>₹5/min</em></span><b>Technical Support</b></a>
-            <a class="hsv-tile" href="#amc" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt=""></span><em>Special discounts</em></span><b>AMC &amp; Inventory</b></a>
-            <a class="hsv-tile" href="device-health.html" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt=""></span><em>Warranty check</em></span><b>Device Health</b></a>
+            <a class="hsv-tile on" href="repair.html" data-card="FixPapa · Live|Book a Repair,~we handle the rest.|Warranty:6 months|Support:24/7|Brands:100+" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt=""></span><em>6-month warranty</em></span><b>Book a Repair</b></a>
+            <a class="hsv-tile" href="#support" data-card="Remote help · Live|Talk to an expert,~fixed on a call.|Starting at:₹5/min|Home visit:Not needed|Available:24/7" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.jpg" alt=""></span><em>₹5/min</em></span><b>Technical Support</b></a>
+            <a class="hsv-tile" href="#amc" data-card="AMC · Plan|Maintenance &amp; stock,~under one plan.|Visits:Monthly|Covers:PCs · CCTV · UPS|Pricing:Special discounts" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt=""></span><em>Special discounts</em></span><b>AMC &amp; Inventory</b></a>
+            <a class="hsv-tile" href="device-health.html" data-card="FixPapa Pulse|Monitor, predict,~prevent.|Device health:Real-time|Works on:Win · Mac|Downtime:Reduced" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt=""></span><em>Warranty check</em></span><b>Device Health</b></a>
             <a class="hsv-tile" href="rental.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt=""></span><em>Free delivery</em></span><b>Rental</b></a>
             <a class="hsv-tile" href="refurbished.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-desktop.jpg" alt=""></span><em class="hot">Up to 86% off</em></span><b>Refurbished</b></a>
             <a class="hsv-tile" href="open-box-deal.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-laptops.jpg" alt=""></span><em class="hot">Up to 82% off</em></span><b>Open Box Deals</b></a>
-            <a class="hsv-tile eco" href="#ewaste" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt=""></span><em>Recycle &amp; earn</em></span><b>E-Waste Recycling</b></a>
+            <a class="hsv-tile eco" href="#ewaste" data-card="E-Waste · Recycle|Sell old gadgets,~get paid.|Pickup:Free, doorstep|Up to:₹4,000 / laptop|Data:100% wiped" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt=""></span><em>Recycle &amp; earn</em></span><b>E-Waste Recycling</b></a>
             <a class="hsv-tile" href="brands.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-printer.jpg" alt=""></span><em>100+ brands</em></span><b>All Brands</b></a>
           </div>
         </nav>
@@ -647,11 +647,13 @@
           <div class="row" style="border-color:var(--border);color:var(--ink-3)">Status <b style="color:var(--green)" id="healthTxt">Scanning…</b></div>
         </div>
         <div class="holo holo--a" data-depth="1.6">
-          <div class="k">FixPapa · Live</div>
-          <div class="v">Book a Repair,<br>we handle the rest.</div>
-          <div class="row">Warranty <b>6 months</b></div>
-          <div class="row">Support <b>24/7</b></div>
-          <div class="row">Brands <b>100+</b></div>
+          <div id="holoA">
+            <div class="k">FixPapa · Live</div>
+            <div class="v">Book a Repair,<br>we handle the rest.</div>
+            <div class="row">Warranty <b>6 months</b></div>
+            <div class="row">Support <b>24/7</b></div>
+            <div class="row">Brands <b>100+</b></div>
+          </div>
         </div>
 
       </div>
@@ -708,65 +710,197 @@
   </div>
 </section>
 
-<!-- ============ BOOK A REPAIR ============ -->
-<section class="section booking-classic" id="book" style="padding-top:40px">
+<!-- ============ BOOK A REPAIR · pick a device, nothing else to read ============ -->
+<section class="section bk2" id="book">
+    <!-- device illustrations for the Book a Repair tiles (soft 3D style, FixPapa palette) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="bkSilver" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F5F9"/><stop offset="1" stop-color="#CBD5E1"/></linearGradient>
+        <linearGradient id="bkSilverD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E2E8F0"/><stop offset="1" stop-color="#94A3B8"/></linearGradient>
+        <linearGradient id="bkDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#0F172A"/></linearGradient>
+        <linearGradient id="bkWhite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2E8F0"/></linearGradient>
+        <linearGradient id="bkScreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#1D4ED8"/></linearGradient>
+        <linearGradient id="bkWarm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB366"/><stop offset="1" stop-color="#FF6A00"/></linearGradient>
+        <linearGradient id="bkGraphite" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#64748B"/><stop offset="1" stop-color="#1E293B"/></linearGradient>
+        <linearGradient id="bkBeam" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#FDE68A" stop-opacity=".9"/><stop offset="1" stop-color="#FDE68A" stop-opacity="0"/></linearGradient>
+        <radialGradient id="bkGlowG"><stop offset="0" stop-color="#4ADE80" stop-opacity=".55"/><stop offset="1" stop-color="#4ADE80" stop-opacity="0"/></radialGradient>
+      </defs>
+      <symbol id="bk-laptop" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="46" ry="4" fill="#0B1220" opacity=".12"/>
+        <path d="M30 16h60a4 4 0 0 1 4 4v44H26V20a4 4 0 0 1 4-4z" fill="url(#bkDark)"/>
+        <rect x="30" y="20" width="60" height="40" rx="1.5" fill="url(#bkScreen)"/>
+        <rect x="36" y="27" width="22" height="4" rx="2" fill="#FFA24D"/><rect x="36" y="35" width="34" height="3" rx="1.5" fill="#fff" opacity=".7"/><rect x="36" y="41" width="26" height="3" rx="1.5" fill="#fff" opacity=".45"/>
+        <path d="M30 20h26L42 60H30z" fill="#fff" opacity=".12"/>
+        <path d="M18 64h84l6 10a2.5 2.5 0 0 1-2.2 3.8H14.2A2.5 2.5 0 0 1 12 74z" fill="url(#bkSilver)"/>
+        <path d="M18 64h84l1.8 3H16.2z" fill="#94A3B8" opacity=".55"/>
+        <rect x="50" y="73.5" width="20" height="2.4" rx="1.2" fill="#94A3B8"/>
+      </symbol>
+      <symbol id="bk-desktop" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="50" ry="4" fill="#0B1220" opacity=".12"/>
+        <rect x="10" y="14" width="64" height="44" rx="4" fill="url(#bkDark)"/>
+        <rect x="13" y="17" width="58" height="36" rx="2" fill="url(#bkScreen)"/>
+        <path d="M18 42l8-7 7 5 9-10 8 6 9-8" stroke="#FFA24D" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 17h22L24 53H13z" fill="#fff" opacity=".1"/>
+        <path d="M37 58h10l3 14H34z" fill="url(#bkSilverD)"/>
+        <rect x="27" y="71" width="30" height="5" rx="2.5" fill="url(#bkSilver)"/>
+        <rect x="82" y="20" width="28" height="58" rx="4" fill="url(#bkDark)"/>
+        <rect x="82" y="20" width="6" height="58" rx="3" fill="#475569"/>
+        <path d="M93 30h12M93 35h12M93 40h12" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="99" cy="68" r="5" fill="#FF8A1F" opacity=".25"/><circle cx="99" cy="68" r="2.4" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-printer" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="46" ry="4" fill="#0B1220" opacity=".12"/>
+        <rect x="38" y="8" width="44" height="28" rx="2" fill="#fff" stroke="#E2E8F0"/>
+        <path d="M44 15h32M44 20h26M44 25h30" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+        <rect x="16" y="30" width="88" height="38" rx="9" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <rect x="16" y="30" width="88" height="9" rx="4.5" fill="#E2E8F0"/>
+        <rect x="78" y="44" width="18" height="7" rx="2" fill="url(#bkDark)"/>
+        <circle cx="71" cy="47.5" r="2.2" fill="#22C55E"/>
+        <rect x="16" y="46" width="4" height="12" rx="2" fill="#FF8A1F"/>
+        <rect x="28" y="57" width="64" height="4.5" rx="2.2" fill="#334155"/>
+        <path d="M31 60h58l4 18H27z" fill="#fff" stroke="#E2E8F0"/>
+        <path d="M36 66h48M35 71h50" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="bk-cctv" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="40" ry="3.5" fill="#0B1220" opacity=".1"/>
+        <rect x="88" y="8" width="20" height="30" rx="5" fill="url(#bkSilverD)"/>
+        <circle cx="98" cy="14" r="1.6" fill="#64748B"/><circle cx="98" cy="32" r="1.6" fill="#64748B"/>
+        <path d="M96 30L80 48" stroke="#94A3B8" stroke-width="7" stroke-linecap="round"/>
+        <g transform="rotate(16 56 56)">
+          <rect x="16" y="42" width="74" height="28" rx="12" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+          <rect x="12" y="36" width="76" height="10" rx="5" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <circle cx="25" cy="56" r="11" fill="#0F172A"/><circle cx="25" cy="56" r="11" fill="none" stroke="#FF8A1F" stroke-width="2"/>
+          <circle cx="25" cy="56" r="6" fill="url(#bkScreen)"/><circle cx="22.5" cy="53.5" r="1.8" fill="#fff" opacity=".85"/>
+          <circle cx="80" cy="62" r="2" fill="#EF4444"/>
+        </g>
+      </symbol>
+      <symbol id="bk-apple" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="38" ry="3.5" fill="#0B1220" opacity=".12"/>
+        <g transform="rotate(-10 44 46)">
+          <rect x="26" y="8" width="36" height="72" rx="9" fill="url(#bkGraphite)"/>
+          <rect x="31" y="13" width="17" height="17" rx="5" fill="#1E293B"/>
+          <circle cx="36" cy="18" r="3.4" fill="#0B1220" stroke="#475569"/><circle cx="43.5" cy="18" r="3.4" fill="#0B1220" stroke="#475569"/><circle cx="36" cy="25.5" r="3.4" fill="#0B1220" stroke="#475569"/>
+          <circle cx="44" cy="25.5" r="1.4" fill="#FDE68A"/>
+        </g>
+        <rect x="58" y="10" width="36" height="72" rx="9" fill="#0F172A"/>
+        <rect x="61" y="13" width="30" height="66" rx="6.5" fill="url(#bkWarm)"/>
+        <rect x="70" y="16" width="12" height="4" rx="2" fill="#0F172A"/>
+        <g fill="#fff" opacity=".9"><rect x="65" y="28" width="7" height="7" rx="2"/><rect x="74.5" y="28" width="7" height="7" rx="2"/><rect x="84" y="28" width="4" height="7" rx="2" opacity=".6"/><rect x="65" y="38" width="7" height="7" rx="2"/><rect x="74.5" y="38" width="7" height="7" rx="2"/></g>
+        <path d="M61 13h15L64 79h-3z" fill="#fff" opacity=".1"/>
+      </symbol>
+      <symbol id="bk-monitor" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="34" ry="3.5" fill="#0B1220" opacity=".12"/>
+        <rect x="10" y="8" width="100" height="56" rx="4" fill="url(#bkDark)"/>
+        <rect x="13" y="11" width="94" height="49" rx="2" fill="url(#bkWarm)"/>
+        <path d="M13 50c18-14 30-6 44-14s28-8 50-2v26H13z" fill="#1D4ED8" opacity=".55"/>
+        <path d="M13 11h34L28 60H13z" fill="#fff" opacity=".12"/>
+        <path d="M53 64h14l3 14H50z" fill="url(#bkSilverD)"/>
+        <rect x="40" y="77" width="40" height="5" rx="2.5" fill="url(#bkSilver)"/>
+      </symbol>
+      <symbol id="bk-tablet" viewBox="0 0 120 90">
+        <ellipse cx="58" cy="84" rx="40" ry="3.5" fill="#0B1220" opacity=".12"/>
+        <rect x="16" y="12" width="76" height="62" rx="8" fill="url(#bkDark)"/>
+        <rect x="20" y="16" width="68" height="54" rx="4" fill="url(#bkScreen)"/>
+        <rect x="26" y="23" width="26" height="18" rx="3" fill="#fff" opacity=".9"/><rect x="56" y="23" width="26" height="18" rx="3" fill="#FFA24D"/>
+        <rect x="26" y="45" width="56" height="4" rx="2" fill="#fff" opacity=".6"/><rect x="26" y="53" width="40" height="4" rx="2" fill="#fff" opacity=".4"/>
+        <path d="M20 16h24L30 70H20z" fill="#fff" opacity=".1"/>
+        <g transform="rotate(28 100 46)"><rect x="97" y="12" width="6" height="56" rx="3" fill="#F8FAFC" stroke="#CBD5E1"/><path d="M97 68h6l-3 8z" fill="#475569"/></g>
+      </symbol>
+      <symbol id="bk-projector" viewBox="0 0 120 90">
+        <ellipse cx="64" cy="80" rx="40" ry="4" fill="#0B1220" opacity=".12"/>
+        <path d="M36 46L2 28v44l34-16z" fill="url(#bkBeam)"/>
+        <rect x="28" y="34" width="80" height="38" rx="10" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <rect x="28" y="34" width="80" height="10" rx="5" fill="#F1F5F9"/>
+        <circle cx="44" cy="54" r="12" fill="#0F172A"/><circle cx="44" cy="54" r="12" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+        <circle cx="44" cy="54" r="7" fill="url(#bkScreen)"/><circle cx="41" cy="51" r="2" fill="#fff" opacity=".85"/>
+        <path d="M70 50h28M70 56h28M70 62h28" stroke="#CBD5E1" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="98" cy="40" r="2" fill="#FF8A1F"/>
+        <rect x="36" y="71" width="8" height="5" rx="2" fill="#94A3B8"/><rect x="92" y="71" width="8" height="5" rx="2" fill="#94A3B8"/>
+      </symbol>
+      <symbol id="bk-scanner" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="48" ry="4" fill="#0B1220" opacity=".12"/>
+        <path d="M18 46L30 12h70l4 34z" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <path d="M34 18h60l2 22H28z" fill="#F1F5F9"/>
+        <rect x="12" y="46" width="96" height="28" rx="7" fill="url(#bkSilverD)"/>
+        <rect x="16" y="46" width="88" height="7" rx="3" fill="#0F172A"/>
+        <rect x="22" y="47.5" width="62" height="4" rx="2" fill="#60A5FA"/>
+        <rect x="22" y="47.5" width="62" height="4" rx="2" fill="#93C5FD" opacity=".6"/>
+        <circle cx="96" cy="63" r="2.6" fill="#22C55E"/><rect x="72" y="61" width="16" height="4" rx="2" fill="#64748B"/>
+      </symbol>
+      <symbol id="bk-ups" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="30" ry="3.5" fill="#0B1220" opacity=".14"/>
+        <rect x="36" y="8" width="48" height="74" rx="7" fill="url(#bkDark)"/>
+        <rect x="36" y="8" width="9" height="74" rx="4" fill="#475569"/>
+        <rect x="50" y="18" width="26" height="15" rx="2.5" fill="#0EA5E9"/>
+        <rect x="54" y="22" width="12" height="7" rx="1" fill="none" stroke="#fff" stroke-width="1.4"/><rect x="66" y="24" width="2" height="3" fill="#fff"/><rect x="55.5" y="23.5" width="7" height="4" fill="#fff"/>
+        <circle cx="56" cy="41" r="3" fill="#334155"/><circle cx="66" cy="41" r="3" fill="#334155"/><circle cx="74" cy="41" r="2" fill="#22C55E"/>
+        <path d="M64 50l-8 12h6l-3 10 10-14h-6l3-8z" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-wifi" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="44" ry="4" fill="#0B1220" opacity=".12"/>
+        <rect x="27" y="26" width="6" height="34" rx="3" fill="url(#bkDark)"/><rect x="87" y="26" width="6" height="34" rx="3" fill="url(#bkDark)"/>
+        <rect x="14" y="54" width="92" height="22" rx="9" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <g fill="#22C55E"><circle cx="34" cy="65" r="2.2"/><circle cx="43" cy="65" r="2.2"/><circle cx="52" cy="65" r="2.2"/></g><circle cx="61" cy="65" r="2.2" fill="#FF8A1F"/>
+        <g stroke="#FF8A1F" stroke-width="4" fill="none" stroke-linecap="round"><path d="M44 30a22 22 0 0 1 32 0"/><path d="M51 37.5a12 12 0 0 1 18 0"/></g>
+        <circle cx="60" cy="44" r="3.2" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-network" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="50" ry="4" fill="#0B1220" opacity=".12"/>
+        <g fill="none" stroke-width="4" stroke-linecap="round"><path d="M27 52C27 32 18 22 8 16" stroke="#3B82F6"/><path d="M45 52C45 30 42 18 36 8" stroke="#FF8A1F"/><path d="M63 52C63 32 70 20 80 10" stroke="#22C55E"/><path d="M81 52C81 36 94 26 110 22" stroke="#F59E0B"/></g>
+        <rect x="10" y="48" width="100" height="28" rx="6" fill="url(#bkDark)"/>
+        <g fill="#0B1220" stroke="#64748B"><rect x="21" y="57" width="12" height="9" rx="1.5"/><rect x="39" y="57" width="12" height="9" rx="1.5"/><rect x="57" y="57" width="12" height="9" rx="1.5"/><rect x="75" y="57" width="12" height="9" rx="1.5"/></g>
+        <g fill="#22C55E"><circle cx="27" cy="70.5" r="1.4"/><circle cx="45" cy="70.5" r="1.4"/><circle cx="63" cy="70.5" r="1.4"/></g><circle cx="81" cy="70.5" r="1.4" fill="#F59E0B"/>
+        <circle cx="99" cy="62" r="2.4" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-server" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="34" ry="3.5" fill="#0B1220" opacity=".14"/>
+        <rect x="32" y="6" width="56" height="76" rx="6" fill="url(#bkDark)"/>
+        <g fill="#1E293B" stroke="#475569"><rect x="38" y="14" width="44" height="12" rx="2"/><rect x="38" y="30" width="44" height="12" rx="2"/><rect x="38" y="46" width="44" height="12" rx="2"/><rect x="38" y="62" width="44" height="12" rx="2"/></g>
+        <g stroke="#475569" stroke-width="1.4"><path d="M43 20h18M43 36h18M43 52h18M43 68h18"/></g>
+        <g fill="#22C55E"><circle cx="76" cy="20" r="2"/><circle cx="76" cy="36" r="2"/><circle cx="76" cy="68" r="2"/></g><circle cx="76" cy="52" r="2" fill="#FF8A1F"/>
+        <g fill="#60A5FA"><circle cx="70" cy="20" r="1.4"/><circle cx="70" cy="36" r="1.4"/><circle cx="70" cy="52" r="1.4"/><circle cx="70" cy="68" r="1.4"/></g>
+      </symbol>
+      <symbol id="bk-biometric" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="32" ry="3.5" fill="#0B1220" opacity=".14"/>
+        <rect x="30" y="6" width="60" height="76" rx="11" fill="url(#bkDark)"/>
+        <rect x="37" y="13" width="46" height="20" rx="4" fill="url(#bkScreen)"/>
+        <rect x="42" y="18" width="20" height="3.5" rx="1.75" fill="#fff" opacity=".85"/><rect x="42" y="25" width="30" height="3" rx="1.5" fill="#fff" opacity=".5"/>
+        <circle cx="60" cy="59" r="20" fill="url(#bkGlowG)"/>
+        <circle cx="60" cy="59" r="14" fill="#0F172A" stroke="#22C55E" stroke-width="2"/>
+        <g stroke="#4ADE80" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M52 62a8 8 0 0 1 16 0"/><path d="M55 64a5 5 0 0 1 10 0v2"/><path d="M60 61v6"/><path d="M50 57a11 11 0 0 1 20 0"/></g>
+      </symbol>
+    </svg>
   <div class="container">
-    <div class="booking" data-reveal="scale">
-      <div class="bg-grid"></div>
-      <div class="scanline"></div>
-      <div class="bg-orb bg-orb--blue" style="width:420px;height:420px;right:-100px;top:-120px;opacity:.35"></div>
-      <div>
-        <span class="eyebrow">Repair · Doorstep</span>
-        <h2 style="margin-top:16px">Book a <span class="hl">Repair</span></h2>
-        <p>At Fixpapa, we understand the importance of your devices, and that's why we offer comprehensive repair services for a wide range of brands, all conveniently located under one roof.</p>
-        <a href="repair.html" class="btn" data-ripple>Book Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-        <div class="booking-points">
-          <span><svg width="16" height="16"><use href="#i-check"/></svg>Certified technicians</span>
-          <span><svg width="16" height="16"><use href="#i-check"/></svg>Genuine spare parts</span>
-          <span><svg width="16" height="16"><use href="#i-check"/></svg>Transparent pricing</span>
+    <div class="bk2-panel" data-reveal="scale">
+      <div class="bk2-head">
+        <div>
+          <span class="eyebrow">Repair · Doorstep</span>
+          <h2 class="h-lg">Book a <span class="hl">Repair</span></h2>
+          <p>Pick your device. We pick it up, fix it and bring it back.</p>
         </div>
+        <a href="repair.html#book-now" class="btn" data-ripple>Book Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="booking-illus" data-parallax="-40">
-        <svg viewBox="0 0 440 400">
-          <defs>
-            <linearGradient id="bScr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
-          </defs>
-          <circle cx="220" cy="200" r="170" fill="none" stroke="rgba(96,165,250,.18)" stroke-dasharray="4 8"/>
-          <circle cx="220" cy="200" r="120" fill="none" stroke="rgba(255,138,31,.2)"/>
-          <g class="float-y">
-            <rect x="90" y="90" width="260" height="170" rx="12" fill="#1A2540" stroke="rgba(255,255,255,.12)"/>
-            <rect x="102" y="102" width="236" height="146" rx="6" fill="url(#bScr)"/>
-            <path d="M60 272h320l-22 26H82z" fill="#CBD5E1"/>
-            <rect x="190" y="276" width="60" height="8" rx="4" fill="#94A3B8"/>
-            <!-- open panel showing board -->
-            <rect x="126" y="126" width="188" height="98" rx="6" fill="#0B1B45" stroke="#3B82F6" stroke-dasharray="3 3"/>
-            <rect x="200" y="152" width="40" height="40" rx="4" fill="#0F172A" stroke="#FF8A1F"/>
-            <rect x="210" y="162" width="20" height="20" rx="2" fill="#FF8A1F" class="cpu-glow"/>
-            <path d="M140 140h40l10 10M300 140h-40l-10 10M140 210h40l10-10M300 210h-40l-10-10" stroke="#60A5FA" fill="none"/>
-            <circle cx="220" cy="172" r="36" fill="none" stroke="#FF8A1F" stroke-width="2" stroke-dasharray="6 6"><animateTransform attributeName="transform" type="rotate" from="0 220 172" to="360 220 172" dur="6s" repeatCount="indefinite"/></circle>
-          </g>
-          <!-- screwdriver -->
-          <g class="float-y d2">
-            <g transform="translate(330 60) rotate(40)">
-              <rect x="0" y="0" width="22" height="70" rx="10" fill="#FF8A1F"/>
-              <rect x="4" y="10" width="14" height="4" rx="2" fill="#FDBA74"/><rect x="4" y="20" width="14" height="4" rx="2" fill="#FDBA74"/>
-              <rect x="8" y="70" width="6" height="60" fill="#CBD5E1"/>
-              <path d="M8 130h6l-3 10z" fill="#94A3B8"/>
-            </g>
-          </g>
-          <!-- chip -->
-          <g class="float-y d3">
-            <rect x="40" y="70" width="54" height="54" rx="10" fill="#1A2540" stroke="rgba(96,165,250,.4)"/>
-            <rect x="54" y="84" width="26" height="26" rx="4" fill="#2563EB"/>
-            <path d="M48 70v-8M60 70v-8M72 70v-8M84 70v-8M48 132v-8M60 132v-8M72 132v-8M84 132v-8" stroke="#60A5FA" stroke-width="2"/>
-          </g>
-        </svg>
-        <div class="tag-float float-y" style="left:0;bottom:12%"><span class="ic"><svg width="16" height="16"><use href="#i-wrench"/></svg></span>Wide range of brands</div>
-        <div class="tag-float blue float-y d2" style="right:0;top:6%"><span class="ic"><svg width="16" height="16"><use href="#i-shield"/></svg></span>6-month warranty</div>
-      </div>
-      <div class="bk-cats">
-        <div class="bkc-label">Select a category to book</div>
-        <div class="bkc-marq"><div class="bkc-track"><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-apple"/></svg></span>Apple Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-finger"/></svg></span>Biometric Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-cctv"/></svg></span>CCTV Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-desktop"/></svg></span>Desktop Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-laptop"/></svg></span>Laptop Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-monitor"/></svg></span>Monitor Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-network"/></svg></span>Networking / LAN Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-printer"/></svg></span>Printer Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-projector"/></svg></span>Projector Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-server"/></svg></span>Server Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-scanner"/></svg></span>Scanner Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-tablet"/></svg></span>Tablet Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-ups"/></svg></span>UPS Repair</a><a href="repair.html#book-now" class="bkc-item"><span><svg width="22" height="22"><use href="#i-wifi"/></svg></span>Wi-Fi Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-apple"/></svg></span>Apple Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-finger"/></svg></span>Biometric Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-cctv"/></svg></span>CCTV Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-desktop"/></svg></span>Desktop Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-laptop"/></svg></span>Laptop Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-monitor"/></svg></span>Monitor Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-network"/></svg></span>Networking / LAN Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-printer"/></svg></span>Printer Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-projector"/></svg></span>Projector Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-server"/></svg></span>Server Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-scanner"/></svg></span>Scanner Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-tablet"/></svg></span>Tablet Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-ups"/></svg></span>UPS Repair</a><a href="repair.html#book-now" class="bkc-item" aria-hidden="true" tabindex="-1"><span><svg width="22" height="22"><use href="#i-wifi"/></svg></span>Wi-Fi Repair</a></div></div>
+      <ul class="bk2-trust">
+        <li><svg width="16" height="16"><use href="#i-shield"/></svg>6-month warranty</li>
+        <li><svg width="16" height="16"><use href="#i-check"/></svg>Certified technicians</li>
+        <li><svg width="16" height="16"><use href="#i-check"/></svg>Genuine spare parts</li>
+        <li><svg width="16" height="16"><use href="#i-tag"/></svg>Transparent pricing</li>
+      </ul>
+      <div class="bk2-grid">
+        <a class="bk2-tile" href="repair.html?device=Laptop%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-laptop"/></svg></span><b>Laptop</b></a>
+        <a class="bk2-tile" href="repair.html?device=Desktop%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-desktop"/></svg></span><b>Desktop</b></a>
+        <a class="bk2-tile" href="repair.html?device=Printer%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-printer"/></svg></span><b>Printer</b></a>
+        <a class="bk2-tile" href="repair.html?device=CCTV%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-cctv"/></svg></span><b>CCTV</b></a>
+        <a class="bk2-tile" href="repair.html?device=Apple%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-apple"/></svg></span><b>Apple</b></a>
+        <a class="bk2-tile" href="repair.html?device=Monitor%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-monitor"/></svg></span><b>Monitor</b></a>
+        <a class="bk2-tile" href="repair.html?device=Tablet%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-tablet"/></svg></span><b>Tablet</b></a>
+        <a class="bk2-tile" href="repair.html?device=Projector%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-projector"/></svg></span><b>Projector</b></a>
+        <a class="bk2-tile" href="repair.html?device=Scanner%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-scanner"/></svg></span><b>Scanner</b></a>
+        <a class="bk2-tile" href="repair.html?device=UPS%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-ups"/></svg></span><b>UPS</b></a>
+        <a class="bk2-tile" href="repair.html?device=Wi-Fi%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-wifi"/></svg></span><b>Wi-Fi</b></a>
+        <a class="bk2-tile" href="repair.html?device=Networking%20/%20LAN%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-network"/></svg></span><b>Networking / LAN</b></a>
+        <a class="bk2-tile" href="repair.html?device=Server%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-server"/></svg></span><b>Server</b></a>
+        <a class="bk2-tile" href="repair.html?device=Biometric%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-biometric"/></svg></span><b>Biometric</b></a>
       </div>
     </div>
   </div>
@@ -1399,6 +1533,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/fixpapa-story.js?v=6.1"></script>
 <script src="assets/js/refurb-data.js?v=1.0"></script>
-<script src="assets/js/main.js?v=7.4"></script>
+<script src="assets/js/main.js?v=7.7"></script>
 </body>
 </html>

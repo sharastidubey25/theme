@@ -61,5 +61,9 @@
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
   cats.forEach(c => c.addEventListener('click', () => { cats.forEach(x => x.setAttribute('aria-checked', x === c)); next.disabled = false; }));
   next.addEventListener('click', () => { /* step 2 (brand) comes next */ });
+  // ?device=Laptop%20Repair (from the home page device tiles) pre-selects that category
+  const want = new URLSearchParams(location.search).get('device');
+  const pre = want && cats.find(c => c.textContent.trim() === want);
+  if (pre) { pre.setAttribute('aria-checked', 'true'); next.disabled = false; }
   if (location.hash === '#book-now') open();
 })();

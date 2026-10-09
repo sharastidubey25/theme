@@ -1377,7 +1377,6 @@ html{overflow-anchor:none;scroll-behavior:auto}
 .ew-item,.ew-bin,.ew-sym,.ew-coin,.ew-leaf,.ew-lf{transform-box:fill-box}
 /* the floating info cards belong to the Repair laptop — hide them on the other scenes */
 .hero-stage .holo{transition:opacity .4s,visibility .4s}
-.hero-stage.scene-alt .holo{opacity:0!important;visibility:hidden}
 .fx-blink{animation:fxBlink 1.2s steps(2,start) infinite}
 @keyframes fxBlink{50%{opacity:.25}}
 
@@ -2216,3 +2215,49 @@ html{overflow-anchor:none;scroll-behavior:auto}
   .stats + .section{padding-top:48px}
   .rent3{padding-top:28px}
 }
+
+/* ---- Hero info cards stay on screen for every scene: tucked into the stage corners, slightly smaller ---- */
+@media (min-width:1025px){
+  .hero-stage .holo{transform-origin:center}
+  .holo--b{left:-11%;top:0;scale:.86;transform-origin:left top}
+  .holo--a{right:-13%;bottom:-3%;scale:.86;transform-origin:right bottom}
+}
+@media (max-width:1024px){
+  .holo--b{left:-2%;top:-2%;scale:.74;transform-origin:left top}
+  .holo--a{right:-2%;bottom:6%;scale:.74;transform-origin:right bottom}
+}
+
+/* =========================================================
+   BOOK A REPAIR (home) — short header + every device as a tile
+   ========================================================= */
+.bk2-panel{position:relative;border-radius:32px;padding:40px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+.bk2-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.bk2-head h2{margin-top:12px}
+.bk2-head p{margin-top:10px;color:var(--ink-3);font-size:17px}
+.bk2-trust{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 30px;padding:0}
+.bk2-trust li{display:flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border-radius:999px;background:var(--gray-2);font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.bk2-trust svg{color:var(--primary)}
+/* tiles: soft grey card with a device illustration, name underneath */
+.bk2-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:22px 16px}
+.bk2-tile{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;outline:none}
+.bk2-art{display:grid;place-items:center;width:100%;aspect-ratio:1.55;border-radius:18px;background:#F4F4F5;transition:background .35s,transform .35s var(--ease),box-shadow .35s var(--ease)}
+.bk2-art svg{width:72%;height:auto;transition:transform .45s var(--ease)}
+.bk2-tile b{font:500 15px/1.3 var(--font-body);color:var(--ink);transition:color .3s}
+.bk2-tile:hover .bk2-art,.bk2-tile:focus-visible .bk2-art{background:#FFF1E4;transform:translateY(-4px);box-shadow:0 14px 26px -16px rgba(255,106,0,.55)}
+.bk2-tile:hover .bk2-art svg,.bk2-tile:focus-visible .bk2-art svg{transform:scale(1.08)}
+.bk2-tile:hover b,.bk2-tile:focus-visible b{color:var(--primary)}
+@media (max-width:1100px){.bk2-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (max-width:760px){
+  .bk2-panel{padding:26px 16px;border-radius:24px}
+  .bk2-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .bk2-head p{font-size:15px}
+  .bk2-trust{display:grid;grid-template-columns:1fr 1fr;margin:18px 0 22px;gap:6px}
+  .bk2-trust li{font-size:11.5px;padding:6px 8px;gap:6px;white-space:nowrap}
+  .bk2-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 10px}
+  .bk2-art{border-radius:14px}
+  .bk2-tile{gap:8px}
+  .bk2-tile b{font-size:12.5px}
+}
+[data-theme="dark"] .bk2-panel{background:#15161B;border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .bk2-art{background:#1C1D24}
+[data-theme="dark"] .bk2-tile:hover .bk2-art{background:rgba(255,138,31,.12)}

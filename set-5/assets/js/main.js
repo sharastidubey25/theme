@@ -204,7 +204,7 @@
        .from('.hsv', { y: 30, opacity: 0, duration: 1, clearProps: 'transform,opacity' }, .5)
        .from('.hsv-tile', { y: 18, opacity: 0, duration: .7, stagger: .05, clearProps: 'transform,opacity' }, .6)
        .from('#heroStage', { opacity: 0, scale: .92, duration: 1.4 }, .2)
-       .from('.holo', { opacity: 0, y: 30, stagger: .2, duration: .9 }, .9)
+       .fromTo('.holo', { opacity: 0, y: 30 }, { opacity: 1, y: 0, stagger: .2, duration: .9 }, .9)
        .add(tick, 1.2);
 
   /* ---------- Hero exploded → assembled laptop ---------- */
@@ -578,7 +578,6 @@
   const stageScenes = [...document.querySelectorAll('#heroSvg .scene')];
   function swapScene(n) {
     const next = stageScenes.find(s => +s.dataset.scene === n); if (!next) return;
-    document.getElementById('heroStage').classList.toggle('scene-alt', n !== 0);
     if (!G || reduce) { stageScenes.forEach(s => s.classList.toggle('on', s === next)); return; }
     // stop every running scene tween first, so quick hovers / scrolling can never leave 2+ scenes on screen
     stageScenes.forEach(s => { G.killTweensOf(s); const p = s.querySelectorAll('[data-pop]'); G.killTweensOf(p); if (s !== next) G.set(p, { opacity: 1, scale: 1 }); });
@@ -592,6 +591,18 @@
     const pops = next.querySelectorAll('[data-pop]');
     if (pops.length) G.fromTo(pops, { opacity: 0, scale: .7, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, duration: .6, stagger: .09, delay: .4, ease: 'back.out(1.7)' });
   }
+  // "Book a Repair, we handle the rest." card: its content follows the playing scene (data-card on each tile)
+  const card = document.getElementById('holoA');
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  function setCard(spec) {
+    if (!card || !spec) return;
+    const [k, v, ...rows] = spec.split('|');
+    const html = `<div class="k">${esc(k)}</div><div class="v">${esc(v).replace('~', '<br>')}</div>` +
+      rows.map(r => { const [l, val] = r.split(':'); return `<div class="row">${esc(l)} <b>${esc(val)}</b></div>`; }).join('');
+    if (!G || reduce) { card.innerHTML = html; return; }
+    G.killTweensOf(card);
+    G.to(card, { opacity: 0, y: -6, duration: .2, ease: 'power1.in', onComplete: () => { card.innerHTML = html; G.fromTo(card, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .4, ease: 'power2.out' }); } });
+  }
   window.__heroGo = (n) => go(n);
   window.__heroRestart = () => restart();
   wrap.style.setProperty('--d', DUR + 'ms');
@@ -603,6 +614,7 @@
     swapScene(sIdx);
     const [k, v, t] = tiles[n].dataset.holo.split('|');
     if (hk) { hk.textContent = k; hv.textContent = v; ht.textContent = t; }
+    setCard(tiles[n].dataset.card);
     window.__heroSlide = n;
     cur = n; restart();
   }
