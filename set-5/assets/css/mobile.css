@@ -1,0 +1,146 @@
+/* =========================================================
+   FixPapa — phone layout (homepage). Desktop/tablet untouched:
+   everything here lives under max-width:760px except the hides below.
+   ========================================================= */
+.m-only,.hero-mcta,.hero-mtrust,.m-dock{display:none}
+
+@media (max-width:760px){
+  /* ---------- Header: one slim row, search opens from an icon ---------- */
+  .m-only{display:grid}
+  .topbar .nav-shell{height:auto}
+  .nav-top{height:58px;flex-wrap:nowrap;padding:0 6px 0 16px;gap:2px}
+  .nav-top .logo{margin-right:auto}
+  .nav-top .search{display:none}
+  .topbar.search-open .nav-top{height:auto;flex-wrap:wrap;padding:8px 6px 10px 16px;row-gap:8px}
+  .topbar.search-open .nav-top .search{display:flex;order:3;flex-basis:100%;height:42px;margin-right:10px}
+  #searchToggle[aria-expanded="true"]{color:var(--primary)}
+
+  /* ---------- Hero: headline + book button first, then the animation, then services ---------- */
+  .hero-pin{padding-bottom:28px}
+  .hero-inner{padding-top:78px;padding-bottom:0;row-gap:0}
+  .hero .hero-title{order:-4;font-size:clamp(27px,7.6vw,34px);line-height:1.12;letter-spacing:-.025em;margin:0}
+  .hero-mcta{order:-3;display:flex;gap:10px;margin-top:16px}
+  .hero-mcta .btn{flex:1;height:50px;justify-content:center}
+  .hero-mcall{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 18px;border-radius:999px;background:#fff;border:1px solid var(--border);font:700 15px var(--font-head);color:var(--ink)}
+  .hero-mcall svg{color:var(--primary)}
+  .hero-mtrust{order:-2;display:flex;gap:14px;list-style:none;margin:14px 0 0;padding:0;font-size:12px;font-weight:600;color:var(--ink-3);white-space:nowrap}
+  .hero-mtrust li{display:flex;align-items:center;gap:5px}
+  .hero-mtrust svg{color:var(--primary);flex:none}
+  .hero-stage{order:-1;width:min(76vw,310px);margin:8px auto 4px}
+  .hero-stage .holo{display:none}
+
+  /* services: compact app-style tiles, 3 per row */
+  .hsv.svc-panel{padding:16px 10px 14px;border-radius:24px}
+  .hsv-head{margin:0 6px 8px}
+  .hsv-head b{font-size:16px}
+  .hsv-grid{gap:2px 4px}
+  .hsv-tile{padding:6px 2px 10px;border-radius:16px}
+  .hsv .svc-img{width:min(100%,78px);border-radius:18px}
+  .hsv .svc-ph{border-radius:15px}
+  .hsv .svc-img em{font-size:9px;padding:3px 6px;bottom:-8px}
+  .hsv-tile>b{margin-top:13px;font-size:12px;line-height:1.2}
+  .hsv-tile::after{left:16px;right:16px}
+
+  /* ---------- Stats: compact 2×2 ---------- */
+  .stats{padding:18px 0 0}
+  .stats-grid{margin-top:0;border-radius:20px}
+  .stat{padding:14px 16px}
+  .stat .num{font-size:26px}
+  .stat .lbl{margin-top:6px;font-size:12.5px;line-height:1.35}
+
+  /* ---------- Rhythm: tighter sections and headings ---------- */
+  .section{padding:40px 0}
+  .stats + .section{padding-top:40px}
+  .h-lg{font-size:clamp(26px,7.4vw,32px);line-height:1.12}
+  .section-head{margin-bottom:18px;gap:10px}
+  /* swipe rows: shared look */
+  .rfh-trust,.bk2-trust,.rent3-cards,.fpa-ads,.fpa-team,.perks2,.rcalc-chips{scrollbar-width:none}
+  .rfh-trust::-webkit-scrollbar,.bk2-trust::-webkit-scrollbar,.rent3-cards::-webkit-scrollbar,.fpa-ads::-webkit-scrollbar,.fpa-team::-webkit-scrollbar,.perks2::-webkit-scrollbar,.rcalc-chips::-webkit-scrollbar{display:none}
+
+  /* ---------- Refurbished ---------- */
+  .rfh-sub{display:none}
+  .rfh-trust{flex-wrap:nowrap;overflow-x:auto;margin:14px -16px 0;padding:0 16px}
+  .rfh-trust li{flex:none}
+  .rfh-deals-head{margin-top:8px}
+
+  /* ---------- Book a Repair: 4 per row, chips in one swipe line ---------- */
+  .bk2-panel{padding:22px 14px 18px}
+  .bk2-head .btn{display:none}
+  .bk2-head p{margin-top:6px}
+  .bk2-trust{display:flex;flex-wrap:nowrap;overflow-x:auto;margin:14px -14px 18px;padding:0 14px}
+  .bk2-trust li{flex:none}
+  .bk2-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 8px}
+  .bk2-art{border-radius:12px;aspect-ratio:1.2}
+  .bk2-art svg{width:84%}
+  .bk2-tile{gap:6px}
+  .bk2-tile b{font-size:11.5px;line-height:1.2}
+
+  /* ---------- Warranty checker ---------- */
+  .wc{border-radius:24px}
+  .wc-side{padding:18px 14px;gap:10px}
+  .wc-main{padding:20px 16px;gap:16px}
+  .wc-sub,.wc .wc-brand,.wc-brand.has-logo,.wc-trouble p,.wc-trouble svg#indiaMap{display:none}
+  .wc-trouble{grid-template-columns:minmax(0,1fr);padding:16px;gap:12px}
+
+  /* ---------- Rental: shorter banner, cards swipe ---------- */
+  .rent3{padding-top:20px}
+  .rent3-stage{min-height:0;padding:56px 0 120px}
+  .rent3-copy p,.rent3-steps,.rent3-watch{display:none}
+  .rent3-copy h2{font-size:clamp(26px,7.4vw,32px)}
+  .rent3-ctas{margin-top:18px}
+  .rent3-cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:-96px -16px 0;padding:4px 16px 30px;scroll-padding-inline:16px}
+  .rent3-card{flex:0 0 58%;scroll-snap-align:start}
+
+  /* ---------- Rent vs buy ---------- */
+  .rcalc{padding:20px 0 0}
+  .rcalc-box{border-radius:24px}
+  .rcalc-in{padding:22px 18px 20px}
+  .rcalc-out{padding:22px 18px 20px}
+  .rcalc-sub,.rcalc-inc,.rcalc-note{display:none}
+  .rcalc-chips{display:flex;flex-wrap:nowrap;overflow-x:auto;margin:0 -18px;padding:0 18px}
+  .rcalc-chips button{flex:none}
+
+  /* ---------- In action: video + swipeable offers and team ---------- */
+  #in-action{padding-bottom:28px}
+  .fpa-grid{gap:16px}
+  .fpa-ads{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;gap:12px}
+  .fpa-ad{flex:0 0 78%;scroll-snap-align:start;padding:16px 18px}
+  .fpa-ad p,.fpa-dl,.fpa-adphoto,.fpa-team-head p{display:none}
+  .fpa-team-head{margin-top:28px}
+  .fpa-team{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;gap:12px}
+  .fpa-shot{flex:0 0 62%;scroll-snap-align:start}
+
+  /* ---------- AMC ---------- */
+  .amc2-lead,.amc2-note,.amc2-watch{display:none}
+  .amc2-ctas{margin-top:18px}
+  .amc2-hero{gap:20px}
+
+  /* ---------- E-waste ---------- */
+  .ew3-box{gap:24px}
+  .ewl-note,.ew3-copy>p,.ewl-hint{display:none}
+  .ewl-legend{gap:6px}
+
+  /* ---------- App + perks ---------- */
+  .app2{padding:20px 18px;gap:6px}
+  .app2-phone svg{max-width:150px}
+  .perks2{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory}
+  .perks2 li{flex:0 0 70%;scroll-snap-align:start}
+
+  /* ---------- Bottom quick-action bar ---------- */
+  body{padding-bottom:84px}
+  .to-top{display:none}
+  .m-dock{transform:translateY(130%);opacity:0;transition:transform .45s var(--ease),opacity .3s;position:fixed;z-index:95;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;gap:6px;padding:6px;border-radius:22px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border);box-shadow:0 18px 40px -16px rgba(11,18,32,.35)}
+  body.m-docked .m-dock{transform:none;opacity:1}
+  .m-dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:52px;border-radius:16px;font:700 11.5px var(--font-head);color:var(--ink-2)}
+  .m-dock a svg{color:var(--primary)}
+  .m-dock .m-dock-wa svg{color:#16A34A}
+  .m-dock .m-dock-main{flex-direction:row;gap:8px;background:var(--grad-primary);color:#fff;font-size:14.5px;box-shadow:0 10px 22px -10px rgba(255,106,0,.8)}
+  .m-dock .m-dock-main svg{color:#fff}
+  .m-dock a:active{transform:scale(.96)}
+
+  /* ---------- Dark theme ---------- */
+  [data-theme="dark"] .hero-mcall{background:#1C1D24;border-color:rgba(255,255,255,.1);color:#fff}
+  [data-theme="dark"] .m-dock{background:rgba(21,22,27,.94);border-color:rgba(255,255,255,.08)}
+  [data-theme="dark"] .m-dock a{color:#CBD5E1}
+  [data-theme="dark"] .m-dock .m-dock-main{color:#fff}
+}

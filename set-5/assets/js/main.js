@@ -53,8 +53,49 @@
     if (!el) return;
     let set = list; while (set.length < 8) set = set.concat(list);
     const html = set.map(render).join('');
-    el.innerHTML = `<div class="prod-track" style="--dur:${set.length * 4.5}s">${html}${html.replace(/<article class="card product/g, '<article aria-hidden="true" class="card product')}</div>`;
+    el.innerHTML = `<div class="prod-track">${html}${html.replace(/<article class="card product/g, '<article aria-hidden="true" class="card product')}</div>`;
+    loopScroller(el);
   };
+  /* The row is a real horizontal scroller: it drifts on its own, and people can take over with
+     the arrows, a trackpad / shift+wheel, touch swipe or mouse drag. Two copies of the set make the wrap seamless. */
+  function loopScroller(el) {
+    const wrap = document.createElement('div');
+    wrap.className = 'pl-wrap';
+    el.before(wrap); wrap.append(el);
+    wrap.insertAdjacentHTML('beforeend',
+      '<button type="button" class="pl-arrow pl-prev" aria-label="Scroll left"><svg width="20" height="20"><use href="#i-chev-l"/></svg></button>' +
+      '<button type="button" class="pl-arrow pl-next" aria-label="Scroll right"><svg width="20" height="20"><use href="#i-chev-r"/></svg></button>');
+    const track = el.firstElementChild, SPEED = 38;           // px per second
+    let pos = 0, set = 0, target = null, hold = false, idleUntil = 0, last = performance.now();
+    const half = () => track.scrollWidth / 2;
+    const wrapPos = () => { const h = half(); if (!h) return; if (pos >= h) { pos -= h; if (target !== null) target -= h; } if (pos < 0) { pos += h; if (target !== null) target += h; } };
+    const pause = (ms = 2500) => { idleUntil = performance.now() + ms; };
+    const frame = (now) => {
+      const dt = Math.min(now - last, 60) / 1000; last = now;
+      if (target !== null) { pos += (target - pos) * Math.min(1, dt * 9); if (Math.abs(target - pos) < .5) { pos = target; target = null; } }
+      else if (!hold && !reduce && now > idleUntil) pos += SPEED * dt;
+      wrapPos();
+      if (Math.abs(el.scrollLeft - pos) >= .5) { el.scrollLeft = pos; set = el.scrollLeft; }
+      requestAnimationFrame(frame);
+    };
+    // the user scrolled it (trackpad, shift+wheel, touch): follow them instead of fighting
+    el.addEventListener('scroll', () => { if (Math.abs(el.scrollLeft - set) > 1) { pos = set = el.scrollLeft; target = null; pause(); } }, { passive: true });
+    const step = (dir) => { const card = track.firstElementChild, w = card ? card.offsetWidth + 22 : 300; target = (target ?? pos) + dir * w * 2; pause(4000); };
+    $('.pl-prev', wrap).addEventListener('click', () => step(-1));
+    $('.pl-next', wrap).addEventListener('click', () => step(1));
+    el.addEventListener('mouseenter', () => { hold = true; });
+    el.addEventListener('mouseleave', () => { hold = false; });
+    el.addEventListener('touchstart', () => { hold = true; }, { passive: true });
+    el.addEventListener('touchend', () => { hold = false; pause(); }, { passive: true });
+    // mouse drag (desktop users without a trackpad); a drag never counts as a click
+    let dragX = null, moved = false;
+    el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.button) return; dragX = e.clientX; moved = false; target = null; });
+    addEventListener('pointermove', e => { if (dragX === null) return; const d = e.clientX - dragX; if (Math.abs(d) > 4) moved = true; if (moved) { pos -= d; dragX = e.clientX; wrapPos(); el.classList.add('dragging'); } });
+    addEventListener('pointerup', () => { if (dragX === null) return; dragX = null; el.classList.remove('dragging'); pause(); });
+    el.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    el.addEventListener('dragstart', e => e.preventDefault());
+    requestAnimationFrame(frame);
+  }
   /* Refurbished: 5 category tiles (→ refurbished-category.html?cat=…) + a deal row mixing the top 2 discounts of each category */
   const R = window.FPRefurb;
   if (R) {
@@ -157,11 +198,19 @@
 
   /* ---------------- Header, menu, to-top ---------------- */
   const topbar = $('#topbar'), toTop = $('#toTop');
-  const onScroll = () => { const y = scrollY; topbar.classList.toggle('scrolled', y > 40); toTop && toTop.classList.toggle('show', y > 900); };
+  const onScroll = () => { const y = scrollY; topbar.classList.toggle('scrolled', y > 40); toTop && toTop.classList.toggle('show', y > 900); document.body.classList.toggle('m-docked', y > 420); };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   const menu = $('#mobileNav'), mt = $('#menuToggle');
   mt.addEventListener('click', () => menu.classList.toggle('open'));
   $$('a', menu).forEach((a, i) => { a.style.transitionDelay = (i * 40) + 'ms'; a.addEventListener('click', () => menu.classList.remove('open')); });
+
+  /* ---------------- Phones: search opens from an icon ---------------- */
+  const st = $('#searchToggle');
+  if (st) st.addEventListener('click', () => {
+    const open = topbar.classList.toggle('search-open');
+    st.setAttribute('aria-expanded', open);
+    if (open) $('.nav-top .search input').focus();
+  });
 
   /* ---------------- Button ripple ---------------- */
   document.addEventListener('pointerdown', (e) => {
@@ -722,70 +771,13 @@ document.querySelectorAll('.amc2-ads').forEach((box) => {
   requestAnimationFrame(() => show(picks.find((b) => b.classList.contains('on'))));
 })();
 
-/* ---------------- Technical support · scenario loop (tagline + chip + live call) ---------------- */
+/* ---------------- Technical support · pick a problem, one Get help button ---------------- */
 (() => {
-  const root = document.querySelector('.tsx'); if (!root) return;
-  const q = (s) => root.querySelector(s);
-  const track = q('.ts-track'), box = q('.ts-view'), card = q('.ts-rotator'), prog = q('.ts-prog i'), chips = [...root.querySelectorAll('.tsx-chips button')];
-  const ask = q('#tsAsk'), reply = q('#tsReply'), steps = q('#tsSteps'), done = q('#tsDone');
-  const stepLbl = [...steps.querySelectorAll('span')], bar = steps.querySelector('i');
-  const scenes = [
-    { ask: 'My printer just stopped printing!', reply: 'No worries! Connecting to your PC to fix the printer driver.', mins: 4 },
-    { ask: 'Wi-Fi keeps dropping, can you help?', reply: 'Sure! Resetting your network settings and router channel now.', mins: 6 },
-    { ask: 'Just got a new laptop, please set it up.', reply: 'Happy to! Setting up Windows, updates and your accounts.', mins: 9 },
-    { ask: 'Too many pop-ups, I think it’s a virus.', reply: 'Scanning now — removing the adware and speeding things up.', mins: 7 },
-    { ask: 'My Outlook isn’t sending emails.', reply: 'Got it! Fixing your mail server settings right away.', mins: 5 },
-    { ask: 'Can you install MS Office for me?', reply: 'Of course! Installing and activating it on your PC now.', mins: 8 },
-  ];
-  const n = scenes.length, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // wave + call timer
-  const wave = q('#tsWave');
-  for (let i = 0; i < 14; i++) { const b = document.createElement('i'); b.style.animationDelay = (-Math.random() * 1.2) + 's'; b.style.animationDuration = (.8 + Math.random() * .8) + 's'; wave.appendChild(b); }
-  const timer = q('#tsTimer'); let t = 0;
-  setInterval(() => { t++; timer.textContent = `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(t % 60).padStart(2, '0')}`; }, 1000);
-
-  // seamless vertical loop: clone first tagline at the end
-  track.appendChild(track.children[0].cloneNode(true)).setAttribute('aria-hidden', 'true');
-  let cur = 0, pos = 0, timers = [], cycle;
-  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
-  const moveTrack = (to) => {
-    track.style.transform = `translateY(-${to * box.clientHeight}px)`; pos = to;
-    if (to === n) later(() => { track.style.transition = 'none'; track.style.transform = 'translateY(0)'; pos = 0; track.offsetHeight; track.style.transition = ''; }, 650);
-  };
-
-  const play = (i, fromLoop) => {
-    timers.forEach(clearTimeout); timers = [];
-    const s = scenes[i];
-    if (fromLoop && i === 0 && pos === n - 1) moveTrack(n); else moveTrack(i);
-    cur = i;
-    card.classList.remove('flash'); prog.classList.remove('run'); card.offsetWidth;
-    if (!reduce) { card.classList.add('flash'); prog.classList.add('run'); }
-    chips.forEach((c, k) => { c.classList.toggle('on', k === i); c.setAttribute('aria-selected', k === i); });
-    q('#tsBill').textContent = '₹' + s.mins * 5;
-    if (reduce) { ask.textContent = s.ask; reply.textContent = s.reply; steps.style.setProperty('--p', '100%'); stepLbl.forEach(l => l.classList.add('on')); done.classList.add('fixed'); q('#tsState').textContent = `Fixed in ${s.mins} min`; q('#tsStateSub').textContent = 'You didn’t move from your seat'; return; }
-    // reset
-    [ask, reply].forEach(el => el.classList.add('hide'));
-    done.classList.remove('fixed'); q('#tsState').textContent = 'Expert is on it…'; q('#tsStateSub').textContent = 'Sit back, we’re fixing it live';
-    bar.style.transition = 'none'; steps.style.setProperty('--p', '0%'); bar.offsetWidth; bar.style.transition = '';
-    stepLbl.forEach(l => l.classList.remove('on'));
-    // script
-    later(() => { ask.textContent = s.ask; ask.classList.remove('hide'); }, 250);
-    later(() => { reply.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>'; reply.classList.remove('hide'); }, 900);
-    later(() => { reply.textContent = s.reply; }, 1900);
-    later(() => { steps.style.setProperty('--p', '100%'); stepLbl[0].classList.add('on'); }, 2300);
-    later(() => stepLbl[1].classList.add('on'), 2950);
-    later(() => stepLbl[2].classList.add('on'), 3600);
-    later(() => { done.classList.add('fixed'); q('#tsState').textContent = `Fixed in ${s.mins} min`; q('#tsStateSub').textContent = 'You didn’t move from your seat'; }, 4400);
-  };
-
-  const DUR = 6500;
-  card.style.setProperty('--ts-dur', DUR + 'ms');
-  const loop = () => { clearInterval(cycle); if (!reduce) cycle = setInterval(() => { if (!document.hidden) play((cur + 1) % n, true); }, DUR); };
-  chips.forEach((c, k) => c.addEventListener('click', () => { play(k); loop(); }));
-  root.addEventListener('mouseenter', () => { clearInterval(cycle); prog.style.animationPlayState = 'paused'; });
-  root.addEventListener('mouseleave', () => { prog.style.animationPlayState = ''; prog.classList.remove('run'); prog.offsetWidth; if (!reduce) prog.classList.add('run'); loop(); });
-  play(0); loop();
+  const picks = [...document.querySelectorAll('.ts2-pick')], label = document.getElementById('ts2For');
+  picks.forEach((b) => b.addEventListener('click', () => {
+    picks.forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-checked', x === b); });
+    if (label) label.textContent = b.querySelector('b').textContent;
+  }));
 })();
 
 /* ---------------- Warranty checker · 4 brands visible, scroll for more ---------------- */

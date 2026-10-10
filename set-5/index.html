@@ -21,8 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=10.1">
+<link rel="stylesheet" href="assets/css/style.css?v=10.6">
 <link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.0">
+<link rel="stylesheet" href="assets/css/mobile.css?v=1.2">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -131,6 +132,7 @@
           <button type="submit" aria-label="Search"><svg width="16" height="16"><use href="#i-search"/></svg></button>
         </form>
         <div class="nav-actions">
+          <button class="icon-btn m-only" id="searchToggle" type="button" aria-label="Search" aria-expanded="false"><svg width="22" height="22"><use href="#i-search"/></svg></button>
           <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <svg class="tt-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
             <svg class="tt-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
@@ -660,6 +662,12 @@
 
       <!-- one-line headline under both columns -->
       <h1 id="heroTitle" class="hero-title"><span class="line"><span data-hero-in>Trusted Electronics &amp; Gadget Repair</span> <span class="typed" id="typed">at Your Doorstep</span><span class="caret"></span></span></h1>
+      <!-- phones only: one tap to book or call, right under the headline -->
+      <div class="hero-mcta">
+        <a href="repair.html#book-now" class="btn" data-ripple>Book a Repair <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a href="tel:+918696544448" class="hero-mcall"><svg width="18" height="18"><use href="#i-phone"/></svg>Call us</a>
+      </div>
+      <ul class="hero-mtrust"><li><svg width="14" height="14"><use href="#i-shield"/></svg>6-month warranty</li><li><svg width="14" height="14"><use href="#i-truck"/></svg>Free pickup</li><li><svg width="14" height="14"><use href="#i-badge"/></svg>100+ brands</li></ul>
     </div>
 
     <div class="container hero-caption">
@@ -1059,131 +1067,60 @@
 </section>
 
 <!-- ============ TECHNICAL SUPPORT ============ -->
-<section class="section" id="support">
+<section class="section ts2" id="support">
   <div class="container">
-    <div class="tsx" data-reveal="scale">
-      <div class="bg-grid"></div>
-      <div class="tsx-orb tsx-orb--a"></div><div class="tsx-orb tsx-orb--b"></div>
+    <div class="ts2-grid">
+      <!-- left: what it is, one price, one button -->
+      <div class="ts2-intro" data-reveal>
+        <h2 class="h-lg">Technical Support</h2>
+        <p class="ts2-live"><i></i>Experts online now</p>
+        <a href="tel:+918696544448" class="ts2-pill"><svg width="18" height="18"><use href="#i-clock"/></svg><span>Starting at <b>₹5/min</b></span><svg width="16" height="16"><use href="#i-chev-r"/></svg></a>
+        <a href="tel:+918696544448" class="btn" data-ripple><svg width="18" height="18"><use href="#i-phone"/></svg> Talk to an Expert</a>
+      </div>
 
-      <div class="tsx-copy" data-reveal="left">
-        <div class="tsx-top">
-          <span class="eyebrow">Technical Support</span>
-          <span class="tsx-live"><i></i>Experts online now</span>
+      <!-- middle: pick your problem -->
+      <div class="ts2-main" data-reveal>
+        <h3>What&rsquo;s the problem?</h3>
+        <div class="ts2-banner">
+          <div><b>Fixed on a call</b><span>No visit. No waiting.</span></div>
+          <img src="assets/media/support.jpg" alt="FixPapa expert on a support call" loading="lazy">
         </div>
-        <h2>Don’t go anywhere.<br><span class="hl">We’ll fix it on a call.</span></h2>
-        <p class="tsx-sub">No technician visit, no repair shop, no waiting. A FixPapa expert connects to your device and fixes it while you sit back.</p>
-
-        <div class="ts-rotator" aria-live="polite">
-          <div class="ts-view">
-            <ul class="ts-track">
-              <li><span class="ts-ic"><svg width="22" height="22"><use href="#i-printer"/></svg></span><span class="ts-txt"><b>Printer not printing?</b><span>Fixed in minutes on a call — <em>no technician visit.</em></span></span></li>
-              <li><span class="ts-ic"><svg width="22" height="22"><use href="#i-wifi"/></svg></span><span class="ts-txt"><b>Wi-Fi keeps dropping?</b><span>Our expert fixes it <em>from wherever you are.</em></span></span></li>
-              <li><span class="ts-ic"><svg width="22" height="22"><use href="#i-laptop"/></svg></span><span class="ts-txt"><b>Got a new laptop?</b><span>Set up and <em>ready to use in minutes.</em></span></span></li>
-              <li><span class="ts-ic"><svg width="22" height="22"><use href="#i-shield"/></svg></span><span class="ts-txt"><b>Slow PC or a virus?</b><span>Cleaned up remotely <em>while you watch.</em></span></span></li>
-              <li><span class="ts-ic"><svg width="22" height="22"><use href="#i-mail"/></svg></span><span class="ts-txt"><b>Outlook not sending emails?</b><span>Back up and running <em>in just one call.</em></span></span></li>
-              <li><span class="ts-ic"><svg width="22" height="22"><use href="#i-cloud"/></svg></span><span class="ts-txt"><b>Need software installed?</b><span>MS Office, antivirus, drivers — <em>done for you.</em></span></span></li>
-            </ul>
-          </div>
-          <div class="ts-prog"><i></i></div>
+        <div class="ts2-picks" role="radiogroup" aria-label="Pick your problem">
+          <button type="button" class="ts2-pick on" role="radio" aria-checked="true"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-printer"/></svg></span><b>Printer not printing</b><small>~5 min</small></button>
+          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-wifi"/></svg></span><b>Wi-Fi keeps dropping</b><small>~6 min</small></button>
+          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-shield"/></svg></span><b>Slow PC or virus</b><small>~7 min</small></button>
+          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-laptop"/></svg></span><b>New laptop setup</b><small>~9 min</small></button>
+          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-mail"/></svg></span><b>Email not working</b><small>~5 min</small></button>
+          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-cloud"/></svg></span><b>Install software</b><small>~8 min</small></button>
         </div>
+        <a href="tel:+918696544448" class="btn ts2-help" data-ripple><svg width="18" height="18"><use href="#i-phone"/></svg><span>Get help<span class="ts2-for"> with <span id="ts2For">Printer not printing</span></span></span></a>
+      </div>
 
-        <div class="tsx-chips" role="tablist" aria-label="Common problems we fix">
-          <button class="on" role="tab" aria-selected="true"><svg width="18" height="18"><use href="#i-printer"/></svg>Printer</button>
-          <button role="tab" aria-selected="false"><svg width="18" height="18"><use href="#i-wifi"/></svg>Wi-Fi</button>
-          <button role="tab" aria-selected="false"><svg width="18" height="18"><use href="#i-laptop"/></svg>New laptop</button>
-          <button role="tab" aria-selected="false"><svg width="18" height="18"><use href="#i-shield"/></svg>Virus &amp; slow PC</button>
-          <button role="tab" aria-selected="false"><svg width="18" height="18"><use href="#i-mail"/></svg>Email</button>
-          <button role="tab" aria-selected="false"><svg width="18" height="18"><use href="#i-cloud"/></svg>Software</button>
-        </div>
-
-        <div class="tsx-price">
-          <div class="tsx-rate"><small>Starting at</small><b>₹5</b><span>/min</span></div>
+      <!-- right: promise + 3 steps -->
+      <aside class="ts2-side" data-reveal>
+        <div class="ts2-card ts2-promise">
+          <h4>FixPapa Promise</h4>
           <ul>
-            <li><svg width="16" height="16"><use href="#i-check"/></svg>No visit charges</li>
-            <li><svg width="16" height="16"><use href="#i-check"/></svg>Pay only for minutes used</li>
-            <li><svg width="16" height="16"><use href="#i-check"/></svg>Help from home or office</li>
+            <li><svg width="18" height="18"><use href="#i-check"/></svg>No visit charges</li>
+            <li><svg width="18" height="18"><use href="#i-check"/></svg>Pay only for minutes used</li>
+            <li><svg width="18" height="18"><use href="#i-check"/></svg>Safe, private screen share</li>
           </ul>
+          <svg class="ts2-seal" viewBox="0 0 100 100" aria-hidden="true">
+            <defs><path id="ts2Ring" d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0"/></defs>
+            <circle cx="50" cy="50" r="48" fill="#FFF1E4"/>
+            <text class="ts2-ring" font-size="11" font-weight="800" letter-spacing="2.4" fill="#E85D04"><textPath href="#ts2Ring">PAY PER MINUTE · FIXPAPA ·</textPath></text>
+            <circle cx="50" cy="50" r="15" fill="#FF8A1F"/><path d="M42.5 50.5l5.5 5.5 9.5-11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-
-        <div class="tsx-cta">
-          <a href="#" class="btn" data-ripple><svg width="18" height="18"><use href="#i-phone"/></svg> Talk to an Expert</a>
-          <a href="#" class="tsx-ghost">Know More <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <div class="ts2-card">
+          <h4>How it works</h4>
+          <ol class="ts2-steps">
+            <li><b>1</b>Call or chat</li>
+            <li><b>2</b>Expert connects to your screen</li>
+            <li><b>3</b>Fixed. Pay per minute</li>
+          </ol>
         </div>
-      </div>
-
-      <div class="tsx-stage" data-reveal="right">
-        <div class="tsx-session">
-          <div class="tsx-bar">
-            <span class="dots"><i></i><i></i><i></i></span>
-            <span class="ttl">FixPapa Remote Session</span>
-            <span class="lock"><svg width="13" height="13"><use href="#i-shield"/></svg>Secure</span>
-          </div>
-
-          <div class="tsx-expert">
-            <img src="assets/media/support.jpg" alt="FixPapa expert on a live support call" loading="lazy">
-            <div class="tsx-tag-live"><i></i>LIVE <span id="tsTimer">00:00</span></div>
-            <div class="tsx-who">
-              <div><b>FixPapa Expert</b><small>Connected to your screen</small></div>
-              <div class="wave" id="tsWave"></div>
-            </div>
-          </div>
-
-          <div class="tsx-chat" id="tsChat">
-            <div class="bubble me" id="tsAsk">My printer just stopped printing!</div>
-            <div class="bubble them" id="tsReply">No worries! Connecting to your PC to fix the printer driver.</div>
-          </div>
-
-          <div class="tsx-steps" id="tsSteps"><span>Diagnose</span><span>Fix</span><span>Test</span><i></i></div>
-          <div class="tsx-status" id="tsDone">
-            <div class="tick"><span class="spin"></span><svg width="20" height="20"><use href="#i-check"/></svg></div>
-            <div class="txt"><b id="tsState">Expert is on it…</b><small id="tsStateSub">Sit back, we’re fixing it live</small></div>
-            <div class="bill"><small>You pay</small><b id="tsBill">₹20</b></div>
-          </div>
-        </div>
-
-        <ul class="tsx-nogo">
-          <li><svg width="16" height="16"><use href="#i-close"/></svg>No home visit</li>
-          <li><svg width="16" height="16"><use href="#i-close"/></svg>No shop trip</li>
-          <li><svg width="16" height="16"><use href="#i-close"/></svg>No waiting</li>
-        </ul>
-      </div>
-
-      <div class="tsx-why">
-        <div class="tsx-why-head"><span class="eyebrow">Why people switch</span><h3>The old way costs you <span class="hl">time and money.</span></h3></div>
-        <div class="tsx-vs">
-          <div class="tsx-old">
-            <div class="tsx-vs-title"><span>The old way</span>Calling a technician home</div>
-            <ul>
-              <li><svg width="16" height="16"><use href="#i-close"/></svg>Wait 1–2 days for someone to visit</li>
-              <li><svg width="16" height="16"><use href="#i-close"/></svg>Pay visit charges even for a tiny fix</li>
-              <li><svg width="16" height="16"><use href="#i-close"/></svg>Carry your PC or printer to a shop</li>
-              <li><svg width="16" height="16"><use href="#i-close"/></svg>Take leave or stay home and wait</li>
-            </ul>
-          </div>
-          <div class="tsx-vs-badge">VS</div>
-          <div class="tsx-new">
-            <div class="tsx-vs-title"><span>The FixPapa way</span>Technical Support on call</div>
-            <ul>
-              <li><svg width="16" height="16"><use href="#i-check"/></svg>An expert helps you within minutes</li>
-              <li><svg width="16" height="16"><use href="#i-check"/></svg>₹5/min — a 4-minute fix costs just ₹20</li>
-              <li><svg width="16" height="16"><use href="#i-check"/></svg>Fixed right where you are sitting</li>
-              <li><svg width="16" height="16"><use href="#i-check"/></svg>You watch every step — safe &amp; private</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tsx-for">
-          <div class="tsx-for-card"><svg width="22" height="22"><use href="#i-laptop"/></svg><b>Work from home</b><small>Laptop acting up before a meeting? Back online fast.</small></div>
-          <div class="tsx-for-card"><svg width="22" height="22"><use href="#i-badge"/></svg><b>Students</b><small>Printer, Wi-Fi or software — sorted before the deadline.</small></div>
-          <div class="tsx-for-card"><svg width="22" height="22"><use href="#i-desktop"/></svg><b>Shops &amp; offices</b><small>Billing PC or printer down? Don’t lose a day of work.</small></div>
-          <div class="tsx-for-card"><svg width="22" height="22"><use href="#i-heart"/></svg><b>Parents &amp; seniors</b><small>Patient help in simple words, without the tech jargon.</small></div>
-        </div>
-      </div>
-
-      <ol class="tsx-how">
-        <li><span class="n">1</span><div><b>Tell us the problem</b><small>Call or chat — in simple words</small></div></li>
-        <li><span class="n">2</span><div><b>Expert connects remotely</b><small>Secure screen share, you stay in control</small></div></li>
-        <li><span class="n">3</span><div><b>Fixed. Pay per minute</b><small>Only from ₹5/min, no hidden charges</small></div></li>
-      </ol>
+      </aside>
     </div>
   </div>
 </section>
@@ -1528,11 +1465,17 @@
 
 
 <button class="to-top" id="toTop" aria-label="Back to top"><svg width="20" height="20"><use href="#i-up"/></svg></button>
+<!-- phones only: always-visible quick actions -->
+<nav class="m-dock" aria-label="Quick actions">
+  <a href="tel:+918696544448"><svg width="20" height="20"><use href="#i-phone"/></svg>Call</a>
+  <a href="repair.html#book-now" class="m-dock-main"><svg width="20" height="20"><use href="#i-wrench"/></svg>Book a Repair</a>
+  <a href="https://wa.me/918696544448" target="_blank" rel="noopener" class="m-dock-wa"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"/><path d="M9.2 8.6c.3-.6.9-.6 1.1 0l.5 1.3c.1.3 0 .6-.2.8l-.4.4c.5 1.1 1.4 2 2.5 2.5l.4-.4c.2-.2.5-.3.8-.2l1.3.5c.6.2.6.8 0 1.1-.9.5-2 .5-3-.1a7.6 7.6 0 0 1-3.2-3.2c-.5-1-.6-2.1-.1-2.9z" fill="currentColor" stroke="none"/></svg>WhatsApp</a>
+</nav>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/fixpapa-story.js?v=6.1"></script>
 <script src="assets/js/refurb-data.js?v=1.0"></script>
-<script src="assets/js/main.js?v=7.7"></script>
+<script src="assets/js/main.js?v=8.1"></script>
 </body>
 </html>
