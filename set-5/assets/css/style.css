@@ -1047,6 +1047,7 @@ ul{list-style:none;margin:0;padding:0}
   .wc-head{flex-direction:column}
   .wc-brand{width:100%;height:90px}
   .wc-row{flex-direction:column}
+  .wc-row input{flex:none}
 }
 .wc-state[hidden]{display:none}
 

@@ -54,8 +54,8 @@
   .h-lg{font-size:clamp(26px,7.4vw,32px);line-height:1.12}
   .section-head{margin-bottom:18px;gap:10px}
   /* swipe rows: shared look */
-  .rfh-trust,.bk2-trust,.rent3-cards,.fpa-ads,.fpa-team,.perks2,.rcalc-chips{scrollbar-width:none}
-  .rfh-trust::-webkit-scrollbar,.bk2-trust::-webkit-scrollbar,.rent3-cards::-webkit-scrollbar,.fpa-ads::-webkit-scrollbar,.fpa-team::-webkit-scrollbar,.perks2::-webkit-scrollbar,.rcalc-chips::-webkit-scrollbar{display:none}
+  .rfh-trust,.bk2-trust,.rent3-cards,.fpa-ads,.fpa-team,.perks2{scrollbar-width:none}
+  .rfh-trust::-webkit-scrollbar,.bk2-trust::-webkit-scrollbar,.rent3-cards::-webkit-scrollbar,.fpa-ads::-webkit-scrollbar,.fpa-team::-webkit-scrollbar,.perks2::-webkit-scrollbar{display:none}
 
   /* ---------- Refurbished ---------- */
   .rfh-sub{display:none}
@@ -93,12 +93,22 @@
 
   /* ---------- Rent vs buy ---------- */
   .rcalc{padding:20px 0 0}
-  .rcalc-box{border-radius:24px}
+  .rcalc-box{grid-template-columns:minmax(0,1fr);border-radius:24px}
+  .rcalc-in,.rcalc-out{min-width:0}
+  .rcalc-in h2{max-width:none;margin-bottom:20px}
+  .rcalc-save{font-size:clamp(34px,10vw,44px)}
+  /* bars: label + amount on one line, the bar full width under them */
+  .rcalc-bars{gap:16px;margin:20px 0 20px}
+  .rcalc-bar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"lbl amt" "bar bar";row-gap:8px;column-gap:10px}
+  .rcalc-bar span{grid-area:lbl}
+  .rcalc-bar b{grid-area:amt;min-width:0}
+  .rcalc-bar i{grid-area:bar}
+  .rcalc-cta{align-self:stretch;justify-content:center}
   .rcalc-in{padding:22px 18px 20px}
   .rcalc-out{padding:22px 18px 20px}
   .rcalc-sub,.rcalc-inc,.rcalc-note{display:none}
-  .rcalc-chips{display:flex;flex-wrap:nowrap;overflow-x:auto;margin:0 -18px;padding:0 18px}
-  .rcalc-chips button{flex:none}
+  .rcalc-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 22px}
+  .rcalc-chips button{padding:10px 8px}
 
   /* ---------- In action: video + swipeable offers and team ---------- */
   #in-action{padding-bottom:28px}
