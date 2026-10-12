@@ -35,7 +35,7 @@
   .hsv-head b{font-size:16px}
   .hsv-grid{gap:2px 4px}
   .hsv-tile{padding:6px 2px 10px;border-radius:16px}
-  .hsv .svc-img{width:min(100%,78px);border-radius:18px}
+  .hsv .svc-img{width:min(100%,100px);border-radius:18px}
   .hsv .svc-ph{border-radius:15px}
   .hsv .svc-img em{font-size:9px;padding:3px 6px;bottom:-8px}
   .hsv-tile>b{margin-top:13px;font-size:12px;line-height:1.2}
@@ -127,8 +127,7 @@
 
   /* ---------- E-waste ---------- */
   .ew3-box{gap:24px}
-  .ewl-note,.ew3-copy>p,.ewl-hint{display:none}
-  .ewl-legend{gap:6px}
+  .ew3-copy>p{display:none}
 
   /* ---------- App + perks ---------- */
   .app2{padding:20px 18px;gap:6px}

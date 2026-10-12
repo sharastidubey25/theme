@@ -5,3 +5,5 @@ cp-plus.png: cpplusworld.com. microtek.svg: microtek.in. geonix.png: geonix.in.
 zebronics.png: zebronics.com. luminous.png: luminousindia.com site icon.
 Otek: no official logo found; text wordmark fallback.
 apple, sony, samsung, huawei, lenovo, asus, acer, epson, msi, microsoft .svg: Simple Icons (CC0), recoloured with brand colours.
+cisco, netgear, western-digital, seagate, kingston, sandisk, fujitsu .svg: Simple Icons (CC0), recoloured with brand colours.
+HPE, Canon, D-Link, APC, Eaton: not in Simple Icons; coloured initial fallback in the warranty checker.

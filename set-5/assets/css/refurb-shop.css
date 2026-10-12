@@ -44,7 +44,22 @@
 .rfh-deals-head h3{display:flex;align-items:center;gap:10px;font:800 24px var(--font-head);letter-spacing:-.02em}
 .rfh-deals-head h3 svg{color:var(--primary)}
 .rfh-deals-head p{margin:0;font-size:14px;color:var(--ink-3)}
-.prod-track > .rf-card{flex-basis:290px;width:290px}
+#deals .rfh-deals-head:first-child{margin-top:0}
+/* homepage deal row: compact, matches the category tiles above */
+.prod-track > .rf-card .media{aspect-ratio:1.7/1}
+.prod-track > .rf-card .media svg{width:46%}
+.prod-track > .rf-card .rf-off{left:8px;top:8px;padding:5px 9px;border-radius:9px;font-size:12px}
+.prod-track > .rf-card .rf-grade{left:8px;bottom:8px;padding:3px 7px;font-size:9.5px}
+.prod-track > .rf-card .rf-tag{right:8px;bottom:8px;padding:3px 7px;font-size:10px}
+.prod-track > .rf-card .rf-meta{margin-bottom:3px;font-size:10.5px}
+.prod-track > .rf-card .rf-meta .rating{font-size:11.5px}
+.prod-track > .rf-card h3{font-size:14.5px;line-height:1.3;-webkit-line-clamp:1;min-height:0;white-space:nowrap;text-overflow:ellipsis;display:block}
+.prod-track > .rf-card .rf-spec-line{display:none}
+.prod-track > .rf-card .rf-price{padding-top:4px}
+.prod-track > .rf-card .rf-was{font-size:12px;gap:6px}
+.prod-track > .rf-card .rf-pct{font-size:11px;padding:1px 6px}
+.prod-track > .rf-card .rf-now{font-size:19px;margin-top:1px}
+.prod-track > .rf-card .rf-save{margin-top:2px;font-size:12px}
 
 @media (max-width:1100px){
   .rfh-cats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;gap:14px;margin:0 -24px;padding:6px 24px 18px;scrollbar-width:none}
@@ -56,7 +71,6 @@
   .rfh-cat{flex-basis:200px}
   .rfh-cat-body b{font-size:18px}
   .rfh-deals-head{margin-top:40px}
-  .prod-track > .rf-card{flex-basis:230px;width:230px}
   .rf-now{font-size:21px}
 }
 

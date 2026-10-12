@@ -28,6 +28,10 @@
     Zebronics: 'color:#111827;font-family:Georgia,serif;font-weight:600', Otek: 'color:#111827'
   };
   const brandLogo = { HP: 'hp.svg', Dell: 'dell.svg', Brother: 'brother.svg', 'TP-Link': 'tp-link.svg', 'CP Plus': 'cp-plus.png', Microtek: 'microtek.svg', Geonix: 'geonix.png', HCL: 'hcl.svg', Luminous: 'luminous.png', Zebronics: 'zebronics.png' };
+  // warranty checker brands, in display order
+  const wcBrands = ['HP', 'Dell', 'Apple', 'Lenovo', 'Acer', 'ASUS', 'Samsung', 'Cisco', 'HPE', 'Canon', 'Epson', 'Brother', 'MSI', 'Zebronics', 'TP-Link', 'D-Link', 'Netgear', 'APC', 'Eaton', 'Western Digital', 'Seagate', 'Kingston', 'SanDisk', 'Fujitsu'];
+  Object.assign(brandLogo, { Apple: 'apple.svg', Lenovo: 'lenovo.svg', Acer: 'acer.svg', ASUS: 'asus.svg', Samsung: 'samsung.svg', Cisco: 'cisco.svg', Epson: 'epson.svg', MSI: 'msi.svg', Netgear: 'netgear.svg', 'Western Digital': 'western-digital.svg', Seagate: 'seagate.svg', Kingston: 'kingston.svg', SanDisk: 'sandisk.svg', Fujitsu: 'fujitsu.svg' });
+  Object.assign(brandStyle, { HPE: 'color:#01A982', Canon: 'color:#CC0000', 'D-Link': 'color:#0098D4', APC: 'color:#0B1220', Eaton: 'color:#005EB8' });
   const logoSrc = (b) => brandLogo[b] ? 'assets/img/brands/' + brandLogo[b] : '';
   const heroSlides = ['AMC & Inventory Management', 'Book a Repair', 'Technical Support · Starting at ₹5/min', 'Why to Buy when you can have easy Rental?', 'Refurbished · New Products'];
 
@@ -118,7 +122,7 @@
   (() => {
     const list = $('#wcList'); if (!list) return;
     const color = (b) => { const c = ((brandStyle[b] || '').match(/color:(#[0-9A-Fa-f]{3,6})/) || [, ''])[1]; return !c || /^#(0B1220|111827)$/i.test(c) ? '#FF8A1F' : c; };
-    list.innerHTML = brands.map((b, i) => `<li><button role="tab" aria-selected="${!i}" class="${i ? '' : 'on'}" data-b="${b}">${logoSrc(b) ? `<i class="wc-logo"><img src="${logoSrc(b)}" alt="" loading="lazy"></i>` : `<i style="background:${color(b)}">${b[0]}</i>`}${b}<svg width="14" height="14"><use href="#i-arrow"/></svg></button></li>`).join('');
+    list.innerHTML = wcBrands.map((b, i) => `<li><button role="tab" aria-selected="${!i}" class="${i ? '' : 'on'}" data-b="${b}">${logoSrc(b) ? `<i class="wc-logo"><img src="${logoSrc(b)}" alt="" loading="lazy"></i>` : `<i style="background:${color(b)}">${b[0]}</i>`}${b}<svg width="14" height="14"><use href="#i-arrow"/></svg></button></li>`).join('');
     const nameEl = $('#wcBrandName'), forEl = $('#wcFor'), state = $('#wcState'), serial = $('#wcSerial');
     const select = (btn) => {
       $$('button', list).forEach(x => { x.classList.toggle('on', x === btn); x.setAttribute('aria-selected', x === btn); });
@@ -712,30 +716,28 @@ document.querySelectorAll('.amc2-ads').forEach((box) => {
   run();
 });
 
-/* ---------- Rent vs Buy calculator ---------- */
+/* ---------- Refurbished vs New calculator ---------- */
 (() => {
-  const box = document.getElementById('rent-calc'); if (!box) return;
+  const box = document.getElementById('refurb-calc'); if (!box) return;
   const chips = [...box.querySelectorAll('.rcalc-chips button')];
-  const qtyEl = box.querySelector('#rcQty'), range = box.querySelector('#rcMonths');
+  const qtyEl = box.querySelector('#rcQty');
   const $ = (id) => box.querySelector('#' + id);
   const inr = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
   let qty = 1, shown = 0, raf;
   const animate = (to) => {
     cancelAnimationFrame(raf); const from = shown, t0 = performance.now();
-    const step = (t) => { const k = Math.min(1, (t - t0) / 600), e = 1 - Math.pow(1 - k, 3);
-      shown = from + (to - from) * e; $('rcSave').textContent = (shown < 0 ? '-' : '') + inr(Math.abs(shown));
+    const step = (t) => { const k = Math.min(1, Math.max(0, (t - t0) / 600)), e = 1 - Math.pow(1 - k, 3);
+      shown = from + (to - from) * e; $('rcSave').textContent = inr(shown);
       if (k < 1) raf = requestAnimationFrame(step); };
     raf = requestAnimationFrame(step);
   };
   const calc = () => {
-    const c = chips.find((b) => b.classList.contains('on')), m = +range.value;
-    const rent = +c.dataset.rent * m * qty, buy = +c.dataset.buy * qty * (1 + 0.12 * m / 12);
-    const save = buy - rent, pct = Math.round(save / buy * 100), max = Math.max(rent, buy);
-    $('rcMonthsLbl').textContent = m + (m === 1 ? ' month' : ' months');
-    $('rcRent').textContent = inr(rent); $('rcBuy').textContent = inr(buy);
-    $('rcRentBar').style.width = (rent / max * 100) + '%'; $('rcBuyBar').style.width = (buy / max * 100) + '%';
-    const p = $('rcPct'); p.classList.toggle('is-neg', save < 0);
-    p.textContent = save >= 0 ? pct + '% less than buying' : 'Buying is cheaper at this length';
+    const c = chips.find((b) => b.classList.contains('on'));
+    const fresh = +c.dataset.new * qty, refurb = +c.dataset.refurb * qty;
+    const save = fresh - refurb;
+    $('rcRefurb').textContent = inr(refurb); $('rcNew').textContent = inr(fresh);
+    $('rcRefurbBar').style.width = (refurb / fresh * 100) + '%'; $('rcNewBar').style.width = '100%';
+    $('rcPct').textContent = Math.round(save / fresh * 100) + '% less than new';
     animate(save);
   };
   chips.forEach((b) => b.addEventListener('click', () => {
@@ -744,40 +746,7 @@ document.querySelectorAll('.amc2-ads').forEach((box) => {
   box.querySelectorAll('[data-step]').forEach((b) => b.addEventListener('click', () => {
     qty = Math.min(50, Math.max(1, qty + +b.dataset.step)); qtyEl.textContent = qty; calc();
   }));
-  range.addEventListener('input', calc);
   calc();
-})();
-
-/* ---------- E-waste recovery lab ---------- */
-(() => {
-  const lab = document.querySelector('.ew3-lab'); if (!lab) return;
-  const picks = [...lab.querySelectorAll('.ewl-picks button')], segs = [...lab.querySelectorAll('.ewl-seg')];
-  const vals = [...lab.querySelectorAll('.ewl-legend b')], C = 2 * Math.PI * 80, GAP = 3;
-  const show = (b) => {
-    const mix = b.dataset.mix.split(',').map(Number); let off = 0;
-    segs.forEach((s, i) => {
-      const len = Math.max(0, mix[i] / 100 * C - GAP);
-      s.style.strokeDasharray = len + ' ' + (C - len); s.style.strokeDashoffset = -off; off += mix[i] / 100 * C;
-    });
-    vals.forEach((v, i) => { v.textContent = mix[i] + '%'; });
-    lab.querySelector('#ewlPay').textContent = '₹' + (+b.dataset.pay).toLocaleString('en-IN');
-    lab.querySelector('#ewlName').textContent = 'per ' + b.dataset.name;
-    lab.querySelector('#ewlCo2').textContent = b.dataset.co2 + ' kg';
-    lab.querySelector('#ewlIcon').setAttribute('href', '#' + b.dataset.icon);
-  };
-  picks.forEach((b) => b.addEventListener('click', () => {
-    picks.forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-checked', x === b); }); show(b);
-  }));
-  requestAnimationFrame(() => show(picks.find((b) => b.classList.contains('on'))));
-})();
-
-/* ---------------- Technical support · pick a problem, one Get help button ---------------- */
-(() => {
-  const picks = [...document.querySelectorAll('.ts2-pick')], label = document.getElementById('ts2For');
-  picks.forEach((b) => b.addEventListener('click', () => {
-    picks.forEach((x) => { x.classList.toggle('on', x === b); x.setAttribute('aria-checked', x === b); });
-    if (label) label.textContent = b.querySelector('b').textContent;
-  }));
 })();
 
 /* ---------------- Warranty checker · 4 brands visible, scroll for more ---------------- */

@@ -21,9 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=10.7">
-<link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.0">
-<link rel="stylesheet" href="assets/css/mobile.css?v=1.3">
+<link rel="stylesheet" href="assets/css/style.css?v=12.0">
+<link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.2">
+<link rel="stylesheet" href="assets/css/mobile.css?v=1.6">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -703,18 +703,6 @@
       <a href="refurbished.html" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
     <nav class="rfh-cats" id="rfCats" aria-label="Refurbished categories" data-reveal></nav>
-
-    <div class="rfh-deals-head" data-reveal>
-      <h3><svg width="22" height="22"><use href="#i-tag"/></svg>Top refurbished deals</h3>
-      <p>Biggest discounts across every category</p>
-    </div>
-    <div class="prod-grid prod-loop" id="refurbGrid" data-reveal></div>
-
-    <div class="section-head" data-reveal style="margin-top:48px">
-      <div><span class="eyebrow">Fresh arrivals</span><h2 class="h-lg">New Products</h2></div>
-      <a href="#" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="prod-grid prod-loop" id="newGrid" data-reveal></div>
   </div>
 </section>
 
@@ -914,6 +902,23 @@
   </div>
 </section>
 
+<!-- ============ TOP REFURBISHED DEALS + NEW PRODUCTS ============ -->
+<section class="section" id="deals">
+  <div class="container" style="position:relative">
+    <div class="rfh-deals-head" data-reveal>
+      <h3><svg width="22" height="22"><use href="#i-tag"/></svg>Top refurbished deals</h3>
+      <p>Biggest discounts across every category</p>
+    </div>
+    <div class="prod-grid prod-loop" id="refurbGrid" data-reveal></div>
+
+    <div class="section-head" data-reveal style="margin-top:48px">
+      <div><span class="eyebrow">Fresh arrivals</span><h2 class="h-lg">New Products</h2></div>
+      <a href="#" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="prod-grid prod-loop" id="newGrid" data-reveal></div>
+  </div>
+</section>
+
 <!-- ============ DEVICE HEALTH · warranty checker ============ -->
 <section class="section" id="warranty">
   <div class="container">
@@ -1011,20 +1016,21 @@
 </section>
 
 <!-- ============ RENT vs BUY · savings calculator ============ -->
-<section class="rcalc" id="rent-calc" aria-label="Rent vs buy calculator">
+<section class="rcalc" id="refurb-calc" aria-label="Refurbished vs new calculator">
   <div class="container">
     <div class="rcalc-box" data-reveal>
       <div class="rcalc-in">
-        <span class="eyebrow">Rent vs Buy</span>
-        <h2 class="h-lg">See how much you save <span>before you rent</span></h2>
-        <p class="rcalc-sub">Pick a gadget, how many you need and for how long.</p>
+        <span class="eyebrow">Refurbished vs New</span>
+        <h2 class="h-lg">See how much you save <span>before you buy</span></h2>
+        <p class="rcalc-sub">Pick a gadget and how many you need.</p>
 
         <div class="rcalc-label">Gadget</div>
+        <!-- placeholder prices (₹ per unit): data-new = brand new, data-refurb = refurbished -->
         <div class="rcalc-chips" role="radiogroup" aria-label="Gadget">
-          <button type="button" class="on" role="radio" aria-checked="true" data-rent="1499" data-buy="55000">Laptop</button>
-          <button type="button" role="radio" aria-checked="false" data-rent="1299" data-buy="45000">Desktop</button>
-          <button type="button" role="radio" aria-checked="false" data-rent="899" data-buy="22000">Printer</button>
-          <button type="button" role="radio" aria-checked="false" data-rent="1999" data-buy="60000">Projector</button>
+          <button type="button" class="on" role="radio" aria-checked="true" data-new="65000" data-refurb="24999">Laptop</button>
+          <button type="button" role="radio" aria-checked="false" data-new="48000" data-refurb="15999">Desktop</button>
+          <button type="button" role="radio" aria-checked="false" data-new="18000" data-refurb="6999">Printer</button>
+          <button type="button" role="radio" aria-checked="false" data-new="4500" data-refurb="1499">CCTV</button>
         </div>
 
         <div class="rcalc-row">
@@ -1036,91 +1042,50 @@
               <button type="button" data-step="1" aria-label="More">+</button>
             </div>
           </div>
-          <div class="rcalc-dur">
-            <div class="rcalc-label">Duration <b id="rcMonthsLbl">6 months</b></div>
-            <input type="range" id="rcMonths" min="1" max="24" value="6" aria-label="Duration in months">
-            <div class="rcalc-ticks"><span>1 mo</span><span>12</span><span>24 mo</span></div>
-          </div>
         </div>
       </div>
 
       <div class="rcalc-out" aria-live="polite">
         <div class="rcalc-save-lbl">You keep in your pocket</div>
         <div class="rcalc-save" id="rcSave">&#8377;0</div>
-        <div class="rcalc-pct" id="rcPct">0% less than buying</div>
+        <div class="rcalc-pct" id="rcPct">0% less than new</div>
 
         <div class="rcalc-bars">
-          <div class="rcalc-bar"><span>Renting</span><i><em id="rcRentBar"></em></i><b id="rcRent">&#8377;0</b></div>
-          <div class="rcalc-bar is-buy"><span>Buying + upkeep</span><i><em id="rcBuyBar"></em></i><b id="rcBuy">&#8377;0</b></div>
+          <div class="rcalc-bar"><span>Refurbished</span><i><em id="rcRefurbBar"></em></i><b id="rcRefurb">&#8377;0</b></div>
+          <div class="rcalc-bar is-buy"><span>Brand new</span><i><em id="rcNewBar"></em></i><b id="rcNew">&#8377;0</b></div>
         </div>
 
         <ul class="rcalc-inc">
-          <li>Free doorstep delivery &amp; setup</li>
-          <li>Repairs covered, swap in 24 hrs</li>
-          <li>No deposit lock-in after 3 months</li>
+          <li>40-point quality check</li>
+          <li>6-month FixPapa warranty</li>
+          <li>Free doorstep delivery</li>
         </ul>
-        <a href="#" class="btn rcalc-cta" data-ripple>Get this quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
-        <small class="rcalc-note">Indicative prices. Buying includes ~12% yearly upkeep.</small>
+        <a href="refurbished.html" class="btn rcalc-cta" data-ripple>Shop refurbished <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <small class="rcalc-note">Indicative prices. Final price depends on the model.</small>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ TECHNICAL SUPPORT ============ -->
-<section class="section ts2" id="support">
+<section class="section ts3" id="support">
   <div class="container">
-    <div class="ts2-grid">
-      <!-- left: what it is, one price, one button -->
-      <div class="ts2-intro" data-reveal>
-        <h2 class="h-lg">Technical Support</h2>
-        <p class="ts2-live"><i></i>Experts online now</p>
-        <a href="tel:+918696544448" class="ts2-pill"><svg width="18" height="18"><use href="#i-clock"/></svg><span>Starting at <b>₹5/min</b></span><svg width="16" height="16"><use href="#i-chev-r"/></svg></a>
+    <div class="ts3-panel" data-reveal>
+      <div class="ts3-copy">
+        <span class="ts3-live"><i></i>Technical Support · experts online</span>
+        <h2 class="h-lg">Fixed on a call, <span class="hl">from ₹5/min</span></h2>
+        <p>No visit, no waiting. An expert connects to your screen and you pay only for the minutes used.</p>
         <a href="tel:+918696544448" class="btn" data-ripple><svg width="18" height="18"><use href="#i-phone"/></svg> Talk to an Expert</a>
       </div>
-
-      <!-- middle: pick your problem -->
-      <div class="ts2-main" data-reveal>
-        <h3>What&rsquo;s the problem?</h3>
-        <div class="ts2-banner">
-          <div><b>Fixed on a call</b><span>No visit. No waiting.</span></div>
-          <img src="assets/media/support.jpg" alt="FixPapa expert on a support call" loading="lazy">
-        </div>
-        <div class="ts2-picks" role="radiogroup" aria-label="Pick your problem">
-          <button type="button" class="ts2-pick on" role="radio" aria-checked="true"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-printer"/></svg></span><b>Printer not printing</b><small>~5 min</small></button>
-          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-wifi"/></svg></span><b>Wi-Fi keeps dropping</b><small>~6 min</small></button>
-          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-shield"/></svg></span><b>Slow PC or virus</b><small>~7 min</small></button>
-          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-laptop"/></svg></span><b>New laptop setup</b><small>~9 min</small></button>
-          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-mail"/></svg></span><b>Email not working</b><small>~5 min</small></button>
-          <button type="button" class="ts2-pick" role="radio" aria-checked="false"><span class="ts2-ic"><svg width="20" height="20"><use href="#i-cloud"/></svg></span><b>Install software</b><small>~8 min</small></button>
-        </div>
-        <a href="tel:+918696544448" class="btn ts2-help" data-ripple><svg width="18" height="18"><use href="#i-phone"/></svg><span>Get help<span class="ts2-for"> with <span id="ts2For">Printer not printing</span></span></span></a>
+      <div class="ts3-list">
+        <span class="ts3-label">Common fixes</span>
+        <ul>
+          <li><a href="tel:+918696544448"><span class="ts3-ic"><svg width="18" height="18"><use href="#i-printer"/></svg></span>Printer not printing<svg class="ts3-go" width="16" height="16"><use href="#i-chev-r"/></svg></a></li>
+          <li><a href="tel:+918696544448"><span class="ts3-ic"><svg width="18" height="18"><use href="#i-wifi"/></svg></span>Wi-Fi keeps dropping<svg class="ts3-go" width="16" height="16"><use href="#i-chev-r"/></svg></a></li>
+          <li><a href="tel:+918696544448"><span class="ts3-ic"><svg width="18" height="18"><use href="#i-shield"/></svg></span>Slow PC or virus<svg class="ts3-go" width="16" height="16"><use href="#i-chev-r"/></svg></a></li>
+          <li><a href="tel:+918696544448"><span class="ts3-ic"><svg width="18" height="18"><use href="#i-cloud"/></svg></span>Software &amp; email setup<svg class="ts3-go" width="16" height="16"><use href="#i-chev-r"/></svg></a></li>
+        </ul>
       </div>
-
-      <!-- right: promise + 3 steps -->
-      <aside class="ts2-side" data-reveal>
-        <div class="ts2-card ts2-promise">
-          <h4>FixPapa Promise</h4>
-          <ul>
-            <li><svg width="18" height="18"><use href="#i-check"/></svg>No visit charges</li>
-            <li><svg width="18" height="18"><use href="#i-check"/></svg>Pay only for minutes used</li>
-            <li><svg width="18" height="18"><use href="#i-check"/></svg>Safe, private screen share</li>
-          </ul>
-          <svg class="ts2-seal" viewBox="0 0 100 100" aria-hidden="true">
-            <defs><path id="ts2Ring" d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0"/></defs>
-            <circle cx="50" cy="50" r="48" fill="#FFF1E4"/>
-            <text class="ts2-ring" font-size="11" font-weight="800" letter-spacing="2.4" fill="#E85D04"><textPath href="#ts2Ring">PAY PER MINUTE · FIXPAPA ·</textPath></text>
-            <circle cx="50" cy="50" r="15" fill="#FF8A1F"/><path d="M42.5 50.5l5.5 5.5 9.5-11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="ts2-card">
-          <h4>How it works</h4>
-          <ol class="ts2-steps">
-            <li><b>1</b>Call or chat</li>
-            <li><b>2</b>Expert connects to your screen</li>
-            <li><b>3</b>Fixed. Pay per minute</li>
-          </ol>
-        </div>
-      </aside>
     </div>
   </div>
 </section>
@@ -1192,11 +1157,15 @@
       <div class="amc2-copy" data-reveal="left">
         <span class="amc2-live"><i></i>FixPapa AMC · for offices, shops &amp; schools</span>
         <h2 class="h-lg">AMC &amp; Inventory <span class="hl">Management</span></h2>
-        <p class="amc2-lead">Real-time tracking and organized tools for maintenance and stock. One FixPapa plan looks after every laptop, desktop, printer, CCTV and UPS in your office.</p>
-        <ul class="amc2-ticks">
-          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><div><b>Inventory</b> · organized tools for your stock</div></li>
-          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><div><b>Maintenance</b> · real-time tracking of every service</div></li>
-          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><div><b>Non Comprehensive IT Support</b> · exclusive discounts on AMC packages</div></li>
+        <h3 class="amc2-why">Why Choose Fixpapa AMC &amp; Inventory Management?</h3>
+        <ul class="amc2-ticks amc2-ticks--why">
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Smart Automation</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Asset Tracking</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Cost Savings</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>AMC Management</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Real-Time Monitoring</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Centralized Control</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>All Branches, One Dashboard</b></li>
         </ul>
         <div class="amc2-ctas">
           <a href="#book" class="btn" data-ripple>Get AMC Quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
@@ -1254,52 +1223,42 @@
 <section class="ew3" id="ewaste">
   <div class="container">
     <div class="ew3-box" data-reveal>
-      <div class="ew3-lab" aria-label="What your gadget is made of">
-        <div class="ewl-top">
-          <span class="ewl-tag"><svg width="14" height="14"><use href="#i-recycle"/></svg>E-waste recovery</span>
-          <span class="ewl-hint">What&rsquo;s inside your old gadget?</span>
-        </div>
-        <div class="ewl-picks" role="radiogroup" aria-label="Gadget">
-          <button type="button" class="on" role="radio" aria-checked="true" data-mix="40,30,15,15" data-pay="4000" data-co2="18" data-name="laptop" data-icon="i-laptop"><svg width="20" height="20"><use href="#i-laptop"/></svg>Laptop</button>
-          <button type="button" role="radio" aria-checked="false" data-mix="25,40,20,15" data-pay="1500" data-co2="6" data-name="phone" data-icon="i-phone"><svg width="20" height="20"><use href="#i-phone"/></svg>Phone</button>
-          <button type="button" role="radio" aria-checked="false" data-mix="30,35,25,10" data-pay="1200" data-co2="14" data-name="monitor" data-icon="i-desktop"><svg width="20" height="20"><use href="#i-desktop"/></svg>Monitor</button>
-          <button type="button" role="radio" aria-checked="false" data-mix="35,55,2,8" data-pay="800" data-co2="11" data-name="printer" data-icon="i-printer"><svg width="20" height="20"><use href="#i-printer"/></svg>Printer</button>
-        </div>
-        <div class="ewl-main">
-          <div class="ewl-ring">
-            <svg class="ewl-orbit" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="112"/><path d="M120 4l9 8-9 8M220.5 178l-12 2.5 3.5-11.5M19.5 178l12 2.5-3.5-11.5"/></svg>
-            <svg viewBox="0 0 200 200" aria-hidden="true">
-              <circle cx="100" cy="100" r="80" class="ewl-track"/>
-              <circle cx="100" cy="100" r="80" class="ewl-seg s1"/>
-              <circle cx="100" cy="100" r="80" class="ewl-seg s2"/>
-              <circle cx="100" cy="100" r="80" class="ewl-seg s3"/>
-              <circle cx="100" cy="100" r="80" class="ewl-seg s4"/>
-            </svg>
-            <div class="ewl-center"><svg class="ewl-dev" width="26" height="26"><use id="ewlIcon" href="#i-laptop"/></svg><small>You get up to</small><b id="ewlPay">&#8377;4,000</b><span id="ewlName">per laptop</span></div>
-          </div>
-          <ul class="ewl-legend">
-            <li><i class="c1"></i>Metals<b data-k="0">40%</b></li>
-            <li><i class="c2"></i>Plastics<b data-k="1">30%</b></li>
-            <li><i class="c3"></i>Glass &amp; display<b data-k="2">15%</b></li>
-            <li><i class="c4"></i>Gold, silver &amp; copper<b data-k="3">15%</b></li>
-          </ul>
-        </div>
-        <div class="ewl-foot">
-          <span><b id="ewlCo2">18 kg</b>CO&#8322; avoided</span>
-          <span><b>100%</b>data wiped</span>
-          <span><b>0%</b>sent to landfill</span>
-        </div>
-        <small class="ewl-note">Indicative values. Final price after on-the-spot check.</small>
-      </div>
+      <figure class="ew3-art" aria-label="Recycling bin full of old gadgets">
+        <svg viewBox="70 26 360 392" aria-hidden="true">
+          <defs>
+            <linearGradient id="ewBin" x1="0" x2="1"><stop offset="0" stop-color="#16A34A"/><stop offset=".45" stop-color="#22C55E"/><stop offset="1" stop-color="#15803D"/></linearGradient>
+            <linearGradient id="ewRim" x1="0" x2="1"><stop offset="0" stop-color="#22C55E"/><stop offset=".5" stop-color="#4ADE80"/><stop offset="1" stop-color="#16A34A"/></linearGradient>
+            <linearGradient id="ewDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#374151"/><stop offset="1" stop-color="#111827"/></linearGradient>
+            <linearGradient id="ewSilver" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8FAFC"/><stop offset="1" stop-color="#CBD5E1"/></linearGradient>
+          </defs>
+          <ellipse cx="250" cy="404" rx="130" ry="10" fill="#052E16" opacity=".25"/>
+          <!-- devices piled in the bin (drawn first so the bin hides their lower half) -->
+          <g transform="rotate(-28 150 150)"><rect x="92" y="96" width="118" height="80" rx="7" fill="url(#ewDark)"/><rect x="99" y="103" width="104" height="66" rx="3" fill="#0B1220"/><path d="M99 103h40l-24 66H99z" fill="#fff" opacity=".07"/><rect x="86" y="176" width="130" height="9" rx="3" fill="url(#ewSilver)"/></g>
+          <g transform="rotate(16 250 110)"><rect x="224" y="52" width="54" height="104" rx="10" fill="url(#ewDark)"/><rect x="229" y="60" width="44" height="86" rx="5" fill="#0B1220"/><path d="M229 60h22l-22 50z" fill="#fff" opacity=".08"/></g>
+          <g transform="rotate(10 350 100)"><rect x="312" y="40" width="80" height="104" rx="8" fill="url(#ewSilver)" stroke="#94A3B8" stroke-width="1.5"/><rect x="322" y="50" width="60" height="22" rx="3" fill="#1F2937"/><g fill="#475569"><rect x="322" y="80" width="12" height="9" rx="2"/><rect x="338" y="80" width="12" height="9" rx="2"/><rect x="354" y="80" width="12" height="9" rx="2"/><rect x="370" y="80" width="12" height="9" rx="2"/><rect x="322" y="94" width="12" height="9" rx="2"/><rect x="338" y="94" width="12" height="9" rx="2"/><rect x="354" y="94" width="12" height="9" rx="2"/><rect x="370" y="94" width="12" height="9" rx="2"/><rect x="322" y="108" width="12" height="9" rx="2"/><rect x="338" y="108" width="12" height="9" rx="2"/><rect x="354" y="108" width="12" height="9" rx="2"/><rect x="370" y="108" width="12" height="9" rx="2"/></g></g>
+          <g transform="rotate(-6 245 170)"><rect x="188" y="128" width="112" height="84" rx="5" fill="#14532D"/><rect x="194" y="134" width="100" height="72" rx="3" fill="#166534"/><rect x="206" y="146" width="30" height="30" rx="3" fill="#1F2937"/><rect x="246" y="146" width="36" height="14" rx="2" fill="#374151"/><rect x="246" y="166" width="36" height="10" rx="2" fill="#374151"/><path d="M200 190h86M200 198h60M240 140v-6M252 140v-6M264 140v-6" stroke="#FACC15" stroke-width="2" opacity=".7"/></g>
+          <g transform="rotate(-12 175 175)"><rect x="128" y="138" width="100" height="72" rx="7" fill="url(#ewSilver)" stroke="#94A3B8" stroke-width="1.5"/><rect x="136" y="146" width="84" height="56" rx="3" fill="#1F2937"/><path d="M136 146h36l-20 56h-16z" fill="#fff" opacity=".1"/></g>
+          <g transform="rotate(14 350 175)"><rect x="300" y="130" width="104" height="74" rx="6" fill="url(#ewDark)"/><rect x="308" y="138" width="88" height="58" rx="3" fill="#E5E7EB"/><rect x="308" y="138" width="88" height="58" rx="3" fill="#334155"/><path d="M308 138h30l-18 58h-12z" fill="#fff" opacity=".1"/></g>
+          <path d="M210 120c-20 10-14 40 8 44" fill="none" stroke="#9CA3AF" stroke-width="3" stroke-linecap="round"/>
+          <!-- bin -->
+          <path d="M152 214h196l-14 182a10 10 0 0 1-10 9H176a10 10 0 0 1-10-9z" fill="url(#ewBin)"/>
+          <path d="M178 230l8 158" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".12"/>
+          <rect x="140" y="198" width="220" height="24" rx="6" fill="url(#ewRim)"/>
+          <rect x="140" y="198" width="220" height="6" rx="3" fill="#fff" opacity=".25"/>
+          <!-- recycle mark -->
+          <use href="#i-recycle" x="200" y="258" width="100" height="100" style="color:#fff;opacity:.9"/>
+        </svg>
+        <figcaption class="ew3-chip"><b>&#8377;4,000</b>up to, for an old laptop</figcaption>
+      </figure>
       <div class="ew3-copy">
         <span class="eyebrow">Sustainability</span>
         <h2 class="h-lg">Unlock value from your <span>e-waste</span></h2>
-        <p>Sell your old gadgets to FixPapa. We pick them up, pay you a fair price and recycle them responsibly.</p>
-        <ol class="ew3-steps">
-          <li><i><svg width="18" height="18"><use href="#i-calendar"/></svg></i><span><b>Book a pickup</b>Tell us what you have, takes a minute</span></li>
-          <li><i><svg width="18" height="18"><use href="#i-truck"/></svg></i><span><b>We collect &amp; check</b>Free doorstep pickup, on-the-spot valuation</span></li>
-          <li><i><svg width="18" height="18"><use href="#i-tag"/></svg></i><span><b>Get paid</b>Money in your account, certificate in your inbox</span></li>
-        </ol>
+        <p>Sell your old gadgets to FixPapa. We pick them up, pay a fair price and recycle responsibly.</p>
+        <ul class="ew3-points">
+          <li><svg width="16" height="16"><use href="#i-truck"/></svg>Free pickup</li>
+          <li><svg width="16" height="16"><use href="#i-tag"/></svg>Fair price</li>
+          <li><svg width="16" height="16"><use href="#i-recycle"/></svg>Certified recycling</li>
+        </ul>
         <a href="#" class="btn ew3-btn" data-ripple>Sell your e-waste <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
@@ -1476,6 +1435,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/fixpapa-story.js?v=6.1"></script>
 <script src="assets/js/refurb-data.js?v=1.0"></script>
-<script src="assets/js/main.js?v=8.1"></script>
+<script src="assets/js/main.js?v=8.7"></script>
 </body>
 </html>
