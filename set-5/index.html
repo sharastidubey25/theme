@@ -21,9 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=12.0">
+<link rel="stylesheet" href="assets/css/style.css?v=12.8">
 <link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.2">
-<link rel="stylesheet" href="assets/css/mobile.css?v=1.6">
+<link rel="stylesheet" href="assets/css/mobile.css?v=1.7">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -175,7 +175,7 @@
           <div class="hsv-head"><b>What do you need help with?</b></div>
           <div class="hsv-grid">
             <a class="hsv-tile on" href="repair.html" data-card="FixPapa · Live|Book a Repair,~we handle the rest.|Warranty:6 months|Support:24/7|Brands:100+" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt=""></span><em>6-month warranty</em></span><b>Book a Repair</b></a>
-            <a class="hsv-tile" href="#support" data-card="Remote help · Live|Talk to an expert,~fixed on a call.|Starting at:₹5/min|Home visit:Not needed|Available:24/7" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.jpg" alt=""></span><em>₹5/min</em></span><b>Technical Support</b></a>
+            <a class="hsv-tile" href="#support" data-card="Remote help · Live|Talk to an expert,~fixed on a call.|Starting at:₹5/min|Home visit:Not needed|Available:24/7" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.png" alt=""></span><em>₹5/min</em></span><b>Technical Support</b></a>
             <a class="hsv-tile" href="#amc" data-card="AMC · Plan|Maintenance &amp; stock,~under one plan.|Visits:Monthly|Covers:PCs · CCTV · UPS|Pricing:Special discounts" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt=""></span><em>Special discounts</em></span><b>AMC &amp; Inventory</b></a>
             <a class="hsv-tile" href="device-health.html" data-card="FixPapa Pulse|Monitor, predict,~prevent.|Device health:Real-time|Works on:Win · Mac|Downtime:Reduced" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt=""></span><em>Warranty check</em></span><b>Device Health</b></a>
             <a class="hsv-tile" href="rental.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt=""></span><em>Free delivery</em></span><b>Rental</b></a>
@@ -972,7 +972,7 @@
 <!-- ============ RENTAL · cinema banner (video) + rental product cards ============ -->
 <section class="rent3" id="rental">
   <div class="rent3-stage">
-    <video class="rent3-video" data-src="assets/media/rental-reel.mp4" poster="assets/media/rental-reel.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <video class="rent3-video" data-src="assets/media/rental-reel.mp4?v=2" poster="assets/media/rental-reel.jpg?v=2" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="rent3-veil"></div>
     <div class="container rent3-copy" data-reveal>
       <span class="rent3-tag">FixPapa Rental</span>
@@ -1071,6 +1071,11 @@
 <section class="section ts3" id="support">
   <div class="container">
     <div class="ts3-panel" data-reveal>
+      <figure class="ts3-photo">
+        <span class="ts3-ph"><img src="assets/img/photo-support.png" alt="FixPapa support expert on a call" loading="lazy"></span>
+        <em>Remote help</em>
+      </figure>
+      <div class="ts3-body">
       <div class="ts3-copy">
         <span class="ts3-live"><i></i>Technical Support · experts online</span>
         <h2 class="h-lg">Fixed on a call, <span class="hl">from ₹5/min</span></h2>
@@ -1085,6 +1090,7 @@
           <li><a href="tel:+918696544448"><span class="ts3-ic"><svg width="18" height="18"><use href="#i-shield"/></svg></span>Slow PC or virus<svg class="ts3-go" width="16" height="16"><use href="#i-chev-r"/></svg></a></li>
           <li><a href="tel:+918696544448"><span class="ts3-ic"><svg width="18" height="18"><use href="#i-cloud"/></svg></span>Software &amp; email setup<svg class="ts3-go" width="16" height="16"><use href="#i-chev-r"/></svg></a></li>
         </ul>
+      </div>
       </div>
     </div>
   </div>
@@ -1150,8 +1156,8 @@
 
 <!-- ============ AMC & INVENTORY · FixPapa video behind, AMC pitch + ad carousel on top ============ -->
 <section class="section section--dark amc2" id="amc">
-  <video class="bg-video section-video" data-src="assets/media/amc-reel.mp4" poster="assets/media/amc-reel.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-  <div class="amc2-veil"></div>
+  <video class="amc2-bg" data-src="assets/media/amc-office.mp4?v=2" poster="assets/media/amc-office.jpg?v=2" muted loop playsinline preload="none" aria-hidden="true"></video>
+  <div class="amc2-shade"></div>
   <div class="container" style="position:relative">
     <div class="amc2-hero">
       <div class="amc2-copy" data-reveal="left">
@@ -1177,35 +1183,6 @@
           <div><b>99%</b><span>uptime</span></div>
         </div>
       </div>
-
-      <aside class="amc2-ads" data-reveal="right" aria-roledescription="carousel" aria-label="FixPapa AMC offers">
-        <div class="amc2-slides">
-          <div class="amc2-ad on">
-            <video class="amc2-vid" data-src="assets/media/amc-office.mp4" poster="assets/media/amc-office.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-            <span class="amc2-tag">Ad · AMC offer</span>
-            <strong>Exclusive<br>Discounts</strong>
-            <p>on AMC Service Packages · Non Comprehensive IT Support</p>
-            <div class="amc2-act"><a href="#" class="amc2-go">Know More <svg width="16" height="16"><use href="#i-arrow"/></svg></a><button type="button" class="amc2-mini vx-play" data-video="assets/media/fixpapa-story.mp4"><svg width="14" height="14"><use href="#i-play"/></svg>How AMC works</button></div>
-          </div>
-          <div class="amc2-ad">
-            <video class="amc2-vid" data-src="assets/media/install.mp4" poster="assets/media/install.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-            <span class="amc2-tag">Ad · Installation</span>
-            <strong>Seamless<br>Setup</strong>
-            <p>Book an installation with FixPapa: seamless setup for your technology</p>
-            <div class="amc2-act"><a href="#" class="amc2-go">Book Installation <svg width="16" height="16"><use href="#i-arrow"/></svg></a><button type="button" class="amc2-mini vx-play" data-video="assets/media/install.mp4"><svg width="14" height="14"><use href="#i-play"/></svg>Watch our experts</button></div>
-          </div>
-          <div class="amc2-ad">
-            <video class="amc2-vid" data-src="assets/media/datacenter.mp4" poster="assets/media/datacenter.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-            <span class="amc2-tag">Ad · Inventory</span>
-            <strong>Track every<br>device</strong>
-            <p>Live stock, low-stock alerts and repair status in one dashboard</p>
-            <div class="amc2-act"><a href="#" class="amc2-go">See Dashboard <svg width="16" height="16"><use href="#i-arrow"/></svg></a></div>
-          </div>
-        </div>
-        <div class="amc2-dots"><button aria-label="Offer 1" class="on"></button><button aria-label="Offer 2"></button><button aria-label="Offer 3"></button></div>
-        <div class="amc2-note n1"><span class="ic g"><svg width="14" height="14"><use href="#i-check"/></svg></span><div><b>Repair completed</b><span>Quality check passed</span></div></div>
-        <div class="amc2-note n2"><span class="ic"><svg width="14" height="14"><use href="#i-calendar"/></svg></span><div><b>AMC visit scheduled</b><span>Preventive maintenance</span></div></div>
-      </aside>
     </div>
 
     <div class="amc2-cover">
@@ -1223,31 +1200,8 @@
 <section class="ew3" id="ewaste">
   <div class="container">
     <div class="ew3-box" data-reveal>
-      <figure class="ew3-art" aria-label="Recycling bin full of old gadgets">
-        <svg viewBox="70 26 360 392" aria-hidden="true">
-          <defs>
-            <linearGradient id="ewBin" x1="0" x2="1"><stop offset="0" stop-color="#16A34A"/><stop offset=".45" stop-color="#22C55E"/><stop offset="1" stop-color="#15803D"/></linearGradient>
-            <linearGradient id="ewRim" x1="0" x2="1"><stop offset="0" stop-color="#22C55E"/><stop offset=".5" stop-color="#4ADE80"/><stop offset="1" stop-color="#16A34A"/></linearGradient>
-            <linearGradient id="ewDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#374151"/><stop offset="1" stop-color="#111827"/></linearGradient>
-            <linearGradient id="ewSilver" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8FAFC"/><stop offset="1" stop-color="#CBD5E1"/></linearGradient>
-          </defs>
-          <ellipse cx="250" cy="404" rx="130" ry="10" fill="#052E16" opacity=".25"/>
-          <!-- devices piled in the bin (drawn first so the bin hides their lower half) -->
-          <g transform="rotate(-28 150 150)"><rect x="92" y="96" width="118" height="80" rx="7" fill="url(#ewDark)"/><rect x="99" y="103" width="104" height="66" rx="3" fill="#0B1220"/><path d="M99 103h40l-24 66H99z" fill="#fff" opacity=".07"/><rect x="86" y="176" width="130" height="9" rx="3" fill="url(#ewSilver)"/></g>
-          <g transform="rotate(16 250 110)"><rect x="224" y="52" width="54" height="104" rx="10" fill="url(#ewDark)"/><rect x="229" y="60" width="44" height="86" rx="5" fill="#0B1220"/><path d="M229 60h22l-22 50z" fill="#fff" opacity=".08"/></g>
-          <g transform="rotate(10 350 100)"><rect x="312" y="40" width="80" height="104" rx="8" fill="url(#ewSilver)" stroke="#94A3B8" stroke-width="1.5"/><rect x="322" y="50" width="60" height="22" rx="3" fill="#1F2937"/><g fill="#475569"><rect x="322" y="80" width="12" height="9" rx="2"/><rect x="338" y="80" width="12" height="9" rx="2"/><rect x="354" y="80" width="12" height="9" rx="2"/><rect x="370" y="80" width="12" height="9" rx="2"/><rect x="322" y="94" width="12" height="9" rx="2"/><rect x="338" y="94" width="12" height="9" rx="2"/><rect x="354" y="94" width="12" height="9" rx="2"/><rect x="370" y="94" width="12" height="9" rx="2"/><rect x="322" y="108" width="12" height="9" rx="2"/><rect x="338" y="108" width="12" height="9" rx="2"/><rect x="354" y="108" width="12" height="9" rx="2"/><rect x="370" y="108" width="12" height="9" rx="2"/></g></g>
-          <g transform="rotate(-6 245 170)"><rect x="188" y="128" width="112" height="84" rx="5" fill="#14532D"/><rect x="194" y="134" width="100" height="72" rx="3" fill="#166534"/><rect x="206" y="146" width="30" height="30" rx="3" fill="#1F2937"/><rect x="246" y="146" width="36" height="14" rx="2" fill="#374151"/><rect x="246" y="166" width="36" height="10" rx="2" fill="#374151"/><path d="M200 190h86M200 198h60M240 140v-6M252 140v-6M264 140v-6" stroke="#FACC15" stroke-width="2" opacity=".7"/></g>
-          <g transform="rotate(-12 175 175)"><rect x="128" y="138" width="100" height="72" rx="7" fill="url(#ewSilver)" stroke="#94A3B8" stroke-width="1.5"/><rect x="136" y="146" width="84" height="56" rx="3" fill="#1F2937"/><path d="M136 146h36l-20 56h-16z" fill="#fff" opacity=".1"/></g>
-          <g transform="rotate(14 350 175)"><rect x="300" y="130" width="104" height="74" rx="6" fill="url(#ewDark)"/><rect x="308" y="138" width="88" height="58" rx="3" fill="#E5E7EB"/><rect x="308" y="138" width="88" height="58" rx="3" fill="#334155"/><path d="M308 138h30l-18 58h-12z" fill="#fff" opacity=".1"/></g>
-          <path d="M210 120c-20 10-14 40 8 44" fill="none" stroke="#9CA3AF" stroke-width="3" stroke-linecap="round"/>
-          <!-- bin -->
-          <path d="M152 214h196l-14 182a10 10 0 0 1-10 9H176a10 10 0 0 1-10-9z" fill="url(#ewBin)"/>
-          <path d="M178 230l8 158" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".12"/>
-          <rect x="140" y="198" width="220" height="24" rx="6" fill="url(#ewRim)"/>
-          <rect x="140" y="198" width="220" height="6" rx="3" fill="#fff" opacity=".25"/>
-          <!-- recycle mark -->
-          <use href="#i-recycle" x="200" y="258" width="100" height="100" style="color:#fff;opacity:.9"/>
-        </svg>
+      <figure class="ew3-art" role="img" aria-label="Recycling bin full of old gadgets">
+        <img src="assets/img/ewaste.png" alt="" loading="lazy" width="736" height="783">
         <figcaption class="ew3-chip"><b>&#8377;4,000</b>up to, for an old laptop</figcaption>
       </figure>
       <div class="ew3-copy">
@@ -1435,6 +1389,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/fixpapa-story.js?v=6.1"></script>
 <script src="assets/js/refurb-data.js?v=1.0"></script>
-<script src="assets/js/main.js?v=8.7"></script>
+<script src="assets/js/main.js?v=8.8"></script>
 </body>
 </html>

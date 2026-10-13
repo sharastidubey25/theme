@@ -704,18 +704,6 @@
   });
 })();
 
-/* ---------- AMC + Rental: rotating ad carousels ---------- */
-document.querySelectorAll('.amc2-ads').forEach((box) => {
-  const ads = [...box.querySelectorAll('.amc2-ad')], dots = [...box.querySelectorAll('.amc2-dots button')];
-  const wrap = box.querySelector('.amc2-slides'); if (ads.length < 2) return;
-  let cur = 0, timer;
-  const go = (n) => { cur = n; ads.forEach((a, i) => a.classList.toggle('on', i === n)); dots.forEach((d, i) => d.classList.toggle('on', i === n)); };
-  const run = () => { clearInterval(timer); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => go((cur + 1) % ads.length), 4500); };
-  dots.forEach((d, i) => d.addEventListener('click', () => { go(i); run(); }));
-  wrap.addEventListener('mouseenter', () => clearInterval(timer)); wrap.addEventListener('mouseleave', run);
-  run();
-});
-
 /* ---------- Refurbished vs New calculator ---------- */
 (() => {
   const box = document.getElementById('refurb-calc'); if (!box) return;

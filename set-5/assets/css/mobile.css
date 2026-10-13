@@ -121,7 +121,7 @@
   .fpa-shot{flex:0 0 62%;scroll-snap-align:start}
 
   /* ---------- AMC ---------- */
-  .amc2-lead,.amc2-note,.amc2-watch{display:none}
+  .amc2-watch{display:none}
   .amc2-ctas{margin-top:18px}
   .amc2-hero{gap:20px}
 
