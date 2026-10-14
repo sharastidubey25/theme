@@ -100,7 +100,7 @@
     el.addEventListener('dragstart', e => e.preventDefault());
     requestAnimationFrame(frame);
   }
-  /* Refurbished: 5 category tiles (→ refurbished-category.html?cat=…) + a deal row mixing the top 2 discounts of each category */
+  /* Refurbished: 5 category tiles (→ refurbished-category.html?cat=…) */
   const R = window.FPRefurb;
   if (R) {
     const cats = $('#rfCats');
@@ -110,8 +110,6 @@
         <div class="rfh-cat-body"><b>${c.name}</b><span class="rfh-cat-count">${s.count} products</span><span class="rfh-cat-from">From <strong>${R.inr(s.from)}</strong></span></div>
         <span class="rfh-cat-go" aria-hidden="true"><svg width="16" height="16"><use href="#i-arrow"/></svg></span>
       </a>`; }).join('');
-    const deals = R.cats.flatMap(c => R.byCat(c.id).sort((a, b) => b.off - a.off).slice(0, 2));
-    productLoop($('#refurbGrid'), deals, p => R.card(p, { cat: true }));
   }
   productLoop($('#newGrid'), newProducts);
   $$('.wish').forEach(b => b.addEventListener('click', () => { b.style.color = b.style.color ? '' : '#E11D48'; }));
@@ -465,91 +463,6 @@
 /* ---------- Footer wordmark: split letters for hover lift ---------- */
 
 
-/* ---------- Footer stage: a FixPapa screw hops in, screws the "I" into the floor,
-   takes its place, the lights go down and it looks up (Pixar-style homage) ---------- */
-(() => {
-  const stage = document.getElementById('ftrStage'); if (!stage || !window.gsap) return;
-  const G = gsap, screw = '#fsScrew', body = '#fsBody', head = '#fsHeadG', I = '#fsI';
-  const BASE = 240, TOP = BASE - 122, IX = 220;
-  const reset = () => {
-    G.set(screw, { x: 1080, y: BASE }); G.set(body, { scaleX: 1, scaleY: 1, svgOrigin: '0 0' });
-    G.set(head, { rotation: 0, svgOrigin: '0 -100' }); G.set(I, { scaleY: 1, svgOrigin: `${IX} ${BASE}` });
-    G.set('#fsShadow', { attr: { cx: 1080 }, opacity: .18 }); G.set('#fsThreadsIn', { y: 0 });
-    G.set(['#fsDark', '#fsPool', '#fsCone', '#fsGlow', '#fsSlotGlow'], { opacity: 0 });
-    stage.classList.remove('done');
-  };
-  const hop = (tl, fromY, x, y, dur = .55) => {
-    const peak = Math.min(fromY, y) - 95;
-    tl.to(body, { scaleY: .7, scaleX: 1.2, duration: .12, ease: 'power2.out' })
-      .addLabel('a')
-      .to(screw, { x, duration: dur, ease: 'none' }, 'a')
-      .to('#fsShadow', { attr: { cx: x }, opacity: y === BASE ? .18 : 0, duration: dur, ease: 'none' }, 'a')
-      .to(screw, { y: peak, duration: dur / 2, ease: 'power2.out' }, 'a')
-      .to(screw, { y, duration: dur / 2, ease: 'power2.in' }, `a+=${dur / 2}`)
-      .to(body, { scaleY: 1.14, scaleX: .88, duration: .16 }, 'a')
-      .to(body, { scaleY: 1, scaleX: 1, duration: .14 }, `a+=${dur - .14}`)
-      .to(body, { scaleY: .76, scaleX: 1.16, duration: .07, ease: 'power2.out' })
-      .to(body, { scaleY: 1, scaleX: 1, duration: .22, ease: 'back.out(3)' });
-    return y;
-  };
-  const build = () => {
-    reset();
-    const tl = G.timeline({ paused: true, repeat: -1 });
-    let y = BASE;
-    y = hop(tl, y, 950, BASE, .6);
-    tl.to({}, { duration: .25 });
-    y = hop(tl, y, 720, TOP, .6);
-    y = hop(tl, y, 595, TOP, .5);
-    y = hop(tl, y, 470, TOP, .5);
-    y = hop(tl, y, 345, TOP, .5);
-    // peeks at the "I"
-    tl.to(head, { rotation: -22, duration: .3, ease: 'power2.out' }).to({}, { duration: .35 })
-      .to(head, { rotation: 0, duration: .25 });
-    y = hop(tl, y, IX, TOP, .55);
-    // stomp, stomp…
-    [.62, .3].forEach(s => {
-      tl.to(screw, { y: TOP - 60, duration: .2, ease: 'power2.out' })
-        .to(screw, { y: BASE - 122 * s, duration: .16, ease: 'power3.in' })
-        .to(I, { scaleY: s, duration: .16, ease: 'power3.in' }, '<')
-        .to(body, { scaleY: .72, scaleX: 1.18, duration: .07 })
-        .to(body, { scaleY: 1, scaleX: 1, duration: .2, ease: 'back.out(3)' });
-    });
-    // …and screws the rest of it into the floor
-    tl.to('#fsThreadsIn', { y: -7, duration: .12, ease: 'none', repeat: 7 }, 'screw')
-      .to(screw, { y: BASE, duration: .9, ease: 'power1.inOut' }, 'screw')
-      .to(I, { scaleY: 0, duration: .9, ease: 'power1.inOut' }, 'screw')
-      .to('#fsShadow', { opacity: .18, duration: .3 }, 'screw+=.6')
-      .to(body, { scaleY: 1.06, duration: .12, yoyo: true, repeat: 1 })
-      // looks at the audience
-      .to(head, { rotation: 10, duration: .3, ease: 'power2.out' }, '+=.3')
-      .to(head, { rotation: 0, duration: .4, ease: 'power2.inOut' }, '+=.4')
-      // lights go down, the screw glows…
-      .to('#fsDark', { opacity: .96, duration: 2.2, ease: 'power1.in' }, '+=.2')
-      .to('#fsShadow', { opacity: 0, duration: 1 }, '<')
-      .to(['#fsGlow', '#fsSlotGlow'], { opacity: 1, duration: 1.2 }, '<+=1')
-      .to('#fsPool', { opacity: .35, duration: 1.2 }, '<')
-      // …and looks up
-      .to(head, { rotation: -6, y: -3, duration: .8, ease: 'power2.inOut' })
-      .to('#fsCone', { opacity: 1, duration: .9, ease: 'power2.out' }, '<+=.2')
-      // hold the moment, then lights back up, the "I" pops back and the screw hops away → loop
-      .to({}, { duration: 2.2 })
-      .to(['#fsCone', '#fsGlow', '#fsSlotGlow', '#fsPool'], { opacity: 0, duration: .6 })
-      .to('#fsDark', { opacity: 0, duration: 1, ease: 'power1.out' }, '<')
-      .to(head, { rotation: 0, y: 0, duration: .4 }, '<')
-      .to('#fsThreadsIn', { y: 7, duration: .1, ease: 'none', repeat: 5 }, 'out')
-      .to(screw, { y: TOP, duration: .6, ease: 'power1.inOut' }, 'out')
-      .to(I, { scaleY: 1, duration: .6, ease: 'power1.inOut' }, 'out')
-      .to('#fsShadow', { opacity: 0, duration: .2 }, 'out');
-    y = hop(tl, TOP, 95, TOP, .5);
-    hop(tl, TOP, -90, BASE, .55);
-    tl.to({}, { duration: .6 });
-    return tl;
-  };
-  let tl = build();
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { tl.progress(1); return; }
-  // loops forever while the footer is on screen, pauses when it scrolls away
-  new IntersectionObserver(([e]) => { e.isIntersecting ? tl.play() : tl.pause(); }, { threshold: .3 }).observe(stage);
-})();
 
 /* ---------- Header logo: same screw bit as the footer stage, in miniature —
    pops up on the last "a", hops back over the letters, stomps + screws the "i"
@@ -685,6 +598,22 @@
   if (qTab > 0 && qTab < tiles.length) setTimeout(() => go(tiles.findIndex(t => +t.dataset.scene === qTab)), 1200);
 })();
 
+/* ---------- Hero info cards follow the stage size: the stage shrinks with the window height
+   (short laptop windows, e.g. Windows at 125–150% scaling), so the cards shrink with it and stay in the corners ---------- */
+(() => {
+  const stage = document.getElementById('heroStage'); if (!stage || !window.ResizeObserver) return;
+  const FULL = 470, MAX = .86, MIN = .6, TIGHT = 340; // full stage width · card scale range · below this hide the Diagnostics card
+  const cards = stage.querySelectorAll('.holo'), wide = matchMedia('(min-width:1025px)');
+  new ResizeObserver(([e]) => {
+    const w = e.contentRect.width; if (!w) return;
+    const s = wide.matches ? Math.min(MAX, Math.max(MIN, MAX * w / FULL)) : .74;
+    stage.style.setProperty('--holo-s', s.toFixed(3));
+    // GSAP folds the CSS `scale` into its own transform (intro + parallax tweens), so set it through GSAP too
+    if (window.gsap) window.gsap.set(cards, { scale: s });
+    stage.classList.toggle('holo-tight', w < TIGHT);
+  }).observe(stage);
+})();
+
 /* ---------- Set 5: light / dark theme switch (choice remembered on this device) ---------- */
 (() => {
   const btn = document.getElementById('themeToggle'); if (!btn) return;
@@ -737,11 +666,11 @@
   calc();
 })();
 
-/* ---------------- Warranty checker · 4 brands visible, scroll for more ---------------- */
+/* ---------------- Warranty checker · 3 brands visible, scroll for more ---------------- */
 (() => {
   const list = document.getElementById('wcList'); if (!list) return;
   const wrap = list.parentElement, up = document.querySelector('.wc-up'), down = document.querySelector('.wc-down'), count = document.getElementById('wcCount');
-  const SHOW = 4;
+  const SHOW = 3;
   const rows = () => [...list.children].filter(li => !li.hidden);
   const step = () => { const r = rows(); return r.length > 1 ? r[1].offsetTop - r[0].offsetTop : (r[0]?.offsetHeight || 50); };
   const GAP = 8;

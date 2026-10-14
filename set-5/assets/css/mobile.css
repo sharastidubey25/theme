@@ -38,7 +38,7 @@
   .hsv .svc-img{width:min(100%,100px);border-radius:18px}
   .hsv .svc-ph{border-radius:15px}
   .hsv .svc-img em{font-size:9px;padding:3px 6px;bottom:-8px}
-  .hsv-tile>b{margin-top:13px;font-size:12px;line-height:1.2}
+  .hsv-tile>b{margin-top:8px;font-size:12px;line-height:1.2}
   .hsv-tile::after{left:16px;right:16px}
 
   /* ---------- Stats: compact 2×2 ---------- */
@@ -54,14 +54,13 @@
   .h-lg{font-size:clamp(26px,7.4vw,32px);line-height:1.12}
   .section-head{margin-bottom:18px;gap:10px}
   /* swipe rows: shared look */
-  .rfh-trust,.bk2-trust,.rent3-cards,.fpa-ads,.fpa-team,.perks2{scrollbar-width:none}
-  .rfh-trust::-webkit-scrollbar,.bk2-trust::-webkit-scrollbar,.rent3-cards::-webkit-scrollbar,.fpa-ads::-webkit-scrollbar,.fpa-team::-webkit-scrollbar,.perks2::-webkit-scrollbar{display:none}
+  .rfh-trust,.bk2-trust,.rent3-cards,.perks2{scrollbar-width:none}
+  .rfh-trust::-webkit-scrollbar,.bk2-trust::-webkit-scrollbar,.rent3-cards::-webkit-scrollbar,.perks2::-webkit-scrollbar{display:none}
 
   /* ---------- Refurbished ---------- */
   .rfh-sub{display:none}
   .rfh-trust{flex-wrap:nowrap;overflow-x:auto;margin:14px -16px 0;padding:0 16px}
   .rfh-trust li{flex:none}
-  .rfh-deals-head{margin-top:8px}
 
   /* ---------- Book a Repair: 4 per row, chips in one swipe line ---------- */
   .bk2-panel{padding:22px 14px 18px}
@@ -89,7 +88,7 @@
   .rent3-copy h2{font-size:clamp(26px,7.4vw,32px)}
   .rent3-ctas{margin-top:18px}
   .rent3-cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:-96px -16px 0;padding:4px 16px 30px;scroll-padding-inline:16px}
-  .rent3-card{flex:0 0 58%;scroll-snap-align:start}
+  .rent3-card{flex:0 0 38%;scroll-snap-align:start}
 
   /* ---------- Rent vs buy ---------- */
   .rcalc{padding:20px 0 0}
@@ -112,13 +111,6 @@
 
   /* ---------- In action: video + swipeable offers and team ---------- */
   #in-action{padding-bottom:28px}
-  .fpa-grid{gap:16px}
-  .fpa-ads{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;gap:12px}
-  .fpa-ad{flex:0 0 78%;scroll-snap-align:start;padding:16px 18px}
-  .fpa-ad p,.fpa-dl,.fpa-adphoto,.fpa-team-head p{display:none}
-  .fpa-team-head{margin-top:28px}
-  .fpa-team{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;gap:12px}
-  .fpa-shot{flex:0 0 62%;scroll-snap-align:start}
 
   /* ---------- AMC ---------- */
   .amc2-watch{display:none}

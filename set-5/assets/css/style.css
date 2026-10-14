@@ -1156,14 +1156,6 @@ ul{list-style:none;margin:0;padding:0}
 /* =========================================================
    FOOTER STAGE — screw hops in and becomes the "I"
    ========================================================= */
-.ftr-stage{position:relative;margin:30px 0 8px;border-radius:28px;overflow:hidden;background:#FFFFFF;border:1px solid var(--border)}
-.ftr-stage svg{display:block;width:100%;height:auto}
-.fs-l{font-family:var(--font-head);font-weight:800;font-size:170px;fill:#0E0F13;letter-spacing:0}
-.fs-x{fill:#FF8A1F}
-.fs-floor{stroke:rgba(14,15,19,.12);stroke-width:2}
-.fs-replay{position:absolute;right:16px;bottom:14px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#FDBA74;font-size:12.5px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .5s}
-.ftr-stage.done .fs-replay{opacity:1;pointer-events:auto}
-@media (max-width:640px){.ftr-stage{border-radius:20px}}
 /* scroll stability (Firefox): no scroll anchoring jumps around the pinned hero */
 html{overflow-anchor:none;scroll-behavior:auto}
 .hero{overflow:clip}
@@ -1294,7 +1286,7 @@ html{overflow-anchor:none;scroll-behavior:auto}
 .hsv-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 12px}
 .hsv-tile{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 6px 10px;border-radius:22px;border:1px solid transparent;outline:none;transition:background-color .3s,border-color .3s}
 .hsv .svc-img{width:min(100%,128px)}
-.hsv-tile>b{margin-top:17px;font:700 14.5px/1.25 var(--font-head);letter-spacing:-.01em;color:var(--ink);transition:color .3s}
+.hsv-tile>b{margin-top:10px;font:700 14.5px/1.25 var(--font-head);letter-spacing:-.01em;color:var(--ink);transition:color .3s}
 .hsv-tile.eco .svc-img em{border-color:#BBF7D0;color:#15803D}
 /* hover = same lift/tilt + photo zoom as Our Services; active tile = the scene playing on the laptop */
 .hsv-tile:hover .svc-img,.hsv-tile:focus-visible .svc-img{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 22px 34px -16px rgba(255,106,0,.55)}
@@ -1336,7 +1328,7 @@ html{overflow-anchor:none;scroll-behavior:auto}
   .hsv-grid{gap:2px 12px}
   .hsv-tile{padding:6px 6px 8px}
   .hsv .svc-img{width:min(100%,104px)}
-  .hsv-tile>b{margin-top:17px;font-size:13.5px}
+  .hsv-tile>b{margin-top:10px;font-size:13.5px}
 }
 @media (max-width:1024px){
   .hero-inner{grid-template-columns:1fr}
@@ -1347,7 +1339,7 @@ html{overflow-anchor:none;scroll-behavior:auto}
   .hsv.svc-panel{margin:0;padding:18px 12px 20px}
   .hsv-grid{gap:8px 6px}
   .hsv-tile{padding:6px 2px 10px}
-  .hsv-tile>b{margin-top:16px;font-size:12.5px}
+  .hsv-tile>b{margin-top:9px;font-size:12.5px}
   .hero .hero-title{font-size:clamp(28px,8.4vw,40px)}
 }
 
@@ -1578,10 +1570,6 @@ html{overflow-anchor:none;scroll-behavior:auto}
 [data-theme="dark"] .perks span{background:rgba(255,138,31,.14)}
 
 /* ---- dark: footer mascot stage ---- */
-[data-theme="dark"] .ftr-stage{background:#0B0B0C}
-[data-theme="dark"] .fs-l{fill:#F2F1EC}
-[data-theme="dark"] .fs-x{fill:#FF8A1F}
-[data-theme="dark"] .fs-floor{stroke:rgba(255,255,255,.12)}
 [data-theme="dark"] .booking{background:#15161B;border:1px solid rgba(255,255,255,.06)}
 
 /* ---- dark: product cards stay white so product images & prices are easy to see ---- */
@@ -1625,50 +1613,6 @@ html{overflow-anchor:none;scroll-behavior:auto}
 @media (max-width:640px){.prod-track{gap:12px}.prod-track > .product{flex-basis:200px;width:200px}}
 
 /* ---------- Set 5: FixPapa in action — ad video, offers, experts at work ---------- */
-.fpa{background:#FFFFFF}
-.fpa-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:24px;align-items:start}
-.fpa-player{background:#0B1220;border-radius:28px;padding:12px;box-shadow:0 40px 80px -40px rgba(154,52,18,.55)}
-.fpa-screen{aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#FFFFFF}
-.fpa-screen svg,.fpa-screen video{width:100%;height:100%;display:block;object-fit:cover}
-.fpa-ctrl{display:flex;align-items:center;gap:12px;padding:14px 8px 6px;color:#CBD5E1;font:600 13px var(--font-mono)}
-.fpa-play{width:40px;height:40px;flex:0 0 40px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center}
-.fpa-play svg{grid-area:1/1}.fpa-play .i-play{display:none}.fpa-play.paused .i-play{display:block}.fpa-play.paused .i-pause{display:none}
-.fpa-bar{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.14);cursor:pointer;overflow:hidden}
-.fpa-bar i{display:block;height:100%;background:var(--grad-primary);transform-origin:0 50%;transform:scaleX(0)}
-.fpa-dur{opacity:.55;margin-left:-6px}
-.fpa-steps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:8px 4px 4px}
-.fpa-steps button{padding:8px 6px;border-radius:12px;background:rgba(255,255,255,.05);color:#94A3B8;font-size:12px;font-weight:600;text-align:left;line-height:1.3;transition:background .3s,color .3s}
-.fpa-steps b{display:block;font:700 11px var(--font-mono);color:#64748B;margin-bottom:2px}
-.fpa-steps button.done{color:#CBD5E1}.fpa-steps button.done b{color:#FDBA74}
-.fpa-steps button.on{background:var(--primary);color:#fff}.fpa-steps button.on b{color:#FFEDD5}
-.fpa-ads{display:flex;flex-direction:column;gap:14px}
-.fpa-ad{position:relative;display:block;padding:20px 22px;border-radius:22px;background:#fff;border:1px solid var(--border);overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.fpa-ad:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.fpa-ad h3{font-size:18px;line-height:1.3;margin:8px 0 10px;max-width:24ch}
-.fpa-ad p{font-size:14px;color:var(--ink-3);margin:0 0 14px;max-width:30ch}
-.fpa-adtag{display:inline-block;font:700 11px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:#E85D04;background:#FFF7ED;border:1px solid #FED7AA;padding:4px 9px;border-radius:999px}
-.fpa-adcta{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--font-head);color:var(--primary)}
-.fpa-ad--hot{flex:1;background:var(--grad-primary);border:0;color:#fff;padding-right:42%}
-.fpa-ad--hot h3{color:#fff;font-size:22px}.fpa-ad--hot p{color:#FFF7ED}
-.fpa-ad--hot .fpa-adtag{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3);color:#fff}
-.fpa-ad--hot .fpa-adcta{background:#0B1220;color:#fff;padding:10px 16px;border-radius:999px}
-.fpa-adphoto{position:absolute;right:0;top:0;width:38%;height:100%;object-fit:cover;object-position:45% 30%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
-.fpa-dl{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:16px;border:1.5px dashed #FDBA74;color:#E85D04;font:700 14px var(--font-head);transition:background .3s}
-.fpa-dl:hover{background:#F8FAFC}
-.fpa-team-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:56px 0 22px}
-.fpa-team-head h3{font-size:clamp(22px,2.2vw,30px)}.fpa-team-head p{color:var(--ink-3);margin:0;max-width:52ch}
-.fpa-team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.fpa-shot{margin:0;border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--border);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.fpa-shot:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.fpa-art{aspect-ratio:4/3;overflow:hidden}.fpa-art svg,.fpa-art img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .6s var(--ease)}.fpa-shot:hover .fpa-art img{transform:scale(1.05)}
-.fpa-shot figcaption{padding:14px 16px 16px}.fpa-shot b{display:block;font:800 15px var(--font-head)}.fpa-shot span{font-size:13px;color:var(--ink-3)}
-@media (max-width:1024px){.fpa-grid{grid-template-columns:minmax(0,1fr)}.fpa-ads{display:grid;grid-template-columns:1fr 1fr}.fpa-ad--hot{grid-column:1/-1}.fpa-dl{grid-column:1/-1}.fpa-team{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.fpa-player{padding:8px;border-radius:20px}.fpa-steps{grid-template-columns:repeat(3,1fr)}.fpa-ads{grid-template-columns:minmax(0,1fr)}.fpa-ad--hot{padding-right:22px}.fpa-adphoto{display:none}.fpa-team{gap:12px}.fpa-shot figcaption{padding:10px 12px 12px}}
-[data-theme="dark"] .fpa{background:#0B0B0C}
-[data-theme="dark"] .fpa-ad,[data-theme="dark"] .fpa-shot{background:#15161B;border-color:rgba(255,255,255,.07)}
-[data-theme="dark"] .fpa-ad--hot{background:#FF6A00}
-[data-theme="dark"] .fpa-adtag{background:rgba(255,138,31,.12);border-color:rgba(255,138,31,.3);color:#FDBA74}
-[data-theme="dark"] .fpa-dl{color:#FDBA74;border-color:rgba(255,138,31,.4)}[data-theme="dark"] .fpa-dl:hover{background:rgba(255,138,31,.08)}
 
 /* ---------- Set 5: AMC — FixPapa video behind, pitch + ad carousel on top ---------- */
 .amc2{padding-top:110px}
@@ -1879,7 +1823,7 @@ html{overflow-anchor:none;scroll-behavior:auto}
 
 /* Bright white theme: vivid solid accents instead of washed-out pastels */
 .why .wi,.ew3-float>b,.perks span,.ew3-steps i{background:var(--grad-primary);color:#fff;border-color:transparent;box-shadow:0 10px 22px -10px rgba(255,106,0,.7)}
-.cute-tag,.fpa-adtag{background:var(--primary);color:#fff;border-color:transparent}
+.cute-tag{background:var(--primary);color:#fff;border-color:transparent}
 .wc-state{background:rgba(255,106,0,.06);border-color:rgba(255,106,0,.35)}
 .rcalc-chips button:hover,.br-acts a:first-child{background:rgba(255,106,0,.1)}
 .card,.br-card,.product,.rt,.app2,.ew2,.trouble,.tv-score{box-shadow:var(--shadow-sm)}
@@ -1971,8 +1915,11 @@ html{overflow-anchor:none;scroll-behavior:auto}
 /* ---- Hero info cards stay on screen for every scene: tucked into the stage corners, slightly smaller ---- */
 @media (min-width:1025px){
   .hero-stage .holo{transform-origin:center}
-  .holo--b{left:-11%;top:0;scale:.86;transform-origin:left top}
-  .holo--a{right:-13%;bottom:-3%;scale:.86;transform-origin:right bottom}
+  .holo--b{left:-11%;top:0;scale:var(--holo-s,.86);transform-origin:left top}
+  .holo--a{right:-13%;bottom:-3%;scale:var(--holo-s,.86);transform-origin:right bottom}
+  /* short windows: stage too small for both cards (main.js sets --holo-s and .holo-tight from the stage width) */
+  .hero-stage.holo-tight .holo--b{visibility:hidden}
+  .hero-stage.holo-tight .holo--a{right:-32%;bottom:-8%}
 }
 @media (max-width:1024px){
   .holo--b{left:-2%;top:-2%;scale:.74;transform-origin:left top}
@@ -2054,8 +2001,8 @@ html{overflow-anchor:none;scroll-behavior:auto}
 [data-theme="dark"] .ts3-list a{color:#fff}
 
 /* ---------- E-waste · minimal: recycling-bin illustration on green + short pitch ---------- */
-.ew3-art{position:relative;margin:0;aspect-ratio:5/4;border-radius:32px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(80% 70% at 50% 40%,#F0FDF4 0%,#DCFCE7 60%,#BBF7D0 100%)}
-.ew3-art img{position:absolute;inset:0;width:100%;height:100%;padding:8% 6% 5%;object-fit:contain;transition:transform .8s var(--ease)}
+.ew3-art{position:relative;margin:0;aspect-ratio:1216/1293;width:100%;max-width:440px;justify-self:center;border-radius:32px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(80% 70% at 50% 40%,#F0FDF4 0%,#DCFCE7 60%,#BBF7D0 100%)}
+.ew3-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:transform .8s var(--ease)}
 .ew3-art:hover img{transform:translateY(-4px) scale(1.02)}
 .ew3-chip{position:absolute;left:20px;top:20px;display:flex;align-items:baseline;gap:8px;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.92);font-size:12.5px;color:#475569;box-shadow:0 12px 28px -14px rgba(5,46,22,.6)}
 .ew3-chip b{font:800 17px var(--font-head);color:#15803D;letter-spacing:-.02em}
@@ -2066,26 +2013,66 @@ html{overflow-anchor:none;scroll-behavior:auto}
 [data-theme="dark"] .ew3-art{background:radial-gradient(80% 70% at 50% 40%,#1F3A2B 0%,#14261C 70%,#0F1D15 100%)}
 [data-theme="dark"] .ew3-points li{background:rgba(34,197,94,.1);color:#86EFAC}
 
-/* ---------- AMC · amc-office video full-bleed behind, copy on a left-side shade ---------- */
-.amc2{position:relative;overflow:hidden;padding:110px 0 80px;background:#0B1220 url("../media/amc-office.jpg?v=2") 62% 40%/cover no-repeat}
-.amc2-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;z-index:0}
-.amc2-shade{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,18,32,.92) 0%,rgba(11,18,32,.82) 34%,rgba(11,18,32,.35) 58%,rgba(11,18,32,0) 78%),linear-gradient(0deg,rgba(11,18,32,.75) 0%,transparent 30%)}
+/* ---------- AMC · copy on the left, amc-office video uncropped on the right, fading into the navy ---------- */
+.amc2{position:relative;overflow:hidden;padding:60px 0 44px;background:#0B1220}
+.amc2-bg{position:absolute;top:0;right:0;height:100%;width:auto;aspect-ratio:1556/1332;max-width:62%;object-fit:cover;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
 .amc2>.container{z-index:1}
-.amc2-hero{display:flex;align-items:center;min-height:520px}
-.amc2-copy{max-width:590px;padding:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;text-shadow:0 2px 16px rgba(0,0,0,.45)}
-.amc2-copy .btn,.amc2-live{text-shadow:none}
+.amc2-hero{display:flex;align-items:center;min-height:0}
+.amc2-copy{max-width:560px;padding:0;background:none;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;text-shadow:none}
 .amc2-live{padding:0;background:none;border:0;font:600 12px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:#FDBA74}
 .amc2-live i{width:7px;height:7px;background:#FF8A1F;animation:none;box-shadow:0 0 0 4px rgba(255,138,31,.2)}
-.amc2-copy .h-lg{margin:14px 0 14px;font-size:clamp(32px,3.4vw,48px)}
-.amc2-why{margin:0 0 18px;font:500 15.5px/1.5 var(--font-body);color:#E2E8F0}
-.amc2-ticks--why{column-gap:30px;row-gap:10px;margin-bottom:30px}
+.amc2-copy .h-lg{margin:12px 0 10px;font-size:clamp(30px,3vw,42px)}
+.amc2-why{margin:0 0 14px;font:500 15px/1.5 var(--font-body);color:#E2E8F0}
+.amc2-ticks--why{column-gap:28px;row-gap:8px;margin-bottom:24px}
 .amc2-ticks--why li{gap:9px;font-size:14.5px}
 .amc2-ticks--why b{font-weight:600}
 .amc2-ticks--why li>span{flex:0 0 auto;width:auto;height:auto;background:none;color:#FF8A1F}
 .amc2-ticks--why li:last-child{grid-column:auto}
 .amc2-watch{font-size:14px}.amc2-watch span{width:42px;height:42px}
-.amc2-stats{gap:28px;margin-top:30px;padding-top:20px;border-top-color:rgba(255,255,255,.14)}
-.amc2-stats b{font-size:24px}.amc2-stats span{font-size:12.5px;color:#CBD5E1}
-.amc2-cover{margin-top:48px;background:rgba(11,18,32,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-@media (max-width:1024px){.amc2-shade{background:linear-gradient(90deg,rgba(11,18,32,.9),rgba(11,18,32,.6))}}
-@media (max-width:640px){.amc2{padding:56px 0}.amc2-hero{min-height:0}.amc2-bg{object-position:70% 40%}.amc2-shade{background:rgba(11,18,32,.78)}.amc2-ticks--why{grid-template-columns:1fr 1fr;column-gap:14px}.amc2-ticks--why li{font-size:13.5px}.amc2-cover{margin-top:32px}}
+.amc2-stats{gap:28px;margin-top:22px;padding-top:16px;border-top-color:rgba(255,255,255,.14)}
+.amc2-stats b{font-size:22px}.amc2-stats span{font-size:12.5px;color:#CBD5E1}
+.amc2-cover{margin-top:32px;padding:12px 20px;background:rgba(11,18,32,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+@media (max-width:1024px){.amc2{padding:24px 0 44px}.amc2-bg{position:relative;display:block;width:calc(100% - 32px);max-width:620px;height:auto;margin:0 auto 28px;border-radius:20px;-webkit-mask-image:none;mask-image:none}.amc2-copy{max-width:none}}
+@media (max-width:640px){.amc2-ticks--why{grid-template-columns:1fr 1fr;column-gap:14px}.amc2-ticks--why li{font-size:13.5px}.amc2-cover{margin-top:28px}}
+
+/* ---------- Compact pass: warranty, rental, refurbished vs new ---------- */
+#warranty.section{padding-top:56px;padding-bottom:56px}
+.wc-side{padding:20px 16px;gap:10px}
+.wc-main{padding:24px 28px;gap:14px}
+.wc-head .h-md{font-size:clamp(24px,2.2vw,30px)}
+.wc-sub{margin-top:6px;font-size:14px}
+.wc-brand{height:76px;min-width:150px;border-radius:18px}
+.wc-brand.has-logo{padding:10px 22px;gap:4px}
+.wc-brand-img{max-height:38px}
+.wc-form{padding:16px 18px;border-radius:18px}
+.wc-form label{margin-bottom:8px}
+.wc-row input,.wc-row .btn{height:48px}
+.wc-form small{margin-top:8px}
+.wc-trouble{grid-template-columns:64px minmax(0,1fr) auto;gap:14px;padding:12px 16px;border-radius:18px}
+.wc-trouble svg#indiaMap{width:64px}
+.wc-trouble b{font-size:17px}
+.wc-trouble .btn{height:42px}
+@media (min-width:1025px){.wc-scroll{min-height:200px}}
+.rent3{padding-bottom:56px}
+.rent3-stage{min-height:440px;padding:64px 0 96px}
+.rent3-copy h2{font-size:clamp(32px,4.2vw,56px);margin:16px 0 10px}
+.rent3-copy>p{margin-bottom:22px}
+.rent3-steps{margin-top:22px}
+.rent3-cards{max-width:620px;margin:-64px auto 0;gap:12px}
+.rent3-card{padding:6px 6px 12px;border-radius:16px}
+.rent3-img{border-radius:12px;margin-bottom:8px}
+.rent3-img em{left:6px;top:6px;font-size:9px;padding:3px 6px}
+.rent3-card b{font-size:13.5px;padding:0 4px;line-height:1.25}
+.rent3-line{font-size:11.5px;line-height:1.35;padding:2px 4px 0}
+@media (max-width:640px){.rent3-stage{min-height:0;padding:48px 0 84px}.rent3-cards{max-width:none;margin-top:-56px}}
+.rcalc{padding-bottom:56px}
+.rcalc-in{padding:30px 34px 28px}
+.rcalc-in h2{font-size:clamp(28px,2.8vw,38px)}
+.rcalc-sub{margin-bottom:18px}
+.rcalc-chips{margin-bottom:18px}
+.rcalc-chips button{padding:9px 18px}
+.rcalc-out{padding:30px 34px 26px}
+.rcalc-save{font-size:clamp(36px,3.8vw,50px)}
+.rcalc-bars{margin:18px 0 16px;gap:10px}
+.rcalc-inc{margin-bottom:18px;gap:6px}
+.rcalc-note{margin-top:10px}
