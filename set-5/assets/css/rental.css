@@ -3,7 +3,7 @@
 .rt-bar .h-lg{margin-top:12px}
 .rt-bar small{display:block;margin-top:10px;color:var(--ink-3);font-size:13px;text-align:right}
 .rt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.rt-card{display:flex;flex-direction:column;border-radius:26px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.rt-card{display:flex;flex-direction:column;border-radius:26px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
 .rt-card:hover{transform:translateY(-6px);box-shadow:0 26px 44px -24px rgba(154,52,18,.5)}
 .rt-img{position:relative;aspect-ratio:4/3;overflow:hidden}
 .rt-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}

@@ -21,9 +21,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=13.4">
-<link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.3">
-<link rel="stylesheet" href="assets/css/mobile.css?v=1.9">
+<link rel="stylesheet" href="assets/css/style.css?v=15.5">
+<link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.4">
+<link rel="stylesheet" href="assets/css/mobile.css?v=2.4">
+<link rel="stylesheet" href="assets/css/assistant.css?v=1.2">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -66,11 +67,13 @@
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L5.5 12M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2M14 16l-3 3 3 3M8.3 6.8l1.1-1.9a1.8 1.8 0 0 1 3.2 0l4.1 7.1M13 12.3l3.9-.4.4-4M5.5 12l-.8 4.1 4-.7"/></symbol>
+    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-.9 1.8 1.8 0 0 1 0-1.8L7.2 9.5M11 19h8.2a1.8 1.8 0 0 0 1.6-.9 1.8 1.8 0 0 0 0-1.8l-1.2-2.1M14 16l-3 3 3 3M8.3 13.6 7.2 9.5l-4.1 1.1M9.3 5.8l1.1-1.9A1.8 1.8 0 0 1 12 3a1.8 1.8 0 0 1 1.5.9l3.9 6.8M13.4 9.6l4.1 1.1 1.1-4.1"/></symbol>
+    <symbol id="i-recycle-solid" viewBox="6 8 88 88"><path d="M67.5 48.2L76.8 64.4Q81.2 72.0 72.4 72.0L62.5 72.0M46.3 72.0L27.6 72.0Q18.8 72.0 23.2 64.4L28.2 55.8M36.3 41.8L45.6 25.6Q50.0 18.0 54.4 25.6L59.4 34.2" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M53.1 72.0L64.3 62.5L64.3 81.5ZM32.9 47.7L35.5 62.2L19.0 52.7ZM64.0 42.3L50.2 37.3L66.6 27.8Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></symbol>
     <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7"/><path d="M9.8 9l1.5 1.5 3-3"/></symbol>
     <symbol id="i-cctv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 7l14 5-2 4L2 11z"/><path d="M17 12l3 1M8 13.5V17H3M3 15v4"/></symbol>
     <symbol id="i-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
     <symbol id="i-projector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="8" width="20" height="9" rx="2"/><circle cx="16" cy="12.5" r="2.5"/><path d="M5 17v2M19 17v2M6 11h4"/></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></symbol>
@@ -87,6 +90,15 @@
     <symbol id="p-mini" viewBox="0 0 120 120"><defs><linearGradient id="gm" x1="0" x2="1"><stop offset="0" stop-color="#1E293B"/><stop offset="1" stop-color="#0B1220"/></linearGradient></defs><path d="M34 22l44-10 12 6v80l-44 10-12-6z" fill="url(#gm)"/><path d="M34 22l12 6v80l-12-6z" fill="#334155"/><path d="M46 28l44-10" stroke="#475569"/><g fill="#475569"><circle cx="38" cy="40" r="1.4"/><circle cx="42" cy="42" r="1.4"/><circle cx="38" cy="46" r="1.4"/><circle cx="42" cy="48" r="1.4"/><circle cx="38" cy="52" r="1.4"/><circle cx="42" cy="54" r="1.4"/><circle cx="38" cy="58" r="1.4"/><circle cx="42" cy="60" r="1.4"/></g><rect x="37" y="74" width="6" height="3" fill="#EF4444" transform="skewY(26)"/><circle cx="40" cy="30" r="2" fill="#FDBA74"/></symbol>
     <symbol id="p-ups" viewBox="0 0 120 120"><defs><linearGradient id="gu" x1="0" x2="1"><stop offset="0" stop-color="#27272A"/><stop offset="1" stop-color="#09090B"/></linearGradient></defs><path d="M28 30l40-12 26 8v70l-40 12-26-8z" fill="url(#gu)"/><path d="M28 30l26 8v70l-26-8z" fill="#3F3F46"/><path d="M54 38l40-12" stroke="#52525B"/><circle cx="46" cy="44" r="4" fill="none" stroke="#A1A1AA" stroke-width="1.4"/><g fill="#22C55E"><circle cx="34" cy="38" r="1.3"/></g><circle cx="38" cy="40" r="1.3" fill="#F59E0B"/><rect x="34" y="84" width="14" height="4" rx="1" fill="#DC2626" transform="skewY(18)"/></symbol>
     <symbol id="p-batt" viewBox="0 0 120 120"><path d="M18 44l58-12 26 10v44l-58 12-26-10z" fill="#E5E7EB"/><path d="M18 44l26 10v44l-26-10z" fill="#CBD5E1"/><path d="M44 54l58-12" stroke="#94A3B8"/><path d="M44 62l58-12v12l-58 12z" fill="#DC2626"/><rect x="58" y="30" width="8" height="5" fill="#EF4444"/><rect x="82" y="26" width="8" height="5" fill="#1F2937"/></symbol>
+    <!-- FixPapa Pulse section -->
+    <symbol id="i-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 3-7 2 2h5"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.5 15.5L21 21M6.5 10.5h1.5l1.2-2.5 2 5 1.3-2.5h1.5"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h16"/><rect x="5.5" y="12" width="3" height="5" rx="1"/><rect x="10.5" y="8" width="3" height="9" rx="1"/><rect x="15.5" y="4" width="3" height="13" rx="1"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.6l7.4-1v7H3zM11.4 4.4L21 3v8.6h-9.6zM3 12.4h7.4v7L3 18.4zM11.4 12.4H21V21l-9.6-1.4z"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M2 21h20M8 8h3M8 12h3M8 16h3"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15zM5 19l7-7"/></symbol>
   </defs>
 </svg>
 
@@ -138,26 +150,85 @@
             <svg class="tt-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
           </button>
           <a href="#" class="icon-btn hide-sm" aria-label="Cart"><svg width="22" height="22"><use href="#i-cart"/></svg></a>
-          <a href="#" class="icon-btn hide-sm" aria-label="Account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
-          <a href="#" class="btn btn--sm" data-ripple>Become a Partner</a>
+          <a href="account.html" class="icon-btn hide-sm" aria-label="My account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
+          <a href="partner.html" class="btn btn--sm" data-ripple>Become a Partner</a>
           <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu"><svg width="24" height="24"><use href="#i-menu"/></svg></button>
         </div>
       </div>
       <nav class="nav" aria-label="Primary">
-        <a href="#" class="active">Home</a>
+        <a href="#" class="active" aria-current="page">Home</a>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-services">Services<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-shop">Shop<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-business">For Business<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
         <a href="repair.html">Book A Repair</a>
         <a href="brands.html">Brands</a>
-        <a href="open-box-deal.html">Open Box Deal</a>
-        <a href="rental.html">Rental</a>
-        <a href="refurbished.html">Refurbished</a>
-        <a href="device-health.html">Device Health</a>
       </nav>
+    </div>
+    <div class="mm" id="mm-services" aria-label="Services">
+      <div class="mm-in">
+        <div class="mm-head"><span>Services</span><small>Everything we fix, check and look after</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Services categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-services-0-t" aria-controls="mm-services-0" aria-selected="true" tabindex="0">Repairs &amp; Pickup</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-1-t" aria-controls="mm-services-1" aria-selected="false" tabindex="-1">Technical Support</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-2-t" aria-controls="mm-services-2" aria-selected="false" tabindex="-1">Device Care</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-3-t" aria-controls="mm-services-3" aria-selected="false" tabindex="-1">Sustainability</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-services-0" role="tabpanel" aria-labelledby="mm-services-0-t"><a class="mm-card" href="repair.html"><b>Book a Repair</b><span>Laptops, desktops, printers and more, fixed with up to 3 years warranty.</span></a><a class="mm-card" href="repair.html"><b>Doorstep Pickup &amp; Drop</b><span>We collect the device from your home or office and bring it back fixed.</span></a><a class="mm-card" href="#warranty"><b>Check Your Warranty</b><span>Enter your serial number to see your device’s warranty status.</span></a><a class="mm-card" href="#trouble"><b>Find Service Centers</b><span>Brand service centres across India for 100+ brands.</span></a></div>
+            <div class="mm-pane" id="mm-services-1" role="tabpanel" aria-labelledby="mm-services-1-t" hidden><a class="mm-card" href="#support"><b>Remote Technical Support</b><span>Talk to an expert and get it fixed on a call, from ₹5/min.</span></a><a class="mm-card" href="#support"><b>24/7 Help</b><span>Experts online round the clock, no home visit needed.</span></a></div>
+            <div class="mm-pane" id="mm-services-2" role="tabpanel" aria-labelledby="mm-services-2-t" hidden><a class="mm-card" href="pulse.html"><b>Device Health</b><span>Check your device’s health and fix issues before they become repairs.</span></a><a class="mm-card" href="pulse.html"><b>FixPapa Pulse</b><span>Monitor, predict and prevent problems across your devices in real time.</span></a></div>
+            <div class="mm-pane" id="mm-services-3" role="tabpanel" aria-labelledby="mm-services-3-t" hidden><a class="mm-card" href="sell-ewaste.html"><b>E-Waste Recycling</b><span>Sell old gadgets and get paid. Free doorstep pickup, data 100% wiped.</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-shop" aria-label="Shop">
+      <div class="mm-in">
+        <div class="mm-head"><span>Shop</span><small>Refurbished, open box, new and on rent</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Shop categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-shop-0-t" aria-controls="mm-shop-0" aria-selected="true" tabindex="0">Refurbished</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-1-t" aria-controls="mm-shop-1" aria-selected="false" tabindex="-1">Open Box Deals</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-2-t" aria-controls="mm-shop-2" aria-selected="false" tabindex="-1">Rental</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-3-t" aria-controls="mm-shop-3" aria-selected="false" tabindex="-1">Brands</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-shop-0" role="tabpanel" aria-labelledby="mm-shop-0-t"><a class="mm-card" href="refurbished.html"><b>All Refurbished</b><span>Certified devices up to 86% off, with up to 3 years warranty.</span></a><a class="mm-card" href="refurbished-category.html?cat=laptops"><b>Laptops</b><span>ThinkPads, Latitudes and EliteBooks built for 9-to-5 and beyond.</span></a><a class="mm-card" href="refurbished-category.html?cat=desktops"><b>Desktops</b><span>Tiny business PCs that fit behind a monitor and run all day.</span></a><a class="mm-card" href="refurbished-category.html?cat=printers"><b>Printers</b><span>Laser and ink-tank printers, serviced with fresh rollers.</span></a><a class="mm-card" href="refurbished-category.html?cat=cctv"><b>CCTV</b><span>Cameras, DVRs and ready kits to secure a home, shop or office.</span></a><a class="mm-card" href="refurbished-category.html?cat=accessories"><b>Accessories</b><span>Monitors, keyboards, docks, RAM and SSDs to complete the setup.</span></a></div>
+            <div class="mm-pane" id="mm-shop-1" role="tabpanel" aria-labelledby="mm-shop-1-t" hidden><a class="mm-card" href="open-box-deal.html"><b>Open Box Deals</b><span>Returned and unused stock, checked and graded, at lower prices.</span></a><a class="mm-card" href="products.html?condition=New"><b>New Products</b><span>Fresh arrivals: UPS, batteries, desktops and more.</span></a></div>
+            <div class="mm-pane" id="mm-shop-2" role="tabpanel" aria-labelledby="mm-shop-2-t" hidden><a class="mm-card" href="rental-category.html?cat=laptop"><b>Laptop on Rent</b><span>Why buy when you can rent? Flexible monthly plans.</span></a><a class="mm-card" href="rental-category.html?cat=desktop"><b>Desktop on Rent</b><span>Ready-to-use desktops for home, office or training.</span></a><a class="mm-card" href="rental-category.html?cat=printer"><b>Printer on Rent</b><span>Printers on rent, serviced and delivered.</span></a><a class="mm-card" href="rental-category.html?cat=projector"><b>Projector on Rent</b><span>Projectors for events, classes and meetings.</span></a></div>
+            <div class="mm-pane" id="mm-shop-3" role="tabpanel" aria-labelledby="mm-shop-3-t" hidden><a class="mm-card" href="brands.html"><b>All Brands</b><span>Every major brand we sell, service and repair.</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-business" aria-label="For Business">
+      <div class="mm-in">
+        <div class="mm-head"><span>For Business</span><small>IT for offices, shops and schools</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="For Business categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-business-0-t" aria-controls="mm-business-0" aria-selected="true" tabindex="0">IT Management</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-1-t" aria-controls="mm-business-1" aria-selected="false" tabindex="-1">Equipment</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-2-t" aria-controls="mm-business-2" aria-selected="false" tabindex="-1">Partnership</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-business-0" role="tabpanel" aria-labelledby="mm-business-0-t"><a class="mm-card" href="#amc"><b>AMC &amp; Inventory</b><span>Maintenance and stock under one plan, with monthly visits.</span></a><a class="mm-card" href="#amc"><b>IT Services</b><span>PCs, CCTV, UPS and networks managed for your office.</span></a><a class="mm-card" href="pulse.html"><b>Fleet Monitoring</b><span>FixPapa Pulse watches every device and flags problems early.</span></a></div>
+            <div class="mm-pane" id="mm-business-1" role="tabpanel" aria-labelledby="mm-business-1-t" hidden><a class="mm-card" href="rental.html"><b>Bulk Rental</b><span>Need 10+ devices? Rent laptops, desktops and projectors in bulk.</span></a><a class="mm-card" href="refurbished.html"><b>Refurbished in Bulk</b><span>Certified business laptops and desktops at a fraction of the price.</span></a></div>
+            <div class="mm-pane" id="mm-business-2" role="tabpanel" aria-labelledby="mm-business-2-t" hidden><a class="mm-card" href="partner.html"><b>Become a Partner</b><span>Grow with FixPapa as a service or sales partner.</span></a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+<div class="mm-scrim" id="mmScrim"></div>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="#">Home</a><a href="repair.html">Book A Repair</a><a href="brands.html">Brands</a><a href="open-box-deal.html">Open Box Deal</a><a href="rental.html">Rental</a><a href="refurbished.html">Refurbished</a><a href="device-health.html">Device Health</a>
-  <a href="#" style="color:var(--accent)">Become a Partner</a>
+  <a href="#">Home</a>
+  <details class="mn-group"><summary>Services<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="repair.html">Book a Repair</a><a href="repair.html">Doorstep Pickup &amp; Drop</a><a href="#warranty">Check Your Warranty</a><a href="#trouble">Find Service Centers</a><a href="#support">Remote Technical Support</a><a href="#support">24/7 Help</a><a href="pulse.html">Device Health</a><a href="pulse.html">FixPapa Pulse</a><a href="sell-ewaste.html">E-Waste Recycling</a></div></details>
+  <details class="mn-group"><summary>Shop<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="refurbished.html">All Refurbished</a><a href="refurbished-category.html?cat=laptops">Laptops</a><a href="refurbished-category.html?cat=desktops">Desktops</a><a href="refurbished-category.html?cat=printers">Printers</a><a href="refurbished-category.html?cat=cctv">CCTV</a><a href="refurbished-category.html?cat=accessories">Accessories</a><a href="open-box-deal.html">Open Box Deals</a><a href="products.html?condition=New">New Products</a><a href="rental-category.html?cat=laptop">Laptop on Rent</a><a href="rental-category.html?cat=desktop">Desktop on Rent</a><a href="rental-category.html?cat=printer">Printer on Rent</a><a href="rental-category.html?cat=projector">Projector on Rent</a><a href="brands.html">All Brands</a></div></details>
+  <details class="mn-group"><summary>For Business<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="#amc">AMC &amp; Inventory</a><a href="#amc">IT Services</a><a href="pulse.html">Fleet Monitoring</a><a href="rental.html">Bulk Rental</a><a href="refurbished.html">Refurbished in Bulk</a></div></details>
+  <a href="repair.html">Book A Repair</a><a href="brands.html">Brands</a><a href="account.html">My Account</a>
+  <a href="partner.html" style="color:var(--accent)">Become a Partner</a>
 </nav>
 
 <main>
@@ -174,15 +245,18 @@
         <nav class="hsv svc-panel" id="heroSlides" aria-label="FixPapa services">
           <div class="hsv-head"><b>What do you need help with?</b></div>
           <div class="hsv-grid">
-            <a class="hsv-tile on" href="repair.html" data-card="FixPapa · Live|Book a Repair,~we handle the rest.|Warranty:6 months|Support:24/7|Brands:100+" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt=""></span></span><b>Book a Repair</b></a>
-            <a class="hsv-tile" href="#support" data-card="Remote help · Live|Talk to an expert,~fixed on a call.|Starting at:₹5/min|Home visit:Not needed|Available:24/7" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.png" alt=""></span></span><b>Technical Support</b></a>
-            <a class="hsv-tile" href="#amc" data-card="AMC · Plan|Maintenance &amp; stock,~under one plan.|Visits:Monthly|Covers:PCs · CCTV · UPS|Pricing:Special discounts" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt=""></span></span><b>AMC &amp; Inventory</b></a>
-            <a class="hsv-tile" href="device-health.html" data-card="FixPapa Pulse|Monitor, predict,~prevent.|Device health:Real-time|Works on:Win · Mac|Downtime:Reduced" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt=""></span></span><b>Device Health</b></a>
-            <a class="hsv-tile" href="rental.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt=""></span></span><b>Rental</b></a>
+            <a class="hsv-tile on" href="repair.html" data-card="FixPapa · Live|Book a Repair,~we handle the rest.|Warranty:Up to 3 yrs|Support:24/7|Brands:100+" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt=""></span></span><b>Book a Repair</b></a>
             <a class="hsv-tile" href="refurbished.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-desktop.jpg" alt=""></span></span><b>Refurbished</b></a>
+            <a class="hsv-tile" href="pulse.html" data-card="FixPapa Pulse|Monitor, predict,~prevent.|Device health:Real-time|Works on:Win · Mac|Downtime:Reduced" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt=""></span></span><b>Device Health</b></a>
+            <a class="hsv-tile" href="#amc" data-card="AMC · Plan|Maintenance &amp; stock,~under one plan.|Visits:Monthly|Covers:PCs · CCTV · UPS|Pricing:Special discounts" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt=""></span></span><b>AMC &amp; Inventory</b></a>
+            <a class="hsv-tile eco" href="sell-ewaste.html" data-card="E-Waste · Recycle|Sell old gadgets,~get paid.|Pickup:Free, doorstep|Up to:₹4,000 / laptop|Data:100% wiped" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt=""></span></span><b>E-Waste Recycling</b></a>
+            <a class="hsv-tile" href="#support" data-card="Remote help · Live|Talk to an expert,~fixed on a call.|Starting at:₹5/min|Home visit:Not needed|Available:24/7" data-scene="3" data-holo="Remote help|Live session|Connected"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.png" alt=""></span></span><b>Technical Support</b></a>
+            <a class="hsv-tile" href="#warranty"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-tech.jpg" alt=""></span></span><b>Check Your Warranty</b></a>
+            <a class="hsv-tile" href="#amc"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-team.jpg" alt=""></span></span><b>IT Services</b></a>
+            <a class="hsv-tile" href="#trouble"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-pickup.jpg" alt=""></span></span><b>Find Service Centers</b></a>
+            <a class="hsv-tile" href="rental.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt=""></span></span><b>Rental</b></a>
             <a class="hsv-tile" href="open-box-deal.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-laptops.jpg" alt=""></span></span><b>Open Box Deals</b></a>
-            <a class="hsv-tile eco" href="#ewaste" data-card="E-Waste · Recycle|Sell old gadgets,~get paid.|Pickup:Free, doorstep|Up to:₹4,000 / laptop|Data:100% wiped" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt=""></span></span><b>E-Waste Recycling</b></a>
-            <a class="hsv-tile" href="brands.html"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-printer.jpg" alt=""></span></span><b>All Brands</b></a>
+            <a class="hsv-tile" href="#deals"><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-printer.jpg" alt=""></span></span><b>New Product</b></a>
           </div>
         </nav>
       </div>
@@ -621,7 +695,7 @@
               <path d="M230 332 L370 332 L354 456 Q300 470 246 456 Z" fill="#16A34A"/>
               <path d="M230 332 L250 332 L262 462 Q252 460 246 456 Z" fill="#22C55E" opacity=".55"/>
               <ellipse cx="300" cy="332" rx="70" ry="16" fill="none" stroke="#4ADE80" stroke-width="5"/>
-              <g class="ew-sym"><use href="#i-recycle" x="270" y="366" width="60" height="60" style="color:#fff"/></g>
+              <g class="ew-sym"><use href="#i-recycle-solid" x="268" y="364" width="64" height="64" style="color:#fff"/></g>
             </g></g>
             <!-- value back: coins -->
             <g class="ew-coin c1"><circle cx="372" cy="300" r="14" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/><text x="372" y="305" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="14" fill="#92400E">₹</text></g>
@@ -642,17 +716,17 @@
           </g>
         </svg>
 
-        <div class="holo holo--b" data-depth="1.2">
+        <div class="holo holo--b">
           <div class="k" style="color:var(--primary)" id="holoK">Diagnostics</div>
           <div class="v" id="holoV">Device Health</div>
           <div class="meter"><i id="healthMeter"></i></div>
           <div class="row" style="border-color:var(--border);color:var(--ink-3)">Status <b style="color:var(--green)" id="healthTxt">Scanning…</b></div>
         </div>
-        <div class="holo holo--a" data-depth="1.6">
+        <div class="holo holo--a">
           <div id="holoA">
             <div class="k">FixPapa · Live</div>
             <div class="v">Book a Repair,<br>we handle the rest.</div>
-            <div class="row">Warranty <b>6 months</b></div>
+            <div class="row">Warranty <b>Up to 3 yrs</b></div>
             <div class="row">Support <b>24/7</b></div>
             <div class="row">Brands <b>100+</b></div>
           </div>
@@ -667,7 +741,7 @@
         <a href="repair.html#book-now" class="btn" data-ripple>Book a Repair <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
         <a href="tel:+918696544448" class="hero-mcall"><svg width="18" height="18"><use href="#i-phone"/></svg>Call us</a>
       </div>
-      <ul class="hero-mtrust"><li><svg width="14" height="14"><use href="#i-shield"/></svg>6-month warranty</li><li><svg width="14" height="14"><use href="#i-truck"/></svg>Free pickup</li><li><svg width="14" height="14"><use href="#i-badge"/></svg>100+ brands</li></ul>
+      <ul class="hero-mtrust"><li><svg width="14" height="14"><use href="#i-shield"/></svg>Up to 3 yrs warranty</li><li><svg width="14" height="14"><use href="#i-truck"/></svg>Free pickup</li><li><svg width="14" height="14"><use href="#i-badge"/></svg>100+ brands</li></ul>
     </div>
 
     <div class="container hero-caption">
@@ -683,8 +757,130 @@
     <div class="stats-grid">
       <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-badge"/></svg></div><div class="num"><span data-count="100">0</span><small>+</small></div><div class="lbl">Brands covered by our service network</div></div>
       <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-headset"/></svg></div><div class="num"><span data-count="24">0</span>/7</div><div class="lbl">Support</div></div>
-      <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-shield"/></svg></div><div class="num"><span data-count="6">0</span><small>months</small></div><div class="lbl">Service warranty</div></div>
+      <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-shield"/></svg></div><div class="num"><small class="pre">Up to</small><span data-count="3">0</span><small>years</small></div><div class="lbl">Service warranty</div></div>
       <div class="stat"><div class="ico"><svg width="20" height="20"><use href="#i-clock"/></svg></div><div class="num">₹<span data-count="5">0</span><small>/min</small></div><div class="lbl">Technical support starting at</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIXPAPA PULSE · device health lifecycle monitoring (live dashboard on the right) ============ -->
+<section class="section fpp" id="pulse">
+  <div class="container">
+    <div class="fpp-panel" data-reveal>
+      <div class="fpp-copy">
+        <div class="fpp-brand" role="img" aria-label="FixPapa Pulse"><img class="fpp-logo" src="assets/img/logo.png" alt="" width="168" height="32"><img class="fpp-logo fpp-logo--dk" src="assets/img/logo-light.png" alt="" width="168" height="32"><b>Pulse</b><svg class="fpp-beat" viewBox="0 0 46 32" aria-hidden="true"><path d="M1 19h11l3-5 4 11 5-23 5 27 4-10h12"/></svg></div>
+        <span class="fpp-kicker">Device health lifecycle monitoring</span>
+        <h2 class="h-lg">Healthy devices.<br><span class="hl">Happier business.</span></h2>
+        <p class="fpp-mpp"><span>Monitor</span><span>Predict</span><span>Prevent</span></p>
+        <ul class="fpp-feats">
+          <li><span class="fpp-ic"><svg width="20" height="20"><use href="#i-scan"/></svg></span>Real-time device health</li>
+          <li><span class="fpp-ic"><svg width="20" height="20"><use href="#i-chart"/></svg></span>Predict potential issues</li>
+          <li><span class="fpp-ic"><svg width="20" height="20"><use href="#i-shield"/></svg></span>Reduce downtime</li>
+          <li><span class="fpp-ic"><svg width="20" height="20"><use href="#i-gear"/></svg></span>Optimize IT costs</li>
+        </ul>
+        <div class="fpp-ctas">
+          <a href="pulse.html#download" class="btn" data-ripple><svg width="18" height="18"><use href="#i-download"/></svg> Download Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+          <div class="fpp-os"><small>Available on</small><span><svg width="16" height="16"><use href="#i-windows"/></svg>Windows</span><span><svg width="16" height="16"><use href="#i-apple"/></svg>macOS</span></div>
+        </div>
+      </div>
+
+      <div class="fpp-stage" id="pulseDash">
+        <p class="fpp-note" aria-hidden="true">Because every<br>device matters<svg viewBox="0 0 120 12"><path d="M2 9C30 3 70 2 118 5"/></svg></p>
+        <div class="fpp-devices" role="img" aria-label="FixPapa Pulse dashboard on a Windows laptop and a MacBook: 248 devices, 85% healthy">
+          <div class="fpp-lap fpp-lap--win" aria-hidden="true">
+            <div class="fpp-lid"><div class="fpp-screen"><div class="fpp-vs">
+              <div class="fpp-win">
+                <div class="fpp-bar"><svg width="14" height="14"><use href="#i-pulse"/></svg><span>FixPapa Pulse</span><i class="fpp-ctl"><b>&#8211;</b><b>&#9633;</b><b>&#10005;</b></i></div>
+                <div class="fpp-dash">
+                  <div class="fpp-top"><b>FixPapa <span>Pulse</span></b><span class="fpp-live"><i></i>Live</span></div>
+                  <div class="fpp-kpis">
+                    <div><small>Total devices</small><b data-to="248">248</b></div>
+                    <div class="ok"><small>Healthy</small><b data-to="210">210</b></div>
+                    <div class="warn"><small>Attention</small><b data-to="28">28</b></div>
+                    <div class="bad"><small>Critical</small><b data-to="10">10</b></div>
+                  </div>
+                  <div class="fpp-cards">
+                    <div class="fpp-card fpp-health">
+                      <span class="fpp-h">Device health</span>
+                      <div class="fpp-donut">
+                        <svg viewBox="0 0 100 100">
+                          <circle class="trk" cx="50" cy="50" r="40" pathLength="100"/>
+                          <circle class="seg ok" cx="50" cy="50" r="40" pathLength="100" style="--v:83.7;--o:0"/>
+                          <circle class="seg warn" cx="50" cy="50" r="40" pathLength="100" style="--v:10.3;--o:-84.7"/>
+                          <circle class="seg bad" cx="50" cy="50" r="40" pathLength="100" style="--v:3;--o:-96"/>
+                        </svg>
+                        <span><em><b data-to="85">85</b>%</em><small>Healthy</small></span>
+                      </div>
+                      <svg class="fpp-ecg" viewBox="0 0 200 30" aria-hidden="true"><path d="M0 15h60l6-10 8 22 7-18 5 6h22l5-8 6 16 5-8h76"/></svg>
+                    </div>
+                    <div class="fpp-card fpp-types">
+                      <span class="fpp-h">Device types</span>
+                      <ul>
+                        <li style="--k:1"><svg width="15" height="15"><use href="#i-laptop"/></svg>Laptops<b>102</b><i></i></li>
+                        <li style="--k:.63"><svg width="15" height="15"><use href="#i-desktop"/></svg>Desktops<b>64</b><i></i></li>
+                        <li style="--k:.35"><svg width="15" height="15"><use href="#i-printer"/></svg>Printers<b>36</b><i></i></li>
+                        <li style="--k:.27"><svg width="15" height="15"><use href="#i-server"/></svg>Servers<b>28</b><i></i></li>
+                        <li style="--k:.18"><svg width="15" height="15"><use href="#i-cctv"/></svg>Others<b>18</b><i></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fpp-taskbar"><span class="fpp-start"><svg width="16" height="16"><use href="#i-windows"/></svg></span><em class="fpp-search"><svg width="13" height="13"><use href="#i-search"/></svg>Type here to search</em><span><svg width="15" height="15"><use href="#i-box"/></svg></span><span><svg width="15" height="15"><use href="#i-mail"/></svg></span><span class="on"><svg width="15" height="15"><use href="#i-pulse"/></svg></span><time><svg width="13" height="13"><use href="#i-wifi"/></svg>10:24</time></div>
+            </div></div></div>
+            <div class="fpp-base"></div>
+          </div>
+          <div class="fpp-lap fpp-lap--mac" aria-hidden="true">
+            <div class="fpp-lid"><div class="fpp-screen"><div class="fpp-vs">
+              <div class="fpp-menubar"><svg width="13" height="13"><use href="#i-apple"/></svg><b>Pulse</b><span>File</span><span>Edit</span><span>View</span><span>Window</span><span class="fpp-tray"><svg width="13" height="13"><use href="#i-wifi"/></svg>9:41</span></div>
+              <div class="fpp-win">
+                <div class="fpp-bar"><i class="fpp-tl"><b></b><b></b><b></b></i><span>FixPapa Pulse</span></div>
+                <div class="fpp-dash">
+                  <div class="fpp-top"><b>FixPapa <span>Pulse</span></b><span class="fpp-live"><i></i>Live</span></div>
+                  <div class="fpp-kpis">
+                    <div><small>Total devices</small><b data-to="248">248</b></div>
+                    <div class="ok"><small>Healthy</small><b data-to="210">210</b></div>
+                    <div class="warn"><small>Attention</small><b data-to="28">28</b></div>
+                    <div class="bad"><small>Critical</small><b data-to="10">10</b></div>
+                  </div>
+                  <div class="fpp-cards">
+                    <div class="fpp-card fpp-health">
+                      <span class="fpp-h">Device health</span>
+                      <div class="fpp-donut">
+                        <svg viewBox="0 0 100 100">
+                          <circle class="trk" cx="50" cy="50" r="40" pathLength="100"/>
+                          <circle class="seg ok" cx="50" cy="50" r="40" pathLength="100" style="--v:83.7;--o:0"/>
+                          <circle class="seg warn" cx="50" cy="50" r="40" pathLength="100" style="--v:10.3;--o:-84.7"/>
+                          <circle class="seg bad" cx="50" cy="50" r="40" pathLength="100" style="--v:3;--o:-96"/>
+                        </svg>
+                        <span><em><b data-to="85">85</b>%</em><small>Healthy</small></span>
+                      </div>
+                      <svg class="fpp-ecg" viewBox="0 0 200 30" aria-hidden="true"><path d="M0 15h60l6-10 8 22 7-18 5 6h22l5-8 6 16 5-8h76"/></svg>
+                    </div>
+                    <div class="fpp-card fpp-types">
+                      <span class="fpp-h">Device types</span>
+                      <ul>
+                        <li style="--k:1"><svg width="15" height="15"><use href="#i-laptop"/></svg>Laptops<b>102</b><i></i></li>
+                        <li style="--k:.63"><svg width="15" height="15"><use href="#i-desktop"/></svg>Desktops<b>64</b><i></i></li>
+                        <li style="--k:.35"><svg width="15" height="15"><use href="#i-printer"/></svg>Printers<b>36</b><i></i></li>
+                        <li style="--k:.27"><svg width="15" height="15"><use href="#i-server"/></svg>Servers<b>28</b><i></i></li>
+                        <li style="--k:.18"><svg width="15" height="15"><use href="#i-cctv"/></svg>Others<b>18</b><i></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fpp-dock"><span class="d-finder"><svg width="18" height="18"><use href="#i-user"/></svg></span><span class="d-mail"><svg width="18" height="18"><use href="#i-mail"/></svg></span><span class="d-cal"><svg width="18" height="18"><use href="#i-calendar"/></svg></span><span class="d-pulse on"><svg width="18" height="18"><use href="#i-pulse"/></svg></span><span class="d-set"><svg width="18" height="18"><use href="#i-gear"/></svg></span></div>
+            </div></div></div>
+            <div class="fpp-base"></div>
+          </div>
+        </div>
+        <ul class="fpp-strip">
+          <li><span><svg width="16" height="16"><use href="#i-clock"/></svg></span><b>More uptime<small>Higher productivity</small></b></li>
+          <li><span><svg width="16" height="16"><use href="#i-building"/></svg></span><b>For businesses<small>of every size</small></b></li>
+          <li><span><svg width="16" height="16"><use href="#i-leaf"/></svg></span><b>Sustainable IT<small>Greener tomorrow</small></b></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -697,7 +893,7 @@
       <div>
         <span class="eyebrow">Certified pre-owned</span><h2 class="h-lg">Refurbished, <span class="hl">up to 86% off</span></h2>
         <p class="rfh-sub">Business-grade tech, tested and restored by FixPapa technicians — like new, at a fraction of the price.</p>
-        <ul class="rfh-trust"><li><svg width="15" height="15"><use href="#i-check"/></svg>40-point quality check</li><li><svg width="15" height="15"><use href="#i-shield"/></svg>6-month warranty</li><li><svg width="15" height="15"><use href="#i-truck"/></svg>Doorstep delivery</li></ul>
+        <ul class="rfh-trust"><li><svg width="15" height="15"><use href="#i-check"/></svg>40-point quality check</li><li><svg width="15" height="15"><use href="#i-shield"/></svg>Up to 3 years warranty</li><li><svg width="15" height="15"><use href="#i-truck"/></svg>Doorstep delivery</li></ul>
       </div>
       <a href="refurbished.html" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
@@ -876,12 +1072,12 @@
         <a href="repair.html#book-now" class="btn" data-ripple>Book Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
       </div>
       <ul class="bk2-trust">
-        <li><svg width="16" height="16"><use href="#i-shield"/></svg>6-month warranty</li>
+        <li><svg width="16" height="16"><use href="#i-shield"/></svg>Up to 3 years warranty</li>
         <li><svg width="16" height="16"><use href="#i-check"/></svg>Certified technicians</li>
         <li><svg width="16" height="16"><use href="#i-check"/></svg>Genuine spare parts</li>
         <li><svg width="16" height="16"><use href="#i-tag"/></svg>Transparent pricing</li>
       </ul>
-      <div class="bk2-grid">
+      <div class="bk2-loop" id="bkLoop"><div class="bk2-track">
         <a class="bk2-tile" href="repair.html?device=Laptop%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-laptop"/></svg></span><b>Laptop</b></a>
         <a class="bk2-tile" href="repair.html?device=Desktop%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-desktop"/></svg></span><b>Desktop</b></a>
         <a class="bk2-tile" href="repair.html?device=Printer%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-printer"/></svg></span><b>Printer</b></a>
@@ -896,7 +1092,7 @@
         <a class="bk2-tile" href="repair.html?device=Networking%20/%20LAN%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-network"/></svg></span><b>Networking / LAN</b></a>
         <a class="bk2-tile" href="repair.html?device=Server%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-server"/></svg></span><b>Server</b></a>
         <a class="bk2-tile" href="repair.html?device=Biometric%20Repair#book-now"><span class="bk2-art"><svg viewBox="0 0 120 90"><use href="#bk-biometric"/></svg></span><b>Biometric</b></a>
-      </div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -907,7 +1103,7 @@
 
     <div class="section-head" data-reveal>
       <div><span class="eyebrow">Fresh arrivals</span><h2 class="h-lg">New Products</h2></div>
-      <a href="#" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+      <a href="products.html?condition=New" class="link-arrow">View All <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="prod-grid prod-loop" id="newGrid" data-reveal></div>
   </div>
@@ -1047,7 +1243,7 @@
 
         <ul class="rcalc-inc">
           <li>40-point quality check</li>
-          <li>6-month FixPapa warranty</li>
+          <li>Up to 3 years FixPapa warranty</li>
           <li>Free doorstep delivery</li>
         </ul>
         <a href="refurbished.html" class="btn rcalc-cta" data-ripple>Shop refurbished <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
@@ -1063,11 +1259,11 @@
     <div class="ts3-panel" data-reveal>
       <figure class="ts3-photo">
         <span class="ts3-ph"><img src="assets/img/photo-support.png" alt="FixPapa support expert on a call" loading="lazy"></span>
-        <em>Remote help</em>
+        <em><svg width="14" height="14"><use href="#i-headset"/></svg>Remote help</em>
+        <figcaption class="ts3-title"><span class="ts3-live"><i></i>Experts online now</span><b>Technical Support</b></figcaption>
       </figure>
       <div class="ts3-body">
       <div class="ts3-copy">
-        <span class="ts3-live"><i></i>Technical Support · experts online</span>
         <h2 class="h-lg">Fixed on a call, <span class="hl">from ₹5/min</span></h2>
         <p>No visit, no waiting. An expert connects to your screen and you pay only for the minutes used.</p>
         <a href="tel:+918696544448" class="btn" data-ripple><svg width="18" height="18"><use href="#i-phone"/></svg> Talk to an Expert</a>
@@ -1092,17 +1288,16 @@
   <div class="container" style="position:relative">
     <div class="amc2-hero">
       <div class="amc2-copy" data-reveal="left">
-        <span class="amc2-live"><i></i>FixPapa AMC · for offices, shops &amp; schools</span>
         <h2 class="h-lg">AMC &amp; Inventory <span class="hl">Management</span></h2>
         <h3 class="amc2-why">Why Choose Fixpapa AMC &amp; Inventory Management?</h3>
         <ul class="amc2-ticks amc2-ticks--why">
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>All Branches, One Dashboard</b></li>
+          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Centralized Control</b></li>
           <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Smart Automation</b></li>
           <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Asset Tracking</b></li>
           <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Cost Savings</b></li>
           <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>AMC Management</b></li>
           <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Real-Time Monitoring</b></li>
-          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>Centralized Control</b></li>
-          <li><span><svg width="14" height="14"><use href="#i-check"/></svg></span><b>All Branches, One Dashboard</b></li>
         </ul>
         <div class="amc2-ctas">
           <a href="#book" class="btn" data-ripple>Get AMC Quote <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
@@ -1144,7 +1339,7 @@
           <li><svg width="16" height="16"><use href="#i-tag"/></svg>Fair price</li>
           <li><svg width="16" height="16"><use href="#i-recycle"/></svg>Certified recycling</li>
         </ul>
-        <a href="#" class="btn ew3-btn" data-ripple>Sell your e-waste <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a href="sell-ewaste.html" class="btn ew3-btn" data-ripple>Sell your e-waste <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </div>
@@ -1254,7 +1449,7 @@
           <a href="#" aria-label="LinkedIn"><svg width="16" height="16"><use href="#i-in"/></svg></a>
         </div>
       </div>
-      <div><h5>For Partners</h5><a href="#">Become a Partner</a><a href="#">Become a Freelancer</a><a href="#">How to join?</a></div>
+      <div><h5>For Partners</h5><a href="partner.html">Become a Partner</a><a href="partner.html">Become a Freelancer</a><a href="partner.html">How to join?</a></div>
       <div><h5>Category</h5><a href="#">Laptops</a><a href="#">Desktops</a><a href="#">Printers</a><a href="#">Servers</a><a href="#">Projectors</a></div>
       <div><h5>Quick Links</h5><a href="#">About FixPapa</a><a href="#">FAQs</a><a href="#">Blogs</a><a href="#">Contact Us</a><a href="#">Anti Discrimination Policy</a></div>
       <div class="ftr-news">
@@ -1286,6 +1481,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/fixpapa-story.js?v=6.1"></script>
 <script src="assets/js/refurb-data.js?v=1.0"></script>
-<script src="assets/js/main.js?v=9.1"></script>
+<script src="assets/js/main.js?v=9.6"></script>
+<!-- FixPapa Assistant (see assets/js/assistant/README.md) -->
+<script src="assets/js/megamenu.js?v=1.0"></script>
+<script src="assets/js/assistant/service.js?v=1.0"></script>
+<script src="assets/js/assistant/mock-service.js?v=1.1"></script>
+<script src="assets/js/assistant/conversation.js?v=1.0"></script>
+<script src="assets/js/assistant/avatar.js?v=1.5"></script>
+<script src="assets/js/assistant/chat-ui.js?v=1.0"></script>
+<script src="assets/js/assistant/assistant.js?v=1.1"></script>
 </body>
 </html>

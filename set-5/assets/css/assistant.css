@@ -1,0 +1,187 @@
+/* =========================================================
+   FixPapa Assistant — floating technician + chat panel (assets/js/assistant/*)
+   Uses the site tokens from style.css. Sections: shell · launcher · tooltip · panel · AVATAR · responsive · dark
+   ========================================================= */
+.fpa-root{--fpa-navy:#0B1220;--fpa-orange:#FF6A00;position:fixed;right:24px;bottom:24px;z-index:98;font-family:var(--font-body,system-ui,sans-serif);transition:bottom .4s cubic-bezier(.2,.8,.2,1)}
+.fpa-root *,.fpa-root *::before,.fpa-root *::after{box-sizing:border-box}
+.fpa-root [hidden]{display:none!important}
+.fpa-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* the back-to-top button moves up so it never sits under the avatar */
+.fpa-on .to-top{right:108px}
+
+/* ---------- launcher: the standing technician (no frame) ---------- */
+.fpa-launch{position:relative;display:block;width:70px;height:140px;padding:0;border:0;border-radius:18px;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.fpa-launch:hover{transform:translateY(-3px)}
+.fpa-launch:active{transform:scale(.97)}
+.fpa-launch:focus-visible,.fpa-root button:focus-visible,.fpa-root a:focus-visible,.fpa-root textarea:focus-visible{outline:3px solid #FF8A1F;outline-offset:3px}
+.fpa-launch-av{display:block;width:100%;height:100%}
+.fpa-launch-av .fpa-av{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 6px 10px rgba(11,18,32,.16))}
+.fpa-badge{position:absolute;top:6px;right:-4px;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--fpa-orange);color:#fff;font:800 11.5px/22px var(--font-head,system-ui);text-align:center;box-shadow:0 0 0 2px #fff}
+
+/* ---------- welcome tooltip ---------- */
+.fpa-tip{position:absolute;right:76px;bottom:92px;display:flex;align-items:center;gap:6px;width:max-content;max-width:240px;padding:10px 8px 10px 14px;border-radius:16px 16px 4px 16px;background:#fff;border:1px solid #E8EBF1;box-shadow:0 16px 34px -16px rgba(11,18,32,.4);color:var(--fpa-navy);font:700 13.5px/1.35 var(--font-head,system-ui);opacity:0;transform:translateX(8px) scale(.96);transform-origin:right bottom;transition:opacity .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.fpa-tip.is-on{opacity:1;transform:none}
+.fpa-tip span{cursor:pointer}
+.fpa-tip-x{flex:none;width:24px;height:24px;border:0;border-radius:50%;background:transparent;color:#64748B;font-size:18px;line-height:1;cursor:pointer}
+.fpa-tip-x:hover{background:#F1F5F9;color:var(--fpa-navy)}
+
+/* ---------- chat panel ---------- */
+.fpa-panel{position:absolute;right:84px;bottom:0;display:flex;flex-direction:column;width:370px;height:min(580px,calc(100vh - 130px));border-radius:22px;overflow:hidden;background:#fff;border:1px solid #E8EBF1;box-shadow:0 30px 70px -24px rgba(11,18,32,.45),0 8px 20px -10px rgba(11,18,32,.15);opacity:0;transform:translateY(14px) scale(.97);transform-origin:right bottom;transition:opacity .22s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
+.fpa-panel.is-open{opacity:1;transform:none}
+.fpa-head{display:flex;align-items:center;gap:10px;padding:12px 10px 12px 14px;background:var(--fpa-navy);color:#fff}
+.fpa-head-av{flex:none;width:42px;height:42px;border-radius:12px;background:#FFF1E6;overflow:hidden}
+.fpa-head-av .fpa-av{width:100%;height:100%;overflow:visible}
+.fpa-head-av .fpa-think,.fpa-head-av .fpa-spark,.fpa-head-av .fpa-shadow{display:none!important}
+.fpa-head-txt{flex:1;min-width:0}
+.fpa-head-txt b{display:block;font:800 15px/1.2 var(--font-head,system-ui);letter-spacing:-.01em}
+.fpa-head-txt small{display:flex;align-items:center;gap:6px;margin-top:3px;font-size:12px;color:#CBD5E1}
+.fpa-head-txt small i{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.fpa-ibtn{flex:none;width:34px;height:34px;display:grid;place-items:center;border:0;border-radius:10px;background:transparent;color:#CBD5E1;cursor:pointer;transition:background .2s,color .2s}
+.fpa-ibtn:hover{background:rgba(255,255,255,.1);color:#fff}
+
+.fpa-log{flex:1;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:10px;padding:16px 14px 8px;background:#F8FAFC;scroll-behavior:smooth}
+.fpa-msg{max-width:86%;animation:fpaIn .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes fpaIn{from{opacity:0;transform:translateY(6px)}}
+.fpa-msg p{margin:0;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.fpa-msg--bot{align-self:flex-start}
+.fpa-msg--bot p{background:#fff;border:1px solid #E8EBF1;border-bottom-left-radius:5px;color:#1E293B}
+.fpa-msg--me{align-self:flex-end}
+.fpa-msg--me p{background:var(--fpa-orange);color:#fff;border-bottom-right-radius:5px}
+.fpa-msg--err{align-self:flex-start}
+.fpa-msg--err p{background:#FEF2F2;border:1px solid #FECACA;border-bottom-left-radius:5px;color:#991B1B}
+.fpa-retry{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:6px 12px;border:1px solid #FECACA;border-radius:999px;background:#fff;color:#B91C1C;font:700 12.5px var(--font-head,system-ui);cursor:pointer}
+.fpa-retry:hover{background:#FEE2E2}
+.fpa-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.fpa-act{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:var(--fpa-navy);color:#fff;font:700 12.5px var(--font-head,system-ui);text-decoration:none;transition:background .2s}
+.fpa-act:hover{background:var(--fpa-orange)}
+.fpa-typing{display:flex;align-self:flex-start;gap:5px;padding:12px 14px;border-radius:16px 16px 16px 5px;background:#fff;border:1px solid #E8EBF1}
+.fpa-typing[hidden]{display:none}
+.fpa-typing span{width:7px;height:7px;border-radius:50%;background:#94A3B8;animation:fpaDot 1.1s infinite ease-in-out}
+.fpa-typing span:nth-child(2){animation-delay:.15s}.fpa-typing span:nth-child(3){animation-delay:.3s}
+@keyframes fpaDot{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1;background:var(--fpa-orange)}}
+
+.fpa-suggest{display:flex;flex-wrap:wrap;gap:6px;padding:8px 14px 2px;background:#F8FAFC}
+.fpa-suggest:empty,.fpa-suggest[hidden]{display:none}
+.fpa-chip{padding:7px 12px;border:1px solid #FED7AA;border-radius:999px;background:#fff;color:#C2410C;font:700 12.5px var(--font-head,system-ui);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.fpa-chip:hover{background:#FFF1E6;border-color:var(--fpa-orange)}
+.fpa-form{display:flex;align-items:flex-end;gap:8px;padding:10px 12px;background:#F8FAFC;border-top:1px solid #EEF1F5}
+.fpa-form textarea{flex:1;min-height:42px;max-height:104px;padding:10px 14px;border:1px solid #D5DBE5;border-radius:14px;background:#fff;color:#0B1220;font:inherit;font-size:14.5px;line-height:1.4;resize:none;outline:none;transition:border-color .2s,box-shadow .2s}
+.fpa-form textarea:focus{border-color:var(--fpa-orange);box-shadow:0 0 0 3px rgba(255,138,31,.15)}
+.fpa-send{flex:none;width:42px;height:42px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--fpa-orange);color:#fff;cursor:pointer;transition:transform .2s,opacity .2s,background .2s}
+.fpa-send:hover:not(:disabled){transform:scale(1.06)}
+.fpa-send:disabled{background:#CBD5E1;cursor:not-allowed}
+.fpa-notice{margin:0;padding:0 14px 8px;background:#F8FAFC;font-size:11px;color:#64748B;text-align:center}
+
+/* =========================================================
+   AVATAR — every pose and expression is driven by [data-state] on .fpa-av (set by avatar.js)
+   ========================================================= */
+.fpa-av .fpa-av-fig{transform-origin:60px 230px}
+.fpa-av .fpa-av-body{transform-origin:60px 138px}
+.fpa-av .fpa-av-head{transform-origin:60px 70px}
+.fpa-av .fpa-shadow{transform-origin:60px 233px}
+.fpa-av .fpa-arm-wave{transform-origin:79px 88px}
+.fpa-av .fpa-eyes,.fpa-av .fpa-m-talk,.fpa-av .fpa-brow-l,.fpa-av .fpa-brow-r,.fpa-av .fpa-spark path{transform-box:fill-box;transform-origin:center}
+.fpa-av .fpa-eyes{transition:transform .3s}
+.fpa-av .fpa-brow-l,.fpa-av .fpa-brow-r,.fpa-av .fpa-av-head{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.fpa-av .fpa-dot{fill:#FF6A00}
+/* hidden unless a state shows them */
+.fpa-av .fpa-m,.fpa-av .fpa-eyes-happy,.fpa-av .fpa-blush,.fpa-av .fpa-sweat,.fpa-av .fpa-think,.fpa-av .fpa-spark,.fpa-av .fpa-arm-l,.fpa-av .fpa-arm-r,.fpa-av .fpa-arm-wave,.fpa-av .fpa-arm-chin,.fpa-av .fpa-arm-talk,.fpa-av .fpa-arm-hold{display:none}
+
+/* idle (and listening / error): stands with arms crossed on the chest, breathing and blinking */
+.fpa-av .fpa-av-body{animation:fpaBreathe 3.6s ease-in-out infinite}
+.fpa-av .fpa-av-head{animation:fpaBob 3.6s ease-in-out infinite}
+.fpa-av .fpa-eyes{animation:fpaBlink 4.6s infinite}
+@keyframes fpaBreathe{50%{transform:scaleY(1.01)}}
+@keyframes fpaBob{50%{transform:translateY(-.8px) rotate(.8deg)}}
+@keyframes fpaBlink{0%,93%,100%{transform:scaleY(1)}95.5%{transform:scaleY(.1)}}
+.fpa-av[data-state="idle"] .fpa-m-smile{display:inline}
+
+/* greeting: waves with the raised arm, big smile */
+.fpa-av[data-state="greeting"] .fpa-m-grin,.fpa-av[data-state="greeting"] .fpa-blush,.fpa-av[data-state="greeting"] .fpa-arm-wave{display:inline}
+.fpa-av[data-state="greeting"] .fpa-arms-crossed{display:none}.fpa-av[data-state="greeting"] .fpa-arm-l{display:inline}
+.fpa-av[data-state="greeting"] .fpa-arm-wave{animation:fpaWave .7s ease-in-out 3}
+.fpa-av[data-state="greeting"] .fpa-brow-l,.fpa-av[data-state="greeting"] .fpa-brow-r{transform:translateY(-1.5px)}
+@keyframes fpaWave{0%,100%{transform:rotate(0)}30%{transform:rotate(-12deg)}70%{transform:rotate(8deg)}}
+
+/* listening: leans in, head tilted, eyebrows up */
+.fpa-av[data-state="listening"] .fpa-m-smile{display:inline}
+.fpa-av[data-state="listening"] .fpa-av-head{animation:none;transform:rotate(-8deg)}
+.fpa-av[data-state="listening"] .fpa-av-fig{transform:rotate(-2deg)}
+.fpa-av[data-state="listening"] .fpa-eyes{transform:scale(1.15)}
+.fpa-av[data-state="listening"] .fpa-brow-l,.fpa-av[data-state="listening"] .fpa-brow-r{transform:translateY(-2px)}
+
+/* thinking: hand on chin, other arm across the waist, looks up, thought bubble */
+.fpa-av[data-state="thinking"] .fpa-m-flat,.fpa-av[data-state="thinking"] .fpa-think,.fpa-av[data-state="thinking"] .fpa-arm-chin{display:inline}
+.fpa-av[data-state="thinking"] .fpa-arms-crossed{display:none}.fpa-av[data-state="thinking"] .fpa-arm-hold{display:inline}
+.fpa-av[data-state="thinking"] .fpa-av-head{animation:none;transform:rotate(6deg)}
+.fpa-av[data-state="thinking"] .fpa-eyes{animation:none;transform:translate(1.4px,-1.8px)}
+.fpa-av[data-state="thinking"] .fpa-brow-r{transform:translateY(-2.5px) rotate(-8deg)}
+.fpa-av[data-state="thinking"] .fpa-think{animation:fpaPop .3s cubic-bezier(.2,.8,.2,1) both}
+.fpa-av[data-state="thinking"] .fpa-dot{animation:fpaThink 1.2s infinite ease-in-out}
+.fpa-av[data-state="thinking"] .fpa-dot:nth-of-type(2){animation-delay:.2s}.fpa-av[data-state="thinking"] .fpa-dot:nth-of-type(3){animation-delay:.4s}
+@keyframes fpaPop{from{opacity:0;transform:translateY(4px)}}
+@keyframes fpaThink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+
+/* talking: mouth moving, explaining with an open hand, small nods */
+.fpa-av[data-state="talking"] .fpa-m-talk{display:inline;animation:fpaTalk .26s ease-in-out infinite alternate}
+.fpa-av[data-state="talking"] .fpa-arm-talk{display:inline}
+.fpa-av[data-state="talking"] .fpa-arms-crossed{display:none}.fpa-av[data-state="talking"] .fpa-arm-l{display:inline}
+.fpa-av[data-state="talking"] .fpa-av-head{animation:fpaNod 1.1s ease-in-out infinite}
+@keyframes fpaTalk{from{transform:scaleY(1)}to{transform:scaleY(.3)}}
+@keyframes fpaNod{50%{transform:translateY(.8px) rotate(-2deg)}}
+
+/* happy: closed smiling eyes, grin, sparkles, jumps for joy */
+.fpa-av[data-state="happy"] .fpa-eyes{display:none}
+.fpa-av[data-state="happy"] .fpa-eyes-happy,.fpa-av[data-state="happy"] .fpa-m-grin,.fpa-av[data-state="happy"] .fpa-blush,.fpa-av[data-state="happy"] .fpa-spark,.fpa-av[data-state="happy"] .fpa-arm-wave{display:inline}
+.fpa-av[data-state="happy"] .fpa-arms-crossed{display:none}.fpa-av[data-state="happy"] .fpa-arm-l{display:inline}
+.fpa-av[data-state="happy"] .fpa-av-fig{animation:fpaHop .55s cubic-bezier(.3,.7,.4,1) 2}
+.fpa-av[data-state="happy"] .fpa-shadow{animation:fpaShadow .55s cubic-bezier(.3,.7,.4,1) 2}
+.fpa-av[data-state="happy"] .fpa-spark path{animation:fpaTwinkle .8s ease-in-out infinite alternate}
+.fpa-av[data-state="happy"] .fpa-spark path+path{animation-delay:.4s}
+@keyframes fpaHop{40%{transform:translateY(-7px)}}
+@keyframes fpaShadow{40%{transform:scale(.75);opacity:.08}}
+@keyframes fpaTwinkle{from{transform:scale(.6);opacity:.6}to{transform:scale(1.1);opacity:1}}
+
+/* error: worried eyebrows, frown, sweat drop, a short shake */
+.fpa-av[data-state="error"] .fpa-m-frown,.fpa-av[data-state="error"] .fpa-sweat{display:inline}
+.fpa-av[data-state="error"] .fpa-brow-l{transform:rotate(-14deg) translateY(-1px)}
+.fpa-av[data-state="error"] .fpa-brow-r{transform:rotate(14deg) translateY(-1px)}
+.fpa-av[data-state="error"] .fpa-av-fig{animation:fpaShake .45s ease-in-out}
+.fpa-av[data-state="error"] .fpa-sweat{animation:fpaSweat 1.6s ease-in infinite}
+@keyframes fpaShake{20%,60%{transform:translateX(-2px)}40%,80%{transform:translateX(2px)}}
+@keyframes fpaSweat{0%{opacity:0;transform:translateY(-2px)}25%{opacity:1}100%{opacity:0;transform:translateY(5px)}}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  .fpa-root{right:12px;bottom:calc(12px + env(safe-area-inset-bottom))}
+  .fpa-launch{width:52px;height:104px}
+  .fpa-badge{top:2px;right:-6px}
+  .fpa-tip{right:58px;bottom:62px;max-width:190px;font-size:12.5px}
+  /* full-width sheet above the technician, kept below the header */
+  .fpa-panel{position:fixed;left:10px;right:10px;bottom:calc(126px + env(safe-area-inset-bottom));width:auto;height:auto;max-height:calc(100vh - 126px - 80px);max-height:calc(100dvh - 126px - 80px - env(safe-area-inset-bottom));min-height:280px;border-radius:20px}
+  .fpa-log{min-height:110px}
+  .fpa-on .to-top{right:76px}
+  /* homepage: stand above the Call / Book a Repair / WhatsApp dock when it shows */
+  body.m-docked .fpa-root{bottom:calc(90px + env(safe-area-inset-bottom))}
+  body.m-docked .fpa-panel{bottom:calc(204px + env(safe-area-inset-bottom));max-height:calc(100dvh - 204px - 80px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .fpa-root,.fpa-root *,.fpa-av *{animation:none!important;transition:none!important}
+  .fpa-log{scroll-behavior:auto}
+}
+
+/* ---------- dark theme ---------- */
+[data-theme="dark"] .fpa-panel{background:#15161B;border-color:rgba(255,255,255,.08);box-shadow:0 30px 70px -24px rgba(0,0,0,.9)}
+[data-theme="dark"] .fpa-head{background:#0B0C10;border-bottom:1px solid rgba(255,255,255,.06)}
+[data-theme="dark"] .fpa-log,[data-theme="dark"] .fpa-suggest,[data-theme="dark"] .fpa-form,[data-theme="dark"] .fpa-notice{background:#15161B}
+[data-theme="dark"] .fpa-form{border-color:rgba(255,255,255,.06)}
+[data-theme="dark"] .fpa-msg--bot p,[data-theme="dark"] .fpa-typing{background:#1E1F26;border-color:rgba(255,255,255,.08);color:#E2E8F0}
+[data-theme="dark"] .fpa-msg--err p{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#FCA5A5}
+[data-theme="dark"] .fpa-retry{background:transparent;border-color:rgba(239,68,68,.4);color:#FCA5A5}
+[data-theme="dark"] .fpa-act{background:#2A2C35}
+[data-theme="dark"] .fpa-chip{background:transparent;border-color:rgba(255,138,31,.4);color:#FFA24D}
+[data-theme="dark"] .fpa-form textarea{background:#1E1F26;border-color:rgba(255,255,255,.12);color:#fff}
+[data-theme="dark"] .fpa-tip{background:#1C1D24;border-color:rgba(255,255,255,.1);color:#fff}
+[data-theme="dark"] .fpa-tip-x:hover{background:rgba(255,255,255,.08);color:#fff}
+[data-theme="dark"] .fpa-badge{box-shadow:0 0 0 2px #15161B}
+[data-theme="dark"] .fpa-launch-av .fpa-shadow{fill:#000;opacity:.5}

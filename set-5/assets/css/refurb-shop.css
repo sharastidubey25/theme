@@ -26,10 +26,10 @@
 .rfh-trust li{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;background:var(--gray-2);font:600 13px var(--font-body);color:var(--ink-2)}
 .rfh-trust svg{color:var(--primary)}
 .rfh-cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
-.rfh-cat{position:relative;display:flex;flex-direction:column;border-radius:24px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;
+.rfh-cat{position:relative;display:flex;flex-direction:column;border-radius:24px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-sm);
   transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s}
 .rfh-cat:hover,.rfh-cat:focus-visible{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:rgba(255,138,31,.45)}
-.rfh-cat-art{position:relative;aspect-ratio:1.2/1;display:grid;place-items:center;background:radial-gradient(120% 95% at 50% 105%,#FFD9B5 0%,#FFF3E8 52%,#FFFFFF 100%)}
+.rfh-cat-art{position:relative;aspect-ratio:1.2/1;overflow:hidden;border-radius:23px 23px 0 0;display:grid;place-items:center;background:radial-gradient(120% 95% at 50% 105%,#FFD9B5 0%,#FFF3E8 52%,#FFFFFF 100%)}
 .rfh-cat-art svg{width:64%;height:auto;transition:transform .6s var(--ease)}
 .rfh-cat:hover .rfh-cat-art svg{transform:scale(1.1) translateY(-6px) rotate(-2deg)}
 .rfh-cat-off{position:absolute;left:12px;top:12px;padding:6px 11px;border-radius:999px;background:var(--grad-primary);color:#fff;font:800 12px/1 var(--font-head);box-shadow:0 8px 18px -8px rgba(255,106,0,.7)}

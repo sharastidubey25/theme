@@ -21,9 +21,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=13.4">
+<link rel="stylesheet" href="assets/css/style.css?v=15.5">
 <link rel="stylesheet" href="assets/css/inner.css?v=1.0">
-<link rel="stylesheet" href="assets/css/rental.css?v=1.0">
+<link rel="stylesheet" href="assets/css/rental.css?v=1.2">
+<link rel="stylesheet" href="assets/css/assistant.css?v=1.2">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -66,11 +67,12 @@
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L5.5 12M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2M14 16l-3 3 3 3M8.3 6.8l1.1-1.9a1.8 1.8 0 0 1 3.2 0l4.1 7.1M13 12.3l3.9-.4.4-4M5.5 12l-.8 4.1 4-.7"/></symbol>
+    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-.9 1.8 1.8 0 0 1 0-1.8L7.2 9.5M11 19h8.2a1.8 1.8 0 0 0 1.6-.9 1.8 1.8 0 0 0 0-1.8l-1.2-2.1M14 16l-3 3 3 3M8.3 13.6 7.2 9.5l-4.1 1.1M9.3 5.8l1.1-1.9A1.8 1.8 0 0 1 12 3a1.8 1.8 0 0 1 1.5.9l3.9 6.8M13.4 9.6l4.1 1.1 1.1-4.1"/></symbol>
     <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7"/><path d="M9.8 9l1.5 1.5 3-3"/></symbol>
     <symbol id="i-cctv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 7l14 5-2 4L2 11z"/><path d="M17 12l3 1M8 13.5V17H3M3 15v4"/></symbol>
     <symbol id="i-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
     <symbol id="i-projector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="8" width="20" height="9" rx="2"/><circle cx="16" cy="12.5" r="2.5"/><path d="M5 17v2M19 17v2M6 11h4"/></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></symbol>
@@ -136,26 +138,85 @@
             <svg class="tt-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
           </button>
           <a href="#" class="icon-btn hide-sm" aria-label="Cart"><svg width="22" height="22"><use href="#i-cart"/></svg></a>
-          <a href="#" class="icon-btn hide-sm" aria-label="Account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
-          <a href="#" class="btn btn--sm" data-ripple>Become a Partner</a>
+          <a href="account.html" class="icon-btn hide-sm" aria-label="My account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
+          <a href="partner.html" class="btn btn--sm" data-ripple>Become a Partner</a>
           <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu"><svg width="24" height="24"><use href="#i-menu"/></svg></button>
         </div>
       </div>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-services">Services<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
+        <button class="nav-dd active" type="button" aria-expanded="false" aria-controls="mm-shop">Shop<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-business">For Business<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
         <a href="repair.html">Book A Repair</a>
         <a href="brands.html">Brands</a>
-        <a href="open-box-deal.html">Open Box Deal</a>
-        <a href="rental.html" class="active" aria-current="page">Rental</a>
-        <a href="refurbished.html">Refurbished</a>
-        <a href="device-health.html">Device Health</a>
       </nav>
+    </div>
+    <div class="mm" id="mm-services" aria-label="Services">
+      <div class="mm-in">
+        <div class="mm-head"><span>Services</span><small>Everything we fix, check and look after</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Services categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-services-0-t" aria-controls="mm-services-0" aria-selected="true" tabindex="0">Repairs &amp; Pickup</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-1-t" aria-controls="mm-services-1" aria-selected="false" tabindex="-1">Technical Support</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-2-t" aria-controls="mm-services-2" aria-selected="false" tabindex="-1">Device Care</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-3-t" aria-controls="mm-services-3" aria-selected="false" tabindex="-1">Sustainability</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-services-0" role="tabpanel" aria-labelledby="mm-services-0-t"><a class="mm-card" href="repair.html"><b>Book a Repair</b><span>Laptops, desktops, printers and more, fixed with up to 3 years warranty.</span></a><a class="mm-card" href="repair.html"><b>Doorstep Pickup &amp; Drop</b><span>We collect the device from your home or office and bring it back fixed.</span></a><a class="mm-card" href="index.html#warranty"><b>Check Your Warranty</b><span>Enter your serial number to see your device’s warranty status.</span></a><a class="mm-card" href="index.html#trouble"><b>Find Service Centers</b><span>Brand service centres across India for 100+ brands.</span></a></div>
+            <div class="mm-pane" id="mm-services-1" role="tabpanel" aria-labelledby="mm-services-1-t" hidden><a class="mm-card" href="index.html#support"><b>Remote Technical Support</b><span>Talk to an expert and get it fixed on a call, from ₹5/min.</span></a><a class="mm-card" href="index.html#support"><b>24/7 Help</b><span>Experts online round the clock, no home visit needed.</span></a></div>
+            <div class="mm-pane" id="mm-services-2" role="tabpanel" aria-labelledby="mm-services-2-t" hidden><a class="mm-card" href="pulse.html"><b>Device Health</b><span>Check your device’s health and fix issues before they become repairs.</span></a><a class="mm-card" href="pulse.html"><b>FixPapa Pulse</b><span>Monitor, predict and prevent problems across your devices in real time.</span></a></div>
+            <div class="mm-pane" id="mm-services-3" role="tabpanel" aria-labelledby="mm-services-3-t" hidden><a class="mm-card" href="sell-ewaste.html"><b>E-Waste Recycling</b><span>Sell old gadgets and get paid. Free doorstep pickup, data 100% wiped.</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-shop" aria-label="Shop">
+      <div class="mm-in">
+        <div class="mm-head"><span>Shop</span><small>Refurbished, open box, new and on rent</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Shop categories">
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-0-t" aria-controls="mm-shop-0" aria-selected="false" tabindex="-1">Refurbished</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-1-t" aria-controls="mm-shop-1" aria-selected="false" tabindex="-1">Open Box Deals</button>
+            <button class="mm-cat on" type="button" role="tab" id="mm-shop-2-t" aria-controls="mm-shop-2" aria-selected="true" tabindex="0">Rental</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-3-t" aria-controls="mm-shop-3" aria-selected="false" tabindex="-1">Brands</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane" id="mm-shop-0" role="tabpanel" aria-labelledby="mm-shop-0-t" hidden><a class="mm-card" href="refurbished.html"><b>All Refurbished</b><span>Certified devices up to 86% off, with up to 3 years warranty.</span></a><a class="mm-card" href="refurbished-category.html?cat=laptops"><b>Laptops</b><span>ThinkPads, Latitudes and EliteBooks built for 9-to-5 and beyond.</span></a><a class="mm-card" href="refurbished-category.html?cat=desktops"><b>Desktops</b><span>Tiny business PCs that fit behind a monitor and run all day.</span></a><a class="mm-card" href="refurbished-category.html?cat=printers"><b>Printers</b><span>Laser and ink-tank printers, serviced with fresh rollers.</span></a><a class="mm-card" href="refurbished-category.html?cat=cctv"><b>CCTV</b><span>Cameras, DVRs and ready kits to secure a home, shop or office.</span></a><a class="mm-card" href="refurbished-category.html?cat=accessories"><b>Accessories</b><span>Monitors, keyboards, docks, RAM and SSDs to complete the setup.</span></a></div>
+            <div class="mm-pane" id="mm-shop-1" role="tabpanel" aria-labelledby="mm-shop-1-t" hidden><a class="mm-card" href="open-box-deal.html"><b>Open Box Deals</b><span>Returned and unused stock, checked and graded, at lower prices.</span></a><a class="mm-card" href="products.html?condition=New"><b>New Products</b><span>Fresh arrivals: UPS, batteries, desktops and more.</span></a></div>
+            <div class="mm-pane on" id="mm-shop-2" role="tabpanel" aria-labelledby="mm-shop-2-t"><a class="mm-card" href="rental-category.html?cat=laptop"><b>Laptop on Rent</b><span>Why buy when you can rent? Flexible monthly plans.</span></a><a class="mm-card" href="rental-category.html?cat=desktop"><b>Desktop on Rent</b><span>Ready-to-use desktops for home, office or training.</span></a><a class="mm-card" href="rental-category.html?cat=printer"><b>Printer on Rent</b><span>Printers on rent, serviced and delivered.</span></a><a class="mm-card" href="rental-category.html?cat=projector"><b>Projector on Rent</b><span>Projectors for events, classes and meetings.</span></a></div>
+            <div class="mm-pane" id="mm-shop-3" role="tabpanel" aria-labelledby="mm-shop-3-t" hidden><a class="mm-card" href="brands.html"><b>All Brands</b><span>Every major brand we sell, service and repair.</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-business" aria-label="For Business">
+      <div class="mm-in">
+        <div class="mm-head"><span>For Business</span><small>IT for offices, shops and schools</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="For Business categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-business-0-t" aria-controls="mm-business-0" aria-selected="true" tabindex="0">IT Management</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-1-t" aria-controls="mm-business-1" aria-selected="false" tabindex="-1">Equipment</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-2-t" aria-controls="mm-business-2" aria-selected="false" tabindex="-1">Partnership</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-business-0" role="tabpanel" aria-labelledby="mm-business-0-t"><a class="mm-card" href="index.html#amc"><b>AMC &amp; Inventory</b><span>Maintenance and stock under one plan, with monthly visits.</span></a><a class="mm-card" href="index.html#amc"><b>IT Services</b><span>PCs, CCTV, UPS and networks managed for your office.</span></a><a class="mm-card" href="pulse.html"><b>Fleet Monitoring</b><span>FixPapa Pulse watches every device and flags problems early.</span></a></div>
+            <div class="mm-pane" id="mm-business-1" role="tabpanel" aria-labelledby="mm-business-1-t" hidden><a class="mm-card" href="rental.html"><b>Bulk Rental</b><span>Need 10+ devices? Rent laptops, desktops and projectors in bulk.</span></a><a class="mm-card" href="refurbished.html"><b>Refurbished in Bulk</b><span>Certified business laptops and desktops at a fraction of the price.</span></a></div>
+            <div class="mm-pane" id="mm-business-2" role="tabpanel" aria-labelledby="mm-business-2-t" hidden><a class="mm-card" href="partner.html"><b>Become a Partner</b><span>Grow with FixPapa as a service or sales partner.</span></a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+<div class="mm-scrim" id="mmScrim"></div>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="index.html">Home</a><a href="repair.html">Book A Repair</a><a href="brands.html">Brands</a><a href="open-box-deal.html">Open Box Deal</a><a href="rental.html">Rental</a><a href="refurbished.html">Refurbished</a><a href="device-health.html">Device Health</a>
-  <a href="#" style="color:var(--accent)">Become a Partner</a>
+  <a href="index.html">Home</a>
+  <details class="mn-group"><summary>Services<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="repair.html">Book a Repair</a><a href="repair.html">Doorstep Pickup &amp; Drop</a><a href="index.html#warranty">Check Your Warranty</a><a href="index.html#trouble">Find Service Centers</a><a href="index.html#support">Remote Technical Support</a><a href="index.html#support">24/7 Help</a><a href="pulse.html">Device Health</a><a href="pulse.html">FixPapa Pulse</a><a href="sell-ewaste.html">E-Waste Recycling</a></div></details>
+  <details class="mn-group"><summary>Shop<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="refurbished.html">All Refurbished</a><a href="refurbished-category.html?cat=laptops">Laptops</a><a href="refurbished-category.html?cat=desktops">Desktops</a><a href="refurbished-category.html?cat=printers">Printers</a><a href="refurbished-category.html?cat=cctv">CCTV</a><a href="refurbished-category.html?cat=accessories">Accessories</a><a href="open-box-deal.html">Open Box Deals</a><a href="products.html?condition=New">New Products</a><a href="rental-category.html?cat=laptop">Laptop on Rent</a><a href="rental-category.html?cat=desktop">Desktop on Rent</a><a href="rental-category.html?cat=printer">Printer on Rent</a><a href="rental-category.html?cat=projector">Projector on Rent</a><a href="brands.html">All Brands</a></div></details>
+  <details class="mn-group"><summary>For Business<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="index.html#amc">AMC &amp; Inventory</a><a href="index.html#amc">IT Services</a><a href="pulse.html">Fleet Monitoring</a><a href="rental.html">Bulk Rental</a><a href="refurbished.html">Refurbished in Bulk</a></div></details>
+  <a href="repair.html">Book A Repair</a><a href="brands.html">Brands</a><a href="account.html">My Account</a>
+  <a href="partner.html" style="color:var(--accent)">Become a Partner</a>
 </nav>
 
 
@@ -188,25 +249,25 @@
         <div class="rt-img"><img src="assets/media/rent-laptop.jpg" alt="Laptop on Rent" loading="lazy"><em>For students</em></div>
         <div class="rt-body"><h3>Laptop on Rent</h3><ul><li><svg width="14" height="14"><use href="#i-check"/></svg>Core i5 / 8 GB RAM / 256 GB SSD</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Windows &amp; MS Office ready</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Charger and bag included</li></ul>
           <div class="rt-price"><b data-m1="1499" data-m3="1349" data-m6="1229" data-m12="1124">₹1,499</b><span>/ month</span></div>
-          <a href="tel:+918696544448" class="btn" data-ripple>Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
+          <a href="rental-category.html?cat=laptop" class="btn" data-ripple data-rent-cat="laptop">Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
       </article>
       <article class="rt-card">
         <div class="rt-img"><img src="assets/media/rent-desktop.jpg" alt="Desktop on Rent" loading="lazy"><em>For offices</em></div>
         <div class="rt-body"><h3>Desktop on Rent</h3><ul><li><svg width="14" height="14"><use href="#i-check"/></svg>Core i5 / 8 GB RAM / 22" monitor</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Keyboard &amp; mouse included</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Network setup on delivery</li></ul>
           <div class="rt-price"><b data-m1="1299" data-m3="1169" data-m6="1065" data-m12="974">₹1,299</b><span>/ month</span></div>
-          <a href="tel:+918696544448" class="btn" data-ripple>Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
+          <a href="rental-category.html?cat=desktop" class="btn" data-ripple data-rent-cat="desktop">Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
       </article>
       <article class="rt-card">
         <div class="rt-img"><img src="assets/media/rent-printer.jpg" alt="Printer on Rent" loading="lazy"><em>For offices</em></div>
         <div class="rt-body"><h3>Printer on Rent</h3><ul><li><svg width="14" height="14"><use href="#i-check"/></svg>Laser / multifunction models</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Starter toner included</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Free on-site servicing</li></ul>
           <div class="rt-price"><b data-m1="899" data-m3="809" data-m6="737" data-m12="674">₹899</b><span>/ month</span></div>
-          <a href="tel:+918696544448" class="btn" data-ripple>Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
+          <a href="rental-category.html?cat=printer" class="btn" data-ripple data-rent-cat="printer">Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
       </article>
       <article class="rt-card">
         <div class="rt-img"><img src="assets/media/rent-projector.jpg" alt="Projector on Rent" loading="lazy"><em>For events</em></div>
         <div class="rt-body"><h3>Projector on Rent</h3><ul><li><svg width="14" height="14"><use href="#i-check"/></svg>Full HD, 3500+ lumens</li><li><svg width="14" height="14"><use href="#i-check"/></svg>HDMI &amp; screen on request</li><li><svg width="14" height="14"><use href="#i-check"/></svg>Set up by our technician</li></ul>
           <div class="rt-price"><b data-m1="1999" data-m3="1799" data-m6="1639" data-m12="1499">₹1,999</b><span>/ month</span></div>
-          <a href="tel:+918696544448" class="btn" data-ripple>Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
+          <a href="rental-category.html?cat=projector" class="btn" data-ripple data-rent-cat="projector">Rent Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></a></div>
       </article>
     </div>
   </div>
@@ -275,7 +336,7 @@
           <a href="#" aria-label="LinkedIn"><svg width="16" height="16"><use href="#i-in"/></svg></a>
         </div>
       </div>
-      <div><h5>For Partners</h5><a href="#">Become a Partner</a><a href="#">Become a Freelancer</a><a href="#">How to join?</a></div>
+      <div><h5>For Partners</h5><a href="partner.html">Become a Partner</a><a href="partner.html">Become a Freelancer</a><a href="partner.html">How to join?</a></div>
       <div><h5>Category</h5><a href="#">Laptops</a><a href="#">Desktops</a><a href="#">Printers</a><a href="#">Servers</a><a href="#">Projectors</a></div>
       <div><h5>Quick Links</h5><a href="#">About FixPapa</a><a href="#">FAQs</a><a href="#">Blogs</a><a href="#">Contact Us</a><a href="#">Anti Discrimination Policy</a></div>
       <div class="ftr-news">
@@ -296,6 +357,14 @@
 </footer>
 
 <button class="to-top" id="toTop" aria-label="Back to top"><svg width="20" height="20"><use href="#i-up"/></svg></button>
-<script src="assets/js/inner.js?v=1.0"></script>
+<script src="assets/js/inner.js?v=1.1"></script>
+<!-- FixPapa Assistant (see assets/js/assistant/README.md) -->
+<script src="assets/js/megamenu.js?v=1.0"></script>
+<script src="assets/js/assistant/service.js?v=1.0"></script>
+<script src="assets/js/assistant/mock-service.js?v=1.1"></script>
+<script src="assets/js/assistant/conversation.js?v=1.0"></script>
+<script src="assets/js/assistant/avatar.js?v=1.5"></script>
+<script src="assets/js/assistant/chat-ui.js?v=1.0"></script>
+<script src="assets/js/assistant/assistant.js?v=1.1"></script>
 </body>
 </html>

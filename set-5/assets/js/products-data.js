@@ -1,0 +1,65 @@
+/* FixPapa · Set 5 · new-products catalogue for products.html (sample data until the backend feed is connected).
+   window.FPProducts = { products, cats }. Every brand on brands.html has products here, so "Check products"
+   (products.html?brand=HP) never lands on an empty page. Refurbished items come from refurb-data.js.
+   art = bk-* (device art sprite in products.html) or rf-* (refurb-data.js sprite). */
+(() => {
+  const cats = { laptop: ['Laptop', 'bk-laptop'], desktop: ['Desktop', 'bk-desktop'], printer: ['Printer', 'bk-printer'], monitor: ['Monitor', 'bk-monitor'],
+    tablet: ['Tablet', 'bk-tablet'], cctv: ['CCTV', 'bk-cctv'], networking: ['Networking', 'bk-wifi'], ups: ['UPS', 'bk-ups'], storage: ['Storage', 'rf-ssd'],
+    accessories: ['Accessories', 'rf-acc'], projector: ['Projector', 'bk-projector'], server: ['Server', 'bk-server'] };
+  const N = (cat, brand, name, specs, mrp, price, rating = 4.2, extra = {}) => ({ cat, brand, name, specs, mrp, price, rating, ...extra });
+  const products = [
+    N('laptop', 'Apple', 'Apple MacBook Air M2 13.6"', ['Apple M2', '8 GB RAM', '256 GB SSD', '13.6" Liquid Retina'], 114900, 92990, 4.8, { tag: 'Bestseller' }),
+    N('laptop', 'Apple', 'Apple MacBook Pro 14" M3', ['Apple M3', '16 GB RAM', '512 GB SSD', '14.2" XDR'], 169900, 152990, 4.9),
+    N('tablet', 'Apple', 'Apple iPad 10th Gen Wi-Fi', ['A14 Bionic', '64 GB', '10.9" display'], 39900, 32900, 4.7),
+    N('laptop', 'HP', 'HP 15s Core i5 12th Gen', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '15.6" FHD'], 68999, 52990, 4.4),
+    N('laptop', 'HP', 'HP Victus Gaming Ryzen 5', ['Ryzen 5 7535HS', '16 GB RAM', '512 GB SSD', '15.6" 144 Hz', 'RTX 2050'], 79999, 61990, 4.5, { gpu: 'Dedicated' }),
+    N('printer', 'HP', 'HP Smart Tank 580 All-in-One', ['Ink tank', 'Wi-Fi', 'Print · Scan · Copy'], 18999, 13499, 4.3),
+    N('monitor', 'HP', 'HP M24f 24" FHD Monitor', ['24" FHD IPS', '75 Hz', 'HDMI · VGA'], 14999, 9899, 4.4),
+    N('laptop', 'Dell', 'Dell Inspiron 3530 Core i5', ['Core i5 13th Gen', '16 GB RAM', '512 GB SSD', '15.6" FHD 120 Hz'], 72000, 56990, 4.4, { tag: 'New launch' }),
+    N('desktop', 'Dell', 'Dell OptiPlex 3000 Tower', ['Core i5 12th Gen', '8 GB RAM', '512 GB SSD'], 62000, 48500, 4.3),
+    N('monitor', 'Dell', 'Dell S2421H 24" Monitor', ['24" FHD IPS', '75 Hz', 'Built-in speakers'], 16999, 11299, 4.6),
+    N('laptop', 'Lenovo', 'Lenovo IdeaPad Slim 3 Core i5', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '15.6" FHD'], 70890, 51990, 4.3),
+    N('laptop', 'Lenovo', 'Lenovo ThinkPad E14 Gen 5', ['Core i5 13th Gen', '16 GB RAM', '512 GB SSD', '14" WUXGA'], 92000, 67990, 4.5),
+    N('desktop', 'Lenovo', 'Lenovo IdeaCentre AIO 3 24"', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '23.8" FHD'], 89990, 64990, 4.4),
+    N('laptop', 'Microsoft', 'Microsoft Surface Laptop Go 3', ['Core i5 12th Gen', '8 GB RAM', '256 GB SSD', '12.4" Touch'], 89999, 72999, 4.4, { touch: true }),
+    N('tablet', 'Microsoft', 'Microsoft Surface Pro 9', ['Core i5 12th Gen', '8 GB RAM', '256 GB SSD', '13" Touch'], 129999, 104999, 4.5, { touch: true }),
+    N('laptop', 'Asus', 'Asus Vivobook 15 Core i5', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '15.6" FHD'], 67990, 49990, 4.3),
+    N('laptop', 'Asus', 'Asus TUF Gaming F15', ['Core i5 11th Gen', '16 GB RAM', '512 GB SSD', '15.6" 144 Hz', 'RTX 3050'], 83990, 59990, 4.5, { gpu: 'Dedicated' }),
+    N('laptop', 'Acer', 'Acer Aspire Lite Core i5', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '15.6" FHD'], 61999, 40990, 4.2),
+    N('monitor', 'Acer', 'Acer EK220Q 21.5" Monitor', ['21.5" FHD VA', '100 Hz', 'HDMI · VGA'], 10999, 6499, 4.3),
+    N('laptop', 'MSI', 'MSI Modern 14 Core i5', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '14" FHD'], 64990, 46990, 4.2),
+    N('laptop', 'MSI', 'MSI Thin GF63 Gaming', ['Core i5 12th Gen', '16 GB RAM', '512 GB SSD', '15.6" 144 Hz', 'RTX 4050'], 89990, 66990, 4.4, { gpu: 'Dedicated' }),
+    N('projector', 'Sony', 'Sony VPL-EX435 Projector', ['XGA 3LCD', '3200 lumens', 'HDMI · VGA'], 78000, 61500, 4.4),
+    N('accessories', 'Sony', 'Sony WH-CH520 Wireless Headphones', ['Bluetooth 5.2', '50 h battery', 'Mic'], 5990, 3989, 4.3),
+    N('monitor', 'Samsung', 'Samsung 27" Essential S3 Curved', ['27" FHD VA', '75 Hz', 'Curved'], 21500, 11999, 4.4),
+    N('storage', 'Samsung', 'Samsung 980 NVMe SSD 1 TB', ['1 TB NVMe', 'PCIe 3.0', '3500 MB/s'], 10999, 6699, 4.7),
+    N('tablet', 'Samsung', 'Samsung Galaxy Tab A9+ Wi-Fi', ['8 GB RAM', '128 GB', '11" 90 Hz'], 25999, 17999, 4.3),
+    N('laptop', 'Huawei', 'Huawei MateBook D15 Core i5', ['Core i5 11th Gen', '8 GB RAM', '512 GB SSD', '15.6" FHD'], 74999, 48990, 4.2),
+    N('networking', 'Huawei', 'Huawei AX3 Wi-Fi 6 Router', ['Wi-Fi 6', 'Dual band', '4 antennas'], 6499, 3499, 4.2),
+    N('printer', 'Epson', 'Epson EcoTank L3252 Wi-Fi', ['Ink tank', 'Wi-Fi', 'Print · Scan · Copy'], 17999, 13299, 4.5, { tag: 'Bestseller' }),
+    N('projector', 'Epson', 'Epson EB-E01 XGA Projector', ['XGA 3LCD', '3300 lumens', 'HDMI'], 48999, 33999, 4.4),
+    N('printer', 'Brother', 'Brother HL-L2321D Mono Laser', ['Mono laser', 'Auto duplex', 'USB'], 14990, 9999, 4.3),
+    N('printer', 'Brother', 'Brother DCP-T426W Ink Tank', ['Ink tank', 'Wi-Fi', 'Print · Scan · Copy'], 16990, 12499, 4.2),
+    N('networking', 'TP-Link', 'TP-Link Archer C6 AC1200 Router', ['Dual band', 'Gigabit', 'MU-MIMO'], 4999, 2399, 4.4, { tag: 'Bestseller' }),
+    N('networking', 'TP-Link', 'TP-Link 8-Port Gigabit Switch', ['8 ports', 'Gigabit', 'Plug & play'], 2999, 1499, 4.5),
+    N('cctv', 'TP-Link', 'TP-Link Tapo C200 Wi-Fi Camera', ['1080p', '360° pan', 'Night vision'], 3999, 1999, 4.3),
+    N('cctv', 'CP Plus', 'CP Plus 2.4 MP Bullet Camera', ['1080p', '30 m IR', 'IP66'], 3200, 1499, 4.1),
+    N('cctv', 'CP Plus', 'CP Plus 4-Channel DVR', ['4 channels', '5 MP Lite', 'Mobile view'], 5500, 3199, 4.2),
+    N('desktop', 'HCL', 'HCL Infiniti Pro Desktop', ['Core i3 12th Gen', '8 GB RAM', '512 GB SSD'], 42000, 32500, 4.0),
+    N('desktop', 'HCL', 'HCL ME All-in-One 21.5"', ['Core i5 11th Gen', '8 GB RAM', '512 GB SSD', '21.5" FHD'], 54000, 41990, 4.0),
+    N('ups', 'Microtek', 'Microtek 650VA LEGEND 650 UPS', ['650 VA', 'Line interactive', '2 sockets'], 3090, 2381, 4.2),
+    N('ups', 'Microtek', 'Microtek 1000VA LEGEND 1000 UPS', ['1000 VA', 'Line interactive', '3 sockets'], 5790, 5677, 4.3),
+    N('ups', 'Microtek', 'Microtek 650VA LEGEND 750M UPS', ['650 VA', '2+2 years warranty', '2 sockets'], 2999, 2365, 4.1),
+    N('ups', 'Luminous', 'Luminous Pro 600 UPS', ['600 VA', 'Line interactive', 'Cold start'], 3290, 2290, 4.2),
+    N('ups', 'Luminous', 'Luminous Zelio+ 1100 Inverter', ['900 VA', 'Sine wave', 'LCD display'], 9890, 6990, 4.3),
+    N('accessories', 'Zebronics', 'Zebronics Zeb-Transformer Combo', ['Keyboard + mouse', 'RGB', 'USB'], 1999, 999, 4.1),
+    N('monitor', 'Zebronics', 'Zebronics 24" A24FHD Monitor', ['24" FHD IPS', '75 Hz', 'HDMI · VGA'], 11999, 6999, 4.0),
+    N('accessories', 'Zebronics', 'Zebronics Zeb-Jukebar 3900 Soundbar', ['Bluetooth', '80 W', 'Remote'], 6999, 3999, 4.2),
+    N('cctv', 'Geonix', 'Geonix 2 MP Dome Camera', ['1080p', '20 m IR', 'Indoor'], 2499, 1199, 4.0),
+    N('storage', 'Geonix', 'Geonix 8 GB DDR4 3200 RAM', ['8 GB DDR4', '3200 MHz', 'Desktop'], 3299, 1599, 4.0),
+    N('server', 'Dell', 'Dell PowerEdge T150 Tower Server', ['Xeon E-2314', '16 GB RAM', '2 TB HDD'], 165000, 128000, 4.5),
+    N('server', 'HP', 'HPE ProLiant ML30 Gen10 Plus', ['Xeon E-2314', '16 GB RAM', '1 TB HDD'], 155000, 119000, 4.4),
+    N('storage', 'Samsung', 'Samsung T7 Portable SSD 500 GB', ['500 GB', 'USB 3.2', '1050 MB/s'], 8999, 4999, 4.7)
+  ].map((p, i) => ({ ...p, id: 1000 + i, condition: 'New', off: Math.round((1 - p.price / p.mrp) * 100), art: p.art || cats[p.cat][1], catName: cats[p.cat][0] }));
+  window.FPProducts = { products, cats };
+})();

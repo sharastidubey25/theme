@@ -112,6 +112,13 @@
       </a>`; }).join('');
   }
   productLoop($('#newGrid'), newProducts);
+  /* Book a Repair: every device in one row, drifting right → left like New Products (copy of the set for a seamless wrap) */
+  const bkLoop = $('#bkLoop');
+  if (bkLoop) {
+    const track = bkLoop.firstElementChild;
+    track.insertAdjacentHTML('beforeend', [...track.children].map(a => a.outerHTML.replace('<a ', '<a aria-hidden="true" tabindex="-1" ')).join(''));
+    loopScroller(bkLoop);
+  }
   $$('.wish').forEach(b => b.addEventListener('click', () => { b.style.color = b.style.color ? '' : '#E11D48'; }));
 
   /* ---------------- Render: brands ---------------- */
@@ -204,7 +211,8 @@
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   const menu = $('#mobileNav'), mt = $('#menuToggle');
   mt.addEventListener('click', () => menu.classList.toggle('open'));
-  $$('a', menu).forEach((a, i) => { a.style.transitionDelay = (i * 40) + 'ms'; a.addEventListener('click', () => menu.classList.remove('open')); });
+  [...menu.children].forEach((el, i) => { el.style.transitionDelay = (i * 40) + 'ms'; });
+  $$('a', menu).forEach((a) => a.addEventListener('click', () => menu.classList.remove('open')));
 
   /* ---------------- Phones: search opens from an icon ---------------- */
   const st = $('#searchToggle');
@@ -307,15 +315,11 @@
     gsap.to(assemble, { progress: 1, duration: 3.6, delay: 1, ease: 'power1.inOut', onComplete: () => { if (!window.__heroSlide) healthTxt.textContent = 'All systems OK'; } });
   });
 
-  /* ---------- Mouse parallax in hero ---------- */
-  const stage = $('#heroStage');
+  /* ---------- Mouse parallax in hero: only the laptop drifts; the two info cards stay fixed in place ---------- */
   if (!reduce && matchMedia('(pointer:fine)').matches) {
-    const layers = $$('[data-depth]', stage);
-    const setters = layers.map(l => ({ x: gsap.quickTo(l, 'x', { duration: .8, ease: 'power3' }), y: gsap.quickTo(l, 'y', { duration: .8, ease: 'power3' }), d: +l.dataset.depth }));
     const lw = { x: gsap.quickTo('#laptopWrap', 'x', { duration: 1, ease: 'power3' }), y: gsap.quickTo('#laptopWrap', 'y', { duration: 1, ease: 'power3' }) };
     $('#hero').addEventListener('mousemove', (e) => {
       const nx = e.clientX / innerWidth - .5, ny = e.clientY / innerHeight - .5;
-      setters.forEach(s => { s.x(nx * 22 * s.d); s.y(ny * 22 * s.d); });
       lw.x(nx * -14); lw.y(ny * -10);
     });
   }
@@ -612,6 +616,32 @@
     if (window.gsap) window.gsap.set(cards, { scale: s });
     stage.classList.toggle('holo-tight', w < TIGHT);
   }).observe(stage);
+})();
+
+/* ---------- FixPapa Pulse dashboard: donut + bars draw in (.in) and the numbers count up when it scrolls into view ---------- */
+(() => {
+  const dash = document.getElementById('pulseDash'); if (!dash) return;
+  /* each laptop screen holds a fixed 720px-wide desktop, scaled to the screen's real width */
+  const screens = [...dash.querySelectorAll('.fpp-screen')];
+  const fit = () => screens.forEach(s => s.style.setProperty('--s', s.clientWidth / 720));
+  fit(); if (window.ResizeObserver) new ResizeObserver(fit).observe(dash);
+  const nums = [...dash.querySelectorAll('[data-to]')];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) nums.forEach(n => { n.textContent = '0'; });
+  const run = () => {
+    dash.classList.add('in');
+    if (reduce) return;
+    const t0 = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - k, 3);
+      nums.forEach(n => { n.textContent = Math.round(+n.dataset.to * e); });
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if (!window.IntersectionObserver) return run();
+  const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { io.disconnect(); run(); } }, { threshold: .35 });
+  io.observe(dash);
 })();
 
 /* ---------- Set 5: light / dark theme switch (choice remembered on this device) ---------- */

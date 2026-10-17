@@ -21,8 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=13.4">
-<link rel="stylesheet" href="assets/css/repair.css?v=1.2">
+<link rel="stylesheet" href="assets/css/style.css?v=15.5">
+<link rel="stylesheet" href="assets/css/repair.css?v=2.4">
+<link rel="stylesheet" href="assets/css/assistant.css?v=1.2">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -65,11 +66,12 @@
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
-    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L5.5 12M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2M14 16l-3 3 3 3M8.3 6.8l1.1-1.9a1.8 1.8 0 0 1 3.2 0l4.1 7.1M13 12.3l3.9-.4.4-4M5.5 12l-.8 4.1 4-.7"/></symbol>
+    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-.9 1.8 1.8 0 0 1 0-1.8L7.2 9.5M11 19h8.2a1.8 1.8 0 0 0 1.6-.9 1.8 1.8 0 0 0 0-1.8l-1.2-2.1M14 16l-3 3 3 3M8.3 13.6 7.2 9.5l-4.1 1.1M9.3 5.8l1.1-1.9A1.8 1.8 0 0 1 12 3a1.8 1.8 0 0 1 1.5.9l3.9 6.8M13.4 9.6l4.1 1.1 1.1-4.1"/></symbol>
     <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7"/><path d="M9.8 9l1.5 1.5 3-3"/></symbol>
     <symbol id="i-cctv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 7l14 5-2 4L2 11z"/><path d="M17 12l3 1M8 13.5V17H3M3 15v4"/></symbol>
     <symbol id="i-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
     <symbol id="i-projector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="8" width="20" height="9" rx="2"/><circle cx="16" cy="12.5" r="2.5"/><path d="M5 17v2M19 17v2M6 11h4"/></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></symbol>
@@ -135,26 +137,85 @@
             <svg class="tt-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
           </button>
           <a href="#" class="icon-btn hide-sm" aria-label="Cart"><svg width="22" height="22"><use href="#i-cart"/></svg></a>
-          <a href="#" class="icon-btn hide-sm" aria-label="Account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
-          <a href="#" class="btn btn--sm" data-ripple>Become a Partner</a>
+          <a href="account.html" class="icon-btn hide-sm" aria-label="My account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
+          <a href="partner.html" class="btn btn--sm" data-ripple>Become a Partner</a>
           <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu"><svg width="24" height="24"><use href="#i-menu"/></svg></button>
         </div>
       </div>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-services">Services<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-shop">Shop<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-business">For Business<svg width="14" height="14"><use href="#i-chev-d"/></svg></button>
         <a href="repair.html" class="active" aria-current="page">Book A Repair</a>
         <a href="brands.html">Brands</a>
-        <a href="open-box-deal.html">Open Box Deal</a>
-        <a href="rental.html">Rental</a>
-        <a href="refurbished.html">Refurbished</a>
-        <a href="device-health.html">Device Health</a>
       </nav>
+    </div>
+    <div class="mm" id="mm-services" aria-label="Services">
+      <div class="mm-in">
+        <div class="mm-head"><span>Services</span><small>Everything we fix, check and look after</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Services categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-services-0-t" aria-controls="mm-services-0" aria-selected="true" tabindex="0">Repairs &amp; Pickup</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-1-t" aria-controls="mm-services-1" aria-selected="false" tabindex="-1">Technical Support</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-2-t" aria-controls="mm-services-2" aria-selected="false" tabindex="-1">Device Care</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-3-t" aria-controls="mm-services-3" aria-selected="false" tabindex="-1">Sustainability</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-services-0" role="tabpanel" aria-labelledby="mm-services-0-t"><a class="mm-card" href="repair.html"><b>Book a Repair</b><span>Laptops, desktops, printers and more, fixed with up to 3 years warranty.</span></a><a class="mm-card" href="repair.html"><b>Doorstep Pickup &amp; Drop</b><span>We collect the device from your home or office and bring it back fixed.</span></a><a class="mm-card" href="index.html#warranty"><b>Check Your Warranty</b><span>Enter your serial number to see your device’s warranty status.</span></a><a class="mm-card" href="index.html#trouble"><b>Find Service Centers</b><span>Brand service centres across India for 100+ brands.</span></a></div>
+            <div class="mm-pane" id="mm-services-1" role="tabpanel" aria-labelledby="mm-services-1-t" hidden><a class="mm-card" href="index.html#support"><b>Remote Technical Support</b><span>Talk to an expert and get it fixed on a call, from ₹5/min.</span></a><a class="mm-card" href="index.html#support"><b>24/7 Help</b><span>Experts online round the clock, no home visit needed.</span></a></div>
+            <div class="mm-pane" id="mm-services-2" role="tabpanel" aria-labelledby="mm-services-2-t" hidden><a class="mm-card" href="pulse.html"><b>Device Health</b><span>Check your device’s health and fix issues before they become repairs.</span></a><a class="mm-card" href="pulse.html"><b>FixPapa Pulse</b><span>Monitor, predict and prevent problems across your devices in real time.</span></a></div>
+            <div class="mm-pane" id="mm-services-3" role="tabpanel" aria-labelledby="mm-services-3-t" hidden><a class="mm-card" href="sell-ewaste.html"><b>E-Waste Recycling</b><span>Sell old gadgets and get paid. Free doorstep pickup, data 100% wiped.</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-shop" aria-label="Shop">
+      <div class="mm-in">
+        <div class="mm-head"><span>Shop</span><small>Refurbished, open box, new and on rent</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Shop categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-shop-0-t" aria-controls="mm-shop-0" aria-selected="true" tabindex="0">Refurbished</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-1-t" aria-controls="mm-shop-1" aria-selected="false" tabindex="-1">Open Box Deals</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-2-t" aria-controls="mm-shop-2" aria-selected="false" tabindex="-1">Rental</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-3-t" aria-controls="mm-shop-3" aria-selected="false" tabindex="-1">Brands</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-shop-0" role="tabpanel" aria-labelledby="mm-shop-0-t"><a class="mm-card" href="refurbished.html"><b>All Refurbished</b><span>Certified devices up to 86% off, with up to 3 years warranty.</span></a><a class="mm-card" href="refurbished-category.html?cat=laptops"><b>Laptops</b><span>ThinkPads, Latitudes and EliteBooks built for 9-to-5 and beyond.</span></a><a class="mm-card" href="refurbished-category.html?cat=desktops"><b>Desktops</b><span>Tiny business PCs that fit behind a monitor and run all day.</span></a><a class="mm-card" href="refurbished-category.html?cat=printers"><b>Printers</b><span>Laser and ink-tank printers, serviced with fresh rollers.</span></a><a class="mm-card" href="refurbished-category.html?cat=cctv"><b>CCTV</b><span>Cameras, DVRs and ready kits to secure a home, shop or office.</span></a><a class="mm-card" href="refurbished-category.html?cat=accessories"><b>Accessories</b><span>Monitors, keyboards, docks, RAM and SSDs to complete the setup.</span></a></div>
+            <div class="mm-pane" id="mm-shop-1" role="tabpanel" aria-labelledby="mm-shop-1-t" hidden><a class="mm-card" href="open-box-deal.html"><b>Open Box Deals</b><span>Returned and unused stock, checked and graded, at lower prices.</span></a><a class="mm-card" href="products.html?condition=New"><b>New Products</b><span>Fresh arrivals: UPS, batteries, desktops and more.</span></a></div>
+            <div class="mm-pane" id="mm-shop-2" role="tabpanel" aria-labelledby="mm-shop-2-t" hidden><a class="mm-card" href="rental-category.html?cat=laptop"><b>Laptop on Rent</b><span>Why buy when you can rent? Flexible monthly plans.</span></a><a class="mm-card" href="rental-category.html?cat=desktop"><b>Desktop on Rent</b><span>Ready-to-use desktops for home, office or training.</span></a><a class="mm-card" href="rental-category.html?cat=printer"><b>Printer on Rent</b><span>Printers on rent, serviced and delivered.</span></a><a class="mm-card" href="rental-category.html?cat=projector"><b>Projector on Rent</b><span>Projectors for events, classes and meetings.</span></a></div>
+            <div class="mm-pane" id="mm-shop-3" role="tabpanel" aria-labelledby="mm-shop-3-t" hidden><a class="mm-card" href="brands.html"><b>All Brands</b><span>Every major brand we sell, service and repair.</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-business" aria-label="For Business">
+      <div class="mm-in">
+        <div class="mm-head"><span>For Business</span><small>IT for offices, shops and schools</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="For Business categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-business-0-t" aria-controls="mm-business-0" aria-selected="true" tabindex="0">IT Management</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-1-t" aria-controls="mm-business-1" aria-selected="false" tabindex="-1">Equipment</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-2-t" aria-controls="mm-business-2" aria-selected="false" tabindex="-1">Partnership</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-business-0" role="tabpanel" aria-labelledby="mm-business-0-t"><a class="mm-card" href="index.html#amc"><b>AMC &amp; Inventory</b><span>Maintenance and stock under one plan, with monthly visits.</span></a><a class="mm-card" href="index.html#amc"><b>IT Services</b><span>PCs, CCTV, UPS and networks managed for your office.</span></a><a class="mm-card" href="pulse.html"><b>Fleet Monitoring</b><span>FixPapa Pulse watches every device and flags problems early.</span></a></div>
+            <div class="mm-pane" id="mm-business-1" role="tabpanel" aria-labelledby="mm-business-1-t" hidden><a class="mm-card" href="rental.html"><b>Bulk Rental</b><span>Need 10+ devices? Rent laptops, desktops and projectors in bulk.</span></a><a class="mm-card" href="refurbished.html"><b>Refurbished in Bulk</b><span>Certified business laptops and desktops at a fraction of the price.</span></a></div>
+            <div class="mm-pane" id="mm-business-2" role="tabpanel" aria-labelledby="mm-business-2-t" hidden><a class="mm-card" href="partner.html"><b>Become a Partner</b><span>Grow with FixPapa as a service or sales partner.</span></a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+<div class="mm-scrim" id="mmScrim"></div>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="index.html">Home</a><a href="repair.html">Book A Repair</a><a href="brands.html">Brands</a><a href="open-box-deal.html">Open Box Deal</a><a href="rental.html">Rental</a><a href="refurbished.html">Refurbished</a><a href="device-health.html">Device Health</a>
-  <a href="#" style="color:var(--accent)">Become a Partner</a>
+  <a href="index.html">Home</a>
+  <details class="mn-group"><summary>Services<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="repair.html">Book a Repair</a><a href="repair.html">Doorstep Pickup &amp; Drop</a><a href="index.html#warranty">Check Your Warranty</a><a href="index.html#trouble">Find Service Centers</a><a href="index.html#support">Remote Technical Support</a><a href="index.html#support">24/7 Help</a><a href="pulse.html">Device Health</a><a href="pulse.html">FixPapa Pulse</a><a href="sell-ewaste.html">E-Waste Recycling</a></div></details>
+  <details class="mn-group"><summary>Shop<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="refurbished.html">All Refurbished</a><a href="refurbished-category.html?cat=laptops">Laptops</a><a href="refurbished-category.html?cat=desktops">Desktops</a><a href="refurbished-category.html?cat=printers">Printers</a><a href="refurbished-category.html?cat=cctv">CCTV</a><a href="refurbished-category.html?cat=accessories">Accessories</a><a href="open-box-deal.html">Open Box Deals</a><a href="products.html?condition=New">New Products</a><a href="rental-category.html?cat=laptop">Laptop on Rent</a><a href="rental-category.html?cat=desktop">Desktop on Rent</a><a href="rental-category.html?cat=printer">Printer on Rent</a><a href="rental-category.html?cat=projector">Projector on Rent</a><a href="brands.html">All Brands</a></div></details>
+  <details class="mn-group"><summary>For Business<svg width="22" height="22"><use href="#i-chev-d"/></svg></summary><div class="mn-links"><a href="index.html#amc">AMC &amp; Inventory</a><a href="index.html#amc">IT Services</a><a href="pulse.html">Fleet Monitoring</a><a href="rental.html">Bulk Rental</a><a href="refurbished.html">Refurbished in Bulk</a></div></details>
+  <a href="repair.html">Book A Repair</a><a href="brands.html">Brands</a><a href="account.html">My Account</a>
+  <a href="partner.html" style="color:var(--accent)">Become a Partner</a>
 </nav>
 
 <main id="top">
@@ -175,7 +236,7 @@
         </div>
         <ul class="rp-trust">
           <li><svg width="16" height="16"><use href="#i-badge"/></svg>Certified technicians</li>
-          <li><svg width="16" height="16"><use href="#i-shield"/></svg>6-month warranty</li>
+          <li><svg width="16" height="16"><use href="#i-shield"/></svg>Up to 3 years warranty</li>
           <li><svg width="16" height="16"><use href="#i-check"/></svg>Genuine spare parts</li>
           <li><svg width="16" height="16"><use href="#i-truck"/></svg>Doorstep service</li>
         </ul>
@@ -213,37 +274,335 @@
       <figure class="rp-ph rp-ph--b"><img src="assets/media/cctv.jpg" alt="CCTV camera installation" loading="lazy"></figure>
       <figure class="rp-ph rp-ph--c"><img src="assets/media/datacenter.jpg" alt="Server and networking repair" loading="lazy"></figure>
       <figure class="rp-ph rp-ph--tall"><img src="assets/media/service.jpg" alt="FixPapa technician at work" loading="lazy">
-        <figcaption><b>6 months</b>service warranty on every repair</figcaption></figure>
+        <figcaption><b>Up to 3 years</b>service warranty on every repair</figcaption></figure>
     </div>
+  </div>
+</section>
+
+<!-- ============ One stop solution + numbers ============ -->
+<section class="section rp-one">
+  <div class="container">
+    <div class="rp-one-grid">
+      <div data-reveal="left">
+        <span class="eyebrow">FixPapa Services</span>
+        <h2 class="h-lg">One stop solution for all your <span class="hl">IT hardware needs</span></h2>
+        <p>FixPapa is your hub for IT excellence. Specializing in repair, installation, sales and maintenance, we cater to a spectrum of top brands including Apple, HP, Dell, Lenovo, Microsoft, Asus, Acer, MSI, Canon, Epson, Brother, Sharp and many more.</p>
+        <p>Trust FixPapa to elevate your IT experience with expertise that transcends brands and reliability at every step.</p>
+        <button type="button" class="btn" data-ripple data-open-booking>Book a Service Now <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></button>
+      </div>
+      <figure class="rp-one-media" data-reveal="right">
+        <video muted loop playsinline preload="none" poster="assets/media/repair.jpg" data-src="assets/media/repair.mp4" aria-label="FixPapa technicians repairing devices"></video>
+        <figcaption><span class="dot"></span>Repairs, installation &amp; maintenance</figcaption>
+      </figure>
+    </div>
+    <ul class="rp-stats" data-reveal><li><b>1K+</b><span>Satisfied B2B clients</span></li><li><b>2K+</b><span>Satisfied B2C clients</span></li><li><b>500+</b><span>Brands</span></li><li><b>14K+</b><span>Partners in network</span></li><li><b>850+</b><span>Freelancer engineers</span></li></ul>
+  </div>
+</section>
+
+<!-- ============ Why FixPapa ============ -->
+<section class="section rp-why">
+  <div class="container">
+    <div class="rp-head" data-reveal><span class="eyebrow">Why FixPapa</span><h2 class="h-lg">Repairs you can <span class="hl">trust</span></h2></div>
+    <ul class="rp-why-grid" data-reveal><li><span class="ic"><svg width="24" height="24"><use href="#i-wrench"/></svg></span><h3>Expert Technicians for Every Brand</h3><p>Our team consists of highly trained and certified technicians who specialize in repairing devices from all major brands. From Apple iPhones to Microsoft Surface laptops, we’ve got you covered.</p></li><li><span class="ic"><svg width="24" height="24"><use href="#i-shield"/></svg></span><h3>Genuine Parts Guarantee</h3><p>We prioritize the use of authentic and original parts in our repairs to ensure the longevity and optimal performance of your devices.</p></li><li><span class="ic"><svg width="24" height="24"><use href="#i-tag"/></svg></span><h3>Transparent Pricing</h3><p>You’ll receive a detailed quote before any repair work begins, and there are no hidden charges. We believe in fair and competitive pricing.</p></li><li><span class="ic"><svg width="24" height="24"><use href="#i-cpu"/></svg></span><h3>Wide Range of Services</h3><p>Laptops, desktops, printers, CCTV, servers, networking, UPS and more: repair, installation and maintenance, all under one roof.</p></li><li><span class="ic"><svg width="24" height="24"><use href="#i-truck"/></svg></span><h3>Doorstep Pickup &amp; Visit</h3><p>Book online and a technician visits you, or we pick up the device and bring it back once it’s fixed.</p></li><li><span class="ic"><svg width="24" height="24"><use href="#i-heart"/></svg></span><h3>Customer Satisfaction Guarantee</h3><p>Every repair is backed by up to 3 years of warranty and follow-up support until your issue is completely resolved.</p></li></ul>
+  </div>
+</section>
+
+<!-- ============ FAQs ============ -->
+<section class="section rp-faq-sec">
+  <div class="container">
+    <div class="rp-head" data-reveal><span class="eyebrow">FAQs</span><h2 class="h-lg">Frequently asked <span class="hl">questions</span></h2></div>
+    <div class="rp-faq" data-reveal><details><summary>What types of issues can FixPapa resolve?</summary><p>FixPapa handles a wide range of issues, such as hardware repairs and replacements, software troubleshooting and updates, network setup and configuration, and regular maintenance and diagnostics.</p></details><details><summary>Which brands does FixPapa provide service for?</summary><p>FixPapa provides service for all major brands, including but not limited to Apple, HP, Dell, Lenovo, Acer, Asus, Microsoft, MSI, Canon, Epson and Brother.</p></details><details><summary>What is the cost of service?</summary><p>The service cost depends on the issue, device type, and whether spare parts are required. You’ll receive a detailed estimate before proceeding with the service.</p></details><details><summary>How quickly will an engineer be assigned to my case?</summary><p>Engineers are typically assigned within a few hours of raising the request. For urgent cases, priority service options are available.</p></details><details><summary>Are spare parts used during repairs genuine?</summary><p>Yes, FixPapa ensures that only genuine or high-quality spare parts are used during repairs, backed by a warranty.</p></details><details><summary>Is FixPapa’s service available in my city?</summary><p>FixPapa operates across India. Enter your city or PIN code while booking to check service availability in your area.</p></details><details><summary>Do you offer remote support for minor issues?</summary><p>Yes, for minor software or configuration issues, you can opt for chat, voice, or video call support with our experts.</p></details><details><summary>Can I track the status of my service request?</summary><p>Yes, you can track the status of your service request in real time through your FixPapa dashboard.</p></details><details><summary>What if my device issue is not resolved?</summary><p>If the issue persists, FixPapa offers follow-up support to ensure complete resolution.</p></details><details><summary>Is there a way to provide feedback after the service?</summary><p>Yes. After the service is completed, you can rate the engineer and share feedback directly on the platform.</p></details></div>
+  </div>
+</section>
+
+<!-- ============ Trust strip ============ -->
+<section class="rp-feat" aria-label="Why shop with FixPapa">
+  <div class="container">
+    <ul>
+      <li><span class="ic"><svg width="22" height="22"><use href="#i-cpu"/></svg></span>Latest &amp; greatest tech</li>
+      <li><span class="ic"><svg width="22" height="22"><use href="#i-shield"/></svg></span>Up to 3 years warranty</li>
+      <li><span class="ic"><svg width="22" height="22"><use href="#i-truck"/></svg></span>Free shipping over ₹1,000</li>
+      <li><span class="ic"><svg width="22" height="22"><use href="#i-headset"/></svg></span>24/7 support</li>
+    </ul>
   </div>
 </section>
 </main>
 
-<!-- ============ Booking step 1 · category picker ============ -->
+<!-- product illustrations (same set as the homepage Book a Repair row) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="bkSilver" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1F5F9"/><stop offset="1" stop-color="#CBD5E1"/></linearGradient>
+        <linearGradient id="bkSilverD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E2E8F0"/><stop offset="1" stop-color="#94A3B8"/></linearGradient>
+        <linearGradient id="bkDark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#0F172A"/></linearGradient>
+        <linearGradient id="bkWhite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2E8F0"/></linearGradient>
+        <linearGradient id="bkScreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="1" stop-color="#1D4ED8"/></linearGradient>
+        <linearGradient id="bkWarm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB366"/><stop offset="1" stop-color="#FF6A00"/></linearGradient>
+        <linearGradient id="bkGraphite" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#64748B"/><stop offset="1" stop-color="#1E293B"/></linearGradient>
+        <linearGradient id="bkBeam" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#FDE68A" stop-opacity=".9"/><stop offset="1" stop-color="#FDE68A" stop-opacity="0"/></linearGradient>
+        <radialGradient id="bkGlowG"><stop offset="0" stop-color="#4ADE80" stop-opacity=".55"/><stop offset="1" stop-color="#4ADE80" stop-opacity="0"/></radialGradient>
+      </defs>
+      <symbol id="bk-laptop" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="46" ry="4" fill="#0B1220" opacity=".12"/>
+        <path d="M30 16h60a4 4 0 0 1 4 4v44H26V20a4 4 0 0 1 4-4z" fill="url(#bkDark)"/>
+        <rect x="30" y="20" width="60" height="40" rx="1.5" fill="url(#bkScreen)"/>
+        <rect x="36" y="27" width="22" height="4" rx="2" fill="#FFA24D"/><rect x="36" y="35" width="34" height="3" rx="1.5" fill="#fff" opacity=".7"/><rect x="36" y="41" width="26" height="3" rx="1.5" fill="#fff" opacity=".45"/>
+        <path d="M30 20h26L42 60H30z" fill="#fff" opacity=".12"/>
+        <path d="M18 64h84l6 10a2.5 2.5 0 0 1-2.2 3.8H14.2A2.5 2.5 0 0 1 12 74z" fill="url(#bkSilver)"/>
+        <path d="M18 64h84l1.8 3H16.2z" fill="#94A3B8" opacity=".55"/>
+        <rect x="50" y="73.5" width="20" height="2.4" rx="1.2" fill="#94A3B8"/>
+      </symbol>
+      <symbol id="bk-desktop" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="50" ry="4" fill="#0B1220" opacity=".12"/>
+        <rect x="10" y="14" width="64" height="44" rx="4" fill="url(#bkDark)"/>
+        <rect x="13" y="17" width="58" height="36" rx="2" fill="url(#bkScreen)"/>
+        <path d="M18 42l8-7 7 5 9-10 8 6 9-8" stroke="#FFA24D" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 17h22L24 53H13z" fill="#fff" opacity=".1"/>
+        <path d="M37 58h10l3 14H34z" fill="url(#bkSilverD)"/>
+        <rect x="27" y="71" width="30" height="5" rx="2.5" fill="url(#bkSilver)"/>
+        <rect x="82" y="20" width="28" height="58" rx="4" fill="url(#bkDark)"/>
+        <rect x="82" y="20" width="6" height="58" rx="3" fill="#475569"/>
+        <path d="M93 30h12M93 35h12M93 40h12" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="99" cy="68" r="5" fill="#FF8A1F" opacity=".25"/><circle cx="99" cy="68" r="2.4" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-printer" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="46" ry="4" fill="#0B1220" opacity=".12"/>
+        <rect x="38" y="8" width="44" height="28" rx="2" fill="#fff" stroke="#E2E8F0"/>
+        <path d="M44 15h32M44 20h26M44 25h30" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+        <rect x="16" y="30" width="88" height="38" rx="9" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <rect x="16" y="30" width="88" height="9" rx="4.5" fill="#E2E8F0"/>
+        <rect x="78" y="44" width="18" height="7" rx="2" fill="url(#bkDark)"/>
+        <circle cx="71" cy="47.5" r="2.2" fill="#22C55E"/>
+        <rect x="16" y="46" width="4" height="12" rx="2" fill="#FF8A1F"/>
+        <rect x="28" y="57" width="64" height="4.5" rx="2.2" fill="#334155"/>
+        <path d="M31 60h58l4 18H27z" fill="#fff" stroke="#E2E8F0"/>
+        <path d="M36 66h48M35 71h50" stroke="#CBD5E1" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="bk-cctv" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="40" ry="3.5" fill="#0B1220" opacity=".1"/>
+        <rect x="88" y="8" width="20" height="30" rx="5" fill="url(#bkSilverD)"/>
+        <circle cx="98" cy="14" r="1.6" fill="#64748B"/><circle cx="98" cy="32" r="1.6" fill="#64748B"/>
+        <path d="M96 30L80 48" stroke="#94A3B8" stroke-width="7" stroke-linecap="round"/>
+        <g transform="rotate(16 56 56)">
+          <rect x="16" y="42" width="74" height="28" rx="12" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+          <rect x="12" y="36" width="76" height="10" rx="5" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <circle cx="25" cy="56" r="11" fill="#0F172A"/><circle cx="25" cy="56" r="11" fill="none" stroke="#FF8A1F" stroke-width="2"/>
+          <circle cx="25" cy="56" r="6" fill="url(#bkScreen)"/><circle cx="22.5" cy="53.5" r="1.8" fill="#fff" opacity=".85"/>
+          <circle cx="80" cy="62" r="2" fill="#EF4444"/>
+        </g>
+      </symbol>
+      <symbol id="bk-apple" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="38" ry="3.5" fill="#0B1220" opacity=".12"/>
+        <g transform="rotate(-10 44 46)">
+          <rect x="26" y="8" width="36" height="72" rx="9" fill="url(#bkGraphite)"/>
+          <rect x="31" y="13" width="17" height="17" rx="5" fill="#1E293B"/>
+          <circle cx="36" cy="18" r="3.4" fill="#0B1220" stroke="#475569"/><circle cx="43.5" cy="18" r="3.4" fill="#0B1220" stroke="#475569"/><circle cx="36" cy="25.5" r="3.4" fill="#0B1220" stroke="#475569"/>
+          <circle cx="44" cy="25.5" r="1.4" fill="#FDE68A"/>
+        </g>
+        <rect x="58" y="10" width="36" height="72" rx="9" fill="#0F172A"/>
+        <rect x="61" y="13" width="30" height="66" rx="6.5" fill="url(#bkWarm)"/>
+        <rect x="70" y="16" width="12" height="4" rx="2" fill="#0F172A"/>
+        <g fill="#fff" opacity=".9"><rect x="65" y="28" width="7" height="7" rx="2"/><rect x="74.5" y="28" width="7" height="7" rx="2"/><rect x="84" y="28" width="4" height="7" rx="2" opacity=".6"/><rect x="65" y="38" width="7" height="7" rx="2"/><rect x="74.5" y="38" width="7" height="7" rx="2"/></g>
+        <path d="M61 13h15L64 79h-3z" fill="#fff" opacity=".1"/>
+      </symbol>
+      <symbol id="bk-monitor" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="34" ry="3.5" fill="#0B1220" opacity=".12"/>
+        <rect x="10" y="8" width="100" height="56" rx="4" fill="url(#bkDark)"/>
+        <rect x="13" y="11" width="94" height="49" rx="2" fill="url(#bkWarm)"/>
+        <path d="M13 50c18-14 30-6 44-14s28-8 50-2v26H13z" fill="#1D4ED8" opacity=".55"/>
+        <path d="M13 11h34L28 60H13z" fill="#fff" opacity=".12"/>
+        <path d="M53 64h14l3 14H50z" fill="url(#bkSilverD)"/>
+        <rect x="40" y="77" width="40" height="5" rx="2.5" fill="url(#bkSilver)"/>
+      </symbol>
+      <symbol id="bk-tablet" viewBox="0 0 120 90">
+        <ellipse cx="58" cy="84" rx="40" ry="3.5" fill="#0B1220" opacity=".12"/>
+        <rect x="16" y="12" width="76" height="62" rx="8" fill="url(#bkDark)"/>
+        <rect x="20" y="16" width="68" height="54" rx="4" fill="url(#bkScreen)"/>
+        <rect x="26" y="23" width="26" height="18" rx="3" fill="#fff" opacity=".9"/><rect x="56" y="23" width="26" height="18" rx="3" fill="#FFA24D"/>
+        <rect x="26" y="45" width="56" height="4" rx="2" fill="#fff" opacity=".6"/><rect x="26" y="53" width="40" height="4" rx="2" fill="#fff" opacity=".4"/>
+        <path d="M20 16h24L30 70H20z" fill="#fff" opacity=".1"/>
+        <g transform="rotate(28 100 46)"><rect x="97" y="12" width="6" height="56" rx="3" fill="#F8FAFC" stroke="#CBD5E1"/><path d="M97 68h6l-3 8z" fill="#475569"/></g>
+      </symbol>
+      <symbol id="bk-projector" viewBox="0 0 120 90">
+        <ellipse cx="64" cy="80" rx="40" ry="4" fill="#0B1220" opacity=".12"/>
+        <path d="M36 46L2 28v44l34-16z" fill="url(#bkBeam)"/>
+        <rect x="28" y="34" width="80" height="38" rx="10" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <rect x="28" y="34" width="80" height="10" rx="5" fill="#F1F5F9"/>
+        <circle cx="44" cy="54" r="12" fill="#0F172A"/><circle cx="44" cy="54" r="12" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+        <circle cx="44" cy="54" r="7" fill="url(#bkScreen)"/><circle cx="41" cy="51" r="2" fill="#fff" opacity=".85"/>
+        <path d="M70 50h28M70 56h28M70 62h28" stroke="#CBD5E1" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="98" cy="40" r="2" fill="#FF8A1F"/>
+        <rect x="36" y="71" width="8" height="5" rx="2" fill="#94A3B8"/><rect x="92" y="71" width="8" height="5" rx="2" fill="#94A3B8"/>
+      </symbol>
+      <symbol id="bk-scanner" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="48" ry="4" fill="#0B1220" opacity=".12"/>
+        <path d="M18 46L30 12h70l4 34z" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <path d="M34 18h60l2 22H28z" fill="#F1F5F9"/>
+        <rect x="12" y="46" width="96" height="28" rx="7" fill="url(#bkSilverD)"/>
+        <rect x="16" y="46" width="88" height="7" rx="3" fill="#0F172A"/>
+        <rect x="22" y="47.5" width="62" height="4" rx="2" fill="#60A5FA"/>
+        <rect x="22" y="47.5" width="62" height="4" rx="2" fill="#93C5FD" opacity=".6"/>
+        <circle cx="96" cy="63" r="2.6" fill="#22C55E"/><rect x="72" y="61" width="16" height="4" rx="2" fill="#64748B"/>
+      </symbol>
+      <symbol id="bk-ups" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="30" ry="3.5" fill="#0B1220" opacity=".14"/>
+        <rect x="36" y="8" width="48" height="74" rx="7" fill="url(#bkDark)"/>
+        <rect x="36" y="8" width="9" height="74" rx="4" fill="#475569"/>
+        <rect x="50" y="18" width="26" height="15" rx="2.5" fill="#0EA5E9"/>
+        <rect x="54" y="22" width="12" height="7" rx="1" fill="none" stroke="#fff" stroke-width="1.4"/><rect x="66" y="24" width="2" height="3" fill="#fff"/><rect x="55.5" y="23.5" width="7" height="4" fill="#fff"/>
+        <circle cx="56" cy="41" r="3" fill="#334155"/><circle cx="66" cy="41" r="3" fill="#334155"/><circle cx="74" cy="41" r="2" fill="#22C55E"/>
+        <path d="M64 50l-8 12h6l-3 10 10-14h-6l3-8z" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-wifi" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="44" ry="4" fill="#0B1220" opacity=".12"/>
+        <rect x="27" y="26" width="6" height="34" rx="3" fill="url(#bkDark)"/><rect x="87" y="26" width="6" height="34" rx="3" fill="url(#bkDark)"/>
+        <rect x="14" y="54" width="92" height="22" rx="9" fill="url(#bkWhite)" stroke="#CBD5E1"/>
+        <g fill="#22C55E"><circle cx="34" cy="65" r="2.2"/><circle cx="43" cy="65" r="2.2"/><circle cx="52" cy="65" r="2.2"/></g><circle cx="61" cy="65" r="2.2" fill="#FF8A1F"/>
+        <g stroke="#FF8A1F" stroke-width="4" fill="none" stroke-linecap="round"><path d="M44 30a22 22 0 0 1 32 0"/><path d="M51 37.5a12 12 0 0 1 18 0"/></g>
+        <circle cx="60" cy="44" r="3.2" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-network" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="82" rx="50" ry="4" fill="#0B1220" opacity=".12"/>
+        <g fill="none" stroke-width="4" stroke-linecap="round"><path d="M27 52C27 32 18 22 8 16" stroke="#3B82F6"/><path d="M45 52C45 30 42 18 36 8" stroke="#FF8A1F"/><path d="M63 52C63 32 70 20 80 10" stroke="#22C55E"/><path d="M81 52C81 36 94 26 110 22" stroke="#F59E0B"/></g>
+        <rect x="10" y="48" width="100" height="28" rx="6" fill="url(#bkDark)"/>
+        <g fill="#0B1220" stroke="#64748B"><rect x="21" y="57" width="12" height="9" rx="1.5"/><rect x="39" y="57" width="12" height="9" rx="1.5"/><rect x="57" y="57" width="12" height="9" rx="1.5"/><rect x="75" y="57" width="12" height="9" rx="1.5"/></g>
+        <g fill="#22C55E"><circle cx="27" cy="70.5" r="1.4"/><circle cx="45" cy="70.5" r="1.4"/><circle cx="63" cy="70.5" r="1.4"/></g><circle cx="81" cy="70.5" r="1.4" fill="#F59E0B"/>
+        <circle cx="99" cy="62" r="2.4" fill="#FF8A1F"/>
+      </symbol>
+      <symbol id="bk-server" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="34" ry="3.5" fill="#0B1220" opacity=".14"/>
+        <rect x="32" y="6" width="56" height="76" rx="6" fill="url(#bkDark)"/>
+        <g fill="#1E293B" stroke="#475569"><rect x="38" y="14" width="44" height="12" rx="2"/><rect x="38" y="30" width="44" height="12" rx="2"/><rect x="38" y="46" width="44" height="12" rx="2"/><rect x="38" y="62" width="44" height="12" rx="2"/></g>
+        <g stroke="#475569" stroke-width="1.4"><path d="M43 20h18M43 36h18M43 52h18M43 68h18"/></g>
+        <g fill="#22C55E"><circle cx="76" cy="20" r="2"/><circle cx="76" cy="36" r="2"/><circle cx="76" cy="68" r="2"/></g><circle cx="76" cy="52" r="2" fill="#FF8A1F"/>
+        <g fill="#60A5FA"><circle cx="70" cy="20" r="1.4"/><circle cx="70" cy="36" r="1.4"/><circle cx="70" cy="52" r="1.4"/><circle cx="70" cy="68" r="1.4"/></g>
+      </symbol>
+      <symbol id="bk-biometric" viewBox="0 0 120 90">
+        <ellipse cx="60" cy="84" rx="32" ry="3.5" fill="#0B1220" opacity=".14"/>
+        <rect x="30" y="6" width="60" height="76" rx="11" fill="url(#bkDark)"/>
+        <rect x="37" y="13" width="46" height="20" rx="4" fill="url(#bkScreen)"/>
+        <rect x="42" y="18" width="20" height="3.5" rx="1.75" fill="#fff" opacity=".85"/><rect x="42" y="25" width="30" height="3" rx="1.5" fill="#fff" opacity=".5"/>
+        <circle cx="60" cy="59" r="20" fill="url(#bkGlowG)"/>
+        <circle cx="60" cy="59" r="14" fill="#0F172A" stroke="#22C55E" stroke-width="2"/>
+        <g stroke="#4ADE80" stroke-width="1.6" fill="none" stroke-linecap="round"><path d="M52 62a8 8 0 0 1 16 0"/><path d="M55 64a5 5 0 0 1 10 0v2"/><path d="M60 61v6"/><path d="M50 57a11 11 0 0 1 20 0"/></g>
+      </symbol>
+    </svg>
+<!-- ============ Booking modal · 3 steps: device → issue &amp; visit → confirm (+ OTP) ============ -->
 <div class="rpm" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="rpmTitle" hidden>
   <div class="rpm-backdrop" data-close></div>
   <div class="rpm-box">
     <button type="button" class="rpm-close" data-close aria-label="Close">✕</button>
-    <span class="eyebrow">Step 1 of 3</span>
-    <h2 id="rpmTitle">Book a <span>Repair</span></h2>
-    <p class="rpm-sub">Select the product category</p>
-    <div class="rpm-grid" role="radiogroup" aria-labelledby="rpmTitle">
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-apple"/></svg></span>Apple Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-finger"/></svg></span>Biometric Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-cctv"/></svg></span>CCTV Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-desktop"/></svg></span>Desktop Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-laptop"/></svg></span>Laptop Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-monitor"/></svg></span>Monitor Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-network"/></svg></span>Networking / LAN Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-printer"/></svg></span>Printer Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-projector"/></svg></span>Projector Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-server"/></svg></span>Server Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-scanner"/></svg></span>Scanner Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-tablet"/></svg></span>Tablet Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-ups"/></svg></span>UPS Repair</button>
-          <button type="button" class="rpm-cat" role="radio" aria-checked="false"><span><svg width="26" height="26"><use href="#i-wifi"/></svg></span>Wi-Fi Repair</button>
+    <div class="rpm-top">
+      <h2 id="rpmTitle">Book a <span>Repair</span></h2>
+      <ol class="rpm-steps" aria-label="Booking steps">
+        <li class="on" aria-current="step"><b>1</b><span>Your device</span></li>
+        <li><b>2</b><span>Issue &amp; visit</span></li>
+        <li><b>3</b><span>Confirm</span></li>
+      </ol>
     </div>
-    <button type="button" class="btn rpm-next" id="rpmNext" disabled>Select the Brand <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></button>
+    <form class="rpm-body" id="bookForm" novalidate>
+      <!-- STEP 1 · category, brand and service type (each collapses to a summary once picked) -->
+      <section class="rpm-step" data-step="1">
+        <div class="rpm-q" id="qCat">
+          <div class="rpm-qh"><h3>Select the product category</h3><button type="button" class="rpm-change" hidden>Change</button></div>
+          <div class="rpm-picked" hidden></div>
+          <div class="rpm-grid" role="radiogroup" aria-label="Product category">
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="apple"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-apple"/></svg></span>Apple Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="biometric"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-biometric"/></svg></span>Biometric Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="cctv"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-cctv"/></svg></span>CCTV Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="desktop"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-desktop"/></svg></span>Desktop Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="laptop"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-laptop"/></svg></span>Laptop Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="monitor"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-monitor"/></svg></span>Monitor Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="network"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-network"/></svg></span>Networking / LAN Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="printer"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-printer"/></svg></span>Printer Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="projector"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-projector"/></svg></span>Projector Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="server"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-server"/></svg></span>Server Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="scanner"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-scanner"/></svg></span>Scanner Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="tablet"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-tablet"/></svg></span>Tablet Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="ups"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-ups"/></svg></span>UPS Repair</button>
+            <button type="button" class="rpm-cat" role="radio" aria-checked="false" data-id="wifi"><span class="rpm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-wifi"/></svg></span>Wi-Fi Repair</button>
+          </div>
+        </div>
+        <div class="rpm-q" id="qBrand" hidden>
+          <div class="rpm-qh"><h3>Select the brand</h3><button type="button" class="rpm-change" hidden>Change</button></div>
+          <div class="rpm-picked" hidden></div>
+          <div class="rpm-brands" role="radiogroup" aria-label="Brand"></div>
+          <p class="rpm-tm">Logos &amp; trademarks are used for illustrative purposes. We do not claim any affiliation with the respective brands.</p>
+        </div>
+        <div class="rpm-q" id="qIssue" hidden>
+          <div class="rpm-qh"><h3>Select service type</h3></div>
+          <div class="rpm-issues" role="radiogroup" aria-label="Service type"></div>
+        </div>
+      </section>
+
+      <!-- STEP 2 · describe the issue, visit address, date and time slot -->
+      <section class="rpm-step" data-step="2" hidden>
+        <div class="rpm-q">
+          <div class="rpm-qh"><h3>Tell us about your issue</h3></div>
+          <label class="rpm-f rpm-f--full"><span>Explain the issue</span><input name="issue" maxlength="120" placeholder="e.g. Laptop shuts down after 10 minutes" autocomplete="off"></label>
+          <details class="rpm-more"><summary>Add more details or photos <small>(optional)</small></summary>
+            <label class="rpm-f rpm-f--full"><span>Any other information</span><textarea name="details" rows="3" maxlength="600" placeholder="When did it start? Any error message?"></textarea></label>
+            <label class="rpm-upload"><input type="file" name="photos" accept="image/*" multiple><svg width="18" height="18"><use href="#i-box"/></svg>Upload relevant images</label>
+            <div class="rpm-thumbs"></div>
+          </details>
+        </div>
+        <div class="rpm-q">
+          <div class="rpm-qh"><h3>Visit address</h3><button type="button" class="rpm-loc" id="rpmLoc"><svg width="16" height="16"><use href="#i-pin"/></svg>Use current location</button></div>
+          <div class="rpm-fields">
+            <label class="rpm-f rpm-f--full"><span>Apt, Building, Area</span><input name="apt" maxlength="36" required autocomplete="address-line1" placeholder="Max 36 characters"><em>Please enter your flat / building.</em></label>
+            <label class="rpm-f rpm-f--full"><span>Street, Locality</span><input name="street" maxlength="36" required autocomplete="address-line2" placeholder="Max 36 characters"><em>Please enter your street or locality.</em></label>
+            <label class="rpm-f"><span>State</span><select name="state" required autocomplete="address-level1"><option value="">Select state</option><option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option><option>Chandigarh</option><option>Chhattisgarh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jammu and Kashmir</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option></select><em>Please select a state.</em></label>
+            <label class="rpm-f"><span>City</span><input name="city" list="rpmCities" required autocomplete="address-level2" placeholder="Select city"><datalist id="rpmCities"></datalist><em>Please enter a city.</em></label>
+            <label class="rpm-f"><span>Pincode</span><input name="pin" inputmode="numeric" maxlength="6" required autocomplete="postal-code" placeholder="6-digit pincode"><em>Enter a valid 6-digit pincode.</em></label>
+          </div>
+          <div class="rpm-map" hidden><iframe title="Visit location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+        <div class="rpm-q">
+          <div class="rpm-qh"><h3>Date &amp; time slot for technician visit</h3></div>
+          <div class="rpm-days" role="radiogroup" aria-label="Visit date"></div>
+          <div class="rpm-slots" role="radiogroup" aria-label="Time slot"></div>
+          <p class="rpm-qerr" data-err="when">Please pick a date and a time slot.</p>
+          <details class="rpm-more"><summary>Someone else will be at the address? <small>(optional)</small></summary>
+            <div class="rpm-fields">
+              <label class="rpm-f"><span>Alternative name</span><input name="altName" maxlength="40" autocomplete="off"></label>
+              <label class="rpm-f"><span>Alternative mobile</span><input name="altMobile" inputmode="numeric" maxlength="10" autocomplete="off"><em>Enter a valid 10-digit mobile number.</em></label>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- STEP 3 · summary, contact details and OTP in the same screen -->
+      <section class="rpm-step" data-step="3" hidden>
+        <div class="rpm-sum" id="rpmSum"></div>
+        <div class="rpm-q" id="qContact">
+          <div class="rpm-qh"><h3>Enter your details</h3></div>
+          <div class="rpm-fields">
+            <label class="rpm-f rpm-tel"><span>Mobile number</span><b>+91</b><input name="mobile" type="tel" inputmode="numeric" maxlength="10" required autocomplete="tel-national" placeholder="10-digit mobile"><em>Enter a valid 10-digit mobile number.</em></label>
+            <div class="rpm-f"><span>Booking for</span><div class="rpm-seg" role="radiogroup" aria-label="Booking for"><button type="button" role="radio" aria-checked="true" data-v="Individual">Individual</button><button type="button" role="radio" aria-checked="false" data-v="Business">Business</button></div></div>
+          </div>
+          <label class="rpm-terms"><input type="checkbox" name="terms"> I have read and accepted the <a href="#" target="_blank" rel="noopener">Terms &amp; Conditions</a></label>
+          <p class="rpm-qerr" data-err="terms">Please accept the Terms &amp; Conditions.</p>
+        </div>
+        <div class="rpm-q rpm-otp" id="qOtp" hidden>
+          <div class="rpm-qh"><h3>Verify your number</h3><button type="button" class="rpm-change" id="rpmOtpEdit">Change number</button></div>
+          <p class="rpm-otp-msg">Enter the OTP sent to <b id="rpmOtpTo"></b></p>
+          <label class="rpm-f rpm-f--full"><span>OTP</span><input name="otp" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="6-digit OTP"><em>Enter the 6-digit OTP.</em></label>
+          <p class="rpm-resend"><span id="rpmTimer">00:30</span> <button type="button" id="rpmResend" disabled>Didn’t receive OTP? Resend now</button></p>
+        </div>
+        <p class="rpm-note">* You will get a call from our representative within 48 hours.</p>
+      </section>
+
+      <!-- DONE -->
+      <section class="rpm-done" hidden>
+        <svg class="rpm-badge" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 8l13 9 16-1 5 15 13 9-5 15 5 15-13 9-5 15-16-1-13 9-13-9-16 1-5-15-13-9 5-15-5-15 13-9 5-15 16 1z" fill="#DCFCE7" stroke="#16A34A" stroke-width="5" stroke-linejoin="round"/><path d="M42 61l13 13 25-27" fill="none" stroke="#16A34A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Your request has been submitted successfully</h3>
+        <p>Booking ID <b id="rpmRef"></b>. You can track your request in the account section.</p>
+        <div class="rpm-done-cta"><a href="#" class="btn btn--ghost">Track Request</a><button type="button" class="btn" id="rpmAgain" data-ripple>Book Another Service</button></div>
+      </section>
+    </form>
+    <div class="rpm-foot">
+      <button type="button" class="btn btn--ghost rpm-back" id="rpmBack" hidden><svg width="18" height="18"><use href="#i-chev-l"/></svg><span>Back</span></button>
+      <button type="button" class="btn rpm-next" id="rpmNext" data-ripple disabled><span>Continue</span><svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></button>
+    </div>
   </div>
 </div>
 
@@ -275,7 +634,7 @@
           <a href="#" aria-label="LinkedIn"><svg width="16" height="16"><use href="#i-in"/></svg></a>
         </div>
       </div>
-      <div><h5>For Partners</h5><a href="#">Become a Partner</a><a href="#">Become a Freelancer</a><a href="#">How to join?</a></div>
+      <div><h5>For Partners</h5><a href="partner.html">Become a Partner</a><a href="partner.html">Become a Freelancer</a><a href="partner.html">How to join?</a></div>
       <div><h5>Category</h5><a href="#">Laptops</a><a href="#">Desktops</a><a href="#">Printers</a><a href="#">Servers</a><a href="#">Projectors</a></div>
       <div><h5>Quick Links</h5><a href="#">About FixPapa</a><a href="#">FAQs</a><a href="#">Blogs</a><a href="#">Contact Us</a><a href="#">Anti Discrimination Policy</a></div>
       <div class="ftr-news">
@@ -296,6 +655,14 @@
 </footer>
 
 <button class="to-top" id="toTop" aria-label="Back to top"><svg width="20" height="20"><use href="#i-up"/></svg></button>
-<script src="assets/js/repair.js?v=1.1"></script>
+<script src="assets/js/repair.js?v=2.0"></script>
+<!-- FixPapa Assistant (see assets/js/assistant/README.md) -->
+<script src="assets/js/megamenu.js?v=1.0"></script>
+<script src="assets/js/assistant/service.js?v=1.0"></script>
+<script src="assets/js/assistant/mock-service.js?v=1.1"></script>
+<script src="assets/js/assistant/conversation.js?v=1.0"></script>
+<script src="assets/js/assistant/avatar.js?v=1.5"></script>
+<script src="assets/js/assistant/chat-ui.js?v=1.0"></script>
+<script src="assets/js/assistant/assistant.js?v=1.1"></script>
 </body>
 </html>

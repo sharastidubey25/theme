@@ -84,6 +84,8 @@
       btns.forEach(x => x.setAttribute('aria-pressed', x === b));
       const k = 'm' + b.dataset.months;
       prices.forEach(p => { p.textContent = fmt(+p.dataset[k]); });
+      // carry the chosen plan into the rental listing
+      $$('[data-rent-cat]').forEach(l => { l.href = `rental-category.html?cat=${l.dataset.rentCat}${+b.dataset.months > 1 ? `&months=${b.dataset.months}` : ''}`; });
     }));
   }
 

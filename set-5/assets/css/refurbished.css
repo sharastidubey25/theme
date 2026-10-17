@@ -14,3 +14,7 @@
 .rf-no{color:#DC2626;font-weight:700}
 [data-theme="dark"] .rf-table-wrap{background:#15161B}
 [data-theme="dark"] .rf-table thead th:not(.us){background:#1C1D24}
+/* tighter page rhythm: listing → process → compare → FAQ */
+.page-refurbished .ip-sec{padding:60px 0}
+.page-refurbished .ip-sec .ip-head{margin-bottom:32px}
+@media (max-width:760px){.page-refurbished .ip-sec{padding:40px 0}.page-refurbished .ip-sec .ip-head{margin-bottom:24px}}

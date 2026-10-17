@@ -1,0 +1,24 @@
+/* FixPapa · Set 5 · All products (products.html). Builds on style.css + inner.css + refurb-shop.css (card) + shop-list.css (listing). */
+.rfl-title .pr-t{color:var(--ink)}
+.rfl-title .pr-t span{color:var(--primary)}
+.pr-brand{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:0 0 22px;padding:14px 18px 14px 14px;border-radius:20px;border:1px solid var(--border);background:var(--white,#fff);box-shadow:var(--shadow-sm);animation:rfIn .35s var(--ease)}
+.pr-brand[hidden]{display:none}
+.pr-brand-logo{flex:none;width:120px;height:64px;display:grid;place-items:center;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid var(--border)}
+.pr-brand-logo img{max-width:100%;max-height:40px;width:auto;height:auto}
+.pr-brand-logo b{font:800 18px var(--font-head);color:var(--ink)}
+.pr-brand>div:nth-child(2){flex:1;min-width:180px}
+.pr-brand>div:nth-child(2) b{display:block;font:800 19px var(--font-head);color:var(--ink)}
+.pr-brand>div:nth-child(2) small{font-size:13.5px;color:var(--ink-3)}
+.pr-brand-acts{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pr-link{display:inline-flex;align-items:center;gap:4px;margin-right:4px;font:700 13.5px var(--font-head);color:var(--ink-3)}
+.pr-link:hover{color:var(--primary)}
+/* condition badge on the card (re-uses the refurbished grade pill) */
+.pr-cond--new{background:#16A34A}
+.pr-card .media svg{width:62%}
+@media (max-width:640px){
+  .pr-brand{gap:12px;padding:12px}.pr-brand-logo{width:92px;height:52px}
+  .pr-brand-acts{width:100%}.pr-brand-acts .btn{flex:1}
+}
+[data-theme="dark"] .rfl-title .pr-t{color:#F3F4F6}
+[data-theme="dark"] .pr-brand{background:#15161B;border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .pr-brand>div:nth-child(2) b{color:#F3F4F6}
