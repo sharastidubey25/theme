@@ -1,0 +1,88 @@
+/* FixPapa · Set 5 · FAQs (faqs.html). Builds on style.css + inner.css (.ip-faq accordion, .ip-glass). */
+.fq{padding:8px 0 64px}
+/* photo hero (as on the partner page), mirrored: agent on the left, copy + search on the right */
+.fq-hero{min-height:400px;margin:4px 0 32px;justify-content:flex-end;padding:52px 56px}
+.fq-hero .ip-hero-bg{object-position:30% center}
+.fq-hero .ip-hero-veil{background:linear-gradient(265deg,rgba(11,18,32,.95) 0%,rgba(11,18,32,.82) 42%,rgba(11,18,32,.25) 72%,transparent 100%)}
+.fq-hero .ip-hero-copy{max-width:540px}
+.fq-hero h1{font-size:clamp(34px,4.4vw,58px);margin:18px 0 14px}
+.fq-hero p{margin-bottom:0}
+
+/* two columns under the hero: category menu (sticky) + questions, so the section spans the same width as the hero */
+.fq-layout{scroll-margin-top:calc(var(--hdr-h,150px) - 40px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px;align-items:start}
+.fq-side{position:sticky;top:calc(var(--hdr-h,150px) - 40px);padding:16px;border-radius:20px;border:1px solid var(--border);background:var(--white,#fff)}
+.fq-side-h{margin:2px 6px 10px;font:700 12px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.fq-search{position:relative;display:block;max-width:520px;margin:24px 0 0}
+.fq-search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#64748B;z-index:1;pointer-events:none}
+.fq-search input{width:100%;height:54px;padding:0 20px 0 50px;border-radius:999px;border:1px solid transparent;background:#fff;font:inherit;font-size:15.5px;color:var(--ink);outline:0;box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s}
+.fq-search input{color:#0B1220}
+.fq-search input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(255,138,31,.3)}
+
+.fq-tabs{display:flex;flex-direction:column;gap:4px}
+.fq-tabs button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;height:44px;padding:0 12px;border-radius:12px;font:600 14.5px var(--font-head);color:var(--ink-2);text-align:left;transition:background .2s,color .2s}
+.fq-tabs button small{min-width:26px;height:22px;padding:0 7px;border-radius:999px;display:grid;place-items:center;background:var(--gray-2);font:700 11.5px var(--font-head);color:var(--ink-3)}
+.fq-tabs button:hover{background:#FFF7F0;color:var(--primary)}
+.fq-tabs button[aria-selected="true"]{background:var(--primary);color:#fff}
+.fq-tabs button[aria-selected="true"] small{background:rgba(255,255,255,.25);color:#fff}
+.fq-count{margin:0 0 12px;font-size:13.5px;color:var(--ink-3)}
+.fq-count:empty{display:none}
+
+.fq-list{margin:0}
+.fq-group+.fq-group{margin-top:28px}
+.fq-group[hidden],.fq-list details[hidden]{display:none}
+.fq-group h2{margin:0 0 10px;font:700 12px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.fq .ip-faq{max-width:none;gap:10px}
+.fq .ip-faq details{border-radius:16px;box-shadow:none}
+.fq .ip-faq details[open]{border-color:rgba(255,106,0,.35)}
+.fq .ip-faq summary{padding:16px 20px;font-size:16px}
+.fq-a{padding:0 20px 18px;color:var(--ink-2);font-size:15px;line-height:1.7}
+.fq .ip-faq .fq-a p{margin:0;padding:0}
+.fq-a p+p,.fq-a p+ol,.fq-a p+ul,.fq-a ol+p{margin-top:8px}
+.fq-a ol,.fq-a ul{margin:0;padding-left:22px}
+.fq-a ul{list-style:disc}
+.fq-a li+li{margin-top:4px}
+.fq-a b{color:var(--ink)}
+.fq-none{padding:32px 20px;text-align:center;border-radius:16px;border:1px dashed var(--border-strong)}
+.fq-none[hidden]{display:none}
+.fq-none b{font:700 16px var(--font-head);color:var(--ink)}
+.fq-none p{margin-top:4px;font-size:14px;color:var(--ink-3)}
+.fq-clear{margin-top:12px;font:700 14px var(--font-head);color:var(--primary)}
+
+.fq-help{display:flex;align-items:center;justify-content:space-between;gap:20px 28px;flex-wrap:wrap;margin:40px 0 0;padding:28px 32px;border-radius:24px;background:var(--navy);color:#fff}
+.fq-help h2{font:800 clamp(22px,2.4vw,28px)/1.15 var(--font-head);letter-spacing:-.03em;color:#fff}
+.fq-help h2 span{color:#FFA24D}
+.fq-help p{margin-top:4px;font-size:14.5px;color:#CBD5E1}
+.fq-help-act{display:flex;flex-wrap:wrap;gap:10px}
+.fq-help-act .btn,.fq-mail{height:48px}
+.fq-help-act svg{flex:none}
+.fq-perks{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 24px;max-width:1240px;margin:48px auto 0;padding:24px 0 0;border-top:1px solid var(--border);list-style:none}
+.fq-perks li{display:flex;align-items:center;gap:10px;font:500 14px var(--font-body);color:var(--ink-2)}
+.fq-perks svg{flex:none;color:var(--primary)}
+
+@media (max-width:1024px){.fq-hero{padding:44px 36px}.fq-hero .ip-hero-veil{background:linear-gradient(265deg,rgba(11,18,32,.95) 0%,rgba(11,18,32,.85) 55%,rgba(11,18,32,.45) 100%)}.fq-layout{grid-template-columns:220px minmax(0,1fr);gap:24px}}
+@media (max-width:760px){
+  .fq-layout{grid-template-columns:minmax(0,1fr);gap:18px}
+  .fq-side{position:static;padding:0;border:0;background:none}
+  .fq-side-h{display:none}
+  .fq-tabs{flex-direction:row;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+  .fq-tabs::-webkit-scrollbar{display:none}
+  .fq-tabs button{flex:none;width:auto;height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--border-strong)}
+  .fq-tabs button[aria-selected="true"]{border-color:var(--primary)}
+}
+@media (max-width:640px){
+  .fq-hero{min-height:0;padding:32px 20px;margin-bottom:22px}
+  .fq-hero .ip-hero-bg{object-position:25% center}
+  .fq-hero .ip-hero-veil{background:linear-gradient(180deg,rgba(11,18,32,.6),rgba(11,18,32,.92))}
+  .fq .ip-faq summary{padding:14px 16px;font-size:15px}
+  .fq-a{padding:0 16px 16px;font-size:14.5px}
+  .fq-help{padding:24px 20px}
+  .fq-help-act,.fq-help-act a{width:100%;justify-content:center}
+  .fq-perks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .fq-perks li{font-size:13px;align-items:flex-start}
+}
+
+[data-theme="dark"] .fq-none b,[data-theme="dark"] .fq-a b{color:#F3F4F6}
+[data-theme="dark"] .fq-side{background:#15161B;border-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .fq-tabs button:not([aria-selected="true"]):hover{background:rgba(255,138,31,.1)}
+[data-theme="dark"] .fq-tabs button small{background:rgba(255,255,255,.08)}
+[data-theme="dark"] .fq-help{background:#15161B;border:1px solid rgba(255,255,255,.08)}

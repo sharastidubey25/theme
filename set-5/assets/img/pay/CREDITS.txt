@@ -1,0 +1,5 @@
+Payment and bank logos are trademarks of their respective owners, shown only to identify the payment methods FixPapa accepts.
+Source: Wikimedia Commons (official logo files), downloaded via commons.wikimedia.org/wiki/Special:FilePath/<name>.
+gpay.svg: Google_Pay_Logo.svg · phonepe.svg: PhonePe_Logo.svg · paytm.svg: Paytm_Logo_(standalone).svg · upi.svg: UPI-Logo-vector.svg
+visa.svg: Visa_2021.svg · mastercard.svg: Mastercard_2019_logo.svg · rupay.svg: RuPay.svg · amex.svg: American_Express_logo_(2018).svg
+sbi.svg: SBI-logo.svg · hdfc.svg: HDFC_Bank_Logo.svg · icici.svg: ICICI_Bank_Logo.svg · axis.svg: Axis_Bank_logo.svg

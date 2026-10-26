@@ -21,10 +21,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=15.5">
+<link rel="stylesheet" href="assets/css/style.css?v=15.6">
 <link rel="stylesheet" href="assets/css/inner.css?v=1.0">
 <link rel="stylesheet" href="assets/css/shop-list.css?v=1.1">
-<link rel="stylesheet" href="assets/css/rental-category.css?v=1.1">
+<link rel="stylesheet" href="assets/css/rental-category.css?v=1.6">
 <link rel="stylesheet" href="assets/css/assistant.css?v=1.2">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -138,7 +138,7 @@
             <svg class="tt-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
             <svg class="tt-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
           </button>
-          <a href="#" class="icon-btn hide-sm" aria-label="Cart"><svg width="22" height="22"><use href="#i-cart"/></svg></a>
+          <a href="cart.html" class="icon-btn" aria-label="Cart"><svg width="22" height="22"><use href="#i-cart"/></svg></a>
           <a href="account.html" class="icon-btn hide-sm" aria-label="My account"><svg width="22" height="22"><use href="#i-user"/></svg></a>
           <a href="partner.html" class="btn btn--sm" data-ripple>Become a Partner</a>
           <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu"><svg width="24" height="24"><use href="#i-menu"/></svg></button>
@@ -456,47 +456,17 @@
       <button type="button" class="rfl-tile rfl-tile--video" data-yt="e4L0El-E_Kw" style="--bg:url('../media/install.jpg')"><span class="rfl-play"><svg width="26" height="26"><use href="#i-play"/></svg></span><b>Watch how our experts do the installation</b></button>
       <div class="rfl-tile" style="--bg:url('../media/cctv.jpg')"><h3>Book an installation with FixPapa: seamless setup for your technology</h3><a href="repair.html#book-now" class="btn btn--sm" data-ripple>Know more</a></div>
     </div>
+    <ul class="rcl-perks" aria-label="Why rent with FixPapa">
+      <li><svg width="20" height="20"><use href="#i-laptop"/></svg>Latest and greatest tech</li>
+      <li><svg width="20" height="20"><use href="#i-shield"/></svg>Guarantee on every device</li>
+      <li><svg width="20" height="20"><use href="#i-truck"/></svg>Free shipping over ₹1000</li>
+      <li><svg width="20" height="20"><use href="#i-headset"/></svg>24/7 support</li>
+    </ul>
   </div>
 </section>
 
 <div class="rfl-yt" id="rflYt" role="dialog" aria-modal="true" aria-label="Video" hidden><div class="rfl-yt-bd" data-close></div><div class="rfl-yt-box"><button type="button" class="rfl-yt-x" data-close aria-label="Close video">✕</button><iframe title="FixPapa video" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div></div>
 
-<!-- ============ Rent a product · request modal ============ -->
-<div class="rcm" id="rentModal" role="dialog" aria-modal="true" aria-labelledby="rcmTitle" hidden>
-  <div class="rcm-bd" data-close></div>
-  <form class="rcm-box" id="rentForm" novalidate>
-    <button type="button" class="rcm-x" data-close aria-label="Close">✕</button>
-    <div class="rcm-step" data-step="form">
-      <div class="rcm-head">
-        <span class="rcm-art"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#bk-laptop"/></svg></span>
-        <div><small id="rcmCat">Laptop on rent</small><h2 id="rcmTitle">Product</h2><ul class="rcm-tags" id="rcmTags"></ul></div>
-      </div>
-      <div class="rcm-q"><b>Rental period</b><div class="rcl-plan-seg" id="rcmPlans" role="radiogroup" aria-label="Rental period"></div></div>
-      <div class="rcm-row">
-        <div class="rcm-q"><b>Quantity</b><div class="rcm-qty"><button type="button" data-q="-1" aria-label="Decrease quantity">−</button><input name="qty" type="number" min="1" max="50" value="1" inputmode="numeric" aria-label="Quantity"><button type="button" data-q="1" aria-label="Increase quantity">+</button></div></div>
-        <label class="rcm-q"><b>Start date</b><input name="start" type="date" required><em>Pick a start date.</em></label>
-      </div>
-      <p class="rcm-bulk" id="rcmBulk" hidden>Renting 10 or more? We'll add a bulk discount to your quote.</p>
-      <div class="rcm-row">
-        <label class="rcm-q"><b>Your name</b><input name="name" maxlength="60" autocomplete="name" required><em>Please enter your name.</em></label>
-        <label class="rcm-q rcm-tel"><b>Mobile number</b><span>+91</span><input name="mobile" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" required><em>Enter a valid 10-digit mobile number.</em></label>
-      </div>
-      <label class="rcm-q"><b>Delivery pincode</b><input name="pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" required><em>Enter a valid 6-digit pincode.</em></label>
-      <div class="rcm-sum">
-        <div><span>Monthly rent</span><b id="rcmMonthly">₹0</b></div>
-        <div><span id="rcmTotalL">Total for 1 month</span><b id="rcmTotal">₹0</b></div>
-        <p>Free delivery, setup and servicing. Any security deposit is confirmed on the call.</p>
-      </div>
-      <button type="submit" class="btn rcm-go" data-ripple><span>Request rental</span><svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></button>
-    </div>
-    <div class="rcm-step rcm-done" data-step="done" hidden>
-      <svg class="rcm-badge" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 8l13 9 16-1 5 15 13 9-5 15 5 15-13 9-5 15-16-1-13 9-13-9-16 1-5-15-13-9 5-15-5-15 13-9 5-15 16 1z" fill="#DCFCE7" stroke="#16A34A" stroke-width="5" stroke-linejoin="round"/><path d="M42 61l13 13 25-27" fill="none" stroke="#16A34A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <h2>Rental request received</h2>
-      <p>Request ID <b id="rcmRef"></b>. Our team will call you within 24 hours to confirm availability and the delivery slot.</p>
-      <button type="button" class="btn" data-close>Continue browsing</button>
-    </div>
-  </form>
-</div>
 </main>
 
 
@@ -529,8 +499,8 @@
         </div>
       </div>
       <div><h5>For Partners</h5><a href="partner.html">Become a Partner</a><a href="partner.html">Become a Freelancer</a><a href="partner.html">How to join?</a></div>
-      <div><h5>Category</h5><a href="#">Laptops</a><a href="#">Desktops</a><a href="#">Printers</a><a href="#">Servers</a><a href="#">Projectors</a></div>
-      <div><h5>Quick Links</h5><a href="#">About FixPapa</a><a href="#">FAQs</a><a href="#">Blogs</a><a href="#">Contact Us</a><a href="#">Anti Discrimination Policy</a></div>
+      <div><h5>Category</h5><a href="products.html?cat=Laptop">Laptops</a><a href="products.html?cat=Desktop">Desktops</a><a href="products.html?cat=Printer">Printers</a><a href="products.html?cat=Server">Servers</a><a href="products.html?cat=Projector">Projectors</a></div>
+      <div><h5>Quick Links</h5><a href="about.html">About FixPapa</a><a href="faqs.html">FAQs</a><a href="blogs.html">Blogs</a><a href="contact.html">Contact Us</a><a href="anti-discrimination-policy.html">Anti Discrimination Policy</a></div>
       <div class="ftr-news">
         <h5>Sign up for News and updates</h5>
         <form class="news" onsubmit="this.classList.add('done');return false">
@@ -543,17 +513,18 @@
 
     <div class="ftr-bottom">
       <span>© 2020 - 2026 FixPapa.</span>
-      <nav aria-label="Legal"><a href="#">Deletion Policy</a><a href="#">Cancellation Policy</a><a href="#">Privacy Policy</a><a href="#">Terms and Conditions</a><a href="#">Refund &amp; Return</a><a href="#">Rental Policy</a><a href="#">Shipping</a></nav>
+      <nav aria-label="Legal"><a href="deletion-policy.html">Deletion Policy</a><a href="cancellation-policy.html">Cancellation Policy</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms and Conditions</a><a href="refund-and-returns-policy.html">Refund &amp; Return</a><a href="#">Rental Policy</a><a href="shipping-policy.html">Shipping</a></nav>
     </div>
   </div>
 </footer>
 
 <button class="to-top" id="toTop" aria-label="Back to top"><svg width="20" height="20"><use href="#i-up"/></svg></button>
-<script src="assets/js/rental-data.js?v=1.0"></script>
+<script src="assets/js/rental-data.js?v=1.4"></script>
 <script src="assets/js/inner.js?v=1.1"></script>
 <script src="assets/js/shop-list.js?v=1.2"></script>
-<script src="assets/js/rental-list.js?v=1.1"></script>
+<script src="assets/js/rental-list.js?v=1.6"></script>
 <!-- FixPapa Assistant (see assets/js/assistant/README.md) -->
+<script src="assets/js/cart.js?v=1.2"></script>
 <script src="assets/js/megamenu.js?v=1.0"></script>
 <script src="assets/js/assistant/service.js?v=1.0"></script>
 <script src="assets/js/assistant/mock-service.js?v=1.1"></script>

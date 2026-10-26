@@ -2336,3 +2336,14 @@ html{overflow-anchor:none;scroll-behavior:auto}
 .card:hover::after{inset:-12px;border:12px solid transparent;border-radius:calc(var(--r-lg) + 12px);background-clip:padding-box;pointer-events:auto;z-index:-1}
 .prod-track > .product:hover::after{inset:-22px;border-width:22px;border-radius:calc(24px + 22px)}
 .rfh-cat:hover::after,.tv-card:hover::after,.rt-card:hover::after,.rent3-card:hover::after,.br-card:hover::after,.ts3-photo:hover::after,.store:hover::after,.rfc-tab:hover::after,.mm-card:hover::after,.fpp-feats li:hover::after,.rcalc-chips button:hover::after,.socials a:hover::after,.fpa-launch:hover::after,.rp-logos li:hover::after,.rp-why-grid li:hover::after,.rpm-cat:hover::after,.rpm-brand:hover::after{content:"";position:absolute;inset:-12px;z-index:-1}
+
+/* ---------- Cart: header count badge + add/remove toast (cart.js, every page) ---------- */
+.cart-btn{position:relative}
+.cart-badge{position:absolute;top:3px;right:1px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;display:grid;place-items:center;background:var(--navy);color:#fff;font:800 10.5px/1 var(--font-head);box-shadow:0 0 0 2px var(--white,#fff);pointer-events:none}
+.cart-badge[hidden]{display:none}
+.ct-toast{position:fixed;left:50%;bottom:24px;z-index:120;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);padding:12px 16px 12px 18px;border-radius:14px;background:var(--navy);color:#fff;font:600 14px var(--font-head);box-shadow:0 20px 40px -14px rgba(11,18,32,.55);opacity:0;transform:translate(-50%,16px);pointer-events:none;transition:opacity .25s,transform .3s var(--ease)}
+.ct-toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.ct-toast span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ct-toast button{flex:none;color:var(--accent-2);font:800 13.5px var(--font-head);text-transform:uppercase;letter-spacing:.04em}
+[data-theme="dark"] .cart-badge{background:var(--primary);box-shadow:0 0 0 2px #15161B}
+[data-theme="dark"] .ct-toast{background:#1C1D24;border:1px solid rgba(255,255,255,.08)}

@@ -1,7 +1,7 @@
 /* FixPapa · Set 5 · Rental listing (rental-category.html?cat=laptop|desktop|printer|projector&months=3)
    One page for every rental category: category tabs, rental-period switch (prices are per month for the chosen
-   plan), category-specific filters on the shared FPShopList engine, and the "Rent now" request modal.
-   A real backend plugs in through window.FPRentalApi = { request(rental) } (returns a Promise → { ref }). */
+   plan), category-specific filters on the shared FPShopList engine. "Add to Cart" puts a rental line (product + chosen
+   plan) into the shared cart (cart.js), which then goes through checkout.html and payment.html like any purchase. */
 (() => {
   const R = window.FPRental; if (!R || !window.FPShopList) return;
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -40,26 +40,38 @@
   const gb = (n) => (n >= 1024 ? `${n / 1024} TB` : `${n} GB`);
   const FACETS = {
     laptop: [{ k: 'brand', name: 'Brand' }, { k: 'Processor', name: 'Processor' }, { k: 'Storage', name: 'Storage', range: { toNum: (v) => num(v) * (/TB/.test(v) ? 1024 : 1), unit: gb } },
-      { k: 'RAM', name: 'RAM', range: { toNum: num, unit: (n) => `${n} GB` } }, { k: 'Screen', name: 'Screen Size', range: { toNum: num, unit: (n) => `${n}″` } }],
+      { k: 'RAM', name: 'RAM', range: { toNum: num, unit: (n) => `${n} GB` } }],
     desktop: [{ k: 'brand', name: 'Brand' }, { k: 'Processor', name: 'Processor' }, { k: 'Storage', name: 'Storage', range: { toNum: (v) => num(v) * (/TB/.test(v) ? 1024 : 1), unit: gb } },
-      { k: 'RAM', name: 'RAM', range: { toNum: num, unit: (n) => `${n} GB` } }, { k: 'Monitor', name: 'Monitor Size', range: { toNum: num, unit: (n) => `${n}″` } }],
+      { k: 'RAM', name: 'RAM', range: { toNum: num, unit: (n) => `${n} GB` } }],
     printer: [{ k: 'brand', name: 'Brand' }, { k: 'Printer Type', name: 'Printer Type' }, { k: 'Printer Technology', name: 'Printer Technology' }, { k: 'Connectivity', name: 'Connectivity' }],
     projector: [{ k: 'brand', name: 'Brand' }, { k: 'Projector Type', name: 'Projector Type' }, { k: 'Connectivity', name: 'Connectivity' }]
   }[cat.id];
   // prices on this page are per month for the chosen period
   const items = inCat.map((p) => ({ p: { ...p, price: R.monthly(p, months) }, f: Object.fromEntries(FACETS.map((f) => [f.k, f.k === 'brand' ? [p.brand] : S(p, f.k)])) }));
 
-  const tagsOf = (p) => Object.entries(p.specs).filter(([k]) => k !== 'Brightness' || p.cat === 'projector').map(([, v]) => v);
+  /* labelled specs: icon + what it is + value, so "8 GB" reads as RAM and "256 GB SSD" as storage */
+  const SPEC = {
+    Processor: ['Processor', '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/>'],
+    RAM: ['RAM', '<rect x="2" y="7" width="20" height="10" rx="1.5"/><path d="M6 11v2M10 11v2M14 11v2M18 11v2M6 17v3M18 17v3"/>'],
+    Storage: ['Storage', '<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 14h18"/><circle cx="17" cy="17" r=".8" fill="currentColor"/>'],
+    'Printer Type': ['Type', '<path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/>'],
+    'Printer Technology': ['Function', '<path d="M4 7h16M4 12h16M4 17h10"/>'],
+    'Projector Type': ['Resolution', '<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>'],
+    Connectivity: ['Connects', '<path d="M5 12.5a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="18.5" r="1" fill="currentColor"/>'],
+    Brightness: ['Brightness', '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>']
+  };
+  const short = (v) => String(v).replace(/^Intel /, '');
+  const specsOf = (p) => Object.entries(p.specs).filter(([k]) => SPEC[k]);
+  const specLine = (p) => specsOf(p).map(([k, v]) => `${SPEC[k][0]} ${short(v)}`).join(', ');
   const card = (p, i) => `
     <article class="rcl-card" style="animation-delay:${Math.min(i, 8) * 40}ms" data-id="${p.id}">
       <div class="rcl-media"><svg viewBox="0 0 120 90" aria-hidden="true"><use href="#${cat.art}"/></svg>${p.tag ? `<span class="rcl-tag">${esc(p.tag)}</span>` : ''}</div>
       <div class="rcl-body">
-        <small class="rcl-kicker">${esc(p.brand)} · ${cat.name}</small>
-        <h3>${esc(p.model)}</h3>
-        <ul class="rcl-tags">${tagsOf(p).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+        <h3>${esc(p.name)}</h3>
+        <dl class="rcl-specs">${specsOf(p).map(([k, v]) => `<div><dt><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SPEC[k][1]}</svg>${SPEC[k][0]}</dt><dd>${esc(short(v))}</dd></div>`).join('')}</dl>
         <div class="rcl-foot">
-          <div class="rcl-price"><b>${R.inr(p.price)}</b><span>/month</span>${months > 1 ? `<small>on a ${months}-month plan</small>` : `<small>on a monthly plan</small>`}</div>
-          <button type="button" class="btn btn--sm rcl-rent" data-rent="${p.id}" data-ripple>Rent now</button>
+          <div class="rcl-price"><span class="rcl-amt"><b>${R.inr(p.price)}</b><span>/month</span></span>${months > 1 ? `<small>on a ${months}-month plan</small>` : `<small>on a monthly plan</small>`}</div>
+          <button type="button" class="btn btn--sm rcl-rent" data-cart="${p.id}" aria-label="Add ${esc(p.name)} (${esc(specLine(p))}) to cart, ${months} ${months === 1 ? 'month' : 'months'} rental" data-ripple><svg width="16" height="16"><use href="#i-cart"/></svg>Add to Cart</button>
         </div>
       </div>
     </article>`;
@@ -70,49 +82,14 @@
     sorts: { new: (a, b) => b.p.id - a.p.id, pop: (a, b) => (b.p.tag ? 1 : 0) - (a.p.tag ? 1 : 0) || a.p.price - b.p.price, lo: (a, b) => a.p.price - b.p.price, hi: (a, b) => b.p.price - a.p.price, az: (a, b) => a.p.name.localeCompare(b.p.name) }
   });
 
-  /* ---------- Rent now · request modal ---------- */
-  const modal = $('#rentModal'), form = $('#rentForm'), F = (n) => form.elements[n];
-  let cur = null, plan = months, lastFocus;
-  const api = window.FPRentalApi || { demo: true, request: () => new Promise((r) => setTimeout(() => r({ ref: 'RT' + Date.now().toString(36).toUpperCase().slice(-6) }), 700)) };
-  const tomorrow = () => { const d = new Date(); d.setDate(d.getDate() + 1); return d.toISOString().slice(0, 10); };
-  const total = () => {
-    const qty = Math.max(1, Math.min(50, +F('qty').value || 1)), m = R.monthly(cur, plan);
-    $('#rcmMonthly').textContent = `${R.inr(m * qty)}${qty > 1 ? ` (${qty} × ${R.inr(m)})` : ''}`;
-    $('#rcmTotalL').textContent = `Total for ${plan} ${plan === 1 ? 'month' : 'months'}`;
-    $('#rcmTotal').textContent = R.inr(m * qty * plan);
-    $('#rcmBulk').hidden = qty < 10;
-  };
-  const open = (p) => {
-    cur = p; plan = months; lastFocus = document.activeElement;
-    $('.rcm-art use', modal).setAttribute('href', '#' + cat.art);
-    $('#rcmCat').textContent = `${p.brand} · ${cat.name} on rent`; $('#rcmTitle').textContent = p.model;
-    $('#rcmTags').innerHTML = tagsOf(p).map((t) => `<li>${esc(t)}</li>`).join('');
-    planBtns($('#rcmPlans'), plan);
-    F('start').min = tomorrow(); if (!F('start').value || F('start').value < F('start').min) F('start').value = tomorrow();
-    $$('.rcm-q.bad', modal).forEach((l) => l.classList.remove('bad'));
-    $$('.rcm-step', modal).forEach((s) => { s.hidden = s.dataset.step !== 'form'; });
-    total(); modal.hidden = false; document.body.style.overflow = 'hidden'; F('qty').focus({ preventScroll: true });
-  };
-  const close = () => { modal.hidden = true; document.body.style.overflow = ''; lastFocus && lastFocus.focus(); };
-  $('#rflGrid').addEventListener('click', (e) => { const b = e.target.closest('[data-rent]'); if (b) open(R.products.find((p) => p.id === +b.dataset.rent)); });
-  $$('[data-close]', modal).forEach((b) => b.addEventListener('click', close));
-  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
-  $('#rcmPlans').addEventListener('click', (e) => { const b = e.target.closest('[data-m]'); if (!b) return; plan = +b.dataset.m; $$('[data-m]', $('#rcmPlans')).forEach((x) => x.setAttribute('aria-checked', x === b)); total(); });
-  $('.rcm-qty', modal).addEventListener('click', (e) => { const b = e.target.closest('[data-q]'); if (!b) return; F('qty').value = Math.max(1, Math.min(50, (+F('qty').value || 1) + +b.dataset.q)); total(); });
-  F('qty').addEventListener('input', total);
-  ['mobile', 'pin'].forEach((n) => F(n).addEventListener('input', (e) => { e.target.value = e.target.value.replace(/\D/g, ''); }));
-  form.addEventListener('input', (e) => { const l = e.target.closest('.rcm-q.bad'); if (l) l.classList.remove('bad'); });
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const bad = [['start', (v) => v && v >= F('start').min], ['name', (v) => v.trim().length > 1], ['mobile', (v) => /^[6-9]\d{9}$/.test(v)], ['pin', (v) => /^[1-9]\d{5}$/.test(v)]]
-      .filter(([n, ok]) => { const b = !ok(F(n).value); F(n).closest('.rcm-q').classList.toggle('bad', b); return b; });
-    if (bad.length) { F(bad[0][0]).focus(); return; }
-    const go = $('.rcm-go', modal); go.disabled = true; $('span', go).textContent = 'Sending…';
-    try {
-      const res = await api.request({ productId: cur.id, product: cur.name, category: cat.id, months: plan, quantity: +F('qty').value, monthlyRent: R.monthly(cur, plan),
-        startDate: F('start').value, name: F('name').value.trim(), mobile: F('mobile').value, pincode: F('pin').value });
-      $('#rcmRef').textContent = (res && res.ref) || '';
-      $$('.rcm-step', modal).forEach((s) => { s.hidden = s.dataset.step !== 'done'; });
-    } finally { go.disabled = false; $('span', go).textContent = 'Request rental'; }
+  /* ---------- Add to Cart: a rental line (chosen plan) goes into the shared cart (cart.js), then the cart opens ---------- */
+  $('#rflGrid').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-cart]'); if (!b || !window.FPCart) return;
+    const p = R.products.find((x) => x.id === +b.dataset.cart), monthly = R.monthly(p, months);
+    window.FPCart.add({
+      id: `r${p.id}-m${months}`, name: `${p.name} · ${specsOf(p).map(([, v]) => short(v)).join(', ')}`, meta: `${cat.name} on rent`, art: cat.art, vb: '0 0 120 90',
+      rent: { months, monthly, base: p.price }, price: monthly * months, mrp: p.price * months
+    });
+    location.href = 'cart.html';
   });
 })();
