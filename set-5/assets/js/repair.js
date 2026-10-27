@@ -64,12 +64,12 @@
   const brandName = (b) => NAME[b] || b.replace(/(^|-)\w/g, (m) => m.toUpperCase()).replace('-', ' ');
   const BRANDS = {
     laptop: ['dell', 'hp', 'lenovo', 'apple', 'asus', 'acer', 'msi', 'microsoft'], desktop: ['dell', 'hp', 'lenovo', 'acer', 'asus', 'hcl'],
-    printer: ['hp', 'epson', 'brother', 'canon', 'samsung'], cctv: ['cp-plus', 'hikvision', 'dahua', 'geonix'], apple: ['apple'],
+    printer: ['hp', 'epson', 'brother', 'canon', 'samsung'], cctv: ['cp-plus', 'hikvision', 'dahua', 'geonix'],
     monitor: ['dell', 'hp', 'lenovo', 'samsung', 'acer', 'asus'], tablet: ['apple', 'samsung', 'lenovo', 'huawei'], projector: ['epson', 'sony', 'hp', 'benq'],
     scanner: ['hp', 'epson', 'brother', 'fujitsu', 'canon'], ups: ['luminous', 'microtek', 'apc', 'zebronics'], wifi: ['tp-link', 'netgear', 'cisco'],
     network: ['cisco', 'tp-link', 'netgear'], server: ['dell', 'hp', 'lenovo', 'fujitsu'], biometric: ['essl', 'zkteco', 'mantra']
   };
-  const SCREEN = ['laptop', 'desktop', 'apple', 'monitor', 'tablet', 'projector'];
+  const SCREEN = ['laptop', 'desktop', 'monitor', 'tablet', 'projector'];
   const issuesFor = (id, n) => [[`${n} Software Issues`, 599], [`${n} Hardware Issue`, 599], [`${n} Physical/Damage Issues`, 499]]
     .concat(SCREEN.includes(id) ? [[`${n} Display Issues`, 599]] : [], [[`${n} Power/Connectivity Issues`, 599], ['Other Issue', 699]]);
   const CITIES = {
@@ -128,21 +128,74 @@
   const map = $('.rpm-map', modal), mapFrame = $('iframe', map);
   const showMap = (q) => { const src = `https://maps.google.com/maps?q=${encodeURIComponent(q)}&z=15&output=embed`; if (mapFrame.src !== src) mapFrame.src = src; map.hidden = false; };
   let mapT; ['apt', 'street', 'city', 'pin'].forEach((n) => F(n).addEventListener('input', () => { clearTimeout(mapT); mapT = setTimeout(() => { if (/^[1-9]\d{5}$/.test(F('pin').value) && F('city').value.trim()) showMap([F('street').value, F('city').value, F('state').value, F('pin').value].filter(Boolean).join(', ')); }, 700); }));
-  const loc = $('#rpmLoc');
-  if (!('geolocation' in navigator)) loc.hidden = true;
+  // location picker (Leaflet + OpenStreetMap, loaded on first use; addresses from OSM Nominatim — swap for a backend geocoder in production)
+  const loc = $('#rpmLoc'), pick = $('#rpmPick'), pickAddr = $('#rpmPickAddr'), pickOk = $('#rpmPickOk');
+  const JAIPUR = [26.9124, 75.7873];
+  let lmap, found = null, lookT, lookN = 0;
+  const loadLeaflet = () => window.L ? Promise.resolve() : new Promise((res, rej) => {
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'; document.head.append(css);
+    const js = document.createElement('script'); js.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js'; js.onload = res; js.onerror = rej; document.head.append(js);
+  });
+  const nominatim = (path) => fetch(`https://nominatim.openstreetmap.org/${path}&format=jsonv2&addressdetails=1&accept-language=en`).then((r) => r.json());
+  function lookup() {
+    clearTimeout(lookT); pickOk.disabled = true; pickAddr.textContent = 'Finding address…';
+    lookT = setTimeout(async () => {
+      const n = ++lookN, c = lmap.getCenter();
+      found = { lat: +c.lat.toFixed(6), lng: +c.lng.toFixed(6), a: null };
+      try { const r = await nominatim(`reverse?lat=${c.lat}&lon=${c.lng}`); if (n !== lookN) return; found.a = r.address || null; pickAddr.textContent = r.display_name || `${found.lat}, ${found.lng}`; }
+      catch (e) { if (n !== lookN) return; pickAddr.textContent = `Pinned at ${found.lat}, ${found.lng}`; }
+      pickOk.disabled = false;
+    }, 500);
+  }
+  async function openPicker(center, note) {
+    pick.hidden = false; pickOk.disabled = true; pickAddr.textContent = 'Loading map…'; $('#rpmPickBack').focus({ preventScroll: true });
+    try { await loadLeaflet(); } catch (e) { pickAddr.textContent = 'The map could not load, please type the address.'; return; }
+    if (!lmap) {
+      lmap = L.map('rpmPickMap', { zoomControl: true });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(lmap);
+      lmap.on('moveend', lookup);
+    }
+    lmap.invalidateSize(); lmap.setView(center || JAIPUR, center ? 17 : 12);
+    if (note) pickAddr.textContent = note;
+  }
+  const closePicker = () => { pick.hidden = true; clearTimeout(lookT); lookN++; loc.focus({ preventScroll: true }); };
+  $('#rpmPickBack').addEventListener('click', closePicker);
+  pickOk.addEventListener('click', () => {
+    const a = found.a || {}, set = (n, v) => { if (v) { F(n).value = v; F(n).dispatchEvent(new Event('input', { bubbles: true })); } };
+    const state = [...F('state').options].find((o) => o.value && a.state && (a.state === o.value || a.state.includes(o.value)));
+    if (state && F('state').value !== state.value) { F('state').value = state.value; F('state').dispatchEvent(new Event('change', { bubbles: true })); F('state').closest('.rpm-f').classList.remove('bad'); }
+    set('street', [a.road, a.neighbourhood || a.suburb || a.quarter].filter(Boolean).join(', ').slice(0, 36));
+    set('city', a.city || a.town || a.village || a.state_district);
+    set('pin', /^[1-9]\d{5}$/.test((a.postcode || '').replace(/\s/g, '')) ? a.postcode.replace(/\s/g, '') : '');
+    st.geo = [found.lat, found.lng];
+    clearTimeout(mapT); showMap(st.geo.join(','));   // preview the pinned spot, not the typed text
+    closePicker(); (F('apt').value ? loc : F('apt')).focus({ preventScroll: true });
+    map.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+  });
   loc.addEventListener('click', () => {
+    if (!('geolocation' in navigator)) return openPicker(st.geo);
     loc.classList.add('busy');
-    navigator.geolocation.getCurrentPosition((p) => { loc.classList.remove('busy'); st.geo = [p.coords.latitude, p.coords.longitude]; showMap(st.geo.join(',')); },
-      () => { loc.classList.remove('busy'); loc.querySelector('svg').nextSibling.textContent = 'Location blocked, please type the address'; }, { timeout: 10000 });
+    navigator.geolocation.getCurrentPosition((p) => { loc.classList.remove('busy'); openPicker([p.coords.latitude, p.coords.longitude]); },
+      () => { loc.classList.remove('busy'); openPicker(st.geo, 'Location is blocked: move the map to your address.'); }, { timeout: 10000 });
+  });
+  // "Adjust pin" on the preview: reopen the picker at the pinned spot, or at the typed address
+  $('#rpmMapEdit').addEventListener('click', async () => {
+    if (st.geo) return openPicker(st.geo);
+    const q = [F('street').value, F('city').value, F('state').value, F('pin').value].filter(Boolean).join(', ');
+    let at = null;
+    try { const r = await nominatim(`search?q=${encodeURIComponent(q + ', India')}&limit=1`); if (r[0]) at = [+r[0].lat, +r[0].lon]; } catch (e) { /* open on the default view */ }
+    openPicker(at);
   });
   const days = $('.rpm-days', modal), slots = $('.rpm-slots', modal);
   const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const slotOpen = (d, h) => d.toDateString() !== new Date().toDateString() || h > new Date().getHours() + 1;
+  // Sunday is off; same-day visits only when booked before 12 noon (later bookings start the next day)
+  const slotOpen = (d, h) => { const now = new Date(); if (d.getDay() === 0) return false;
+    return d.toDateString() !== now.toDateString() || (now.getHours() < 12 && h > now.getHours() + 1); };
   function drawDays() {
     const t = new Date(); t.setHours(0, 0, 0, 0);
     days.innerHTML = Array.from({ length: 7 }, (_, i) => { const d = new Date(t); d.setDate(t.getDate() + i);
       const open = SLOTS.some(([h]) => slotOpen(d, h));
-      return `<button type="button" role="radio" aria-checked="false" data-d="${d.toISOString()}"${open ? '' : ' disabled'}><small>${i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : DOW[d.getDay()]}</small><b>${d.getDate()}</b><small>${MON[d.getMonth()]}</small></button>`; }).join('');
+      return `<button type="button" role="radio" aria-checked="false" data-d="${d.toISOString()}"${open ? '' : ' disabled'}><small>${i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : DOW[d.getDay()]}</small><b>${d.getDate()}</b><small>${d.getDay() === 0 ? 'Off' : MON[d.getMonth()]}</small></button>`; }).join('');
     st.day = st.slot = null; drawSlots();
   }
   function drawSlots() {
@@ -201,7 +254,6 @@
   function sync() {
     next.disabled = st.busy || (st.step === 1 && !(st.cat && st.brand && st.issue));
     $('span', next).textContent = st.busy ? 'Please wait…' : st.step === 3 && st.otp ? 'Verify & Book' : LABEL[st.step];
-    back.hidden = st.step === 1;
   }
   function go(n) {
     st.step = n;
@@ -211,7 +263,14 @@
     if (n === 3) summary();
     form.scrollTop = 0; sync();
   }
-  back.addEventListener('click', () => go(st.step - 1));
+  // step 1 goes back one question at a time (service type → brand → category); on the category grid it closes the popup
+  function backStep1() {
+    if (st.brand) { st.brand = st.issue = null; radio(qBrand, null); qIssue.hidden = true; expand(qBrand); reveal(qBrand); }
+    else if (st.cat) { st.cat = st.issue = null; radio(qCat, null); qBrand.hidden = qIssue.hidden = true; expand(qCat); reveal(qCat); }
+    else return close();
+    sync();
+  }
+  back.addEventListener('click', () => (st.step === 1 ? backStep1() : go(st.step - 1)));
   next.addEventListener('click', async () => {
     if (st.step < 3) { if (check(st.step)) go(st.step + 1); return; }
     if (!check(3)) return;
@@ -241,7 +300,7 @@
     form.reset(); photos.forEach((p) => URL.revokeObjectURL(p.url)); photos = []; drawThumbs();
     Object.assign(st, { cat: null, brand: null, issue: null, day: null, slot: null, kind: 'Individual', otp: false, done: false, geo: null });
     cats.forEach((c) => c.setAttribute('aria-checked', 'false')); expand(qCat); qBrand.hidden = qIssue.hidden = true;
-    F('mobile').readOnly = false; $('#qOtp').hidden = true; map.hidden = true; mapFrame.removeAttribute('src'); clearInterval(timerId);
+    F('mobile').readOnly = false; $('#qOtp').hidden = true; map.hidden = true; pick.hidden = true; mapFrame.removeAttribute('src'); clearInterval(timerId);
     $$('.rpm-f.bad', modal).forEach((l) => l.classList.remove('bad')); $$('.rpm-qerr.show', modal).forEach((e) => e.classList.remove('show'));
     radio(seg, $('button', seg)); days.innerHTML = ''; $('.rpm-done', modal).hidden = true; modal.classList.remove('is-done'); go(1);
   }
@@ -252,7 +311,7 @@
   const close = () => { modal.hidden = true; document.body.style.overflow = ''; if (st.done) reset(); lastFocus && lastFocus.focus(); };
   $$('[data-open-booking]').forEach((b) => b.addEventListener('click', open));
   $$('[data-close]', modal).forEach((b) => b.addEventListener('click', close));
-  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) pick.hidden ? close() : closePicker(); });
   go(1);
   // ?device=Laptop%20Repair (from the home page device tiles) pre-selects that category
   const want = new URLSearchParams(location.search).get('device');
