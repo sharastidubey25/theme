@@ -116,7 +116,7 @@
   $('#accLogout').addEventListener('click', () => dlgOpen(true));
   $$('[data-no]', dlg).forEach((b) => b.addEventListener('click', () => dlgOpen(false)));
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !dlg.hidden) dlgOpen(false); });
-  $('#accDlgYes').addEventListener('click', async () => { await api.logout(); location.href = 'index.html'; });
+  $('#accDlgYes').addEventListener('click', async () => { await api.logout(); window.FPAuth && FPAuth.logout(); location.href = 'index.html'; });
 
   api.getProfile().then((p) => { saved = p; fill(p); lock(true); show(); });
 })();

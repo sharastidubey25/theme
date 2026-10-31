@@ -27,6 +27,9 @@
 <link rel="stylesheet" href="assets/css/assistant.css?v=1.2">
 <script>document.documentElement.classList.add('js')</script>
 <script>try{var t=localStorage.getItem('fp-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/auth.css?v=1.1">
+<link rel="stylesheet" href="assets/css/gst-board.css?v=1.2">
+<link rel="stylesheet" href="assets/css/gst.css?v=1.0">
 </head>
 <body data-set="set-5">
 <!-- FixPapa homepage · Set 5 · Mix & Match (Set 1 + Set 2 + Set 3) -->
@@ -1321,6 +1324,62 @@
   </div>
 </section>
 
+<!-- ============ GST · business accounts ============ -->
+<section class="section gb" id="gst">
+  <div class="container">
+    <div class="gb-grid">
+      <div class="gb-copy" data-reveal="left">
+        <span class="eyebrow">For businesses</span>
+        <h2 class="h-lg">Add your GSTIN. <span class="hl">Get 18% back</span> on every IT bill.</h2>
+        <p class="lead">Register your firm on FixPapa and every repair, AMC, rental and purchase comes with a GST tax invoice in your business name, ready to claim input tax credit.</p>
+        <ul class="gb-perks">
+          <li><span><svg width="18" height="18"><use href="#i-badge"/></svg></span><b>GST invoice, every order</b><small>In your firm's name, downloadable from your account</small></li>
+          <li><span><svg width="18" height="18"><use href="#i-chart"/></svg></span><b>Claim input tax credit</b><small>CGST + SGST or IGST shown line by line</small></li>
+          <li><span><svg width="18" height="18"><use href="#i-building"/></svg></span><b>Branches &amp; sub-users</b><small>One GSTIN per branch, one login per team member</small></li>
+          <li><span><svg width="18" height="18"><use href="#i-tag"/></svg></span><b>Business pricing</b><small>Bulk quotes for AMC, rentals and refurbished</small></li>
+        </ul>
+        <div class="gb-calc">
+          <label for="gbSpend">Your monthly IT spend <output id="gbSpendV">₹25,000</output></label>
+          <input type="range" id="gbSpend" min="5000" max="500000" step="5000" value="25000">
+          <div class="gb-calc-out"><span>GST credit you could claim</span><b id="gbYear">₹45,763</b><small>a year</small></div>
+          <p class="gb-note">Estimate, assuming the amount includes 18% GST. Your actual credit depends on your GST returns.</p>
+        </div>
+      </div>
+
+      <div class="gb-card" data-reveal="right">
+        <form class="gb-check" id="gbCheck" novalidate>
+          <label for="gbGst">Check your GSTIN &amp; preview your invoice</label>
+          <div class="gb-check-row">
+            <input id="gbGst" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="15" placeholder="Enter 15-character GSTIN">
+            <button type="submit" class="gb-check-go">Check</button>
+          </div>
+          <p class="gb-status" id="gbStatus" aria-live="polite">We check the format and check digit right here. Nothing is sent.</p>
+        </form>
+
+        <div class="gb-inv" id="gbInv">
+          <div class="gb-inv-top"><b>Tax Invoice</b><span class="gb-stamp" id="gbStamp">ITC eligible</span></div>
+          <div class="gb-inv-meta">
+            <div><small>From</small><b>FixPapa</b><span>Jaipur, Rajasthan</span></div>
+            <div><small>Billed to</small><b id="gbTo">Your business</b><span>GSTIN <i id="gbToG">— — —</i></span></div>
+          </div>
+          <div class="gb-inv-pos">Place of supply: <b id="gbPos">—</b></div>
+          <table class="gb-inv-t">
+            <tr><td>AMC · 10 devices · 12 months</td><td>₹18,000</td></tr>
+            <tr><td>Laptop repair · on-site</td><td>₹2,500</td></tr>
+            <tr class="sub"><td>Taxable value</td><td>₹20,500</td></tr>
+            <tbody id="gbTax"><tr class="tax"><td>GST 18%</td><td>₹3,690</td></tr></tbody>
+            <tr class="tot"><td>Total</td><td>₹24,190</td></tr>
+          </table>
+          <div class="gb-inv-itc"><svg width="16" height="16"><use href="#i-check"/></svg><span>You claim back <b>₹3,690</b> as input tax credit</span></div>
+        </div>
+
+        <button type="button" class="btn gb-cta" id="gbCta">Create business account <svg class="arrow" width="18" height="18"><use href="#i-arrow"/></svg></button>
+        <p class="gb-have">Already registered? <a href="#gst" data-gst-flow>Add GSTIN to your account</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ E-WASTE · cute bin ============ -->
 <section class="ew3" id="ewaste">
   <div class="container">
@@ -1484,6 +1543,9 @@
 <!-- FixPapa Assistant (see assets/js/assistant/README.md) -->
 <script src="assets/js/cart.js?v=1.2"></script>
 <script src="assets/js/megamenu.js?v=1.0"></script>
+<script src="assets/js/auth.js?v=1.3"></script>
+<script src="assets/js/gst-board.js?v=1.3"></script>
+<script src="assets/js/gst.js?v=1.1"></script>
 <script src="assets/js/assistant/service.js?v=1.0"></script>
 <script src="assets/js/assistant/mock-service.js?v=1.1"></script>
 <script src="assets/js/assistant/conversation.js?v=1.0"></script>
