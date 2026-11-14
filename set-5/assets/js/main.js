@@ -138,6 +138,7 @@
       if (src) card.insertAdjacentHTML('afterbegin', `<img class="wc-brand-img" src="${src}" alt="${b} logo">`);
       nameEl.textContent = b; nameEl.setAttribute('style', src ? '' : (brandStyle[b] || ''));
       forEl.textContent = 'for ' + b; state.hidden = true; serial.value = '';
+      const centre = $('#wcCentre'); if (centre) centre.href = 'service-centers.html?brand=' + encodeURIComponent(b);
       if (window.gsap) gsap.fromTo('#wcBrand', { y: 16, opacity: 0, rotate: -4 }, { y: 0, opacity: 1, rotate: 0, duration: .5, ease: 'back.out(2)' });
     };
     list.addEventListener('click', (e) => { const btn = e.target.closest('button'); if (btn) select(btn); });

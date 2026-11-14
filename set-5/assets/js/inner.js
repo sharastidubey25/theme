@@ -108,6 +108,7 @@
     brands.forEach(b => b.addEventListener('click', () => {
       brands.forEach(x => x.setAttribute('aria-pressed', x === b));
       name.textContent = b.dataset.brand; out.hidden = true;
+      const centre = $('#dhCentre'); if (centre) centre.href = 'service-centers.html?brand=' + encodeURIComponent(b.dataset.brand);
     }));
     dh.addEventListener('submit', (e) => {
       e.preventDefault();

@@ -1,5 +1,6 @@
 /* FixPapa · Set 5 · Partner program (partner.html). Builds on style.css + inner.css. */
 .pt-hero h1{max-width:640px}
+.pt-hero .ip-hero-bg{object-position:right 30%}
 .pt-intro{padding:56px 0 8px}
 .pt-intro-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:end}
 .pt-intro-grid .h-lg{margin-top:12px}
