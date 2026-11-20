@@ -1,0 +1,1 @@
+ /home/sharasti/theme/customer-app/build/c30fcd9d0f7db862236e602b517331b4/dart_build_result.json:  /home/sharasti/flutter/bin/cache/dart-sdk/version /home/sharasti/theme/customer-app/.dart_tool/package_config.json /home/sharasti/theme/customer-app/pubspec.yaml

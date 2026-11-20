@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en" class="js" data-theme="light"><head>
+<base href="../../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login 11 · Create account · Validation errors</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="FixPapa offers reliable, on-demand electronics and gadget repair with certified technicians, genuine spare parts, transparent pricing, and a 6-month service warranty. Book online for doorstep service.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@FixPapaOfficial">
+<meta property="og:title" content="FixPapa - Trusted Electronics &amp; Gadget Repair at Your Doorstep">
+<meta property="og:description" content="FixPapa offers reliable, on-demand electronics and gadget repair with certified technicians, genuine spare parts, transparent pricing, and a 6-month service warranty. Book online for doorstep service.">
+<meta property="og:url" content="https://fixpapa.com">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fixpapa.com/img/main-logo.png">
+<meta property="og:image:alt" content="FixPapa">
+<meta property="og:site_name" content="FixPapa">
+<meta property="og:locale" content="en_US">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="https://d3utr1q3aqnvmz.cloudfront.net/public/favicon/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=15.6">
+<link rel="stylesheet" href="assets/css/refurb-shop.css?v=1.4">
+<link rel="stylesheet" href="assets/css/mobile.css?v=2.4">
+<link rel="stylesheet" href="assets/css/assistant.css?v=1.2">
+
+
+<link rel="stylesheet" href="assets/css/auth.css?v=1.1">
+<link rel="stylesheet" href="assets/css/gst-board.css?v=1.2">
+<link rel="stylesheet" href="assets/css/gst.css?v=1.0">
+<style>*,*::before,*::after{animation:none!important;transition:none!important}body{min-height:900px;height:900px;overflow:hidden;position:relative}.topbar{position:absolute}.fpa-root,.cart-toast,.vx-modal{display:none!important}</style></head>
+<body data-set="set-5" style="overflow: hidden;" class="fpa-on"><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="rf-laptop" viewBox="0 0 120 120"><defs><linearGradient id="rfgL" x1="0" x2="1"><stop offset="0" stop-color="#1E293B"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient><linearGradient id="rfgLs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A5F"></stop><stop offset="1" stop-color="#0F172A"></stop></linearGradient></defs><path d="M30 20h60a5 5 0 0 1 5 5v47H25V25a5 5 0 0 1 5-5z" fill="url(#rfgL)"></path><rect x="30" y="25" width="60" height="42" rx="2" fill="url(#rfgLs)"></rect><path d="M30 25h34L44 67H30z" fill="#fff" opacity=".07"></path><circle cx="60" cy="22.6" r="1.1" fill="#FDBA74"></circle><path d="M17 72h86l9 15a3 3 0 0 1-2.6 4.5H10.6A3 3 0 0 1 8 87z" fill="#334155"></path><path d="M25 75h70l4.5 7.5h-79z" fill="#475569"></path><rect x="51" y="85" width="18" height="3.4" rx="1.4" fill="#64748B"></rect><rect x="8" y="90" width="104" height="2" rx="1" fill="#1E293B"></rect></symbol>
+  <symbol id="rf-desktop" viewBox="0 0 120 120"><defs><linearGradient id="rfgD" x1="0" x2="1"><stop offset="0" stop-color="#1E293B"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient></defs><path d="M34 22l44-10 12 6v80l-44 10-12-6z" fill="url(#rfgD)"></path><path d="M34 22l12 6v80l-12-6z" fill="#334155"></path><path d="M46 28l44-10" stroke="#475569"></path><g fill="#475569"><circle cx="38" cy="40" r="1.4"></circle><circle cx="42" cy="42" r="1.4"></circle><circle cx="38" cy="46" r="1.4"></circle><circle cx="42" cy="48" r="1.4"></circle><circle cx="38" cy="52" r="1.4"></circle><circle cx="42" cy="54" r="1.4"></circle></g><rect x="37" y="74" width="6" height="3" fill="#EF4444" transform="skewY(26)"></rect><circle cx="40" cy="30" r="2" fill="#FDBA74"></circle></symbol>
+  <symbol id="rf-printer" viewBox="0 0 120 120"><defs><linearGradient id="rfgP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#334155"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient></defs><path d="M32 48l8-30h40l8 30z" fill="#1E293B"></path><path d="M41 46l5-24h28l5 24z" fill="#F8FAFC"></path><path d="M48 30h24M47 35h26M46 40h28" stroke="#CBD5E1" stroke-width="1.4"></path><rect x="14" y="46" width="92" height="40" rx="9" fill="url(#rfgP)"></rect><rect x="14" y="46" width="92" height="6" rx="3" fill="#475569"></rect><rect x="72" y="56" width="16" height="5" rx="1.5" fill="#64748B"></rect><circle cx="95" cy="58.5" r="2.6" fill="#22C55E"></circle><rect x="28" y="72" width="64" height="5" rx="2.5" fill="#05080F"></rect><path d="M33 75h54l5 22H28z" fill="#F8FAFC"></path><path d="M38 82h44M37 87h46M36 92h30" stroke="#CBD5E1" stroke-width="1.4"></path><rect x="14" y="64" width="4" height="12" rx="2" fill="#FF8A1F"></rect></symbol>
+  <symbol id="rf-cctv" viewBox="0 0 120 120"><defs><linearGradient id="rfgC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8FAFC"></stop><stop offset="1" stop-color="#CBD5E1"></stop></linearGradient></defs><rect x="88" y="18" width="18" height="30" rx="4" fill="#334155"></rect><circle cx="97" cy="24" r="1.4" fill="#64748B"></circle><circle cx="97" cy="42" r="1.4" fill="#64748B"></circle><path d="M96 40L74 62" stroke="#475569" stroke-width="7" stroke-linecap="round"></path><g transform="rotate(20 56 66)"><rect x="16" y="50" width="78" height="32" rx="13" fill="url(#rfgC)"></rect><rect x="12" y="44" width="80" height="11" rx="5.5" fill="#E2E8F0"></rect><rect x="12" y="44" width="80" height="3" rx="1.5" fill="#fff"></rect><circle cx="24" cy="66" r="13" fill="#0B1220"></circle><circle cx="24" cy="66" r="13" fill="none" stroke="#FF8A1F" stroke-width="2"></circle><circle cx="24" cy="66" r="6.5" fill="#1E3A5F"></circle><circle cx="21.5" cy="63.5" r="2" fill="#93C5FD"></circle><circle cx="84" cy="72" r="1.8" fill="#EF4444"></circle></g></symbol>
+  <symbol id="rf-dvr" viewBox="0 0 120 120"><defs><linearGradient id="rfgR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#334155"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient></defs><path d="M14 52l14-12h64l14 12z" fill="#475569"></path><rect x="14" y="52" width="92" height="30" rx="4" fill="url(#rfgR)"></rect><g fill="#22C55E"><circle cx="24" cy="67" r="1.8"></circle><circle cx="31" cy="67" r="1.8"></circle></g><circle cx="38" cy="67" r="1.8" fill="#F59E0B"></circle><rect x="54" y="63" width="36" height="8" rx="2" fill="#05080F"></rect><rect x="56" y="65" width="14" height="4" rx="1" fill="#FF8A1F"></rect><rect x="20" y="82" width="8" height="4" rx="1" fill="#1E293B"></rect><rect x="92" y="82" width="8" height="4" rx="1" fill="#1E293B"></rect></symbol>
+  <symbol id="rf-acc" viewBox="0 0 120 120"><defs><linearGradient id="rfgK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E293B"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient></defs><rect x="10" y="56" width="76" height="34" rx="6" fill="url(#rfgK)"></rect><g fill="#334155"><rect x="15" y="62" width="5" height="4.2" rx="1"></rect><rect x="21.6" y="62" width="5" height="4.2" rx="1"></rect><rect x="28.2" y="62" width="5" height="4.2" rx="1"></rect><rect x="34.8" y="62" width="5" height="4.2" rx="1"></rect><rect x="41.4" y="62" width="5" height="4.2" rx="1"></rect><rect x="48" y="62" width="5" height="4.2" rx="1"></rect><rect x="54.599999999999994" y="62" width="5" height="4.2" rx="1"></rect><rect x="61.199999999999996" y="62" width="5" height="4.2" rx="1"></rect><rect x="67.8" y="62" width="5" height="4.2" rx="1"></rect><rect x="74.4" y="62" width="5" height="4.2" rx="1"></rect><rect x="15" y="68" width="5" height="4.2" rx="1"></rect><rect x="21.6" y="68" width="5" height="4.2" rx="1"></rect><rect x="28.2" y="68" width="5" height="4.2" rx="1"></rect><rect x="34.8" y="68" width="5" height="4.2" rx="1"></rect><rect x="41.4" y="68" width="5" height="4.2" rx="1"></rect><rect x="48" y="68" width="5" height="4.2" rx="1"></rect><rect x="54.599999999999994" y="68" width="5" height="4.2" rx="1"></rect><rect x="61.199999999999996" y="68" width="5" height="4.2" rx="1"></rect><rect x="67.8" y="68" width="5" height="4.2" rx="1"></rect><rect x="74.4" y="68" width="5" height="4.2" rx="1"></rect><rect x="15" y="74" width="5" height="4.2" rx="1"></rect><rect x="21.6" y="74" width="5" height="4.2" rx="1"></rect><rect x="28.2" y="74" width="5" height="4.2" rx="1"></rect><rect x="34.8" y="74" width="5" height="4.2" rx="1"></rect><rect x="41.4" y="74" width="5" height="4.2" rx="1"></rect><rect x="48" y="74" width="5" height="4.2" rx="1"></rect><rect x="54.599999999999994" y="74" width="5" height="4.2" rx="1"></rect><rect x="61.199999999999996" y="74" width="5" height="4.2" rx="1"></rect><rect x="67.8" y="74" width="5" height="4.2" rx="1"></rect><rect x="74.4" y="74" width="5" height="4.2" rx="1"></rect><rect x="15" y="80" width="5" height="4.2" rx="1"></rect><rect x="21.6" y="80" width="5" height="4.2" rx="1"></rect><rect x="28.2" y="80" width="5" height="4.2" rx="1"></rect><rect x="34.8" y="80" width="5" height="4.2" rx="1"></rect><rect x="41.4" y="80" width="5" height="4.2" rx="1"></rect><rect x="48" y="80" width="5" height="4.2" rx="1"></rect><rect x="54.599999999999994" y="80" width="5" height="4.2" rx="1"></rect><rect x="61.199999999999996" y="80" width="5" height="4.2" rx="1"></rect><rect x="67.8" y="80" width="5" height="4.2" rx="1"></rect><rect x="74.4" y="80" width="5" height="4.2" rx="1"></rect></g><rect x="28" y="85" width="40" height="3" rx="1.5" fill="#475569"></rect><rect x="92" y="54" width="20" height="34" rx="10" fill="#0F172A"></rect><path d="M102 54v13M92 67h20" stroke="#334155" stroke-width="1.4"></path><rect x="100.6" y="58" width="2.8" height="6" rx="1.4" fill="#FF8A1F"></rect><path d="M102 54c0-10 6-14 10-22" stroke="#334155" stroke-width="2" fill="none"></path></symbol>
+  <symbol id="rf-monitor" viewBox="0 0 120 120"><defs><linearGradient id="rfgM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A5F"></stop><stop offset="1" stop-color="#0F172A"></stop></linearGradient></defs><rect x="10" y="16" width="100" height="64" rx="5" fill="#0B1220"></rect><rect x="14" y="20" width="92" height="54" rx="2" fill="url(#rfgM)"></rect><path d="M14 20h46L36 74H14z" fill="#fff" opacity=".07"></path><path d="M52 80h16l4 16H48z" fill="#334155"></path><rect x="34" y="95" width="52" height="6" rx="3" fill="#475569"></rect><circle cx="60" cy="77" r="1.2" fill="#FDBA74"></circle></symbol>
+  <symbol id="rf-ssd" viewBox="0 0 120 120"><defs><linearGradient id="rfgS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#334155"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient></defs><rect x="22" y="24" width="76" height="70" rx="7" fill="url(#rfgS)"></rect><rect x="30" y="34" width="60" height="34" rx="4" fill="#FF8A1F"></rect><rect x="36" y="42" width="30" height="4" rx="2" fill="#fff" opacity=".9"></rect><rect x="36" y="50" width="20" height="3" rx="1.5" fill="#fff" opacity=".6"></rect><path d="M40 94h40v5H40z" fill="#94A3B8"></path><g fill="#0B1220"><rect x="44" y="94" width="2" height="5"></rect><rect x="50" y="94" width="2" height="5"></rect><rect x="56" y="94" width="2" height="5"></rect><rect x="62" y="94" width="2" height="5"></rect><rect x="68" y="94" width="2" height="5"></rect><rect x="74" y="94" width="2" height="5"></rect></g></symbol></svg><svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    
+    <symbol id="fpTech" viewBox="0 0 80 200" overflow="visible">
+      <ellipse cx="40" cy="195" rx="27" ry="5" fill="#0B1220" opacity=".14"></ellipse>
+      <path d="M25 116h14l-1 72H26z" fill="#1E293B"></path><path d="M41 116h14l-1 72H42z" fill="#0F172A"></path>
+      <path d="M24 186h15v7H20q0-7 4-7z" fill="#0B1220"></path><path d="M41 186h15q4 0 4 7H41z" fill="#0B1220"></path>
+      <path d="M21 60 10 67 8 88l12 2z" fill="#FF6A00"></path><rect x="8" y="85" width="10" height="33" rx="5" fill="#C68A5B"></rect><circle cx="13" cy="119" r="5.5" fill="#C68A5B"></circle>
+      <path d="M59 60l11 7 2 21-12 2z" fill="#FF6A00"></path><rect x="62" y="85" width="10" height="33" rx="5" fill="#C68A5B"></rect><circle cx="67" cy="119" r="5.5" fill="#C68A5B"></circle>
+      <path d="M22 58q18-6 36 0l4 6-2 56H20l-2-56z" fill="#FF8A1F"></path>
+      <path d="M58 58l4 6-2 56h-9z" fill="#FF6A00" opacity=".55"></path>
+      <rect x="35" y="45" width="10" height="13" rx="3" fill="#A86F45"></rect>
+      <path d="M31 57l9 11 9-11" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"></path>
+      <rect x="23" y="72" width="8" height="11" rx="1.5" fill="#fff"></rect><rect x="24.5" y="74" width="5" height="2" fill="#FF8A1F"></rect>
+      <text x="41" y="98" text-anchor="middle" font-family="Manrope,Inter,sans-serif" font-weight="800" font-size="9.5" fill="#fff">FixPapa</text>
+      <rect x="20" y="113" width="40" height="6" rx="2" fill="#0B1220"></rect><rect x="37" y="113" width="6" height="6" rx="1" fill="#94A3B8"></rect>
+      <circle cx="28" cy="37" r="3.2" fill="#A86F45"></circle><circle cx="52" cy="37" r="3.2" fill="#A86F45"></circle>
+      <ellipse cx="40" cy="36" rx="12" ry="14" fill="#C68A5B"></ellipse>
+      <path d="M28 31q0-10 12-10t12 10z" fill="#1F1410"></path><path d="M27 29q0-16 13-16t13 16z" fill="#FF8A1F"></path><ellipse cx="40" cy="29" rx="17" ry="3.6" fill="#FF6A00"></ellipse><circle cx="40" cy="20" r="3.2" fill="#fff"></circle><circle cx="40" cy="13.5" r="1.6" fill="#FF6A00"></circle>
+      <circle cx="35.5" cy="37" r="1.5" fill="#1F1410"></circle><circle cx="44.5" cy="37" r="1.5" fill="#1F1410"></circle>
+      <path d="M36 43q4 3.2 8 0" fill="none" stroke="#5B3A24" stroke-width="1.6" stroke-linecap="round"></path>
+    </symbol>
+    
+    <symbol id="fpCust" viewBox="0 0 80 200" overflow="visible">
+      <ellipse cx="40" cy="195" rx="27" ry="5" fill="#0B1220" opacity=".14"></ellipse>
+      <path d="M25 116h14l-1 72H26z" fill="#334155"></path><path d="M41 116h14l-1 72H42z" fill="#1E293B"></path>
+      <path d="M24 186h15v7H20q0-7 4-7z" fill="#0B1220"></path><path d="M41 186h15q4 0 4 7H41z" fill="#0B1220"></path>
+      <path d="M21 60 10 67 8 88l12 2z" fill="#0F9488"></path><rect x="8" y="85" width="10" height="33" rx="5" fill="#C68A5B"></rect><circle cx="13" cy="119" r="5.5" fill="#C68A5B"></circle>
+      <path d="M59 60l11 7 2 21-12 2z" fill="#0F9488"></path><rect x="62" y="85" width="10" height="33" rx="5" fill="#C68A5B"></rect><circle cx="67" cy="119" r="5.5" fill="#C68A5B"></circle>
+      <path d="M22 58q18-6 36 0l4 6-2 56H20l-2-56z" fill="#14B8A6"></path>
+      <path d="M58 58l4 6-2 56h-9z" fill="#0F9488" opacity=".55"></path>
+      <rect x="35" y="45" width="10" height="13" rx="3" fill="#A86F45"></rect>
+      <path d="M31 57l9 11 9-11" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"></path>
+      
+      <rect x="20" y="113" width="40" height="6" rx="2" fill="#0B1220"></rect><rect x="37" y="113" width="6" height="6" rx="1" fill="#94A3B8"></rect>
+      <circle cx="28" cy="37" r="3.2" fill="#A86F45"></circle><circle cx="52" cy="37" r="3.2" fill="#A86F45"></circle>
+      <ellipse cx="40" cy="36" rx="12" ry="14" fill="#C68A5B"></ellipse>
+      <path d="M27 34q-1-17 13-17t13 17q-4-8-13-8t-13 8z" fill="#1F1410"></path>
+      <circle cx="35.5" cy="37" r="1.5" fill="#1F1410"></circle><circle cx="44.5" cy="37" r="1.5" fill="#1F1410"></circle>
+      <path d="M36 43q4 3.2 8 0" fill="none" stroke="#5B3A24" stroke-width="1.6" stroke-linecap="round"></path>
+    </symbol>
+  </svg>
+<!-- FixPapa homepage · Set 5 · Mix & Match (Set 1 + Set 2 + Set 3) -->
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-2 11H5z"></path><path d="M8 9l4-6 4 6M9 13v4M15 13v4"></path></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"></path></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"></rect><rect x="9.5" y="9.5" width="5" height="5" rx="1"></rect><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"></path></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"></path></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="1.5"></rect><path d="M2 19h20"></path></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c-1-1.5-3.5-2-5-.5C4.5 8.5 5 13 7 16.5c1 1.8 2.3 3 3.5 2.5.8-.3 1.2-.5 1.5-.5s.7.2 1.5.5c1.2.5 2.5-.7 3.5-2.5.6-1 1-2 1.2-3-1.6-.6-2.4-2-2.2-3.6.1-1 .7-1.9 1.5-2.4-1.5-1.6-3.6-1.5-5-.5z"></path><path d="M12 7c0-2 1.2-3.5 3-4"></path></symbol>
+    <symbol id="i-finger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18c1-2 1.5-4 1.5-6a3.5 3.5 0 0 1 7 0c0 3-.5 5.5-1.5 8"></path><path d="M12 12c0 3-.6 6-2 8.5M4.5 15c.5-1 .5-2 .5-3a7 7 0 0 1 12.5-4.3M19 11.5c.2 2.5 0 5-.8 7"></path></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9.5" y="3" width="5" height="4" rx="1"></rect><rect x="3" y="17" width="5" height="4" rx="1"></rect><rect x="9.5" y="17" width="5" height="4" rx="1"></rect><rect x="16" y="17" width="5" height="4" rx="1"></rect><path d="M12 7v10M5.5 17v-3h13v3"></path></symbol>
+    <symbol id="i-scanner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"></path><path d="M5 13l14-7M7 16h4M16.5 16h.5"></path></symbol>
+    <symbol id="i-tablet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2"></rect><path d="M11 18.5h2"></path></symbol>
+    <symbol id="i-ups" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V4.5M16 7V4.5M7 13.5h3M14 13.5h3M15.5 12v3"></path></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"></path><circle cx="12" cy="19.5" r=".8" fill="currentColor"></circle></symbol>
+    <symbol id="i-desktop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="15" height="11" rx="1.5"></rect><path d="M7 20h5M9.5 15v5"></path><rect x="19" y="4" width="3" height="16" rx="1"></rect></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="7" rx="1.5"></rect><rect x="4" y="14" width="16" height="7" rx="1.5"></rect><path d="M8 6.5h.01M8 17.5h.01M12 6.5h4M12 17.5h4"></path></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5z"></path><path d="M3 8v8l9 5 9-5V8M12 13v8"></path></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18z"></path></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect><path d="M19 20c0 1-2 2-5 2"></path></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.6 2.9 1.1-6.3L2.9 9.5l6.3-.9z"></path></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-9.2-9.3C1.7 7.5 3.8 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 3.2 0 5.3 3 4.2 6.2C19.5 15.4 12 20 12 20z"></path></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"></path><circle cx="7.5" cy="8.5" r="1.5"></circle></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"></path></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></symbol>
+    <symbol id="i-recycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-.9 1.8 1.8 0 0 1 0-1.8L7.2 9.5M11 19h8.2a1.8 1.8 0 0 0 1.6-.9 1.8 1.8 0 0 0 0-1.8l-1.2-2.1M14 16l-3 3 3 3M8.3 13.6 7.2 9.5l-4.1 1.1M9.3 5.8l1.1-1.9A1.8 1.8 0 0 1 12 3a1.8 1.8 0 0 1 1.5.9l3.9 6.8M13.4 9.6l4.1 1.1 1.1-4.1"></path></symbol>
+    <symbol id="i-recycle-solid" viewBox="6 8 88 88"><path d="M67.5 48.2L76.8 64.4Q81.2 72.0 72.4 72.0L62.5 72.0M46.3 72.0L27.6 72.0Q18.8 72.0 23.2 64.4L28.2 55.8M36.3 41.8L45.6 25.6Q50.0 18.0 54.4 25.6L59.4 34.2" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M53.1 72.0L64.3 62.5L64.3 81.5ZM32.9 47.7L35.5 62.2L19.0 52.7ZM64.0 42.3L50.2 37.3L66.6 27.8Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7"></path><path d="M9.8 9l1.5 1.5 3-3"></path></symbol>
+    <symbol id="i-cctv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 7l14 5-2 4L2 11z"></path><path d="M17 12l3 1M8 13.5V17H3M3 15v4"></path></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 8V3h10v5"></path><rect x="3" y="8" width="18" height="9" rx="2"></rect><path d="M7 14h10v7H7z"></path></symbol>
+    <symbol id="i-projector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="8" width="20" height="9" rx="2"></rect><circle cx="16" cy="12.5" r="2.5"></circle><path d="M5 17v2M19 17v2M6 11h4"></path></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></symbol>
+    <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></symbol>
+    <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"></path></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"></path><path d="M10 21h4"></path></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V9c0-.6.4-1 1-1z"></path></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"></path></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"></circle></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.5 12 5.5 12 5.5s-6 0-7.9.6A3 3 0 0 0 2 8.2 31 31 0 0 0 1.5 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.6 7.9.6 7.9.6s6 0 7.9-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-3.8 31 31 0 0 0-.5-3.8zM10 15V9l5.2 3z"></path></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v12H3zM9 9h2.9v1.7c.5-.9 1.7-2 3.6-2 3.4 0 4 2.2 4 5.1V21h-3v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9z"></path></symbol>
+    <symbol id="i-gplay" viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 2.3L13.8 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"></path><path fill="#FBBC04" d="M17.1 15.3L13.8 12l3.3-3.3 3.8 2.2c.9.5.9 1.8 0 2.3z"></path><path fill="#4285F4" d="M13.8 12L3.6 21.7c.3.2.8.2 1.2 0l12.3-6.4z"></path><path fill="#EA4335" d="M13.8 12L3.6 2.3c.3-.2.8-.2 1.2 0l12.3 6.4z"></path></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.3-.1 1.7-.8 3.3-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.3 3-2.5.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.7-1-2.8-4.2zM13.9 5c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"></path></symbol>
+    <!-- product art -->
+    <symbol id="p-mini" viewBox="0 0 120 120"><defs><linearGradient id="gm" x1="0" x2="1"><stop offset="0" stop-color="#1E293B"></stop><stop offset="1" stop-color="#0B1220"></stop></linearGradient></defs><path d="M34 22l44-10 12 6v80l-44 10-12-6z" fill="url(#gm)"></path><path d="M34 22l12 6v80l-12-6z" fill="#334155"></path><path d="M46 28l44-10" stroke="#475569"></path><g fill="#475569"><circle cx="38" cy="40" r="1.4"></circle><circle cx="42" cy="42" r="1.4"></circle><circle cx="38" cy="46" r="1.4"></circle><circle cx="42" cy="48" r="1.4"></circle><circle cx="38" cy="52" r="1.4"></circle><circle cx="42" cy="54" r="1.4"></circle><circle cx="38" cy="58" r="1.4"></circle><circle cx="42" cy="60" r="1.4"></circle></g><rect x="37" y="74" width="6" height="3" fill="#EF4444" transform="skewY(26)"></rect><circle cx="40" cy="30" r="2" fill="#FDBA74"></circle></symbol>
+    <symbol id="p-ups" viewBox="0 0 120 120"><defs><linearGradient id="gu" x1="0" x2="1"><stop offset="0" stop-color="#27272A"></stop><stop offset="1" stop-color="#09090B"></stop></linearGradient></defs><path d="M28 30l40-12 26 8v70l-40 12-26-8z" fill="url(#gu)"></path><path d="M28 30l26 8v70l-26-8z" fill="#3F3F46"></path><path d="M54 38l40-12" stroke="#52525B"></path><circle cx="46" cy="44" r="4" fill="none" stroke="#A1A1AA" stroke-width="1.4"></circle><g fill="#22C55E"><circle cx="34" cy="38" r="1.3"></circle></g><circle cx="38" cy="40" r="1.3" fill="#F59E0B"></circle><rect x="34" y="84" width="14" height="4" rx="1" fill="#DC2626" transform="skewY(18)"></rect></symbol>
+    <symbol id="p-batt" viewBox="0 0 120 120"><path d="M18 44l58-12 26 10v44l-58 12-26-10z" fill="#E5E7EB"></path><path d="M18 44l26 10v44l-26-10z" fill="#CBD5E1"></path><path d="M44 54l58-12" stroke="#94A3B8"></path><path d="M44 62l58-12v12l-58 12z" fill="#DC2626"></path><rect x="58" y="30" width="8" height="5" fill="#EF4444"></rect><rect x="82" y="26" width="8" height="5" fill="#1F2937"></rect></symbol>
+    <!-- FixPapa Pulse section -->
+    <symbol id="i-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 3-7 2 2h5"></path></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"></circle><path d="M15.5 15.5L21 21M6.5 10.5h1.5l1.2-2.5 2 5 1.3-2.5h1.5"></path></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h16"></path><rect x="5.5" y="12" width="3" height="5" rx="1"></rect><rect x="10.5" y="8" width="3" height="9" rx="1"></rect><rect x="15.5" y="4" width="3" height="13" rx="1"></rect></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"></path></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.6l7.4-1v7H3zM11.4 4.4L21 3v8.6h-9.6zM3 12.4h7.4v7L3 18.4zM11.4 12.4H21V21l-9.6-1.4z"></path></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M2 21h20M8 8h3M8 12h3M8 16h3"></path></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15zM5 19l7-7"></path></symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="topbar" id="topbar">
+  <div class="container">
+    <div class="nav-shell">
+      <div class="nav-top">
+        <a href="#" class="logo" aria-label="FixPapa home">
+          <!-- logo image split in two: the "i" is its own piece so the screw can screw it into the floor (mini footer stage) -->
+          <svg class="hl-svg" id="hdrLogo" viewBox="0 0 168 32" width="168" height="32" role="img" aria-label="FixPapa">
+            <defs>
+              <clipPath id="hlNoI"><path d="M0 0H31.5V32H0Z M38.5 0H168V32H38.5Z"></path></clipPath>
+              <clipPath id="hlOnlyI"><rect x="31.5" y="0" width="7" height="32"></rect></clipPath>
+              <linearGradient id="hlMetal" x1="0" x2="1"><stop offset="0" stop-color="#6B7280"></stop><stop offset=".45" stop-color="#E5E7EB"></stop><stop offset="1" stop-color="#4B5563"></stop></linearGradient>
+              <linearGradient id="hlHead" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDBA74"></stop><stop offset=".5" stop-color="#FF8A1F"></stop><stop offset="1" stop-color="#E85D04"></stop></linearGradient>
+              <radialGradient id="hlGlowG"><stop offset="0" stop-color="#FFEDD5" stop-opacity=".95"></stop><stop offset=".35" stop-color="#FFA24D" stop-opacity=".55"></stop><stop offset="1" stop-color="#FF8A1F" stop-opacity="0"></stop></radialGradient>
+              <clipPath id="hlShaft"><rect x="-9" y="-100" width="18" height="86"></rect></clipPath>
+            </defs>
+            <image href="assets/img/logo.png" width="168" height="32" clip-path="url(#hlNoI)"></image>
+            <g id="hlI" data-svg-origin="34.5 27"><image href="assets/img/logo.png" width="168" height="32" clip-path="url(#hlOnlyI)"></image></g>
+            <ellipse id="hlPool" cx="34.5" cy="27" rx="16" ry="2.4" fill="#FFA24D" opacity="0" style=""></ellipse>
+            <g id="hlScrew" opacity="1" data-svg-origin="0 0.7800006866455078" transform="translate(34.5 2)">
+              <g transform="scale(.13)">
+                <g id="hlBody" data-svg-origin="0 0">
+                  <path d="M-9 -14 L0 2 L9 -14 Z" fill="#6B7280"></path>
+                  <rect x="-9" y="-100" width="18" height="86" fill="url(#hlMetal)"></rect>
+                  <g clip-path="url(#hlShaft)" stroke="#4B5563" stroke-width="3" fill="none"><g id="hlThreadsIn" data-svg-origin="-12 -107"><path d="M-12 -107 L12 -102"></path><path d="M-12 -98 L12 -93"></path><path d="M-12 -89 L12 -84"></path><path d="M-12 -80 L12 -75"></path><path d="M-12 -71 L12 -66"></path><path d="M-12 -62 L12 -57"></path><path d="M-12 -53 L12 -48"></path><path d="M-12 -44 L12 -39"></path><path d="M-12 -35 L12 -30"></path><path d="M-12 -26 L12 -21"></path><path d="M-12 -17 L12 -12"></path><path d="M-12 -8 L12 -3"></path><path d="M-12 1 L12 6"></path></g></g>
+                  <g id="hlHeadG" data-svg-origin="0 -100">
+                    <circle id="hlGlow" cx="0" cy="-113" r="70" fill="url(#hlGlowG)" opacity="0" style=""></circle>
+                    <rect x="-34" y="-127" width="68" height="28" rx="14" fill="url(#hlHead)"></rect>
+                    <path d="M-11 -113 h22 M0 -122 v18" stroke="#7C2D12" stroke-width="5" stroke-linecap="round"></path>
+                    <path id="hlSlotGlow" d="M-11 -113 h22 M0 -122 v18" stroke="#FFF7ED" stroke-width="5" stroke-linecap="round" opacity="0" style=""></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </a>
+        <form class="search" role="search" onsubmit="return false">
+          <svg width="18" height="18" style="color:var(--ink-3)"><use href="#i-search"></use></svg>
+          <input type="search" placeholder="Search products..." aria-label="Search products" value="">
+          <button type="submit" aria-label="Search"><svg width="16" height="16"><use href="#i-search"></use></svg></button>
+        </form>
+        <div class="nav-actions">
+          
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="tt-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg>
+            <svg class="tt-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"></path></svg>
+          </button>
+          <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart" style="position: relative;"><svg width="22" height="22"><use href="#i-cart"></use></svg><span class="cart-badge">6</span></a>
+          <a href="account.html" class="icon-btn hide-sm" aria-label="My account"><svg width="22" height="22"><use href="#i-user"></use></svg></a>
+          <a href="partner.html" class="btn btn--sm" data-ripple="">Become a Partner</a>
+          
+        </div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#" class="active" aria-current="page">Home</a>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-services">Services<svg width="14" height="14"><use href="#i-chev-d"></use></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-shop">Shop<svg width="14" height="14"><use href="#i-chev-d"></use></svg></button>
+        <button class="nav-dd" type="button" aria-expanded="false" aria-controls="mm-business">For Business<svg width="14" height="14"><use href="#i-chev-d"></use></svg></button>
+        <a href="repair.html">Book A Repair</a>
+        <a href="brands.html">Brands</a>
+      </nav>
+    </div>
+    <div class="mm" id="mm-services" aria-label="Services">
+      <div class="mm-in">
+        <div class="mm-head"><span>Services</span><small>Everything we fix, check and look after</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Services categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-services-0-t" aria-controls="mm-services-0" aria-selected="true" tabindex="0">Repairs &amp; Pickup</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-1-t" aria-controls="mm-services-1" aria-selected="false" tabindex="-1">Technical Support</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-2-t" aria-controls="mm-services-2" aria-selected="false" tabindex="-1">Device Care</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-services-3-t" aria-controls="mm-services-3" aria-selected="false" tabindex="-1">Sustainability</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-services-0" role="tabpanel" aria-labelledby="mm-services-0-t"><a class="mm-card" href="repair.html"><b>Book a Repair</b><span>Laptops, desktops, printers and more, fixed with up to 3 years warranty.</span></a><a class="mm-card" href="repair.html"><b>Doorstep Pickup &amp; Drop</b><span>We collect the device from your home or office and bring it back fixed.</span></a><a class="mm-card" href="#warranty"><b>Check Your Warranty</b><span>Enter your serial number to see your device’s warranty status.</span></a><a class="mm-card" href="service-centers.html"><b>Find Service Centers</b><span>Brand service centres across India for 100+ brands.</span></a></div>
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-shop" aria-label="Shop">
+      <div class="mm-in">
+        <div class="mm-head"><span>Shop</span><small>Refurbished, open box, new and on rent</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="Shop categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-shop-0-t" aria-controls="mm-shop-0" aria-selected="true" tabindex="0">Refurbished</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-1-t" aria-controls="mm-shop-1" aria-selected="false" tabindex="-1">Open Box Deals</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-2-t" aria-controls="mm-shop-2" aria-selected="false" tabindex="-1">Rental</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-shop-3-t" aria-controls="mm-shop-3" aria-selected="false" tabindex="-1">New Products</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-shop-0" role="tabpanel" aria-labelledby="mm-shop-0-t"><a class="mm-card" href="refurbished.html"><b>All Refurbished</b><span>Certified devices up to 86% off, with up to 3 years warranty.</span></a><a class="mm-card" href="refurbished-category.html?cat=laptops"><b>Laptops</b><span>ThinkPads, Latitudes and EliteBooks built for 9-to-5 and beyond.</span></a><a class="mm-card" href="refurbished-category.html?cat=desktops"><b>Desktops</b><span>Tiny business PCs that fit behind a monitor and run all day.</span></a><a class="mm-card" href="refurbished-category.html?cat=printers"><b>Printers</b><span>Laser and ink-tank printers, serviced with fresh rollers.</span></a><a class="mm-card" href="refurbished-category.html?cat=cctv"><b>CCTV</b><span>Cameras, DVRs and ready kits to secure a home, shop or office.</span></a><a class="mm-card" href="refurbished-category.html?cat=accessories"><b>Accessories</b><span>Monitors, keyboards, docks, RAM and SSDs to complete the setup.</span></a></div>
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mm" id="mm-business" aria-label="For Business">
+      <div class="mm-in">
+        <div class="mm-head"><span>For Business</span><small>IT for offices, shops and schools</small></div>
+        <div class="mm-body">
+          <div class="mm-cats" role="tablist" aria-orientation="vertical" aria-label="For Business categories">
+            <button class="mm-cat on" type="button" role="tab" id="mm-business-0-t" aria-controls="mm-business-0" aria-selected="true" tabindex="0">IT Management</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-1-t" aria-controls="mm-business-1" aria-selected="false" tabindex="-1">Equipment</button>
+            <button class="mm-cat" type="button" role="tab" id="mm-business-2-t" aria-controls="mm-business-2" aria-selected="false" tabindex="-1">Partnership</button>
+          </div>
+          <div class="mm-panes">
+            <div class="mm-pane on" id="mm-business-0" role="tabpanel" aria-labelledby="mm-business-0-t"><a class="mm-card" href="#amc"><b>AMC &amp; Inventory</b><span>Maintenance and stock under one plan, with monthly visits.</span></a><a class="mm-card" href="#amc"><b>IT Services</b><span>PCs, CCTV, UPS and networks managed for your office.</span></a><a class="mm-card" href="pulse.html"><b>Fleet Monitoring</b><span>FixPapa Pulse watches every device and flags problems early.</span></a></div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="mm-scrim" id="mmScrim" style="position: absolute !important;"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile" style="position: absolute !important;">
+  <a href="#" style="transition-delay: 0ms;">Home</a>
+  <details class="mn-group" style="transition-delay: 40ms;"><summary>Services<svg width="22" height="22"><use href="#i-chev-d"></use></svg></summary></details>
+  <details class="mn-group" style="transition-delay: 80ms;"><summary>Shop<svg width="22" height="22"><use href="#i-chev-d"></use></svg></summary></details>
+  <details class="mn-group" style="transition-delay: 120ms;"><summary>For Business<svg width="22" height="22"><use href="#i-chev-d"></use></svg></summary></details>
+  <a href="repair.html" style="transition-delay: 160ms;">Book A Repair</a><a href="brands.html" style="transition-delay: 200ms;">Brands</a><a href="account.html" style="transition-delay: 240ms;">My Account</a>
+  <a href="partner.html" style="color: var(--accent); transition-delay: 280ms;">Become a Partner</a>
+</nav>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-pin" id="heroPin">
+    <div class="hero-dark-veil" id="heroVeil"></div>
+    
+    
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <!-- All services at once — hovering a tile plays its scene on the laptop -->
+        <nav class="hsv svc-panel" id="heroSlides" aria-label="FixPapa services" style="--d: 5000ms;">
+          <div class="hsv-head"><b>What do you need help with?</b></div>
+          <div class="hsv-grid">
+            <a class="hsv-tile" href="repair.html" data-card="FixPapa · Live|Book a Repair,~we handle the rest.|Warranty:Up to 3 yrs|Support:24/7|Brands:100+" data-scene="0" data-holo="Diagnostics|Device Health|Scanning…" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-repair.jpg" alt="" data-fw="219"></span></span><b>Book a Repair</b></a>
+            <a class="hsv-tile" href="refurbished.html" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-desktop.jpg" alt="" data-fw="219"></span></span><b>Refurbished</b></a>
+            <a class="hsv-tile on run" href="pulse.html" data-card="FixPapa Pulse|Monitor, predict,~prevent.|Device health:Real-time|Works on:Win · Mac|Downtime:Reduced" data-scene="1" data-holo="FixPapa Pulse|Device Health|85% Healthy" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-board.jpg" alt="" data-fw="219"></span></span><b>Device Health</b></a>
+            <a class="hsv-tile" href="#amc" data-card="AMC · Plan|Maintenance &amp; stock,~under one plan.|Visits:Monthly|Covers:PCs · CCTV · UPS|Pricing:Special discounts" data-scene="2" data-holo="AMC · Live|Inventory|342 in stock" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-amc.jpg" alt="" data-fw="219"></span></span><b>AMC &amp; Inventory</b></a>
+            <a class="hsv-tile eco" href="sell-ewaste.html" data-card="E-Waste · Recycle|Sell old gadgets,~get paid.|Pickup:Free, doorstep|Up to:₹4,000 / laptop|Data:100% wiped" data-scene="4" data-holo="Sustainability|E-Waste|Sell &amp; Benefit" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-ewaste.jpg" alt="" data-fw="219"></span></span><b>E-Waste Recycling</b></a>
+            <a class="hsv-tile" href="#support" data-card="Remote help · Live|Talk to an expert,~fixed on a call.|Starting at:₹5/min|Home visit:Not needed|Available:24/7" data-scene="3" data-holo="Remote help|Live session|Connected" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-support.png" alt="" data-fw="219"></span></span><b>Technical Support</b></a>
+            <a class="hsv-tile" href="#warranty" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-tech.jpg" alt="" data-fw="219"></span></span><b>Check Your Warranty</b></a>
+            <a class="hsv-tile" href="#amc" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-team.jpg" alt="" data-fw="219"></span></span><b>IT Services</b></a>
+            <a class="hsv-tile" href="#trouble" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-pickup.jpg" alt="" data-fw="219"></span></span><b>Find Service Centers</b></a>
+            <a class="hsv-tile" href="rental.html" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-projector.jpg" alt="" data-fw="219"></span></span><b>Rental</b></a>
+            <a class="hsv-tile" href="open-box-deal.html" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-laptops.jpg" alt="" data-fw="219"></span></span><b>Open Box Deals</b></a>
+            <a class="hsv-tile" href="#deals" style=""><span class="svc-img"><span class="svc-ph"><img src="assets/img/photo-printer.jpg" alt="" data-fw="219"></span></span><b>New Product</b></a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Animated computer stage -->
+      <div class="hero-stage" id="heroStage" aria-hidden="true" style="--holo-s: 0.860; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+
+        <svg class="hero-svg" viewBox="0 0 600 600" id="heroSvg">
+          <defs>
+            <linearGradient id="gCase" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E2E8F0"></stop><stop offset="1" stop-color="#94A3B8"></stop></linearGradient>
+            <linearGradient id="gDeck" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFAF5"></stop><stop offset="1" stop-color="#CBD5E1"></stop></linearGradient>
+            <linearGradient id="gPcb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A3412"></stop><stop offset="1" stop-color="#0B1B45"></stop></linearGradient>
+            <linearGradient id="gCpu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E5E7EB"></stop><stop offset="1" stop-color="#9CA3AF"></stop></linearGradient>
+            <linearGradient id="gScreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6A00"></stop><stop offset=".7" stop-color="#FF8A1F"></stop><stop offset="1" stop-color="#FDBA74"></stop></linearGradient>
+            <radialGradient id="gGlow"><stop offset="0" stop-color="#FF8A1F" stop-opacity=".9"></stop><stop offset="1" stop-color="#FF8A1F" stop-opacity="0"></stop></radialGradient>
+            <radialGradient id="gGlowB"><stop offset="0" stop-color="#FDBA74" stop-opacity=".8"></stop><stop offset="1" stop-color="#FDBA74" stop-opacity="0"></stop></radialGradient>
+            <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#0B1220" flood-opacity=".22"></feDropShadow></filter>
+          </defs>
+
+          <!-- ===== SCENE 0 · REPAIR (exploded laptop) ===== -->
+          <g class="scene on" id="scRepair" data-scene="0" data-svg-origin="300 330" transform="matrix(0.9699,0,0,0.9699,9.03,21.9596)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0.4989;">
+          <!-- floor shadow -->
+          <ellipse id="floorShadow" cx="300" cy="520" rx="210" ry="26" fill="#0B1220" opacity=".12" style="opacity: 0.12;"></ellipse>
+
+          <!-- EXPLODED LAPTOP (isometric). Each .part is animated on y -->
+          <g id="laptopWrap" data-svg-origin="300 330" transform="matrix(0.62,0,0,0.62,114,125.4)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g id="laptop" transform="translate(-5 84)">
+
+            <!-- Lid / screen (vertical plane on back edge) -->
+            <g class="part" id="pLid" data-svg-origin="400.56 145" transform="matrix(1,0,0,1,0,60)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;">
+              <g transform="matrix(.866 .5 0 1 262 172)">
+                <rect x="0" y="-214" width="320" height="214" rx="12" fill="#0B1220"></rect>
+                <rect x="10" y="-204" width="300" height="190" rx="6" fill="url(#gScreen)" id="screenFill"></rect>
+                <g id="screenUI" opacity="0" style="opacity: 0;">
+                  <g class="scr" data-s="0">
+                  <rect x="24" y="-190" width="120" height="10" rx="5" fill="#fff" opacity=".85"></rect>
+                  <rect x="24" y="-172" width="80" height="7" rx="3.5" fill="#fff" opacity=".45"></rect>
+                  <rect x="24" y="-150" width="130" height="80" rx="8" fill="#fff" opacity=".14"></rect>
+                  <rect x="164" y="-150" width="132" height="36" rx="8" fill="#fff" opacity=".14"></rect>
+                  <rect x="164" y="-106" width="132" height="36" rx="8" fill="#FF8A1F" opacity=".9"></rect>
+                  <path d="M30 -84 l20 -18 18 10 22 -26 22 14 28 -30" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <rect x="24" y="-60" width="272" height="34" rx="8" fill="#fff" opacity=".1"></rect>
+                  <circle cx="44" cy="-43" r="7" fill="#22C55E"></circle>
+                  <rect x="58" y="-47" width="120" height="8" rx="4" fill="#fff" opacity=".7"></rect>
+                </g>
+                  <g class="scr on" data-s="1">
+                    <rect x="10" y="-204" width="300" height="190" rx="6" fill="#FFF7ED"></rect>
+                    <text x="24" y="-182" font-family="Manrope" font-weight="800" font-size="12" fill="#0B1220">FixPapa <tspan fill="#FF6A00">Pulse</tspan></text>
+                    <circle cx="80" cy="-110" r="38" fill="none" stroke="#FED7AA" stroke-width="10"></circle>
+                    <circle class="scr-ring" cx="80" cy="-110" r="38" fill="none" stroke="#22C55E" stroke-width="10" stroke-linecap="round" stroke-dasharray="239" stroke-dashoffset="239" transform="rotate(-90 80 -110)"></circle>
+                    <text x="80" y="-106" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="17" fill="#0B1220">85%</text>
+                    <text x="80" y="-92" text-anchor="middle" font-family="Inter" font-size="8" fill="#64748B">Healthy</text>
+                    <path class="scr-beat" d="M140 -110 h28 l8 -22 l10 40 l10 -32 l7 14 h24 l6 -10 l6 10 h55" fill="none" stroke="#FF6A00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="260" stroke-dashoffset="260"></path>
+                    <g font-family="Inter" font-size="8.5" fill="#334155"><circle cx="146" cy="-58" r="4" fill="#22C55E"></circle><text x="154" y="-55">Healthy 210</text><circle cx="222" cy="-58" r="4" fill="#F59E0B"></circle><text x="230" y="-55">Attention 28</text><circle cx="146" cy="-40" r="4" fill="#EF4444"></circle><text x="154" y="-37">Critical 10</text></g>
+                  </g>
+                  <g class="scr" data-s="2">
+                    <text x="24" y="-182" font-family="Manrope" font-weight="800" font-size="12" fill="#fff">Inventory</text>
+                    <g class="scr-bars" fill="#fff"><rect x="30" y="-90" width="20" height="60" rx="4" opacity=".55"></rect><rect x="64" y="-120" width="20" height="90" rx="4" opacity=".55"></rect><rect x="98" y="-80" width="20" height="50" rx="4" opacity=".55"></rect><rect x="132" y="-150" width="20" height="120" rx="4" opacity=".95"></rect><rect x="166" y="-110" width="20" height="80" rx="4" opacity=".55"></rect><rect x="200" y="-134" width="20" height="104" rx="4" opacity=".55"></rect><rect x="234" y="-100" width="20" height="70" rx="4" opacity=".55"></rect><rect x="268" y="-126" width="20" height="96" rx="4" opacity=".55"></rect></g>
+                    <rect x="200" y="-196" width="96" height="30" rx="7" fill="#0B1220" opacity=".35"></rect><text x="210" y="-177" font-family="Manrope" font-weight="800" font-size="12" fill="#fff">342 <tspan font-size="8" font-weight="500">in stock</tspan></text>
+                  </g>
+                  <g class="scr" data-s="3">
+                    <circle cx="160" cy="-130" r="30" fill="#fff" opacity=".2"></circle>
+                    <path d="M144 -128 v-6 a16 16 0 0 1 32 0 v6" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"></path><rect x="138" y="-130" width="10" height="16" rx="4" fill="#fff"></rect><rect x="172" y="-130" width="10" height="16" rx="4" fill="#fff"></rect>
+                    <g class="scr-wave" fill="#fff"><rect x="70" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.00s"></rect><rect x="82" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.09s"></rect><rect x="94" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.18s"></rect><rect x="106" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.27s"></rect><rect x="118" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.36s"></rect><rect x="130" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.45s"></rect><rect x="142" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.54s"></rect><rect x="154" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.63s"></rect><rect x="166" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.72s"></rect><rect x="178" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.81s"></rect><rect x="190" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.90s"></rect><rect x="202" y="-70" width="6" height="24" rx="3" style="animation-delay:-0.99s"></rect><rect x="214" y="-70" width="6" height="24" rx="3" style="animation-delay:-1.08s"></rect><rect x="226" y="-70" width="6" height="24" rx="3" style="animation-delay:-1.17s"></rect><rect x="238" y="-70" width="6" height="24" rx="3" style="animation-delay:-1.26s"></rect></g>
+                    <text x="160" y="-26" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="13" fill="#fff">Live session · ₹5/min</text>
+                  </g>
+                  <g class="scr" data-s="4">
+                    <rect x="10" y="-204" width="300" height="190" rx="6" fill="#14532D"></rect>
+                    <g class="scr-recycle" transform="translate(160 -118)"><path d="M-8 -30 l-16 28 M24 -2 l-16 -28 M-22 14 h32" stroke="#4ADE80" stroke-width="7" stroke-linecap="round" fill="none"></path><path d="M-30 -10 l6 8 l10 -4 M28 -12 l-2 10 l10 4 M6 22 l6 -8 l-6 -8" stroke="#4ADE80" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></g>
+                    <text x="160" y="-40" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="13" fill="#BBF7D0">Sell &amp; Benefit</text>
+                  </g>
+                </g>
+                <circle cx="160" cy="-209" r="2" fill="#334155"></circle>
+              </g>
+            </g>
+
+            <!-- Bottom case -->
+            <g class="part" id="pCase" data-ex="170" data-svg-origin="300 300" transform="matrix(1,0,0,1,20,170)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="71.4800033569336 192" transform="matrix(1,0,0,1,0,-6.7054)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 200)">
+                <rect x="0" y="0" width="320" height="220" rx="16" fill="#64748B"></rect>
+              </g>
+              <g transform="matrix(.866 .5 -.866 .5 262 192)">
+                <rect x="0" y="0" width="320" height="220" rx="16" fill="url(#gCase)"></rect>
+                <rect x="14" y="14" width="292" height="192" rx="10" fill="none" stroke="#94A3B8" stroke-dasharray="4 5"></rect>
+              </g>
+            </g></g>
+
+            <!-- Battery -->
+            <g class="part" id="pBatt" data-ex="95" data-svg-origin="300 300" transform="matrix(0.99756,-0.06976,0.06976,0.99756,-70.196,116.66)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="123.44000244140625 273" transform="matrix(1,0,0,1,0,-5.7422)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 188)">
+                <rect x="40" y="130" width="240" height="70" rx="8" fill="#1F2937"></rect>
+                <rect x="50" y="140" width="70" height="50" rx="4" fill="#374151"></rect>
+                <rect x="126" y="140" width="70" height="50" rx="4" fill="#374151"></rect>
+                <rect x="202" y="140" width="68" height="50" rx="4" fill="#374151"></rect>
+                <rect x="60" y="160" width="30" height="10" rx="2" fill="#22C55E" id="battLvl"></rect>
+              </g>
+            </g></g>
+
+            <!-- Motherboard -->
+            <g class="part" id="pMobo" data-ex="0" data-svg-origin="300 300" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="170.20399475097656 202" transform="matrix(1,0,0,1,0,-0.4334)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 184)" filter="url(#soft)">
+                <rect x="20" y="16" width="280" height="110" rx="8" fill="url(#gPcb)"></rect>
+                <g stroke="#FFA24D" stroke-width="1.2" fill="none" opacity=".7">
+                  <path d="M40 30h60l10 10h40"></path><path d="M40 110h50l14-14h60"></path><path d="M200 30v30h40"></path><path d="M270 110v-30h-30"></path><path d="M60 50v40"></path>
+                </g>
+                <g stroke="#FF8A1F" stroke-width="1.6" fill="none" class="mobo-pulse">
+                  <path d="M40 110h50l14-14h60" stroke-dasharray="10 160"><animate attributeName="stroke-dashoffset" from="170" to="0" dur="2.4s" repeatCount="indefinite"></animate></path>
+                  <path d="M40 30h60l10 10h40" stroke-dasharray="10 160"><animate attributeName="stroke-dashoffset" from="170" to="0" dur="3s" repeatCount="indefinite"></animate></path>
+                </g>
+                <g fill="#FBBF24"><rect x="30" y="118" width="4" height="8"></rect><rect x="38" y="118" width="4" height="8"></rect><rect x="46" y="118" width="4" height="8"></rect><rect x="54" y="118" width="4" height="8"></rect></g>
+                <rect x="238" y="96" width="24" height="16" rx="2" fill="#0F172A"></rect>
+                <rect x="112" y="96" width="20" height="14" rx="2" fill="#0F172A"></rect>
+                <!-- cpu socket outline -->
+                <rect x="126" y="40" width="54" height="54" rx="4" fill="none" stroke="#FDBA74" stroke-dasharray="3 3"></rect>
+              </g>
+            </g></g>
+
+            <!-- SSD -->
+            <g class="part" id="pSsd" data-ex="-90" data-svg-origin="300 300" transform="matrix(0.99027,0.13917,-0.13917,0.99027,194.67,-128.832)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="357.260009765625 316" transform="matrix(1,0,0,1,0,5.2034)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 180)">
+                <rect x="200" y="72" width="80" height="18" rx="3" fill="#0F172A"></rect>
+                <rect x="206" y="75" width="22" height="12" rx="1.5" fill="#334155"></rect>
+                <rect x="232" y="75" width="22" height="12" rx="1.5" fill="#334155"></rect>
+                <rect x="262" y="77" width="12" height="8" rx="1" fill="#FF8A1F"></rect>
+              </g>
+            </g></g>
+
+            <!-- RAM -->
+            <g class="part" id="pRam" data-ex="-150" data-svg-origin="300 300" transform="matrix(0.98481,-0.17365,0.17365,0.98481,122.462,-93.348)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="383.239990234375 289" transform="matrix(1,0,0,1,0,6.9023)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 178)">
+                <rect x="200" y="22" width="84" height="16" rx="2" fill="#16A34A"></rect>
+                <rect x="200" y="44" width="84" height="16" rx="2" fill="#16A34A"></rect>
+                <g fill="#0B1220"><rect x="206" y="25" width="12" height="10"></rect><rect x="222" y="25" width="12" height="10"></rect><rect x="238" y="25" width="12" height="10"></rect><rect x="254" y="25" width="12" height="10"></rect><rect x="206" y="47" width="12" height="10"></rect><rect x="222" y="47" width="12" height="10"></rect><rect x="238" y="47" width="12" height="10"></rect><rect x="254" y="47" width="12" height="10"></rect></g>
+              </g>
+            </g></g>
+
+            <!-- Fan / heatsink -->
+            <g class="part" id="pFan" data-ex="-160" data-svg-origin="300 300" transform="matrix(0.99452,0.10453,-0.10453,0.99452,-156.997,-189.715)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="190.98800659179688 205" transform="matrix(1,0,0,1,0,3.3778)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 176)">
+                <rect x="30" y="28" width="84" height="84" rx="14" fill="#1E293B"></rect>
+                <circle cx="72" cy="70" r="34" fill="#0F172A"></circle>
+                <g class="fan-blades">
+                  <path d="M72 70 L72 40 A30 30 0 0 1 96 54 Z" fill="#475569"></path>
+                  <path d="M72 70 L98 84 A30 30 0 0 1 76 100 Z" fill="#475569"></path>
+                  <path d="M72 70 L50 92 A30 30 0 0 1 44 60 Z" fill="#475569"></path>
+                  <path d="M72 70 L46 50 A30 30 0 0 1 64 40 Z" fill="#334155"></path>
+                  <circle cx="72" cy="70" r="8" fill="#FF8A1F"></circle>
+                </g>
+                <g stroke="#94A3B8" stroke-width="2"><path d="M118 40h10M118 52h10M118 64h10M118 76h10M118 88h10M118 100h10"></path></g>
+              </g>
+            </g></g>
+
+            <!-- CPU (glowing) -->
+            <g class="part" id="pCpu" data-ex="-230" data-svg-origin="300 300" transform="matrix(0.99452,-0.10453,0.10453,0.99452,-69.715,-196.997)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="232.55599975585938 226" transform="matrix(1,0,0,1,0,-2.703)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 176)">
+                <circle cx="153" cy="67" r="60" fill="url(#gGlow)" class="cpu-glow"></circle>
+                <rect x="128" y="42" width="50" height="50" rx="5" fill="#0F172A"></rect>
+                <g fill="#FBBF24"><rect x="130" y="38" width="3" height="4"></rect><rect x="138" y="38" width="3" height="4"></rect><rect x="146" y="38" width="3" height="4"></rect><rect x="154" y="38" width="3" height="4"></rect><rect x="162" y="38" width="3" height="4"></rect><rect x="170" y="38" width="3" height="4"></rect><rect x="130" y="92" width="3" height="4"></rect><rect x="138" y="92" width="3" height="4"></rect><rect x="146" y="92" width="3" height="4"></rect><rect x="154" y="92" width="3" height="4"></rect><rect x="162" y="92" width="3" height="4"></rect><rect x="170" y="92" width="3" height="4"></rect></g>
+                <rect x="136" y="50" width="34" height="34" rx="3" fill="url(#gCpu)"></rect>
+                <text x="153" y="71" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700" fill="#FF6A00">FX</text>
+              </g>
+            </g></g>
+
+            <!-- Keyboard deck -->
+            <g class="part" id="pDeck" data-ex="-300" data-svg-origin="300 300" transform="matrix(1,0,0,1,40,-300)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><g class="bob" data-svg-origin="71.4800033569336 172" transform="matrix(1,0,0,1,0,-6.7382)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+              <g transform="matrix(.866 .5 -.866 .5 262 172)">
+                <rect x="0" y="0" width="320" height="220" rx="16" fill="url(#gDeck)" opacity=".96"></rect>
+                <rect x="24" y="18" width="272" height="108" rx="8" fill="#E2E8F0"></rect>
+                <g fill="#0F172A" id="keys"><rect x="27" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="46.214285714285715" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="65.42857142857143" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="84.64285714285714" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="103.85714285714286" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="123.07142857142858" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="142.28571428571428" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="161.5" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="180.71428571428572" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="199.92857142857144" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="219.14285714285717" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="238.35714285714286" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="257.57142857142856" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="276.78571428571433" y="21" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="27" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="46.214285714285715" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="65.42857142857143" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="84.64285714285714" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="103.85714285714286" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="123.07142857142858" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="142.28571428571428" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="161.5" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="180.71428571428572" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="199.92857142857144" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="219.14285714285717" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="238.35714285714286" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="257.57142857142856" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="276.78571428571433" y="38.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="27" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="46.214285714285715" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="65.42857142857143" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="84.64285714285714" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="103.85714285714286" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="123.07142857142858" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="142.28571428571428" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="161.5" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="180.71428571428572" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="199.92857142857144" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="219.14285714285717" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="238.35714285714286" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="257.57142857142856" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="276.78571428571433" y="56" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="27" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="46.214285714285715" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="65.42857142857143" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="84.64285714285714" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="103.85714285714286" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="123.07142857142858" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="142.28571428571428" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="161.5" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="180.71428571428572" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="199.92857142857144" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="219.14285714285717" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="238.35714285714286" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="257.57142857142856" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="276.78571428571433" y="73.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#FF8A1F" opacity="1"></rect><rect x="27" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="46.214285714285715" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="65.42857142857143" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="84.64285714285714" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="103.85714285714286" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="123.07142857142858" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="142.28571428571428" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="161.5" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="180.71428571428572" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="199.92857142857144" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="219.14285714285717" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="238.35714285714286" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="257.57142857142856" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="276.78571428571433" y="91" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="27" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="46.214285714285715" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="65.42857142857143" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="84.64285714285714" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="103.85714285714286" y="108.5" width="112.28571428571429" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="219.14285714285717" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="238.35714285714286" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="257.57142857142856" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect><rect x="276.78571428571433" y="108.5" width="16.214285714285715" height="14.5" rx="2.5" fill="#1E293B" opacity="0.88"></rect></g>
+                <rect x="110" y="140" width="100" height="62" rx="8" fill="#E2E8F0" stroke="#CBD5E1"></rect>
+              </g>
+            </g></g>
+          </g></g>
+
+          <!-- scan beam over assembled laptop -->
+          <rect id="scanBeam" x="120" y="90" width="360" height="6" rx="3" fill="#FDBA74" opacity="0" style="filter: blur(2px); opacity: 0;"></rect>
+          </g>
+          <!-- ===== SCENE 1 · PULSE (device health monitoring) ===== -->
+          <g class="scene on" id="scPulse" data-scene="1" data-svg-origin="300 330" transform="matrix(1.06,0,0,1.06,-18,-39.8)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;">
+            <ellipse cx="300" cy="440" rx="170" ry="60" fill="#FFEDD5" opacity=".6"></ellipse>
+            <g transform="translate(300 440) scale(1 .35)">
+              <path d="M0 0 L240 0 A240 240 0 0 0 170 -170 Z" fill="#FF8A1F" opacity=".16">
+                <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"></animateTransform>
+              </path>
+            </g>
+            <!-- device links + data packets flowing to Pulse -->
+            <g stroke="#FDBA74" stroke-width="2" stroke-dasharray="4 6" fill="none">
+              <path d="M100 395 L300 412"></path><path d="M500 395 L300 412"></path><path d="M165 505 L300 412"></path><path d="M435 505 L300 412"></path>
+            </g>
+            <g fill="#FF8A1F">
+              <circle r="4"><animateMotion dur="1.8s" repeatCount="indefinite" path="M100 395 L300 412"></animateMotion></circle>
+              <circle r="4"><animateMotion dur="1.8s" begin="-.45s" repeatCount="indefinite" path="M500 395 L300 412"></animateMotion></circle>
+              <circle r="4"><animateMotion dur="1.8s" begin="-.9s" repeatCount="indefinite" path="M165 505 L300 412"></animateMotion></circle>
+              <circle r="4" fill="#EF4444"><animateMotion dur="1.8s" begin="-1.35s" repeatCount="indefinite" path="M435 505 L300 412"></animateMotion></circle>
+            </g>
+            <!-- monitor -->
+            <g data-pop="" data-svg-origin="300 313" transform="matrix(0.7,0,0,0.7,90,93.9)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;">
+              <ellipse cx="300" cy="418" rx="58" ry="12" fill="#CBD5E1"></ellipse>
+              <path d="M286 360 h28 l6 56 h-40z" fill="#94A3B8"></path>
+              <rect x="170" y="196" width="260" height="172" rx="16" fill="#0B1220" filter="url(#soft)"></rect>
+              <rect x="180" y="206" width="240" height="150" rx="9" fill="#FFF7ED"></rect>
+              <text x="194" y="228" font-family="Manrope" font-weight="800" font-size="13" fill="#0B1220">FixPapa <tspan fill="#FF6A00">Pulse</tspan></text>
+              <circle cx="404" cy="224" r="4" fill="#22C55E" class="fx-blink"></circle>
+              <circle cx="236" cy="288" r="36" fill="none" stroke="#FED7AA" stroke-width="9"></circle>
+              <circle class="pl-ring" cx="236" cy="288" r="36" fill="none" stroke="#22C55E" stroke-width="9" stroke-linecap="round" stroke-dasharray="226" stroke-dashoffset="226" transform="rotate(-90 236 288)"></circle>
+              <text x="236" y="293" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="16" fill="#0B1220">85%</text>
+              <text x="236" y="342" text-anchor="middle" font-family="Inter" font-size="9" fill="#64748B">Health score</text>
+              <path class="pl-ecg" d="M288 288 h22 l7 -24 l10 46 l9 -34 l6 12 h20 l5 -8 l5 8 h30" fill="none" stroke="#FF6A00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="230" stroke-dashoffset="230"></path>
+              <g font-family="Inter" font-size="8.5" fill="#334155">
+                <circle cx="294" cy="326" r="4" fill="#22C55E"></circle><text x="302" y="329">Healthy 210</text>
+                <circle cx="358" cy="326" r="4" fill="#F59E0B"></circle><text x="366" y="329">Attention 28</text>
+                <circle cx="294" cy="343" r="4" fill="#EF4444" class="fx-blink"></circle><text x="302" y="346">Critical 4</text>
+              </g>
+            </g>
+            <!-- beating heart badge -->
+            <g data-pop="" data-svg-origin="299.9999771118164 149.99998474121094" transform="matrix(0.7,0,0,0.7,89.99999,45)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;">
+              <path d="M300 176 v20" stroke="#FDBA74" stroke-width="2" stroke-dasharray="3 4"></path>
+              <circle class="pl-ping" cx="300" cy="150" r="26" fill="none" stroke="#FF8A1F" stroke-width="2"></circle>
+              <circle class="pl-ping d2" cx="300" cy="150" r="26" fill="none" stroke="#FF8A1F" stroke-width="2"></circle>
+              <circle cx="300" cy="150" r="26" fill="#fff" stroke="#FED7AA" filter="url(#soft)"></circle>
+              <path class="pl-heart" d="M300 162 c-14 -9 -20 -16 -20 -24 a10 10 0 0 1 20 -4 a10 10 0 0 1 20 4 c0 8 -6 15 -20 24z" fill="#FF8A1F"></path>
+            </g>
+            <!-- monitored devices -->
+            <g data-pop="" transform="matrix(0.7,0,0,0.7,100,395.3)" data-svg-origin="0 1" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><g class="pl-node">
+              <rect x="-36" y="-30" width="72" height="62" rx="14" fill="#fff" stroke="#FED7AA"></rect>
+              <use href="#i-laptop" x="-13" y="-22" width="26" height="26" style="color:#FF6A00"></use>
+              <text y="20" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9.5" fill="#334155">Laptop</text>
+              <circle cx="28" cy="-22" r="5" fill="#22C55E"></circle></g></g>
+            <g data-pop="" transform="matrix(0.7,0,0,0.7,500,394.22144)" data-svg-origin="0 -2.59521484375" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><g class="pl-node d1">
+              <rect x="-36" y="-30" width="72" height="62" rx="14" fill="#fff" stroke="#FED7AA"></rect>
+              <use href="#i-printer" x="-13" y="-22" width="26" height="26" style="color:#FF6A00"></use>
+              <text y="20" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9.5" fill="#334155">Printer</text>
+              <circle cx="28" cy="-22" r="5" fill="#F59E0B"></circle></g></g>
+            <g data-pop="" transform="matrix(0.7,0,0,0.7,165,502.9161)" data-svg-origin="0 -6.946319580078125" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><g class="pl-node d2">
+              <rect x="-36" y="-30" width="72" height="62" rx="14" fill="#fff" stroke="#FED7AA"></rect>
+              <use href="#i-desktop" x="-13" y="-22" width="26" height="26" style="color:#FF6A00"></use>
+              <text y="20" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9.5" fill="#334155">Desktop</text>
+              <circle cx="28" cy="-22" r="5" fill="#22C55E"></circle></g></g>
+            <g data-pop="" transform="matrix(0.7,0,0,0.7,435,503.74201)" data-svg-origin="0 -4.19329833984375" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><g class="pl-node d3">
+              <rect x="-36" y="-30" width="72" height="62" rx="14" fill="#fff" stroke="#FECACA"></rect>
+              <use href="#i-server" x="-13" y="-22" width="26" height="26" style="color:#FF6A00"></use>
+              <text y="20" text-anchor="middle" font-family="Inter" font-weight="600" font-size="9.5" fill="#334155">Server</text>
+              <circle cx="28" cy="-22" r="5" fill="#EF4444" class="fx-blink"></circle></g></g>
+          </g>
+
+          <!-- ===== SCENE 2 · AMC (office under a FixPapa AMC plan: server, desk PCs, CCTV, printer, stock) ===== -->
+          <g class="scene" id="scAmc" data-scene="2" data-svg-origin="40 150" style="transform-origin: 0px 0px;">
+            <defs>
+              <linearGradient id="gCone" x1="0" x2="1"><stop offset="0" stop-color="#FF8A1F" stop-opacity=".4"></stop><stop offset="1" stop-color="#FF8A1F" stop-opacity="0"></stop></linearGradient>
+              <clipPath id="cpPaper"><rect x="-40" y="-4" width="80" height="70"></rect></clipPath>
+              <symbol id="isoBox" viewBox="0 -17 60 68" overflow="visible">
+                <path d="M0 0 L30 17 L30 51 L0 34Z" fill="#FF8A1F"></path>
+                <path d="M30 17 L60 0 L60 34 L30 51Z" fill="#FF6A00"></path>
+                <path d="M0 0 L30 -17 L60 0 L30 17Z" fill="#FDBA74"></path>
+                <path d="M15 -8.5 L45 8.5" stroke="#FFF7ED" stroke-width="4"></path>
+                <path d="M6 18 l14 8 v8 l-14 -8z" fill="#fff" opacity=".85"></path>
+              </symbol>
+            </defs>
+            <!-- isometric office floor -->
+            <g data-pop="" data-svg-origin="74.84000396728516 280" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <g transform="matrix(.866 .5 -.866 .5 300 292)"><rect width="260" height="260" rx="22" fill="#CBD5E1"></rect></g>
+              <g transform="matrix(.866 .5 -.866 .5 300 280)">
+                <rect width="260" height="260" rx="22" fill="#FFF7ED" stroke="#FED7AA" stroke-width="2"></rect>
+                <path d="M65 0v260M130 0v260M195 0v260M0 65h260M0 130h260M0 195h260" stroke="#FED7AA"></path>
+              </g>
+            </g>
+            <!-- server rack (isometric block) with blinking status LEDs -->
+            <g data-pop="" data-svg-origin="183 185" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <path d="M183 207.5 L222 230 L222 380 L183 357.5Z" fill="#1E293B"></path>
+              <path d="M222 230 L261 207.5 L261 357.5 L222 380Z" fill="#0F172A"></path>
+              <path d="M183 207.5 L222 185 L261 207.5 L222 230Z" fill="#334155"></path>
+              <g transform="matrix(.866 .5 0 1 183 207.5)">
+                <g fill="#0B1220"><rect x="5" y="12" width="35" height="16" rx="2"></rect><rect x="5" y="34" width="35" height="16" rx="2"></rect><rect x="5" y="56" width="35" height="16" rx="2"></rect><rect x="5" y="78" width="35" height="16" rx="2"></rect><rect x="5" y="100" width="35" height="16" rx="2"></rect></g>
+                <g fill="#22C55E"><circle cx="11" cy="20" r="2.2" class="fx-blink"></circle><circle cx="11" cy="42" r="2.2"></circle><circle cx="11" cy="64" r="2.2" class="fx-blink"></circle><circle cx="11" cy="86" r="2.2"></circle><circle cx="11" cy="108" r="2.2" class="fx-blink"></circle></g>
+                <g fill="#FF8A1F"><circle cx="18" cy="20" r="2.2"></circle><circle cx="18" cy="64" r="2.2"></circle></g>
+                <g stroke="#334155" stroke-width="2"><path d="M24 20h12M24 42h12M24 64h12M24 86h12M24 108h12"></path></g>
+              </g>
+              <g transform="matrix(.866 -.5 0 1 222 230)" stroke="#1E293B" stroke-width="2"><path d="M6 16h33M6 24h33M6 32h33M6 120h33M6 128h33"></path></g>
+            </g>
+            <!-- CCTV mounted on the rack, panning over the office -->
+            <g data-pop="" data-svg-origin="196 156" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <g transform="translate(232 196) scale(.78)">
+                <g>
+                  <animateTransform attributeName="transform" type="rotate" values="18;44;18" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"></animateTransform>
+                  <path d="M62 0 L230 -40 L230 56 Z" fill="url(#gCone)"></path>
+                  <rect x="0" y="-4" width="12" height="8" fill="#475569"></rect>
+                  <rect x="4" y="-18" width="62" height="7" rx="3.5" fill="#E2E8F0"></rect>
+                  <rect x="8" y="-13" width="54" height="26" rx="7" fill="#F8FAFC" stroke="#CBD5E1"></rect>
+                  <circle cx="62" cy="0" r="10" fill="#0B1220"></circle><circle cx="62" cy="0" r="4.5" fill="#3B82F6"></circle>
+                  <circle cx="20" cy="-3" r="2.6" fill="#EF4444" class="fx-blink"></circle>
+                </g>
+                <circle r="7" fill="#475569"></circle>
+              </g>
+              <g transform="translate(196 156)"><rect width="50" height="18" rx="9" fill="#0B1220"></rect><circle cx="12" cy="9" r="3.5" fill="#EF4444" class="fx-blink"></circle><text x="20" y="12.5" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="700" fill="#fff">REC</text></g>
+            </g>
+            <!-- office desk (isometric) with AMC dashboard on the monitor + laptop -->
+            <g data-pop="" data-svg-origin="274 226" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <path d="M274 299 L378 359 L378 415 L274 355Z" fill="#E2E8F0"></path>
+              <path d="M378 359 L430 329 L430 385 L378 415Z" fill="#CBD5E1"></path>
+              <path d="M274 299 L378 359 L430 329 L326 269Z" fill="#fff" stroke="#FED7AA"></path>
+              <path d="M274 313 L378 373" stroke="#FF8A1F" stroke-width="4"></path>
+              <!-- monitor -->
+              <rect x="331" y="292" width="10" height="20" fill="#64748B"></rect><path d="M318 316 l18 -6 18 6 -18 6z" fill="#94A3B8"></path>
+              <rect x="282" y="226" width="108" height="70" rx="7" fill="#1E293B"></rect>
+              <rect x="287" y="231" width="98" height="60" rx="3" fill="#fff"></rect>
+              <rect x="287" y="231" width="98" height="12" rx="3" fill="#FF8A1F"></rect>
+              <text x="292" y="240.5" font-family="Manrope" font-weight="800" font-size="7.5" fill="#fff">AMC · Dashboard</text>
+              <g fill="#FDBA74"><rect x="294" y="268" width="9" height="16" rx="1.5"></rect><rect x="307" y="260" width="9" height="24" rx="1.5"></rect><rect x="320" y="264" width="9" height="20" rx="1.5"></rect></g>
+              <rect x="333" y="254" width="9" height="30" rx="1.5" fill="#FF8A1F"></rect>
+              <circle cx="366" cy="266" r="12" fill="none" stroke="#FFEDD5" stroke-width="5"></circle>
+              <circle cx="366" cy="266" r="12" fill="none" stroke="#22C55E" stroke-width="5" stroke-dasharray="64 76" transform="rotate(-90 366 266)"></circle>
+              <text x="366" y="269" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7" font-weight="700" fill="#0B1220">98%</text>
+              <!-- laptop -->
+              <path d="M386 330 h48 l7 6 h-62z" fill="#94A3B8"></path>
+              <rect x="390" y="296" width="40" height="34" rx="3" fill="#1E293B"></rect><rect x="393" y="299" width="34" height="27" rx="1.5" fill="#FFEDD5"></rect>
+              <path d="M401 313 l5 5 9 -10" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+            <!-- printer printing the service report -->
+            <g data-pop="" transform="matrix(1,0,0,1,452.5,482.6)" data-svg-origin="-70 -84" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <ellipse cx="0" cy="10" rx="70" ry="12" fill="#0B1220" opacity=".1"></ellipse>
+              <path d="M-30 -84 h56 l6 36 h-68z" fill="#fff" stroke="#E2E8F0"></path>
+              <rect x="-60" y="-52" width="120" height="58" rx="12" fill="#E2E8F0"></rect>
+              <rect x="-60" y="-52" width="120" height="18" rx="9" fill="#F8FAFC"></rect>
+              <rect x="24" y="-40" width="14" height="4" rx="2" fill="#94A3B8"></rect>
+              <circle cx="46" cy="-38" r="4" fill="#22C55E" class="fx-blink"></circle>
+              <rect x="-42" y="-10" width="84" height="7" rx="3.5" fill="#334155"></rect>
+              <g clip-path="url(#cpPaper)"><g class="am-paper">
+                <rect x="-32" y="-6" width="64" height="46" rx="2" fill="#fff" stroke="#E2E8F0"></rect>
+                <rect x="-24" y="4" width="34" height="4" rx="2" fill="#FF8A1F"></rect>
+                <rect x="-24" y="13" width="48" height="3" rx="1.5" fill="#CBD5E1"></rect>
+                <rect x="-24" y="20" width="40" height="3" rx="1.5" fill="#CBD5E1"></rect>
+                <rect x="-24" y="27" width="44" height="3" rx="1.5" fill="#CBD5E1"></rect>
+              </g></g>
+            </g>
+            <!-- inventory boxes dropping in -->
+            <g data-pop="" data-svg-origin="296.1764831542969 425" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <use href="#isoBox" class="am-box" x="296" y="452" width="48" height="54"></use>
+              <use href="#isoBox" class="am-box b3" x="296" y="425" width="48" height="54"></use>
+              <use href="#isoBox" class="am-box b2" x="320" y="466" width="48" height="54"></use>
+              <g transform="translate(360 500)"><rect width="52" height="20" rx="10" fill="#0B1220"></rect><text x="26" y="13.5" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#4ADE80">+3 IN</text></g>
+            </g>
+            <!-- FixPapa AMC engineer in uniform, holding the visit tablet -->
+            <g data-pop="" data-svg-origin="173.125 283.30499267578125" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <use href="#fpTech" x="166" y="272" width="76" height="190"></use>
+              <g transform="translate(204 384)"><rect x="-26" y="-16" width="52" height="34" rx="5" fill="#0B1220"></rect><rect x="-22" y="-12" width="44" height="26" rx="2" fill="#FFF7ED"></rect>
+                <rect x="-18" y="-8" width="20" height="3" rx="1.5" fill="#FF8A1F"></rect><rect x="-18" y="-1" width="34" height="2.5" rx="1.25" fill="#CBD5E1"></rect><rect x="-18" y="5" width="28" height="2.5" rx="1.25" fill="#CBD5E1"></rect></g>
+            </g>
+            <!-- AMC plan badge -->
+            <g data-pop="" transform="matrix(1,0,0,1,40,226)" data-svg-origin="0 0" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;"><g class="am-card">
+              <rect width="130" height="70" rx="14" fill="#fff" stroke="#FED7AA" filter="url(#soft)"></rect>
+              <text x="14" y="22" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700" fill="#E85D04" letter-spacing=".08em">AMC PLAN</text>
+              <circle cx="20" cy="40" r="6" fill="#22C55E"></circle><path d="M17 40l2.2 2.2 4-4.4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path>
+              <text x="32" y="44" font-family="Manrope" font-weight="800" font-size="13" fill="#0B1220">Active</text>
+              <text x="14" y="60" font-family="Inter" font-size="9" fill="#64748B">12 devices covered</text>
+            </g></g>
+            <!-- monthly visit checklist -->
+            <g data-pop="" transform="matrix(1,0,0,1,410,150)" data-svg-origin="0 0" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;"><g class="am-card">
+              <rect width="150" height="104" rx="14" fill="#fff" stroke="#FED7AA" filter="url(#soft)"></rect>
+              <use href="#i-calendar" x="12" y="11" width="16" height="16" style="color:#FF6A00"></use>
+              <text x="34" y="24" font-family="Manrope" font-weight="800" font-size="11" fill="#0B1220">Monthly AMC visit</text>
+              <g font-family="Inter" font-size="9.5" fill="#334155">
+                <circle class="am-chk c1" cx="22" cy="47" r="7"></circle><path class="am-tick c1" d="M18.5 47 l2.5 2.5 l4.5 -5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"></path><text x="36" y="50">Laptops &amp; PCs · 8</text>
+                <circle class="am-chk c2" cx="22" cy="68" r="7"></circle><path class="am-tick c2" d="M18.5 68 l2.5 2.5 l4.5 -5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"></path><text x="36" y="71">CCTV &amp; printer</text>
+                <circle class="am-chk c3" cx="22" cy="89" r="7"></circle><path class="am-tick c3" d="M18.5 89 l2.5 2.5 l4.5 -5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"></path><text x="36" y="92">Server · stock 342</text>
+              </g>
+            </g></g>
+          </g>
+
+          <!-- ===== SCENE 3 · SUPPORT (remote help session) ===== -->
+          <g class="scene" id="scSupport" data-scene="3" data-svg-origin="60 170" style="transform-origin: 0px 0px;">
+            <ellipse cx="300" cy="450" rx="240" ry="70" fill="#FFEDD5" opacity=".6"></ellipse>
+            <!-- connection phone ⇄ laptop -->
+            <path d="M200 300 Q226 262 252 300" fill="none" stroke="#FDBA74" stroke-width="2" stroke-dasharray="4 5"></path>
+            <circle r="4" fill="#FF8A1F"><animateMotion dur="1.4s" repeatCount="indefinite" path="M200 300 Q226 262 252 300"></animateMotion></circle>
+            <circle r="4" fill="#22C55E"><animateMotion dur="1.4s" begin="-.7s" repeatCount="indefinite" path="M252 300 Q226 262 200 300"></animateMotion></circle>
+            <!-- phone on a live call -->
+            <g data-pop="" data-svg-origin="82 238" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <circle class="sp-ring" cx="152" cy="320" r="70" fill="none" stroke="#FF8A1F" stroke-width="2"></circle>
+              <circle class="sp-ring d2" cx="152" cy="320" r="70" fill="none" stroke="#FF8A1F" stroke-width="2"></circle>
+              <rect x="110" y="238" width="84" height="164" rx="16" fill="#0B1220" filter="url(#soft)"></rect>
+              <rect x="116" y="248" width="72" height="144" rx="10" fill="#FFF7ED"></rect>
+              <rect x="140" y="242" width="24" height="3" rx="1.5" fill="#334155"></rect>
+              <circle cx="152" cy="282" r="17" fill="#FED7AA"></circle>
+              <use href="#i-headset" x="141" y="271" width="22" height="22" style="color:#FF6A00"></use>
+              <text x="152" y="315" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="8.5" fill="#0B1220">FixPapa Tech</text>
+              <text x="152" y="328" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#FF6A00">₹5/min · live</text>
+              <g class="sp-wave" fill="#FF8A1F">
+                <rect x="128" y="338" width="4" height="16" rx="2"></rect><rect x="135" y="338" width="4" height="16" rx="2"></rect><rect x="142" y="338" width="4" height="16" rx="2"></rect><rect x="149" y="338" width="4" height="16" rx="2"></rect><rect x="156" y="338" width="4" height="16" rx="2"></rect><rect x="163" y="338" width="4" height="16" rx="2"></rect><rect x="170" y="338" width="4" height="16" rx="2"></rect>
+              </g>
+              <circle cx="152" cy="374" r="9" fill="#EF4444"></circle><path d="M147 375 q5 -4 10 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path>
+            </g>
+            <!-- customer laptop being fixed remotely -->
+            <g data-pop="" data-svg-origin="232 228" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <path d="M232 386 h292 l-20 26 h-252z" fill="#CBD5E1"></path>
+              <path d="M232 386 h292 v4 h-292z" fill="#94A3B8"></path>
+              <rect x="250" y="228" width="256" height="160" rx="12" fill="#0B1220" filter="url(#soft)"></rect>
+              <rect x="260" y="238" width="236" height="140" rx="6" fill="#fff"></rect>
+              <circle cx="272" cy="249" r="3" fill="#EF4444"></circle><circle cx="282" cy="249" r="3" fill="#F59E0B"></circle><circle cx="292" cy="249" r="3" fill="#22C55E"></circle>
+              <text x="306" y="252" font-family="Manrope" font-weight="800" font-size="9.5" fill="#0B1220">Printer setup</text>
+              <g font-family="Inter" font-size="9" fill="#334155">
+                <text x="274" y="282">Install driver</text><text x="274" y="304">Connect to Wi-Fi</text><text x="274" y="326">Set as default</text>
+              </g>
+              <rect class="sp-trk t1" x="446" y="273" width="28" height="14" rx="7"></rect><circle class="sp-knob t1" cx="453" cy="280" r="5" fill="#fff"></circle>
+              <rect class="sp-trk t2" x="446" y="295" width="28" height="14" rx="7"></rect><circle class="sp-knob t2" cx="453" cy="302" r="5" fill="#fff"></circle>
+              <rect class="sp-trk t3" x="446" y="317" width="28" height="14" rx="7"></rect><circle class="sp-knob t3" cx="453" cy="324" r="5" fill="#fff"></circle>
+              <rect x="274" y="342" width="200" height="6" rx="3" fill="#F1F5F9"></rect>
+              <rect class="sp-bar" x="274" y="342" width="200" height="6" rx="3" fill="#FF8A1F"></rect>
+              <text class="sp-st1" x="274" y="364" font-family="Inter" font-size="8.5" fill="#64748B">Technician is working…</text>
+              <text class="sp-st2" x="274" y="364" font-family="Inter" font-weight="600" font-size="8.5" fill="#16A34A">✓ Done · Printer online</text>
+              <!-- remote cursor -->
+              <g class="sp-cursor"><g class="sp-click">
+                <path d="M0 0 L0 17 L5 13 L9 21 L12 19.5 L8 12 L14 12 Z" fill="#FF6A00" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"></path>
+                <rect x="12" y="18" width="30" height="13" rx="6.5" fill="#FF6A00"></rect><text x="27" y="27" text-anchor="middle" font-family="Inter" font-weight="700" font-size="7.5" fill="#fff">Tech</text>
+              </g></g>
+            </g>
+            <!-- chat bubbles -->
+            <g class="sp-b1"><rect x="84" y="170" width="138" height="34" rx="12" fill="#fff" stroke="#E2E8F0" filter="url(#soft)"></rect><path d="M110 203 l-6 10 l14 -9z" fill="#fff"></path><text x="153" y="191" text-anchor="middle" font-family="Inter" font-weight="600" font-size="10" fill="#334155">My printer won't connect</text></g>
+            <g class="sp-b2"><rect x="372" y="172" width="136" height="34" rx="12" fill="#FF8A1F" filter="url(#soft)"></rect><path d="M480 205 l8 10 l-14 -9z" fill="#FF8A1F"></path><text x="440" y="193" text-anchor="middle" font-family="Inter" font-weight="700" font-size="10" fill="#fff">Fixed it remotely ✓</text></g>
+          </g>
+
+          <!-- ===== SCENE 4 · E-WASTE (recycle & earn) ===== -->
+          <g class="scene" id="scEwaste" data-scene="4" data-svg-origin="90 168" style="transform-origin: 0px 0px;">
+            <defs><clipPath id="cpBin"><rect x="0" y="0" width="600" height="336"></rect></clipPath></defs>
+            <ellipse cx="300" cy="470" rx="210" ry="60" fill="#DCFCE7"></ellipse>
+            <ellipse cx="300" cy="470" rx="140" ry="38" fill="#BBF7D0"></ellipse>
+            <!-- old devices falling into the bin -->
+            <g clip-path="url(#cpBin)">
+              <g class="ew-item i1"><rect x="287" y="300" width="26" height="46" rx="5" fill="#334155"></rect><rect x="291" y="306" width="18" height="30" rx="2" fill="#94A3B8"></rect><path d="M293 310 l12 20" stroke="#fff" stroke-width="1.5"></path></g>
+              <g class="ew-item i2"><rect x="280" y="312" width="40" height="22" rx="4" fill="#16A34A"></rect><rect x="320" y="318" width="5" height="10" rx="1" fill="#15803D"></rect><text x="300" y="327" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="10" fill="#fff">+ −</text></g>
+              <g class="ew-item i3"><rect x="272" y="300" width="56" height="42" rx="6" fill="#CBD5E1"></rect><rect x="278" y="305" width="44" height="30" rx="3" fill="#475569"></rect><rect x="292" y="342" width="16" height="6" fill="#94A3B8"></rect></g>
+              <g class="ew-item i4"><rect x="288" y="304" width="24" height="36" rx="12" fill="#E2E8F0" stroke="#94A3B8"></rect><path d="M300 304 v12" stroke="#94A3B8" stroke-width="2"></path></g>
+            </g>
+            <!-- recycle bin -->
+            <g data-pop="" data-svg-origin="230 316" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;"><g class="ew-bin">
+              <ellipse cx="300" cy="462" rx="70" ry="14" fill="#0B1220" opacity=".12"></ellipse>
+              <ellipse cx="300" cy="332" rx="70" ry="16" fill="#14532D"></ellipse>
+              <path d="M230 332 L370 332 L354 456 Q300 470 246 456 Z" fill="#16A34A"></path>
+              <path d="M230 332 L250 332 L262 462 Q252 460 246 456 Z" fill="#22C55E" opacity=".55"></path>
+              <ellipse cx="300" cy="332" rx="70" ry="16" fill="none" stroke="#4ADE80" stroke-width="5"></ellipse>
+              <g class="ew-sym"><use href="#i-recycle-solid" x="268" y="364" width="64" height="64" style="color:#fff"></use></g>
+            </g></g>
+            <!-- value back: coins -->
+            <g class="ew-coin c1"><circle cx="372" cy="300" r="14" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"></circle><text x="372" y="305" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="14" fill="#92400E">₹</text></g>
+            <g class="ew-coin c2"><circle cx="352" cy="300" r="12" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"></circle><text x="352" y="305" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="12" fill="#92400E">₹</text></g>
+            <g class="ew-coin c3"><circle cx="390" cy="300" r="11" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"></circle><text x="390" y="304" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="11" fill="#92400E">₹</text></g>
+            <!-- leaves floating up -->
+            <path class="ew-leaf l1" d="M220 330 q14 -18 28 0 q-14 18 -28 0z" fill="#4ADE80"></path>
+            <path class="ew-leaf l2" d="M240 330 q10 -14 22 0 q-10 14 -22 0z" fill="#22C55E"></path>
+            <path class="ew-leaf l3" d="M205 340 q12 -16 24 0 q-12 16 -24 0z" fill="#86EFAC"></path>
+            <!-- sprout growing -->
+            <g data-pop="" transform="matrix(1,0,0,1,452,470)" data-svg-origin="-34 -66" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;">
+              <ellipse rx="34" ry="9" fill="#A16207" opacity=".35"></ellipse>
+              <path class="ew-stem" d="M0 0 C0 -24 4 -40 0 -66" stroke="#16A34A" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="70" stroke-dashoffset="70"></path>
+              <path class="ew-lf a" d="M0 -36 q-26 -6 -30 -26 q24 2 30 26z" fill="#22C55E"></path>
+              <path class="ew-lf b" d="M1 -54 q24 -10 30 -30 q-26 4 -30 30z" fill="#4ADE80"></path>
+            </g>
+            <g data-pop="" transform="matrix(1,0,0,1,118,168)" data-svg-origin="0 0" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 1;"><rect width="128" height="30" rx="15" fill="#14532D"></rect><use href="#i-recycle" x="12" y="7" width="16" height="16" style="color:#4ADE80"></use><text x="34" y="19.5" font-family="Inter" font-weight="700" font-size="10.5" fill="#DCFCE7">Sell &amp; Benefit</text></g>
+          </g>
+        </svg>
+
+        <div class="holo holo--b" style="transform: scale(0.86, 0.86); translate: none; rotate: none; scale: none; opacity: 1;">
+          <div class="k" style="color:var(--primary)" id="holoK">FixPapa Pulse</div>
+          <div class="v" id="holoV">Device Health</div>
+          <div class="meter"><i id="healthMeter" style="width: 0%;"></i></div>
+          <div class="row" style="border-color:var(--border);color:var(--ink-3)">Status <b style="color:var(--green)" id="healthTxt">85% Healthy</b></div>
+        </div>
+        <div class="holo holo--a" style="transform: scale(0.86, 0.86); translate: none; rotate: none; scale: none; opacity: 1;">
+          <div id="holoA" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><div class="k">FixPapa Pulse</div><div class="v">Monitor, predict,<br>prevent.</div><div class="row">Device health <b>Real-time</b></div><div class="row">Works on <b>Win · Mac</b></div><div class="row">Downtime <b>Reduced</b></div></div>
+        </div>
+
+      </div>
+
+      <!-- one-line headline under both columns -->
+      <h1 id="heroTitle" class="hero-title"><span class="line"><span data-hero-in="" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">Trusted Electronics &amp; Gadget Repair</span> <span class="typed" id="typed">at Your Doorstep</span><span class="caret"></span></span></h1>
+      <!-- phones only: one tap to book or call, right under the headline -->
+      
+      
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" aria-label="FixPapa at a glance">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat" style=""><div class="ico"><svg width="20" height="20"><use href="#i-badge"></use></svg></div><div class="num"><span data-count="100">100</span><small>+</small></div></div>
+      <div class="stat" style=""><div class="ico"><svg width="20" height="20"><use href="#i-headset"></use></svg></div><div class="num"><span data-count="24">24</span>/7</div></div>
+      <div class="stat" style=""><div class="ico"><svg width="20" height="20"><use href="#i-shield"></use></svg></div><div class="num"><small class="pre">Up to</small><span data-count="3">3</span><small>years</small></div></div>
+      <div class="stat" style=""><div class="ico"><svg width="20" height="20"><use href="#i-clock"></use></svg></div><div class="num">₹<span data-count="5">5</span><small>/min</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIXPAPA PULSE · device health lifecycle monitoring (live dashboard on the right) ============ -->
+
+
+<!-- ============ PRODUCTS ============ -->
+
+
+<!-- ============ BOOK A REPAIR · pick a device, nothing else to read ============ -->
+
+
+<!-- ============ NEW PRODUCTS ============ -->
+
+
+<!-- ============ DEVICE HEALTH · warranty checker ============ -->
+
+
+<!-- ============ RENTAL · cinema banner (video) + rental product cards ============ -->
+
+
+<!-- ============ RENT vs BUY · savings calculator ============ -->
+
+
+<!-- ============ TECHNICAL SUPPORT ============ -->
+
+
+<!-- ============ AMC & INVENTORY · pitch on the left, amc-office video (uncropped) fading in on the right ============ -->
+
+
+<!-- ============ GST · business accounts ============ -->
+
+
+<!-- ============ E-WASTE · cute bin ============ -->
+
+
+<!-- ============ TESTIMONIALS · story bubbles ============ -->
+
+
+<!-- ============ APP · cute phone ============ -->
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+
+
+
+<button class="to-top" id="toTop" aria-label="Back to top" style="position: absolute !important;"><svg width="20" height="20"><use href="#i-up"></use></svg></button>
+<!-- phones only: always-visible quick actions -->
+
+
+
+
+
+
+
+<!-- FixPapa Assistant (see assets/js/assistant/README.md) -->
+
+
+<div class="au is-reg on" style="position: absolute !important;">
+  <div class="au-bd" data-close=""></div>
+  <div class="au-box" role="dialog" aria-modal="true" aria-labelledby="auT">
+    <aside class="au-side">
+      <b class="au-logo">Fix<span>Papa</span></b>
+      <h3>Everything IT for your home and office, in one account.</h3>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.5 17.3a1.8 1.8 0 0 0 2.6 2.6l5.8-5.8a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.6-.6-2.4z"></path></svg><span><b>Track repairs &amp; tickets</b>Live status from booking to doorstep</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"></path><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"></path></svg><span><b>Orders, rentals &amp; AMC</b>Invoices and renewals in one place</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5L4.5 13.5H12l-1 8 8.5-11H12z"></path></svg><span><b>Faster checkout</b>Saved addresses and branches</span></li>
+      </ul>
+      <p class="au-trust"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>No password needed. We verify you with a one-time code.</p>
+    </aside>
+    <div class="au-main">
+      <button type="button" class="au-x" data-close="" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+
+      <form class="au-form" id="auForm" novalidate="">
+        <div class="au-step" data-step="1">
+          <div class="au-tabs" role="tablist">
+            <button type="button" role="tab" data-mode="login" aria-selected="false">Login</button>
+            <button type="button" role="tab" data-mode="register" aria-selected="true">Create account</button>
+            <i></i>
+          </div>
+          <h2 id="auT">Create your account</h2>
+          <p class="au-sub" id="auSub">It takes less than a minute. No password needed.</p>
+
+          <div class="au-reg">
+            <div class="au-f"><span>Account type</span>
+              <div class="au-type" role="radiogroup" aria-label="Account type">
+                <button type="button" role="radio" data-v="individual" aria-checked="true">Individual</button>
+                <button type="button" role="radio" data-v="firm" aria-checked="false">Business</button>
+                <button type="button" role="radio" data-v="government" aria-checked="false">Government</button>
+              </div></div>
+            <div class="au-row">
+              <label class="au-f bad"><span>Full name</span>
+                <div class="au-in"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg><input name="name" autocomplete="name" placeholder="Your full name" maxlength="60" value=""></div>
+                <em>Please enter your name</em></label>
+              <label class="au-f bad"><span>Email <i>(optional)</i></span>
+                <div class="au-in"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 6.5l8.5 6 8.5-6"></path></svg><input name="email" type="email" autocomplete="email" placeholder="you@company.com" maxlength="80" value="rahul@"></div>
+                <em>Enter a valid email</em></label>
+            </div><label class="au-f bad"><span>Mobile number</span>
+            <div class="au-in au-mob"><b>+91</b><input name="mobile" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" maxlength="10" value=""></div>
+            <em>Enter a valid 10-digit mobile number</em></label>
+            
+            <button type="button" class="au-link au-pc-t" id="auPcT">Have a partner code?</button>
+            
+          </div>
+
+          
+
+          <button type="submit" class="btn btn-primary au-go"><span>Send OTP</span></button>
+          <p class="au-switch" id="auSwitch">Already have an account? <button type="button" data-mode="login">Log in</button></p>
+          <p class="au-legal">By continuing you agree to our <a href="terms-and-conditions.html">Terms</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        </div>
+
+        
+
+        
+      </form>
+    </div>
+  </div></div>
+<div class="gbd in" style="top: 72px; position: absolute !important;">
+    <span class="gbd-nail" aria-hidden="true"></span>
+    <div class="gbd-swing">
+      <svg class="gbd-strings" width="150" height="40" viewBox="0 0 150 40" aria-hidden="true"><path d="M75 3L22 40M75 3l53 37"></path></svg>
+      <button type="button" class="gbd-sign" aria-label="Add your GST number to get GST invoices">
+        <span class="gbd-face gbd-front">
+          <small>Business?</small>
+          <b>GST</b>
+          <span class="gbd-state"><i></i>Invoices OFF</span>
+          <em>Tap to switch on</em>
+        </span>
+        <span class="gbd-face gbd-back">
+          <small>We're</small>
+          <b>OPEN</b>
+          <em>for your GSTIN</em>
+        </span>
+      </button>
+      <button type="button" class="gbd-x" aria-label="Hide for now"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div></div>
+
+
+
+
+
+
+
+
+
+</body></html>
